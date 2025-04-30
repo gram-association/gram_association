@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function WhoAreWe() {
+export default function OurImpact() {
   return (
     <>
       <section className="py-16 bg-gray-100 text-cente mt-56">
