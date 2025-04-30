@@ -1,61 +1,67 @@
 import Link from "next/link";
-import React from "react";
+import ThemeToggle from "./theme-toggle";
 
 const Header = () => {
   return (
-    <>
-      {/* <div className="bg-emerald-900 h-[500px] flex justify-center                 "> */}
-      <header className="bg-white  px-4 rounded-3xl border w-3xl h-14  m-6       ">
-        <div className="container mx-auto flex items-center justify-between pt-2">
-          <nav className="flex items-center space-x-2">
-            <Link
-              href="/"
-              className="px-3 py-1 rounded-full bg-white text-black text-sm"
-            >
-              Home
-            </Link>
-            <Link
-              href="/about-us"
-              className="px-3 py-1 rounded-full text-black text-sm"
-            >
-              About Us
-            </Link>
-            <Link
-              href="/our-programs"
-              className="px-3 py-1 rounded-full text-black text-sm"
-            >
-              Our Programs
-            </Link>
-            <img
-              src="Logo.png"
-              alt="GRAM Association Logo"
-              width={140}
-              height={44}
-              className="mx2"
-            />
-            <Link
-              href="/water-ride"
-              className="px-3 py-1 rounded-full text-black text-sm"
-            >
-              Water Ride
-            </Link>
-            <Link
-              href="/media"
-              className="px-3 py-1 rounded-full text-black text-sm"
-            >
-              Media
-            </Link>
-            <Link
-              href="/contact-us"
-              className="px-3 py-1 rounded-full bg-green-600 text-white text-sm"
-            >
-              CONTACT US
-            </Link>
-          </nav>
+    <header className="py-2 px-4 top-14 absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 border max-w-3xl rounded-full shadow-lg bg-white dark:bg-gray-900">
+      <div className="container mx-auto flex items-center justify-between">
+        {/* Navigation Links (Left Side) */}
+        <nav className="flex space-x-6">
+          <Link
+            href="/home"
+            className="text-gray-900 dark:text-white hover:text-gray-600 dark:hover:text-gray-300 text-sm"
+          >
+            Home
+          </Link>
+          <Link
+            href="/about-us"
+            className="text-gray-900 dark:text-white hover:text-gray-600 dark:hover:text-gray-300 text-sm"
+          >
+            About Us
+          </Link>
+          <Link
+            href="/our-programs"
+            className="text-gray-900 dark:text-white hover:text-gray-600 dark:hover:text-gray-300 text-sm"
+          >
+            Our Programs
+          </Link>
+        </nav>
+
+        {/* Logo (Center) */}
+        <div className="flex items-center">
+          <img
+            src="/logo.png"
+            alt="GRAM Association Logo"
+            width={120}
+            height={40}
+            className="mx-4"
+          />
         </div>
-      </header>
-      {/* </div> */}
-    </>
+
+        {/* Navigation Links, Contact Button, and Theme Toggle (Right Side) */}
+        <nav className="flex space-x-6 items-center">
+          <Link
+            href="/water-ride"
+            className="text-gray-900 dark:text-white hover:text-gray-600 dark:hover:text-gray-300 text-sm"
+          >
+            Water Ride
+          </Link>
+          <Link
+            href="/media"
+            className="text-gray-900 dark:text-white hover:text-gray-600 dark:hover:text-gray-300 text-sm"
+          >
+            Media
+          </Link>
+          <Link
+            href="/contact-us"
+            className="px-4 py-1 bg-green-600 dark:bg-green-700 rounded-full text-white text-sm hover:bg-green-700 dark:hover:bg-green-800 transition-colors"
+          >
+            CONTACT US
+          </Link>
+          <ThemeToggle />
+        </nav>
+      </div>
+    </header>
   );
 };
 
