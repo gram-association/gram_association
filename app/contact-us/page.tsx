@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function ContactUs() {
   return (
-    <main className="flex min-h-screen  p-20 bg-[#1D352E]">
+    <main className="flex min-h-screen  p-20 bg-[linear-gradient(to_bottom,_#1D352E_440px,_white_0)]">
       <div className="flex-col items-center justify-between ">
         <div className=" mx-auto flex items-center justify-between gap-28 pt-24">
           {/* <nav className="flex items-center space-x-2">
