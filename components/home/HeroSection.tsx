@@ -4,7 +4,7 @@ import Header from "../Header";
 const HeroSection = () => {
   return (
     <section className="relative">
-      <div className="bg-emerald-900 h-[500px]               ">
+      <div className="bg-emerald-900 h-[500px]">
         <div className="absolute inset-0">
           <div className="flex justify-center">
             <Header />
@@ -14,12 +14,6 @@ const HeroSection = () => {
             alt="community"
             className="object-cover mt-48    "
           />
-          {/* <Image
-          src="/hero-image.jpg"
-          alt="Community"
-          layout="fill"
-          objectFit="cover"
-          /> */}
         </div>
         <div className="flex justify-between">
           <div className="relative z-10 p-10 text-white">
