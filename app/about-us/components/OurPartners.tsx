@@ -4,8 +4,8 @@ import React from "react";
 export default function OurPartners() {
   return (
     <>
-      <section className="py-8 bg-pink-50 text-center">
-        <p className="container mx-auto text-center bg-gray-100 w-fit rounded-lg px-1 text-sm mb-2 text-gray-700 flex items-center">
+      <section className="w-screen py-8 bg-pink-50 text-center">
+        <p className="container mx-auto text-center bg-[#DEE6EB] w-fit rounded-lg px-1 text-sm mb-2 text-gray-700 flex items-center">
           Our Partners
         </p>
         <h2 className="text-4xl tracking-wide  text-gray-800 mb-12">
@@ -15,8 +15,8 @@ export default function OurPartners() {
           {Array(4)
             .fill("Global Education Fund")
             .map((partner, index) => (
-              <div key={index} className="bg-white p-4 rounded-lg shadow-md">
-                <p className="mt-4 text-gray-600">{partner}</p>
+              <div key={index} className="bg-white  rounded text-center w-80">
+                <p className="p-8 font-medium text-gray-600">{partner}</p>
               </div>
             ))}
         </div>

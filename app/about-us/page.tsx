@@ -7,7 +7,7 @@ export default function AboutUs() {
   return (
     <main className="flex min-h-screen flex-col items-center bg-gradient-to-b from-[#e2f7f1] to-white justify-between p-24">
       <div className="mt-12">
-        <p className="container mx-auto text-center bg-gray-100 w-fit rounded-lg px-1 text-sm  text-gray-700 flex items-center">
+        <p className="container mx-auto text-center bg-[#DEE6EB] w-fit rounded-lg px-1 text-sm  text-gray-700 flex items-center">
           About Us
         </p>
         <div className="py-4 text-center">
@@ -36,16 +36,9 @@ export default function AboutUs() {
               alt="Story Image"
               className="w-full h-full rounded-lg shadow-lg"
             />
-            {/* <Image
-              src="/story-image.jpg"
-              alt="Story Image"
-              className="w-full rounded-lg shadow-lg"
-              width={600}
-              height={400}
-            /> */}
           </div>
           <div className="w-1/2 text-left">
-            <p className="container  bg-blue-200/60 border-2 w-fit rounded-full p-1 text-sm font-bold  text-gray-700 ">
+            <p className="container  bg-[#DEE6EB]  w-fit rounded-full  text-sm text-gray-700 ">
               Our Story
             </p>
             <h2 className="text-2xl font-semibold text-gray-800 mb-4 pt-2">
@@ -73,7 +66,7 @@ export default function AboutUs() {
 
       {/* Our Values */}
       <div className="py-16 bg-pink-50 text-center mt-20 min-w-full">
-        <p className="container mx-auto text-center bg-gray-100 w-fit rounded-lg px-1 text-sm mb-2 text-gray-700 flex items-center">
+        <p className="container mx-auto text-center bg-[#DEE6EB] w-fit rounded-lg px-1 text-sm mb-2 text-gray-700 flex items-center">
           Our Values
         </p>
         <h2 className="text-3xl font-bold text-gray-800 mb-12">

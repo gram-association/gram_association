@@ -9,7 +9,7 @@ const programs = [
     description:
       "Providing quality education to children in underserved communities through school construction, teacher training...",
     image: "/education.png",
-    slug: "ProgramA",
+    slug: "/components/Program-A",
   },
   {
     id: 2,
@@ -58,7 +58,7 @@ export default function Programs() {
   return (
     <main className="flex min-h-screen bg-gradient-to-b from-[#f1ddaf] to-white flex-col items-center justify-between p-24">
       <div className="text-center py-12">
-        <p className="container mx-auto text-center bg-gray-100 w-fit rounded-lg px-1 text-sm  text-gray-700 flex items-center mb-4">
+        <p className="container mx-auto text-center bg-[#DEE6EB] w-fit rounded-lg px-1 text-sm  text-gray-700 flex items-center mb-4">
           Our Programs
         </p>
         <h1 className="text-4xl font-bold text-gray-800">
@@ -108,8 +108,8 @@ export default function Programs() {
               <p className="text-gray-600 text-sm mt-2">
                 {program.description}
               </p>
-              {program.title === "our-program" && program.slug ? (
-                <Link href={`/ProgramA/${program.slug}`}>
+              {program.title === "Program A" && program.slug ? (
+                <Link href={`/our-programs/${program.slug}`}>
                   <button className="mt-4 text-blue-600 font-semibold hover:underline">
                     LEARN MORE →
                   </button>
@@ -141,7 +141,7 @@ export default function Programs() {
                 reach more communities. Every donation, no matter the size,
                 makes a difference.
               </p>
-              <button className="bg-teal-600 text-white px-6 py-2 rounded-full hover:bg-teal-700 transition">
+              <button className="bg-[#538C7B] text-white px-6 py-2 rounded-full hover:bg-teal-700 transition">
                 DONATE NOW
               </button>
             </div>
@@ -152,7 +152,7 @@ export default function Programs() {
                 skills, time, and passion to support our programs and make a
                 direct impact.
               </p>
-              <button className="bg-teal-600 text-white px-6 py-2 rounded-full hover:bg-teal-700 transition">
+              <button className="bg-[#538C7B] text-white px-6 py-2 rounded-full hover:bg-teal-700 transition">
                 BECOME A VOLUNTEER
               </button>
             </div>

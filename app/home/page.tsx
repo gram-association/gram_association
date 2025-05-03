@@ -28,7 +28,7 @@ export default function Home() {
                 initiatives that create lasting change.
               </p>
               <Link href="/our-programs">
-                <Button className="bg-cyan-800 text-white  py-1 w-fit mt-5 rounded-full hover:bg-cyan-700">
+                <Button className="bg-[#5A829A] text-white  py-1 w-fit mt-5 rounded-full hover:bg-cyan-700">
                   OUR PROGRAMS
                 </Button>
               </Link>
@@ -44,7 +44,7 @@ export default function Home() {
 
       {/* Our Impact */}
       <section className="py-16  text-cente mt-40">
-        <p className="container mx-auto bg-gray-100 w-fit rounded-lg px-2  text-gray-700 flex items-center">
+        <p className="container mx-auto bg-[#DEE6EB] w-fit rounded-lg px-2  text-gray-700 flex items-center">
           Our Impact
         </p>
         <h2 className="text-4xl mt-4 text-center  mb-6">Who We Are?</h2>
@@ -89,7 +89,7 @@ export default function Home() {
 
       {/* Our Vission and Mission */}
       <section className="py-16 bg-[#BAD1CA] min-w-screen  space-x-8">
-        <p className="container mx-auto text-center bg-gray-100 w-fit rounded-lg px-1 text-sm  text-gray-700 flex items-center">
+        <p className="container mx-auto text-center bg-[#DEE6EB] w-fit rounded-lg px-1 text-sm  text-gray-700 flex items-center">
           Our Vision & Mission
         </p>
 
@@ -117,39 +117,86 @@ export default function Home() {
           </div>
         </div>
       </section>
+
       {/* our focus areas */}
-      <section className="py-16 text-center">
-        <h2 className="text-3xl font-bold mb-6">THE 5 Es</h2>
-        <div className="flex justify-center items-center space-x-8">
+      <section className=" w-screen py-16 text-center ">
+        <div className="ml-30">
+          <p className="container  bg-[#DEE6EB] w-fit rounded-lg px-1 text-sm  text-gray-700 flex items-center mb-4">
+            Our Focus Areas
+          </p>
+          <h2 className="text-3xl  text-start mb-6">THE 5 Es</h2>
+        </div>
+        <div className="flex justify-center  items-center space-x-2">
           <div>
             <img
-              src="/5es-image.png"
+              src="/5Es.png"
               alt="5 Es Illustration"
-              className="w-2xs h-72"
+              className="w-xl h-xl ml-32"
             />
             {/* <Image src="/5es-image.jpg" alt="5 Es Illustration" width={300} height={300} /> */}
           </div>
-          <div className="space-y-4 text-left">
-            <p>
-              <span className="font-bold">Entrepreneurship:</span> Empower
-              individuals through skills.
-            </p>
-            <p>
-              <span className="font-bold">Education:</span> Provide access to
-              quality education.
-            </p>
-            <p>
-              <span className="font-bold">Empowerment:</span> Foster growth and
-              independence.
-            </p>
-            <p>
-              <span className="font-bold">Environment:</span> Promote
-              sustainability.
-            </p>
-            <p>
-              <span className="font-bold">Engagement:</span> Build community
-              connections.
-            </p>
+          <div className="space-y-4 text-left w-xl mr-10 -mt-18">
+            <div className="flex gap-4">
+              <div>
+                <img src="Group 6.png" alt="" />
+              </div>
+              <div>
+                <p className="font-bold ">Entrepreneurship:</p>
+                <p className="text-gray-400 text-sm">
+                  Fostering innovation and self-reliance through personal
+                  development workshops that inspire knowledge, skills, and
+                  growth.
+                </p>
+              </div>
+            </div>
+            <div className="flex gap-4">
+              <div>
+                <img src="Group 8.png" alt="" className="w-10 h-10" />
+              </div>
+              <div>
+                <p className="font-bold">Edification</p>
+                <p className="text-gray-400 text-sm">
+                  Enhancing learning opportunities to uplift individuals and
+                  societies, fostering wisdom and progress.
+                </p>
+              </div>
+            </div>
+            <div className="flex gap-4">
+              <div>
+                <img src="Group 7.png" alt="" className="w-10 h-10" />
+              </div>
+              <div>
+                <p className="font-bold">Empowerment:</p>
+                <p className="text-gray-400 text-sm">
+                  Enabling people to take charge of their own growth, instilling
+                  confidence, and driving positive change.
+                </p>
+              </div>
+            </div>
+            <div className="flex gap-4">
+              <div>
+                <img src="Group 9.png" alt="" className="w-10 h-10" />
+              </div>
+              <div>
+                <p className="font-bold">Education</p>
+                <p className="text-gray-400 text-sm">
+                  Empowering communities by ensuring access to quality education
+                  and digital literacy, paving the way for a brighter future.s
+                </p>
+              </div>
+            </div>
+            <div className="flex gap-4">
+              <div>
+                <img src="Group 10.png" alt="" className="w-10 h-10" />
+              </div>
+              <div>
+                <p className="font-bold">Environment:</p>
+                <p className="text-gray-400 text-sm">
+                  Promoting sustainable practices and environmental
+                  consciousness to protect our planet for future generations.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>

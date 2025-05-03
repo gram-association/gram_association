@@ -36,31 +36,42 @@ export function Gallery({ images, videos, documents }: GalleryProps) {
   return (
     <div>
       <div className="flex justify-center mb-6">
-        <Tabs defaultValue="photos" className="w-full max-w-md">
-          <TabsList className="grid w-full grid-cols-3 rounded-full bg-gray-200">
-            <TabsTrigger
-              value="photos"
-              className="rounded-full data-[state=active]:bg-green-800 data-[state=active]:text-white  "
-              onClick={() => setActiveTab("photos")}
-            >
-              Photos
-            </TabsTrigger>
-            <TabsTrigger
-              value="videos"
-              className="rounded-full data-[state=active]:bg-green-800 data-[state=active]:text-white"
-              onClick={() => setActiveTab("videos")}
-            >
-              Videos
-            </TabsTrigger>
-            <TabsTrigger
-              value="documents"
-              className="rounded-full data-[state=active]:bg-green-800 data-[state=active]:text-white"
-              onClick={() => setActiveTab("documents")}
-            >
-              Documents
-            </TabsTrigger>
-          </TabsList>
-        </Tabs>
+        <div className="flex justify-center mb-6">
+          <div className="w-full max-w-md">
+            <div className="flex w-full space-x-4">
+              <button
+                className={`rounded-full py-2 px-6 ${
+                  activeTab === "photos"
+                    ? "bg-[#1D352E] text-white"
+                    : "bg-gray-200 text-gray-700"
+                }`}
+                onClick={() => setActiveTab("photos")}
+              >
+                Photos
+              </button>
+              <button
+                className={`rounded-full py-2 px-6 ${
+                  activeTab === "videos"
+                    ? "bg-[#1D352E] text-white"
+                    : "bg-gray-200 text-gray-700"
+                }`}
+                onClick={() => setActiveTab("videos")}
+              >
+                Videos
+              </button>
+              <button
+                className={`rounded-full py-2 px-6 ${
+                  activeTab === "documents"
+                    ? "bg-[#1D352E] text-white"
+                    : "bg-gray-200 text-gray-700"
+                }`}
+                onClick={() => setActiveTab("documents")}
+              >
+                Documents
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
 
       {activeTab === "photos" && (

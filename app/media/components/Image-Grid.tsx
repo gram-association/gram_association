@@ -33,7 +33,7 @@ export function ImageGrid({ images, onImageClick }: ImageGridProps) {
               src={image.src || "/placeholder.svg"}
               alt={image.alt}
               width={800}
-              height={400}
+              height={200}
               className="w-full h-full object-cover"
             />
           </div>

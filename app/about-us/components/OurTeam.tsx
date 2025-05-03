@@ -16,7 +16,7 @@ export default function OurTeam() {
     <>
       <div className="  flex items-center justify-center p-8">
         <div className="max-w-6xl w-full">
-          <p className="container  bg-blue-50 border-2 w-fit rounded-full p-1 text-sm font-bold  text-gray-700 ">
+          <p className="container  bg-[#DEE6EB]  w-fit rounded-full  text-sm font-bold  text-gray-700 ">
             Our Team
           </p>
           <h1 className="text-4xl md:text-5xl  text-gray-800 mb-8">
@@ -55,6 +55,7 @@ export default function OurTeam() {
             <div className="grid grid-cols-4 gap-4">
               <div className=" p-6 flex items-center col-span-1">
                 <div>
+                  <img src="Frame.png" alt="" />
                   <p className="text-xl italic text-gray-600 mb-4">
                     "Listen to the people on the ground; they have all the
                     solutions if you have the patience to hear."

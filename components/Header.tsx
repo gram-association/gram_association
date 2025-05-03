@@ -54,7 +54,7 @@ const Header = () => {
           </Link>
           <Link
             href="/contact-us"
-            className="w-24 px-1 py-1 bg-[#538C7B] dark:bg-green-700 rounded-full text-white text-sm hover:bg-green-700 dark:hover:bg-green-800 transition-colors"
+            className="w-24 px-1 py-1 bg-[#538C7B] dark:bg-[#4a7a6e] rounded-full text-white text-sm hover:bg-green-700 dark:hover:bg-green-800 transition-colors"
           >
             CONTACT US
           </Link>

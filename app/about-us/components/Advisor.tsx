@@ -18,8 +18,8 @@ export default function Advisor() {
     <>
       <div className=" flex flex-col items-center py-10 px-5">
         <div className="self-start  mb-5">
-          <span className="bg-blue-100 text-blue-800 text-sm font-semibold px-3 py-1 rounded-full">
-            ADVISOR
+          <span className="bg-[#DEE6EB] text-gray-700 text-sm font-semibold  rounded-full">
+            Advisor
           </span>
         </div>
 
@@ -85,7 +85,8 @@ export default function Advisor() {
           ))}
           {/* Third and Fourth Columns: Quote */}
           <div className="col-span-2 flex items-center justify-center">
-            <div>
+            <div className="mb-20">
+              <img src="Frame.png" alt="" />
               <p className="text-xl italic text-gray-600 ">
                 "Listen to the people on the ground. <br />
                 They have all the solutions if you have the patience to hear."
