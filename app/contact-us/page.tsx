@@ -12,7 +12,7 @@ export default function ContactUs() {
           </nav> */}
           <div className="space-y-2 text-white w-md ml-10">
             <div>
-              <span className="inline-block container w-fit px-2 py-1 bg-gray-400 text-[#1a3029] rounded-full text-sm font-medium mb-4">
+              <span className="inline-block container w-fit px-2 py-1 bg-gray-200 text-[#1a3029] rounded-full text-sm font-medium mb-4">
                 Contact Us
               </span>
               <h1 className="text-4xl md:text-5xl font-bold mb-6">
@@ -60,7 +60,7 @@ export default function ContactUs() {
             </div>
           </div>
 
-          <div className="bg-white text-gray-800 rounded-lg p-6 md:p-8">
+          <div className="bg-white drop-shadow-lg text-gray-800 rounded-lg p-6 md:p-8">
             <ContactForm />
           </div>
         </div>

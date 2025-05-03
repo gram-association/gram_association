@@ -45,7 +45,7 @@ export default function AboutUs() {
             /> */}
           </div>
           <div className="w-1/2 text-left">
-            <p className="container  bg-blue-50 border-2 w-fit rounded-lg p-1 text-sm font-bold  text-gray-700 ">
+            <p className="container  bg-blue-200/60 border-2 w-fit rounded-full p-1 text-sm font-bold  text-gray-700 ">
               Our Story
             </p>
             <h2 className="text-2xl font-semibold text-gray-800 mb-4 pt-2">

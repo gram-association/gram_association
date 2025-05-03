@@ -16,7 +16,6 @@ export default function OurPartners() {
             .fill("Global Education Fund")
             .map((partner, index) => (
               <div key={index} className="bg-white p-4 rounded-lg shadow-md">
-                {/* <Image src="/partner-logo.png" alt={partner} className="h-16 mx-auto" width={64} height={64} /> */}
                 <p className="mt-4 text-gray-600">{partner}</p>
               </div>
             ))}

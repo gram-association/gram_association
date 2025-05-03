@@ -1,4 +1,5 @@
 import Link from "next/link";
+import ProgramA from "./components/Program-A";
 
 const programs = [
   {
@@ -8,7 +9,7 @@ const programs = [
     description:
       "Providing quality education to children in underserved communities through school construction, teacher training...",
     image: "/education.png",
-    slug: "program-a",
+    slug: "ProgramA",
   },
   {
     id: 2,
@@ -55,7 +56,7 @@ const programs = [
 
 export default function Programs() {
   return (
-    <main className="flex min-h-screen bg-gradient-to-b from-[#f7ce6e] to-gray-50 flex-col items-center justify-between p-24">
+    <main className="flex min-h-screen bg-gradient-to-b from-[#f1ddaf] to-white flex-col items-center justify-between p-24">
       <div className="text-center py-12">
         <p className="container mx-auto text-center bg-gray-100 w-fit rounded-lg px-1 text-sm  text-gray-700 flex items-center mb-4">
           Our Programs
@@ -95,7 +96,7 @@ export default function Programs() {
                 className="w-full h-full object-cover"
               />
               <div className="absolute bottom-4 left-4">
-                <span className="bg-white text-gray-700 text-sm font-semibold  rounded-full w-fit px-1 border-0">
+                <span className="bg-white/80 text-gray-700 text-sm font-semibold  rounded-full w-fit px-1 border-0">
                   {program.category}
                 </span>
               </div>
@@ -107,7 +108,7 @@ export default function Programs() {
               <p className="text-gray-600 text-sm mt-2">
                 {program.description}
               </p>
-              {program.title === "Program A" && program.slug ? (
+              {program.title === "our-program" && program.slug ? (
                 <Link href={`/ProgramA/${program.slug}`}>
                   <button className="mt-4 text-blue-600 font-semibold hover:underline">
                     LEARN MORE →
