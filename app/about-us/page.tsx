@@ -5,7 +5,7 @@ import OurTeam from "./components/OurTeam";
 
 export default function AboutUs() {
   return (
-    <main className="flex min-h-screen flex-col items-center bg-gradient-to-b from-[#e2f7f1] to-white justify-between p-24">
+    <main className="flex min-h-screen flex-col items-center bg-gradient-to-b from-[#e2f7f1] to-white bg-no-repeat bg-[length:100%_500px] justify-between p-24">
       <div className="mt-12">
         <p className="container mx-auto text-center bg-[#DEE6EB] w-fit rounded-lg px-1 text-sm  text-gray-700 flex items-center">
           About Us

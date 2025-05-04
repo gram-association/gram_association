@@ -5,7 +5,7 @@ import OurPrograms from "./components/OurPrograms";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24 bg-[linear-gradient(to_bottom,_#1D352E_600px,_white_600px)]">
+    <main className="flex min-h-screen flex-col items-center justify-between py-24 bg-[linear-gradient(to_bottom,_#1D352E_600px,_white_600px)]">
       <section className="relative">
         <div className=" h-[500px] min-w-screen">
           <div className="absolute  inset-0">
@@ -21,6 +21,7 @@ export default function Home() {
                 Building a Better Future Together
               </h1>
             </div>
+            <div className="hidden md:block mt-28 mx-8 h-20 w-px bg-gray-300"></div>
             <div className="relative z-10 py-10 px-2 text-white w-xl  mr-35">
               <p className="text-sm mt-16">
                 GRAM Association is dedicated to empowering communities through
@@ -63,18 +64,26 @@ export default function Home() {
             </p>
             <p>Lives Transformed</p>
           </div>
+          <div className="hidden md:block h-12 w-px bg-gray-300"></div>
+
           <div>
             <p className="text-4xl font-bold text-center text-[#5A829A]">10+</p>
             <p>Villages Impacted</p>
           </div>
+          <div className="hidden md:block h-12 w-px bg-gray-300"></div>
+
           <div>
             <p className="text-4xl font-bold text-center text-[#5A829A]">50+</p>
             <p>Women Trained</p>
           </div>
+          <div className="hidden md:block h-12 w-px bg-gray-300"></div>
+
           <div>
             <p className="text-4xl font-bold text-center text-[#5A829A]">3</p>
             <p>Water Bodies</p>
           </div>
+          <div className="hidden md:block h-12 w-px bg-gray-300"></div>
+
           <div>
             <p className="text-4xl font-bold text-center text-[#5A829A]">8</p>
             <p>SDG Goals</p>
@@ -88,7 +97,7 @@ export default function Home() {
       </section>
 
       {/* Our Vission and Mission */}
-      <section className="py-16 bg-[#BAD1CA] min-w-screen  space-x-8">
+      <section className="py-16 bg-[#BAD1CA] min-w-screen space-x-8">
         <p className="container mx-auto text-center bg-[#DEE6EB] w-fit rounded-lg px-1 text-sm  text-gray-700 flex items-center">
           Our Vision & Mission
         </p>

@@ -9,7 +9,7 @@ const programs = [
     description:
       "Providing quality education to children in underserved communities through school construction, teacher training...",
     image: "/education.png",
-    slug: "/components/Program-A",
+    slug: "program-a",
   },
   {
     id: 2,
@@ -56,7 +56,7 @@ const programs = [
 
 export default function Programs() {
   return (
-    <main className="flex min-h-screen bg-gradient-to-b from-[#f1ddaf] to-white flex-col items-center justify-between p-24">
+    <main className="flex min-h-screen bg-gradient-to-b from-[#f1ddaf] to-white bg-no-repeat bg-[length:100%_500px] flex-col items-center justify-between p-24">
       <div className="text-center py-12">
         <p className="container mx-auto text-center bg-[#DEE6EB] w-fit rounded-lg px-1 text-sm  text-gray-700 flex items-center mb-4">
           Our Programs
@@ -141,9 +141,11 @@ export default function Programs() {
                 reach more communities. Every donation, no matter the size,
                 makes a difference.
               </p>
-              <button className="bg-[#538C7B] text-white px-6 py-2 rounded-full hover:bg-teal-700 transition">
-                DONATE NOW
-              </button>
+              <Link href="/contact-us">
+                <button className="bg-[#538C7B] text-white px-6 py-2 rounded-full hover:bg-teal-700 transition">
+                  DONATE NOW
+                </button>
+              </Link>
             </div>
             <div className="bg-white p-6 rounded-lg shadow-md">
               <h2 className="text-xl font-semibold mb-4">Volunteer</h2>
@@ -152,9 +154,11 @@ export default function Programs() {
                 skills, time, and passion to support our programs and make a
                 direct impact.
               </p>
-              <button className="bg-[#538C7B] text-white px-6 py-2 rounded-full hover:bg-teal-700 transition">
-                BECOME A VOLUNTEER
-              </button>
+              <Link href="/contact-us">
+                <button className="bg-[#538C7B] text-white px-6 py-2 rounded-full hover:bg-teal-700 transition">
+                  BECOME A VOLUNTEER
+                </button>
+              </Link>
             </div>
           </div>
         </div>

@@ -15,7 +15,7 @@ export function ImageGrid({ images, onImageClick }: ImageGridProps) {
         // Determine the span class based on the image index for masonry-like layout
         let spanClass = "";
 
-        if (index === 0 || index === 2 || index === 5 || index === 8) {
+        if (index === 0 || index === 2 || index === 5 || index === 9) {
           spanClass = "md:col-span-1 md:row-span-2";
         } else if (index === 4) {
           spanClass = "md:col-span-2 md:row-span-2";
