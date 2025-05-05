@@ -1,7 +1,8 @@
-import OurValues from "../../components/aboutUs/OurValues";
+import Image from "next/image";
 import Advisor from "./components/Advisor";
 import OurPartners from "./components/OurPartners";
 import OurTeam from "./components/OurTeam";
+import { Fullscreen } from "lucide-react";
 
 export default function AboutUs() {
   return (
@@ -31,9 +32,11 @@ export default function AboutUs() {
       <section>
         <div className="flex justify-center space-x-8 mt-10">
           <div className="w-1/2">
-            <img
-              src="story-image.png"
+            <Image
+              src="/story-image.png"
               alt="Story Image"
+              width={800}
+              height={800}
               className="w-full h-full rounded-lg shadow-lg"
             />
           </div>

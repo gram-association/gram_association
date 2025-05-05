@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 export default function ProgramA() {
@@ -7,9 +8,11 @@ export default function ProgramA() {
         <section className="relative">
           <div className=" h-[500px] min-w-screen">
             <div className="absolute  inset-0">
-              <img
+              <Image
                 src="/Rectangle 25.png"
                 alt="community"
+                width={500}
+                height={500}
                 className="object-cover mt-60 w-6xl  mx-auto  "
               />
               <div className="w-6xl mt-8 mx-auto">

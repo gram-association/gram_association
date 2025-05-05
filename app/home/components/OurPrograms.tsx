@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 export default function OurPrograms() {
@@ -34,7 +35,7 @@ export default function OurPrograms() {
               </div>
 
               <div className="flex-1 bg-gray-300 h-full w-1/2">
-                <img src="/program A.png" alt="" />
+                <Image src="/program A.png" alt="" width={800} height={500} />
               </div>
             </div>
 
@@ -55,7 +56,7 @@ export default function OurPrograms() {
                 </button>
               </div>
               <div className="flex-1 bg-gray-300 h-full ">
-                <img src="story-image.png" alt="" />
+                <Image src="/story-image.png" alt="" width={800} height={500} />
               </div>
             </div>
           </div>

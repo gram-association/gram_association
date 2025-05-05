@@ -1,5 +1,6 @@
 import React from "react";
 import Header from "../Header";
+import Image from "next/image";
 
 const HeroSection = () => {
   return (
@@ -9,7 +10,7 @@ const HeroSection = () => {
           <div className="flex justify-center">
             <Header />
           </div>
-          <img
+          <Image
             src="hero-image.png"
             alt="community"
             className="object-cover mt-48    "

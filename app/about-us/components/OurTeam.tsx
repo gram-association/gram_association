@@ -1,3 +1,4 @@
+import Image from "next/image";
 import React from "react";
 import { FaLinkedin } from "react-icons/fa";
 
@@ -31,13 +32,15 @@ export default function OurTeam() {
                   className="relative bg-gray-100 rounded-lg overflow-hidden"
                 >
                   <div className="relative w-full h-48">
-                    <img
+                    <Image
                       src={member.image}
                       alt={`${member.name} photo`}
+                      width={300}
+                      height={300}
                       className="rounded-t-lg object-cover"
                     />
                   </div>
-                  <div className="p-4 flex justify-between items-center">
+                  <div className="px-2 absolute bottom-4 rounded bg-gray-100/50 w-56 ml-5 flex justify-between items-center">
                     <div>
                       <h3 className="text-lg font-semibold text-gray-800">
                         {member.name}
@@ -53,12 +56,12 @@ export default function OurTeam() {
             </div>
 
             <div className="grid grid-cols-4 gap-4">
-              <div className=" p-6 flex items-center col-span-1">
+              <div className="  flex items-center col-span-1">
                 <div>
-                  <img src="Frame.png" alt="" />
+                  <Image src="/Frame.png" alt="" width={50} height={20} />
                   <p className="text-xl italic text-gray-600 mb-4">
-                    "Listen to the people on the ground; they have all the
-                    solutions if you have the patience to hear."
+                    &ldquo;Listen to the people on the ground; they have all the
+                    solutions if you have the patience to hear.&ldquo;
                   </p>
                   <p className="text-sm font-semibold text-gray-800">
                     — Sanjay Buti Roy
@@ -73,14 +76,16 @@ export default function OurTeam() {
                     key={index}
                     className="relative bg-gray-100 rounded-lg overflow-hidden"
                   >
-                    <div className="relative w-full h-48">
-                      <img
+                    <div className="relative w-full h-2">
+                      <Image
                         src={member.image}
                         alt={`${member.name} photo`}
+                        width={300}
+                        height={200}
                         className="rounded-t-lg object-cover"
                       />
                     </div>
-                    <div className="p-4 flex justify-between items-center">
+                    <div className="px-2 absolute bottom-4 rounded bg-gray-100/50 w-56 ml-5 flex justify-between items-center">
                       <div>
                         <h3 className="text-lg font-semibold text-gray-800">
                           {member.name}

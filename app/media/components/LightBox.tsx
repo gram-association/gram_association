@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
 import type { ImageType } from "@/lib/types";
@@ -21,6 +21,17 @@ export function Lightbox({
   const [currentIndex, setCurrentIndex] = useState(
     images.findIndex((img) => img.id === selectedImage.id)
   );
+  const navigateNext = useCallback(() => {
+    const nextIndex = (currentIndex + 1) % images.length;
+    setCurrentIndex(nextIndex);
+    onSelectImage(images[nextIndex]);
+  }, [currentIndex, images, onSelectImage]);
+
+  const navigatePrev = useCallback(() => {
+    const prevIndex = (currentIndex - 1 + images.length) % images.length;
+    setCurrentIndex(prevIndex);
+    onSelectImage(images[prevIndex]);
+  }, [currentIndex, images, onSelectImage]);
 
   useEffect(() => {
     // Add keyboard event listeners
@@ -42,19 +53,7 @@ export function Lightbox({
       window.removeEventListener("keydown", handleKeyDown);
       document.body.style.overflow = "auto";
     };
-  }, [currentIndex]);
-
-  const navigateNext = () => {
-    const nextIndex = (currentIndex + 1) % images.length;
-    setCurrentIndex(nextIndex);
-    onSelectImage(images[nextIndex]);
-  };
-
-  const navigatePrev = () => {
-    const prevIndex = (currentIndex - 1 + images.length) % images.length;
-    setCurrentIndex(prevIndex);
-    onSelectImage(images[prevIndex]);
-  };
+  }, [navigateNext, navigatePrev, onClose]);
 
   const handleThumbnailClick = (index: number) => {
     setCurrentIndex(index);

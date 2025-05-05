@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { FaLinkedin } from "react-icons/fa";
 
 const teamMembers = [
@@ -34,14 +35,16 @@ export default function Advisor() {
               className="relative bg-gray-100 rounded-lg overflow-hidden"
             >
               <div className="relative w-full h-48">
-                <img
+                <Image
                   src={member.image}
                   alt={`${member.name} photo`}
+                  width={300}
+                  height={200}
                   className="rounded-t-lg object-cover"
                 />
               </div>
               {/* Member Info */}
-              <div className="p-4 flex justify-between items-center">
+              <div className="px-2 absolute bottom-4 rounded bg-gray-100/50 w-56 ml-5 flex justify-between items-center">
                 <div>
                   <h3 className="text-lg font-semibold text-gray-800">
                     {member.name}
@@ -63,14 +66,16 @@ export default function Advisor() {
               className="relative bg-gray-100 rounded-lg overflow-hidden"
             >
               <div className="relative w-full h-48">
-                <img
+                <Image
                   src={member.image}
                   alt={`${member.name} photo`}
+                  width={300}
+                  height={200}
                   className="rounded-t-lg object-cover"
                 />
               </div>
               {/* Member Info */}
-              <div className="p-4 flex justify-between items-center">
+              <div className="px-2 absolute bottom-4 rounded bg-gray-100/50 w-56 ml-5 flex justify-between items-center">
                 <div>
                   <h3 className="text-lg font-semibold text-gray-800">
                     {member.name}
@@ -86,10 +91,11 @@ export default function Advisor() {
           {/* Third and Fourth Columns: Quote */}
           <div className="col-span-2 flex items-center justify-center">
             <div className="mb-20">
-              <img src="Frame.png" alt="" />
+              <Image src="/Frame.png" alt="" width={50} height={20} />
               <p className="text-xl italic text-gray-600 ">
-                "Listen to the people on the ground. <br />
-                They have all the solutions if you have the patience to hear."
+                &ldquo;Listen to the people on the ground. <br />
+                They have all the solutions if you have the patience to
+                hear.&ldquo;
               </p>
               <p className="text-sm font-semibold text-gray-700">
                 — Sanjay Buti Roy

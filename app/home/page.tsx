@@ -1,7 +1,8 @@
 import { Button } from "@/components/ui/Button";
-import { ArrowRight, ArrowRightFromLine } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import OurPrograms from "./components/OurPrograms";
+import Image from "next/image";
 
 export default function Home() {
   return (
@@ -9,9 +10,11 @@ export default function Home() {
       <section className="relative">
         <div className=" h-[500px] min-w-screen">
           <div className="absolute  inset-0">
-            <img
-              src="hero-image.png"
+            <Image
+              src="/hero-image.png"
               alt="community"
+              width={1152}
+              height={700}
               className="object-cover mt-60 w-6xl  mx-auto  "
             />
           </div>
@@ -97,7 +100,7 @@ export default function Home() {
       </section>
 
       {/* Our Vission and Mission */}
-      <section className="py-16 bg-[#BAD1CA] min-w-screen space-x-8">
+      <section className="py-16 bg-[#BAD1CA] min-w-screen space-x-2">
         <p className="container mx-auto text-center bg-[#DEE6EB] w-fit rounded-lg px-1 text-sm  text-gray-700 flex items-center">
           Our Vision & Mission
         </p>
@@ -128,7 +131,7 @@ export default function Home() {
       </section>
 
       {/* our focus areas */}
-      <section className=" w-screen py-16 text-center ">
+      <section className=" min-w-screen py-16 text-center ">
         <div className="ml-30">
           <p className="container  bg-[#DEE6EB] w-fit rounded-lg px-1 text-sm  text-gray-700 flex items-center mb-4">
             Our Focus Areas
@@ -137,9 +140,11 @@ export default function Home() {
         </div>
         <div className="flex justify-center  items-center space-x-2">
           <div>
-            <img
+            <Image
               src="/5Es.png"
               alt="5 Es Illustration"
+              width={576}
+              height={576}
               className="w-xl h-xl ml-32"
             />
             {/* <Image src="/5es-image.jpg" alt="5 Es Illustration" width={300} height={300} /> */}
@@ -147,7 +152,7 @@ export default function Home() {
           <div className="space-y-4 text-left w-xl mr-10 -mt-18">
             <div className="flex gap-4">
               <div>
-                <img src="Group 6.png" alt="" />
+                <Image src="/Group 6.png" alt="" width={40} height={40} />
               </div>
               <div>
                 <p className="font-bold ">Entrepreneurship:</p>
@@ -160,7 +165,13 @@ export default function Home() {
             </div>
             <div className="flex gap-4">
               <div>
-                <img src="Group 8.png" alt="" className="w-10 h-10" />
+                <Image
+                  src="/Group 8.png"
+                  alt=""
+                  width={40}
+                  height={40}
+                  className="w-10 h-10"
+                />
               </div>
               <div>
                 <p className="font-bold">Edification</p>
@@ -172,7 +183,13 @@ export default function Home() {
             </div>
             <div className="flex gap-4">
               <div>
-                <img src="Group 7.png" alt="" className="w-10 h-10" />
+                <Image
+                  src="/Group 7.png"
+                  alt=""
+                  width={40}
+                  height={40}
+                  className="w-10 h-10"
+                />
               </div>
               <div>
                 <p className="font-bold">Empowerment:</p>
@@ -184,7 +201,13 @@ export default function Home() {
             </div>
             <div className="flex gap-4">
               <div>
-                <img src="Group 9.png" alt="" className="w-10 h-10" />
+                <Image
+                  src="/Group 9.png"
+                  alt=""
+                  width={40}
+                  height={40}
+                  className="w-10 h-10"
+                />
               </div>
               <div>
                 <p className="font-bold">Education</p>
@@ -196,7 +219,13 @@ export default function Home() {
             </div>
             <div className="flex gap-4">
               <div>
-                <img src="Group 10.png" alt="" className="w-10 h-10" />
+                <Image
+                  src="/Group 10.png"
+                  alt=""
+                  width={40}
+                  height={40}
+                  className="w-10 h-10"
+                />
               </div>
               <div>
                 <p className="font-bold">Environment:</p>
@@ -223,8 +252,8 @@ export default function Home() {
         </h2>
         <div className="flex justify-center space-x-8">
           <div className="bg-white p-6 w-sm rounded shadow">
-            <img
-              src="donate.png"
+            <Image
+              src="/donate.png"
               alt="donate_img"
               width={50}
               height={50}
@@ -243,8 +272,8 @@ export default function Home() {
             </div>
           </div>
           <div className="bg-white p-6 w-sm rounded shadow">
-            <img
-              src="Volunteer.png"
+            <Image
+              src="/Volunteer.png"
               alt="Volunteer_img"
               width={50}
               height={50}
@@ -263,8 +292,8 @@ export default function Home() {
             </div>
           </div>
           <div className="bg-white p-6 w-sm rounded shadow">
-            <img
-              src="partners.png"
+            <Image
+              src="/partners.png"
               alt="partners_img"
               width={50}
               height={50}

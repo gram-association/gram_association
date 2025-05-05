@@ -1,5 +1,6 @@
 import Link from "next/link";
 import ThemeToggle from "./theme-toggle";
+import Image from "next/image";
 
 const Header = () => {
   return (
@@ -29,7 +30,7 @@ const Header = () => {
 
         {/* Logo (Center) */}
         <div className="flex items-center w-36">
-          <img
+          <Image
             src="/logo.png"
             alt="GRAM Association Logo"
             width={120}

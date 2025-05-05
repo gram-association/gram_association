@@ -1,15 +1,13 @@
 import { Mail, MapPin, Phone } from "lucide-react";
 import ContactForm from "./components/Contact-form";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function ContactUs() {
   return (
     <main className="flex min-h-screen  p-20 bg-[linear-gradient(to_bottom,_#1D352E_440px,_white_0)]">
       <div className="flex-col items-center justify-between ">
         <div className=" mx-auto flex items-center justify-between gap-28 pt-24">
-          {/* <nav className="flex items-center space-x-2">
-            welcome to the contact us page
-          </nav> */}
           <div className="space-y-2 text-white w-md ml-10">
             <div>
               <span className="inline-block container w-fit px-2 py-1 bg-gray-200 text-[#1a3029] rounded-full text-sm font-medium mb-4">
@@ -49,8 +47,8 @@ export default function ContactUs() {
             <div className="space-y-4 mt-10 w-lg  bg-white">
               <h3 className="text-xl text-black font-medium">Find us here</h3>
               <div className=" h-64 bg-gray-200 rounded-lg overflow-hidden">
-                <img
-                  src="map-image.png"
+                <Image
+                  src="/map-image.png"
                   alt="Map location"
                   width={518}
                   height={250}

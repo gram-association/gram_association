@@ -1,5 +1,5 @@
+import Image from "next/image";
 import Link from "next/link";
-import ProgramA from "./components/Program-A";
 
 const programs = [
   {
@@ -90,9 +90,11 @@ export default function Programs() {
             className="bg-white rounded-lg shadow-md overflow-hidden"
           >
             <div className="relative h-48">
-              <img
+              <Image
                 src={program.image}
                 alt={program.title}
+                width={500}
+                height={500}
                 className="w-full h-full object-cover"
               />
               <div className="absolute bottom-4 left-4">

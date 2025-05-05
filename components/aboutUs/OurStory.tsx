@@ -1,3 +1,4 @@
+import Image from "next/image";
 import React from "react";
 
 export default function OurStory() {
@@ -6,18 +7,11 @@ export default function OurStory() {
       <section>
         <div className="flex justify-center space-x-8">
           <div className="w-1/2">
-            <img
+            <Image
               src="story-image.png"
               alt="Story Image"
               className="w-full rounded-lg shadow-lg"
             />
-            {/* <Image
-              src="/story-image.jpg"
-              alt="Story Image"
-              className="w-full rounded-lg shadow-lg"
-              width={600}
-              height={400}
-            /> */}
           </div>
           <div className="w-1/2 text-left">
             <h2 className="text-2xl font-semibold text-gray-800 mb-4">

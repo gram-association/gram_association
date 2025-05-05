@@ -1,4 +1,5 @@
-import { Mail, MapPin, Phone, PhoneCall } from "lucide-react";
+import { Mail, MapPin, Phone } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import { FaFacebookF, FaInstagram, FaLinkedin } from "react-icons/fa";
 
@@ -6,7 +7,12 @@ const Footer = () => {
   return (
     <footer className="bg-[#7D463C] text-white p-8 px-16 flex flex-col md:flex-row justify-between items-center text-sm">
       <div className="w-2xl ">
-        <img src="/image.png" alt="GRAM Association Logo" />
+        <Image
+          src="/image.png"
+          alt="GRAM Association Logo"
+          width={400}
+          height={300}
+        />
         <div>
           <p className="text-[12px]">
             © 2024 Groundwater & Reforestation Adaptive Management Association,

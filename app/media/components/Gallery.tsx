@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
+
 import { ImageGrid } from "./Image-Grid";
 import { Lightbox } from "./LightBox";
 import type { DocumentItem, ImageType, VideoItem } from "@/lib/types";
@@ -15,13 +15,10 @@ interface GalleryProps {
   documents: DocumentItem[];
 }
 
-export function Gallery({ images, videos, documents }: GalleryProps) {
+export function Gallery({ images }: GalleryProps) {
   const [activeTab, setActiveTab] = useState("photos");
   const [selectedImage, setSelectedImage] = useState<ImageType | null>(null);
-  const [selectedVideo, setSelectedVideo] = useState<VideoItem | null>(null);
-  const [selectedDocument, setSelectedDocument] = useState<DocumentItem | null>(
-    null
-  );
+
   const [lightboxOpen, setLightboxOpen] = useState(false);
 
   const handleImageClick = (image: ImageType) => {
