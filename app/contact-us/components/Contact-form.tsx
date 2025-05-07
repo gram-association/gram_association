@@ -39,11 +39,13 @@ export default function ContactForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-6 w-lg">
+    <form onSubmit={handleSubmit} className="space-y-6 w-full max-w-lg">
       <div className="space-y-4">
-        <label className="block text-gray-700 font-medium">Join us as</label>
+        <label className="block text-gray-700 font-medium text-sm sm:text-base">
+          Join us as
+        </label>
         <Select value={formData.joinAs} onValueChange={handleSelectChange}>
-          <SelectTrigger className="w-full border-gray-300">
+          <SelectTrigger className="w-full border-gray-300 text-sm sm:text-base">
             <SelectValue placeholder="Select an option" />
           </SelectTrigger>
           <SelectContent>
@@ -54,11 +56,11 @@ export default function ContactForm() {
         </Select>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div className="space-y-2">
           <label
             htmlFor="firstName"
-            className="block text-gray-700 font-medium"
+            className="block text-gray-700 font-medium text-sm sm:text-base"
           >
             First name
           </label>
@@ -68,11 +70,14 @@ export default function ContactForm() {
             placeholder="Enter first name"
             value={formData.firstName}
             onChange={handleChange}
-            className="w-full border-gray-300"
+            className="w-full border-gray-300 text-sm sm:text-base"
           />
         </div>
         <div className="space-y-2">
-          <label htmlFor="lastName" className="block text-gray-700 font-medium">
+          <label
+            htmlFor="lastName"
+            className="block text-gray-700 font-medium text-sm sm:text-base"
+          >
             Last name
           </label>
           <Input
@@ -81,13 +86,16 @@ export default function ContactForm() {
             placeholder="Enter last name"
             value={formData.lastName}
             onChange={handleChange}
-            className="w-full border-gray-300"
+            className="w-full border-gray-300 text-sm sm:text-base"
           />
         </div>
       </div>
 
       <div className="space-y-2">
-        <label htmlFor="email" className="block text-gray-700 font-medium">
+        <label
+          htmlFor="email"
+          className="block text-gray-700 font-medium text-sm sm:text-base"
+        >
           Email
         </label>
         <Input
@@ -97,12 +105,15 @@ export default function ContactForm() {
           placeholder="sample@mail.com"
           value={formData.email}
           onChange={handleChange}
-          className="w-full border-gray-300"
+          className="w-full border-gray-300 text-sm sm:text-base"
         />
       </div>
 
       <div className="space-y-2">
-        <label htmlFor="query" className="block text-gray-700 font-medium">
+        <label
+          htmlFor="query"
+          className="block text-gray-700 font-medium text-sm sm:text-base"
+        >
           Your Query
         </label>
         <Textarea
@@ -111,13 +122,13 @@ export default function ContactForm() {
           placeholder="Start writing from here..."
           value={formData.query}
           onChange={handleChange}
-          className="w-full min-h-[120px] border-gray-300"
+          className="w-full min-h-[120px] border-gray-300 text-sm sm:text-base"
         />
       </div>
 
       <Button
         type="submit"
-        className="w-full bg-[#538C7B] hover:bg-[#4a7a6e] text-white py-3 rounded-md transition-colors"
+        className="w-full bg-[#538C7B] hover:bg-[#4a7a6e] text-white py-3 rounded-md transition-colors text-sm sm:text-base"
       >
         SUBMIT
       </Button>

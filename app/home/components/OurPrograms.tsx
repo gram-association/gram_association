@@ -34,7 +34,7 @@ export default function OurPrograms() {
                 </Link>
               </div>
 
-              <div className="flex-1 bg-gray-300 h-full w-1/2">
+              <div className="flex-1 bg-gray-300 h-full w-full   sm:w-1/2">
                 <Image src="/program A.png" alt="" width={800} height={500} />
               </div>
             </div>

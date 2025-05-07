@@ -8,7 +8,7 @@ export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between py-24 bg-[linear-gradient(to_bottom,_#1D352E_600px,_white_600px)]">
       <section className="relative">
-        <div className=" h-[500px] min-w-screen">
+        <div className=" h-72 sm:h-[500px] w-xl sm:min-w-screen">
           <div className="absolute  inset-0">
             <Image
               src="/hero-image.png"
@@ -19,8 +19,8 @@ export default function Home() {
             />
           </div>
           <div className="flex justify-evenly ">
-            <div className="relative z-10  w-lg ml-28  py-10 px-2  text-white">
-              <h1 className="text-6xl font-bold mt-10 ">
+            <div className="relative z-10 w-sm  sm:w-lg ml-28  py-10 px-2  text-white">
+              <h1 className="text-2xl sm:text-6xl font-bold mt-10 ">
                 Building a Better Future Together
               </h1>
             </div>
@@ -100,32 +100,40 @@ export default function Home() {
       </section>
 
       {/* Our Vission and Mission */}
-      <section className="py-16 bg-[#BAD1CA] min-w-screen space-x-2">
-        <p className="container mx-auto text-center bg-[#DEE6EB] w-fit rounded-lg px-1 text-sm  text-gray-700 flex items-center">
-          Our Vision & Mission
-        </p>
+      <section className="py-8 md:py-16 bg-[#BAD1CA] min-w-screen">
+        <div className="container mx-auto px-4">
+          <p className="text-center bg-[#DEE6EB] w-fit mx-auto rounded-lg px-2 py-1 text-xs md:text-sm text-gray-700 flex items-center">
+            Our Vision & Mission
+          </p>
 
-        <h3 className="text-4xl mt-4 text-center mb-4">What Drives Us</h3>
+          <h3 className="text-2xl md:text-4xl mt-4 text-center mb-6 md:mb-8 ">
+            What Drives Us
+          </h3>
 
-        <div className="flex justify-center">
-          <div className="max-w-md rounded-lg w-4xl  bg-white p-4">
-            <h3 className="text-xl  font-bold mb-4">OUR VISSION</h3>
-            <p className="text-gray-600 text-sm">
-              The GRAM Association envisions an inclusive and sustainable
-              society. We strive for real change that promotes environmental
-              sustainability and sustainable livelihoods of marginalized
-              communities. We aim to create harmony between the built and the
-              natural environment for a sustainable future.
-            </p>
-          </div>
-          <div className="max-w-md rounded-lg w-4xl ml-5 p-4 bg-white">
-            <h3 className="text-xl font-bold mb-4">OUR MISSION</h3>
-            <p className="text-gray-600 text-sm">
-              To build nature-based solutions for climate resilience and
-              sustainable livelihoods by rejuvenating indigenous environmental
-              management practices melded with modern technological advancements
-              of the present.
-            </p>
+          <div className="flex flex-col md:flex-row justify-center gap-4 md:gap-6">
+            <div className="w-full md:w-1/2 max-w-md rounded-lg bg-white p-4 md:p-6">
+              <h3 className="text-lg md:text-xl font-bold mb-3 md:mb-4">
+                OUR VISION
+              </h3>
+              <p className="text-gray-600 text-sm md:text-base">
+                The GRAM Association envisions an inclusive and sustainable
+                society. We strive for real change that promotes environmental
+                sustainability and sustainable livelihoods of marginalized
+                communities. We aim to create harmony between the built and the
+                natural environment for a sustainable future.
+              </p>
+            </div>
+            <div className="w-full md:w-1/2 max-w-md rounded-lg bg-white p-4 md:p-6">
+              <h3 className="text-lg md:text-xl font-bold mb-3 md:mb-4">
+                OUR MISSION
+              </h3>
+              <p className="text-gray-600 text-sm md:text-base">
+                To build nature-based solutions for climate resilience and
+                sustainable livelihoods by rejuvenating indigenous environmental
+                management practices melded with modern technological
+                advancements of the present.
+              </p>
+            </div>
           </div>
         </div>
       </section>
@@ -244,14 +252,14 @@ export default function Home() {
 
       {/* Get Involved */}
       <section className="py-8 bg-[#F8F1E9] min-w-screen text-center">
-        <p className="container mx-auto bg-gray-100 w-fit rounded-lg px-2  text-gray-700 flex items-center">
+        <p className="container mx-auto bg-gray-100 w-fit rounded-lg px-4 py-2 text-gray-700 flex items-center text-sm sm:text-base">
           Get Involved
         </p>
-        <h2 className="text-5xl mt-4 text-center mb-6">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl mt-4 text-center mb-6 px-4">
           Join Us in Making a Difference
         </h2>
-        <div className="flex justify-center space-x-8">
-          <div className="bg-white p-6 w-sm rounded shadow">
+        <div className="flex flex-col sm:flex-row justify-center space-y-6 sm:space-y-0 sm:space-x-4 lg:space-x-8 px-4 max-w-7xl mx-auto">
+          <div className="bg-white p-6 rounded-lg shadow-md w-full sm:w-96">
             <Image
               src="/donate.png"
               alt="donate_img"
@@ -259,19 +267,19 @@ export default function Home() {
               height={50}
               className="w-12 h-12 mx-auto"
             />
-            <p className="font-bold my-2">DONATE</p>
-            <p className="text-sm text-gray-500">
+            <p className="font-bold my-2 text-lg">DONATE</p>
+            <p className="text-sm  text-gray-500 leading-relaxed">
               Your generous contribution helps us continue our work and expand
               our reach to more communities.
             </p>
-            <div className="mt-8 flex justify-center text-teal-500 gap-1 ">
-              <Link href="" className="  font-bold text-sm">
+            <div className="mt-6 flex justify-center text-teal-500 gap-1">
+              <Link href="" className="font-bold text-sm hover:underline">
                 DONATE NOW
               </Link>
-              <ArrowRight />
+              <ArrowRight className="w-4 h-4" />
             </div>
           </div>
-          <div className="bg-white p-6 w-sm rounded shadow">
+          <div className="bg-white p-6 rounded-lg shadow-md w-full sm:w-96">
             <Image
               src="/Volunteer.png"
               alt="Volunteer_img"
@@ -279,19 +287,19 @@ export default function Home() {
               height={50}
               className="w-12 h-12 mx-auto"
             />
-            <p className="font-bold my-2">VOLUNTEER</p>
-            <p className="text-sm text-gray-500">
+            <p className="font-bold my-2 text-lg">VOLUNTEER</p>
+            <p className="text-sm  text-gray-500 leading-relaxed">
               Contribute your time, skills, and energy to support our programs
               and make a direct impact.
             </p>
-            <div className="mt-8 flex justify-center text-teal-500 gap-1 ">
-              <Link href="" className="  font-bold text-sm">
+            <div className="mt-6 flex justify-center text-teal-500 gap-1">
+              <Link href="" className="font-bold text-sm hover:underline">
                 BECOME A VOLUNTEER
               </Link>
-              <ArrowRight />
+              <ArrowRight className="w-4 h-4" />
             </div>
           </div>
-          <div className="bg-white p-6 w-sm rounded shadow">
+          <div className="bg-white p-6 rounded-lg shadow-md w-full sm:w-96">
             <Image
               src="/partners.png"
               alt="partners_img"
@@ -299,16 +307,16 @@ export default function Home() {
               height={50}
               className="w-12 h-12 mx-auto"
             />
-            <p className="font-bold my-2">PARTNER WITH US</p>
-            <p className="text-sm text-gray-500">
+            <p className="font-bold my-2 text-lg">PARTNER WITH US</p>
+            <p className="text-sm text-gray-500 leading-relaxed">
               Join forces with us through strategic partnerships to amplify our
               impact and reach more communities.
             </p>
-            <div className="mt-8 flex justify-center text-teal-500 gap-1 ">
-              <Link href="" className="  font-bold text-sm">
+            <div className="mt-6 flex justify-center text-teal-500 gap-1">
+              <Link href="" className="font-bold text-sm hover:underline">
                 BECOME A PARTNER
               </Link>
-              <ArrowRight />
+              <ArrowRight className="w-4 h-4" />
             </div>
           </div>
         </div>

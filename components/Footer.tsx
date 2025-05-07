@@ -5,76 +5,72 @@ import { FaFacebookF, FaInstagram, FaLinkedin } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <footer className="bg-[#7D463C] text-white p-8 px-16 flex flex-col md:flex-row justify-between items-center text-sm">
-      <div className="w-2xl ">
+    <footer className="bg-[#7D463C] text-white px-4 py-8 sm:px-8 lg:px-16 flex flex-col gap-8 md:flex-row md:justify-between md:items-start text-sm">
+      <div className="w-full md:w-2/5 lg:w-1/3 flex flex-col items-center md:items-start">
         <Image
           src="/image.png"
           alt="GRAM Association Logo"
-          width={400}
-          height={300}
+          width={200}
+          height={150}
+          className="w-48 h-auto md:w-64 lg:w-80"
         />
-        <div>
-          <p className="text-[12px]">
+        <div className="mt-4 text-center w-74 md:text-left">
+          <p className="text-sm  sm:text-xs">
             © 2024 Groundwater & Reforestation Adaptive Management Association,
             All rights reserved.
           </p>
         </div>
       </div>
-      <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-20 ml-24 ">
-        <div>
-          <p className="text-xl font-medium mb-4 w-44">Quick Links</p>
-          <Link href="/home" className="block text-white hover:underline">
-            Home
-          </Link>
-
-          <Link href="/about-us" className="block text-white hover:underline">
-            About Us
-          </Link>
-
-          <Link
-            href="/our-programs"
-            className="block text-white hover:underline"
-          >
-            Our Programs
-          </Link>
-          <Link href="/water-ride" className="block text-white hover:underline">
-            Water Ride
-          </Link>
-
-          <Link href="/media" className="block text-white hover:underline">
-            Media
-          </Link>
+      <div className="flex flex-col-2 sm:flex-row sm:justify-between gap-8 sm:gap-12 md:gap-20 w-full md:w-3/5 lg:w-2/3">
+        <div className="flex-1">
+          <p className="text-lg sm:text-xl font-medium mb-4 text-left sm:text-left">
+            Quick Links
+          </p>
+          <div className="flex flex-col items-start sm:items-start gap-2">
+            <Link href="/home" className="text-white hover:underline">
+              Home
+            </Link>
+            <Link href="/about-us" className="text-white hover:underline">
+              About Us
+            </Link>
+            <Link href="/our-programs" className="text-white hover:underline">
+              Our Programs
+            </Link>
+            <Link href="/water-ride" className="text-white hover:underline">
+              Water Ride
+            </Link>
+            <Link href="/media" className="text-white hover:underline">
+              Media
+            </Link>
+          </div>
         </div>
-        <div className="ml-7">
-          <p className="font-bold mb-2">Contact Us</p>
-          <div className="space-y-3">
-            <div className="flex items-start">
+        <div className="flex-1">
+          <p className="text-lg sm:text-xl font-medium mb-4 text-left sm:text-left">
+            Contact Us
+          </p>
+          <div className="space-y-3 flex flex-col items-start sm:items-start">
+            <div className="flex items-start w-full max-w-xs">
               <MapPin className="w-5 h-5 mt-1 mr-3 flex-shrink-0" />
-              <p>
+              <p className="text-xs sm:text-sm">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor
               </p>
             </div>
-
-            {/* <p>
-            <span className="mr-1">
-            <Mail />
-            </span>{" "}
-            mail@gramassociation.org
-            </p> */}
-            <div className="flex items-start">
+            <div className="flex items-center">
               <Mail className="w-5 h-5 mr-3 flex-shrink-0" />
               <Link
                 href="mailto:mail@gramassociation.org"
-                className="hover:underline "
+                className="hover:underline text-xs sm:text-sm"
               >
                 mail@gramassociation.org
               </Link>
             </div>
-
-            <div className="flex items-start">
+            <div className="flex items-center">
               <Phone className="w-5 h-5 mr-3 flex-shrink-0" />
-              <a href="tel:+919354453917" className="hover:underline">
+              <a
+                href="tel:+919354453917"
+                className="hover:underline text-xs sm:text-sm"
+              >
                 +91 9354453917
               </a>
             </div>
