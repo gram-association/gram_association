@@ -10,13 +10,13 @@ export default function OurPartners() {
       <h2 className="text-xl sm:text-3xl md:text-4xl tracking-wide text-gray-800 mb-8 sm:mb-12">
         Meet the Partners Driving Our Mission
       </h2>
-      <div className="flex flex-wrap justify-center gap-4 sm:gap-8 max-w-6xl mx-auto px-4">
+      <div className="flex flex-wrap justify-center gap-4 sm:gap-8 max-w-7xl mx-auto px-4">
         {Array(4)
           .fill("Global Education Fund")
           .map((partner, index) => (
             <div
               key={index}
-              className="bg-white rounded text-center w-64 sm:w-64 md:w-72 lg:w-80"
+              className="bg-white rounded text-center w-64 sm:w-64 md:w-72 lg:w-70"
             >
               <p className="p-4 sm:p-8 font-medium text-gray-600 text-sm sm:text-base">
                 {partner}

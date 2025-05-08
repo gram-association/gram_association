@@ -58,7 +58,7 @@ export default function Programs() {
   return (
     <main className="flex min-h-screen bg-gradient-to-b from-[#f1ddaf] to-white bg-no-repeat bg-[length:100%_500px] flex-col items-center justify-between p-24">
       <div className="text-center py-8 sm:py-12">
-        <p className=" mx-auto bg-[#DEE6EB] rounded-lg px-2 py-1 text-xs sm:text-sm text-gray-700 flex items-center mb-4">
+        <p className="container w-fit mx-auto bg-[#DEE6EB] rounded-lg px-2 py-1 text-xs sm:text-sm text-gray-700 flex items-center mb-4">
           Our Programs
         </p>
         <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800 px-4">
@@ -167,7 +167,7 @@ export default function Programs() {
       </div> */}
       <div className="bg-[#BAD1CA] w-screen mt-20 py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="inline-block mx-auto text-center bg-gray-100 w-40 rounded-lg px-2 py-1 text-xs sm:text-sm text-gray-700 container items-center mb-6">
+          <p className=" mx-auto text-center bg-gray-100 w-fit rounded-lg px-1  text-xs sm:text-sm text-gray-700 container items-center mb-6">
             Get Involved
           </p>
           <h1 className="text-3xl sm:text-4xl lg:text-5xl tracking-wider text-center mb-8 ">
