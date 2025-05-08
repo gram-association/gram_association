@@ -160,6 +160,7 @@ export default function AboutUs() {
         <p className="container mx-auto text-center bg-[#DEE6EB] w-fit rounded-lg px-2 py-1 text-sm sm:text-xs mb-4 text-gray-700 flex items-center justify-center">
           Our Values
         </p>
+
         <h2 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-8">
           What We Believe In
         </h2>
