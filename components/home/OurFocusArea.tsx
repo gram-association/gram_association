@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function OurFocusAreas() {
   return (
     <>
@@ -5,7 +7,7 @@ export default function OurFocusAreas() {
         <h2 className="text-3xl font-bold mb-6">THE 5 Es</h2>
         <div className="flex justify-center items-center space-x-8">
           <div>
-            <img
+            <Image
               src="/5es-image.png"
               alt="5 Es Illustration"
               className="w-2xs h-72"
