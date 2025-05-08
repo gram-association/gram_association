@@ -1,62 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
-
-const programs = [
-  {
-    id: 1,
-    category: "Education",
-    title: "Program A",
-    description:
-      "Providing quality education to children in underserved communities through school construction, teacher training...",
-    image: "/education.png",
-    slug: "program-a",
-  },
-  {
-    id: 2,
-    category: "Environment",
-    title: "Program B",
-    description:
-      "Providing access to clean and safe drinking water through well construction and water purification systems...",
-    image: "/environment.jpg",
-  },
-  {
-    id: 3,
-    category: "Healthcare",
-    title: "Program C",
-    description:
-      "Establishing health centers in remote areas to provide primary healthcare services to underserved communities...",
-    image: "/healthcare.jpg",
-  },
-  {
-    id: 4,
-    category: "Education",
-    title: "Program A",
-    description:
-      "Providing quality education to children in underserved communities through school construction, teacher training...",
-    image: "/education.png",
-  },
-
-  {
-    id: 5,
-    category: "Environment",
-    title: "Program B",
-    description:
-      "Providing access to clean and safe drinking water through well construction and water purification systems...",
-    image: "/environment.jpg",
-  },
-  {
-    id: 6,
-    category: "Healthcare",
-    title: "Program C",
-    description:
-      "Establishing health centers in remote areas to provide primary healthcare services to underserved communities...",
-    image: "/healthcare.jpg",
-  },
-];
+import { programs } from "./data/programs";
 
 export default function Programs() {
   return (
-    <main className="flex min-h-screen bg-gradient-to-b from-[#f1ddaf] to-white bg-no-repeat bg-[length:100%_500px] flex-col items-center justify-between p-24">
+    <main className="flex min-h-screen bg-gradient-to-b from-[#f1ddaf] to-white bg-no-repeat bg-[length:100%_500px] flex-col items-center justify-between p-4 sm:p-8 lg:p-24">
       <div className="text-center py-8 sm:py-12">
         <p className="container w-fit mx-auto bg-[#DEE6EB] rounded-lg px-2 py-1 text-xs sm:text-sm text-gray-700 flex items-center mb-4">
           Our Programs
@@ -70,7 +18,7 @@ export default function Programs() {
         </p>
       </div>
 
-      <div className="flex justify-center space-x-4 mb-8">
+      <div className="flex justify-center space-x-2 sm:space-x-4 mb-8 flex-wrap gap-2">
         {["All Programs", "Upcoming", "Education", "Health", "Environment"].map(
           (filter) => (
             <button
@@ -83,7 +31,7 @@ export default function Programs() {
         )}
       </div>
 
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 px-4">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 px-4">
         {programs.map((program) => (
           <div
             key={program.id}
@@ -98,7 +46,7 @@ export default function Programs() {
                 className="w-full h-full object-cover"
               />
               <div className="absolute bottom-4 left-4">
-                <span className="bg-white/80 text-gray-700 text-sm font-semibold  rounded-full w-fit px-1 border-0">
+                <span className="bg-white/80 text-gray-700 text-sm font-semibold rounded-full px-3 py-1 border-0">
                   {program.category}
                 </span>
               </div>
@@ -107,70 +55,27 @@ export default function Programs() {
               <h3 className="text-lg font-semibold text-gray-800">
                 {program.title}
               </h3>
-              <p className="text-gray-600 text-sm mt-2">
+              <p className={`text-gray-600 text-sm mt-2`}>
                 {program.description}
               </p>
-              {program.title === "Program A" && program.slug ? (
-                <Link href={`/our-programs/${program.slug}`}>
-                  <button className="mt-4 text-blue-600 font-semibold hover:underline">
-                    LEARN MORE →
-                  </button>
-                </Link>
-              ) : (
+
+              <Link href={`/our-programs/${program.slug}`}>
                 <button className="mt-4 text-blue-600 font-semibold hover:underline">
                   LEARN MORE →
                 </button>
-              )}
+              </Link>
             </div>
           </div>
         ))}
       </div>
 
-      {/* Get involved */}
-      {/* <div className="bg-[#BAD1CA] w-screen mt-20 py-12">
-        <div className="max-w-4xl mx-auto px-4">
-          <p className="container mx-auto text-center bg-gray-100 w-fit rounded-lg px-1 text-sm  text-gray-700 flex items-center mb-4">
-            Get Involved
-          </p>
-          <h1 className="text-5xl tracking-wider text-center mb-8">
-            Support Our Programs
-          </h1>
-          <div className="w-6xl grid grid-cols-1 md:grid-cols-2 gap-6 -ml-40">
-            <div className="bg-white p-6 rounded-lg shadow-md">
-              <h2 className="text-xl font-semibold mb-4">Donate</h2>
-              <p className="text-gray-600 mb-6 text-sm">
-                Your generous contribution helps us expand our programs and
-                reach more communities. Every donation, no matter the size,
-                makes a difference.
-              </p>
-              <Link href="/contact-us">
-                <button className="bg-[#538C7B] text-white px-6 py-2 rounded-full hover:bg-teal-700 transition">
-                  DONATE NOW
-                </button>
-              </Link>
-            </div>
-            <div className="bg-white p-6 rounded-lg shadow-md">
-              <h2 className="text-xl font-semibold mb-4">Volunteer</h2>
-              <p className="text-gray-600 mb-6">
-                Join our team of dedicated volunteers and contribute your
-                skills, time, and passion to support our programs and make a
-                direct impact.
-              </p>
-              <Link href="/contact-us">
-                <button className="bg-[#538C7B] text-white px-6 py-2 rounded-full hover:bg-teal-700 transition">
-                  BECOME A VOLUNTEER
-                </button>
-              </Link>
-            </div>
-          </div>
-        </div>
-      </div> */}
       <div className="bg-[#BAD1CA] w-screen mt-20 py-12">
+        24
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className=" mx-auto text-center bg-gray-100 w-fit rounded-lg px-1  text-xs sm:text-sm text-gray-700 container items-center mb-6">
+          <p className="mx-auto text-center bg-gray-100 w-fit rounded-lg px-1 text-xs sm:text-sm text-gray-700 container items-center mb-6">
             Get Involved
           </p>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl tracking-wider text-center mb-8 ">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl tracking-wider text-center mb-8">
             Support Our Programs
           </h1>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-5xl mx-auto">
