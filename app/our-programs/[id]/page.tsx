@@ -2,98 +2,111 @@
 import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
+import { promises } from "dns";
+import { programData } from "../data/programs";
 
-export default function ProgramPage({ params }: { params: { id: string } }) {
+// Define TypeScript interface for program data
+interface Program {
+  id: string;
+  title: string;
+  description: string;
+  longDescription: string;
+  impact: {
+    schoolsBuilt: number;
+    studentsReached: string;
+    teachersTrained: number;
+    graduationRate: string;
+  };
+  partners: string[];
+  image: string;
+}
+
+// Define type for programData with specific keys
+interface ProgramData {
+  [key: string]: Program;
+}
+
+interface ProgramPageProps {
+  params: { id: string };
+}
+
+export default async function ProgramPage({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}) {
   // Access the dynamic parameter 'id'
-  const { id } = params;
+  const { id } = await params;
 
   // Example: If ID is invalid, show 404
   if (!id) {
     notFound();
   }
+  const program = programData[id.toLowerCase()] || programData["a"];
 
   return (
     <div>
       <main className="flex min-h-screen flex-col items-center justify-between p-24 bg-[linear-gradient(to_bottom,_#1D352E_600px,_white_600px)]">
         <section className="relative">
-          <div className=" h-[500px] min-w-screen">
-            <div className="absolute  inset-0">
+          <div className="h-[500px] min-w-screen">
+            <div className="absolute inset-0">
               <Image
-                src="/Rectangle 25.png"
-                alt="community"
+                src={program.image}
+                alt={program.title}
                 width={500}
                 height={500}
-                className="object-cover mt-60 w-6xl  mx-auto  "
+                className="object-cover mt-60 w-6xl h-full mx-auto"
               />
-              <div className="w-6xl mt-8 mx-auto">
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                  laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-                  irure dolor in reprehenderit in voluptate velit esse cillum
-                  dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                  cupidatat non proident, sunt in culpa qui officia deserunt
-                  mollit anim id est laborum. Lorem ipsum dolor sit amet,
-                  consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                  ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                  quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-                  ea commodo consequat. Duis aute irure dolor in reprehenderit
-                  in voluptate velit esse cillum dolore eu fugiat nulla
-                  pariatur. Excepteur sint occaecat cupidatat non proident, sunt
-                  in culpa qui officia deserunt mollit anim id est laborumLorem
-                  ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                  eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                  enim ad minim veniam, quis nostrud exercitation ullamco
-                  laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-                  irure dolor in reprehenderit in voluptate velit esse cillum
-                  dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                  cupidatat non proident, sunt in culpa qui officia deserunt
-                  mollit anim id est laborum
-                </p>
+              <div className="w-6xl mx-auto">
+                <p>{program.longDescription}</p>
               </div>
             </div>
-            <div className=" ">
-              <div className="relative z-10  w-lg ml-26  py-10 px-2  text-white">
+            <div>
+              <div className="relative z-10 w-lg ml-26 py-10 px-2 text-white">
                 <p className="text-sm">
-                  Our Programs / Program {id.toUpperCase()}
+                  <span>
+                    <Link href="/our-programs">Our Programs </Link>
+                  </span>{" "}
+                  / {program.title}
                 </p>
-                <h1 className="text-6xl  mt-2 ">Program {id.toUpperCase()}</h1>
+                <h1 className="text-6xl mt-2">{program.title}</h1>
               </div>
-              <div className="relative z-10  px-2 text-white w-7xl mb-10 ">
-                <p className="text-sm ml-26 ">
-                  Our education initiatives focus on providing quality education
-                  to children in underserved communities through school
-                  construction, teacher training, and learning resources. We
-                  believe that education is a fundamental right and the key to
-                  breaking the cycle of poverty.
-                </p>
+              <div className="relative z-10 px-2 text-white w-7xl mb-10">
+                <p className="text-sm ml-26">{program.description}</p>
               </div>
             </div>
           </div>
         </section>
 
-        <section className="bg-[#F8F1E9] w-4xl py-6  flex justify-center mt-96 items-center">
+        <section className="bg-[#F8F1E9] w-4xl py-6 flex justify-center mt-96 items-center">
           <div className="flex flex-col items-center gap-8">
             <h2 className="text-gray-700 text-xl font-semibold">Our Impact</h2>
             <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
               <div className="text-center">
-                <p className="text-4xl font-bold text-[#5A829A]">35</p>
+                <p className="text-4xl font-bold text-[#5A829A]">
+                  {program.impact.schoolsBuilt}
+                </p>
                 <p className="text-sm text-gray-600">Schools Built</p>
               </div>
               <div className="hidden md:block h-12 w-px bg-gray-300"></div>
               <div className="text-center">
-                <p className="text-4xl font-bold text-[#5A829A]">15 K+</p>
+                <p className="text-4xl font-bold text-[#5A829A]">
+                  {program.impact.studentsReached}
+                </p>
                 <p className="text-sm text-gray-600">Students Reached</p>
               </div>
               <div className="hidden md:block h-12 w-px bg-gray-300"></div>
               <div className="text-center">
-                <p className="text-4xl font-bold text-[#5A829A]">850</p>
+                <p className="text-4xl font-bold text-[#5A829A]">
+                  {program.impact.teachersTrained}
+                </p>
                 <p className="text-sm text-gray-600">Teachers Trained</p>
               </div>
               <div className="hidden md:block h-12 w-px bg-gray-300"></div>
               <div className="text-center">
-                <p className="text-4xl font-bold text-[#5A829A]">92%</p>
+                <p className="text-4xl font-bold text-[#5A829A]">
+                  {program.impact.graduationRate}
+                </p>
                 <p className="text-sm text-gray-600">Graduation Rate</p>
               </div>
             </div>
@@ -102,21 +115,18 @@ export default function ProgramPage({ params }: { params: { id: string } }) {
 
         <section>
           <div className="mt-8">
-            <p className="container mx-auto text-center  w-fit rounded-lg px-1 text-xl mb-4 text-gray-700 font-medium flex items-center">
+            <p className="container mx-auto text-center w-fit rounded-lg px-1 text-xl mb-4 text-gray-700 font-medium flex items-center">
               Our Partners
             </p>
-
             <div className="flex justify-center space-x-8 max-w-5xl mx-auto">
-              {Array(4)
-                .fill("Global Education Fund")
-                .map((partner, index) => (
-                  <div
-                    key={index}
-                    className="bg-white p-8  text-center w-xl rounded border"
-                  >
-                    <p className=" text-gray-600">{partner}</p>
-                  </div>
-                ))}
+              {program.partners.map((partner, index) => (
+                <div
+                  key={index}
+                  className="bg-white p-8 text-center w-xl rounded border"
+                >
+                  <p className="text-gray-600">{partner}</p>
+                </div>
+              ))}
             </div>
           </div>
         </section>
