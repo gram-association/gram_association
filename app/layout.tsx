@@ -43,27 +43,7 @@ export const metadata: Metadata = {
     description: "Empowering Communities, Transforming Lives",
     images: ["/logo.png"],
   },
-  viewport: { initialScale: 1, width: "device-width" },
-  robots: {
-    index: true,
-    follow: true,
-  },
-  appleWebApp: {
-    capable: true,
-    statusBarStyle: "default",
-    title: "GRAM Association",
-    startupImage: "/logo.png",
-  },
-  manifest: "/manifest.json",
-  themeColor: "#ffffff",
 
-  alternates: {
-    canonical: "https://gramassociation.org",
-    languages: {
-      "en-US": "/en",
-      "fr-FR": "/fr",
-    },
-  },
   metadataBase: new URL("https://gramassociation.org"),
   verification: {
     google: "google-site-verification=your-google-verification-code",
