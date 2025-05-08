@@ -2,7 +2,6 @@ import Image from "next/image";
 import Advisor from "./components/Advisor";
 import OurPartners from "./components/OurPartners";
 import OurTeam from "./components/OurTeam";
-import { Fullscreen } from "lucide-react";
 
 export default function AboutUs() {
   return (
