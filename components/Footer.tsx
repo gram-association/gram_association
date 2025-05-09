@@ -14,7 +14,7 @@ const Footer = () => {
           height={150}
           className="w-48 h-auto md:w-64 lg:w-80"
         />
-        <div className="mt-4 text-center w-74 md:text-left">
+        <div className="mt-4 text-center w-88 md:text-left">
           <p className="text-sm  sm:text-xs">
             © 2024 Groundwater & Reforestation Adaptive Management Association,
             All rights reserved.
