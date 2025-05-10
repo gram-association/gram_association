@@ -1,0 +1,65 @@
+"use client";
+import { JSX, useState } from "react";
+import JourneyHighlights from "../journeyHighlights/page";
+import TheRideStory from "../theRideStory/page";
+import WhatsNew from "../whatsNew/page";
+
+// Define the possible tab names as a union type
+type TabName = "Journey Highlights" | "The Ride Story" | "What's new";
+
+export default function Tabs() {
+  // Use TabName type for activeTab state
+  const [activeTab, setActiveTab] = useState<TabName>("Journey Highlights");
+
+  // Define tabContent with an explicit type
+  const tabContent: Record<TabName, JSX.Element> = {
+    "Journey Highlights": <JourneyHighlights />,
+    "The Ride Story": <TheRideStory />,
+    "What's new": <WhatsNew />,
+  };
+
+  return (
+    <div className="flex justify-center items-center mt-48">
+      <div className="flex justify-center">
+        <div className="w-full max-w-screen">
+          {/* Tab Buttons */}
+          <div className="flex w-full space-x-4 justify-center">
+            <button
+              className={`rounded-full py-2 px-6 ${
+                activeTab === "Journey Highlights"
+                  ? "bg-[#1D352E] text-white"
+                  : "bg-gray-200 text-gray-700"
+              }`}
+              onClick={() => setActiveTab("Journey Highlights")}
+            >
+              Journey Highlights
+            </button>
+            <button
+              className={`rounded-full py-2 px-6 ${
+                activeTab === "The Ride Story"
+                  ? "bg-[#1D352E] text-white"
+                  : "bg-gray-200 text-gray-700"
+              }`}
+              onClick={() => setActiveTab("The Ride Story")}
+            >
+              The Ride Story
+            </button>
+            <button
+              className={`rounded-full py-2 px-6 ${
+                activeTab === "What's new"
+                  ? "bg-[#1D352E] text-white"
+                  : "bg-gray-200 text-gray-700"
+              }`}
+              onClick={() => setActiveTab("What's new")}
+            >
+              What's new
+            </button>
+          </div>
+
+          {/* Tab Content */}
+          <div className="w-full">{tabContent[activeTab]}</div>
+        </div>
+      </div>
+    </div>
+  );
+}
