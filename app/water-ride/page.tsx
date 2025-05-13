@@ -32,8 +32,8 @@ export default function WaterRide() {
                 8,000-kilometer motorcycle expedition across 13 Indian states,
                 promoting rainwater harvesting and sustainable water solutions.
               </p>
-              <Link href="/our-programs">
-                <Button className="bg-[#9C574B] text-white  py-1 w-fit mt-5 rounded-full hover:bg-cyan-700">
+              <Link href="/contact-us">
+                <Button className="bg-[#9C574B] text-white  py-1 w-fit mt-5 rounded-full hover:bg-amber-900">
                   SUPPORT OUR CAUSE
                 </Button>
               </Link>

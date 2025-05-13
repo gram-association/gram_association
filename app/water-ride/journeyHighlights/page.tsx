@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/Button";
 import Image from "next/image";
 import OurImpact from "../ourImpact/page";
+import Link from "next/link";
 
 export default function JourneyHighlights() {
   return (
@@ -70,9 +71,11 @@ export default function JourneyHighlights() {
           </div>
         </div>
         <div className="mt-8">
-          <Button className="bg-[#538C7B] rounded-xl">
-            BECOME A VOLUNTEER
-          </Button>
+          <Link href="/contact-us">
+            <Button className="bg-[#538C7B] rounded-xl hover:bg-emerald-800">
+              BECOME A VOLUNTEER
+            </Button>
+          </Link>
         </div>
       </section>
       <OurImpact />

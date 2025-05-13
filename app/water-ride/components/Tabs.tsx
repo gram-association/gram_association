@@ -27,7 +27,7 @@ export default function Tabs() {
             <button
               className={`rounded-full py-2 px-6 ${
                 activeTab === "Journey Highlights"
-                  ? "bg-[#1D352E] text-white"
+                  ? "bg-[#1D352E] text-white hover:bg-green-950"
                   : "bg-gray-200 text-gray-700"
               }`}
               onClick={() => setActiveTab("Journey Highlights")}
@@ -37,7 +37,7 @@ export default function Tabs() {
             <button
               className={`rounded-full py-2 px-6 ${
                 activeTab === "The Ride Story"
-                  ? "bg-[#1D352E] text-white"
+                  ? "bg-[#1D352E] text-white hover:bg-green-950"
                   : "bg-gray-200 text-gray-700"
               }`}
               onClick={() => setActiveTab("The Ride Story")}
@@ -47,7 +47,7 @@ export default function Tabs() {
             <button
               className={`rounded-full py-2 px-6 ${
                 activeTab === "What's new"
-                  ? "bg-[#1D352E] text-white"
+                  ? "bg-[#1D352E] text-white hover:bg-green-950"
                   : "bg-gray-200 text-gray-700"
               }`}
               onClick={() => setActiveTab("What's new")}
