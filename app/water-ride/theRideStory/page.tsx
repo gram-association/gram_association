@@ -3,8 +3,9 @@
 import Image from "next/image";
 import { useEffect, useRef } from "react";
 
+// Define the interface for each journey step
 interface JourneyStep {
-  timeImage: string;
+  time: string;
   title: string;
   state: string;
   description: string;
@@ -13,7 +14,7 @@ interface JourneyStep {
 
 const journeySteps: JourneyStep[] = [
   {
-    timeImage: "/Day 1.png",
+    time: "Day 1",
     title: "The Journey Begins",
     state: "Mumbai, Maharashtra",
     description:
@@ -21,7 +22,7 @@ const journeySteps: JourneyStep[] = [
     image: "/Journey begins.png",
   },
   {
-    timeImage: "/week 2.png",
+    time: "Week 2",
     title: "Western Ghats Exploration",
     state: "Karnataka & Kerala",
     description:
@@ -29,7 +30,23 @@ const journeySteps: JourneyStep[] = [
     image: "/Western ghats.png",
   },
   {
-    timeImage: "/month 3.png",
+    time: "Month 3",
+    title: "Desert Innovations",
+    state: "Rajasthan & Gujarat",
+    description:
+      "In the arid landscapes of Rajasthan, Shashank witnessed remarkable innovations in water harvesting. The ancient step wells and modern adaptations showed how communities had turned adversity into ingenuity, thriving and preserving every precious drop of liquid.",
+    image: "/Desert.png",
+  },
+  {
+    time: "Month 3",
+    title: "Desert Innovations",
+    state: "Rajasthan & Gujarat",
+    description:
+      "In the arid landscapes of Rajasthan, Shashank witnessed remarkable innovations in water harvesting. The ancient step wells and modern adaptations showed how communities had turned adversity into ingenuity, thriving and preserving every precious drop of liquid.",
+    image: "/Desert.png",
+  },
+  {
+    time: "Month 3",
     title: "Desert Innovations",
     state: "Rajasthan & Gujarat",
     description:
@@ -39,37 +56,49 @@ const journeySteps: JourneyStep[] = [
 ];
 
 export default function JourneyPage() {
-  const bikeRef = useRef<HTMLDivElement>(null);
+  const pointerRef = useRef<HTMLDivElement>(null);
   const timelineRef = useRef<HTMLDivElement>(null);
+  const sectionRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   useEffect(() => {
     const handleScroll = () => {
-      if (!bikeRef.current || !timelineRef.current) return;
-
-      const timelineRect = timelineRef.current.getBoundingClientRect();
-      const timelineHeight = timelineRect.height;
       const scrollPosition = window.scrollY;
       const windowHeight = window.innerHeight;
 
-      // Calculate the scroll progress relative to the timeline
-      const timelineTop = timelineRect.top + window.scrollY;
-      const timelineBottom = timelineTop + timelineHeight;
+      // Handle pointer movement
+      if (pointerRef.current && timelineRef.current) {
+        const timelineRect = timelineRef.current.getBoundingClientRect();
+        const timelineTop = timelineRect.top + window.scrollY;
+        const timelineHeight = timelineRect.height;
+        const timelineBottom = timelineTop + timelineHeight;
 
-      // Adjust these values to control when the bike starts and stops moving
-      const startPoint = timelineTop - windowHeight * 0.5;
-      const endPoint = timelineBottom - windowHeight * 0.5;
+        // Define the scroll range for the pointer movement
+        const startPoint = timelineTop - windowHeight * 0.5; // Start when timeline is halfway into view
+        const endPoint = timelineBottom - windowHeight * 0.5; // End when timeline bottom is halfway into view
 
-      // Calculate scroll progress as a percentage (0 to 1)
-      const scrollProgress = Math.max(
-        0,
-        Math.min(1, (scrollPosition - startPoint) / (endPoint - startPoint))
-      );
+        // Calculate scroll progress (0 to 1) within the timeline
+        const scrollProgress = Math.max(
+          0,
+          Math.min(1, (scrollPosition - startPoint) / (endPoint - startPoint))
+        );
 
-      // Move the bike along the timeline
-      const maxTranslateY = timelineHeight - 100; // Adjust based on bike height
-      bikeRef.current.style.transform = `translateY(${
-        scrollProgress * maxTranslateY
-      }px)`;
+        // Move the pointer along the timeline
+        const maxTranslateY = timelineHeight - 16; // Adjust for pointer size (16px height)
+        pointerRef.current.style.transform = `translateY(${
+          scrollProgress * maxTranslateY
+        }px)`;
+      }
+
+      // Fade-in effect for sections
+      sectionRefs.current.forEach((section) => {
+        if (section) {
+          const sectionTop = section.getBoundingClientRect().top;
+          if (sectionTop < windowHeight * 0.8) {
+            section.classList.add("opacity-100", "translate-y-0");
+            section.classList.remove("opacity-0", "translate-y-10");
+          }
+        }
+      });
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -79,140 +108,74 @@ export default function JourneyPage() {
   }, []);
 
   return (
-    <div className="min-h-screen flex flex-col items-center py-12 px-4 md:px-6">
-      <header className="mb-12 w-full max-w-6xl">
-        <span className="text-sm tracking-widest uppercase text-gray-600">
+    <div className="min-h-screen font-sans">
+      <div className="max-w-7xl ml-10  px-4 py-4">
+        <p className="container w-fit  bg-[#DEE6EB] rounded-lg px-2 py-1 text-xs sm:text-sm text-gray-700 flex items-center mb-4">
           Extraordinary Journey
-        </span>
-        <h1 className="mt-2 text-4xl md:text-5xl font-bold text-gray-900">
+        </p>
+        <h1 className="text-2xl md:text-4xl font-bold text-gray-800">
           The Ride Story
         </h1>
-      </header>
-
-      <div className="max-w-6xl w-full flex flex-col md:flex-row gap-2">
-        {/* Timeline Column with Path and Bike */}
-        <div className="relative flex-shrink-0 md:w-24 h-[800px] md:h-auto">
-          <div ref={timelineRef} className="relative h-full w-24">
-            {/* Path Image */}
-            <div className="absolute inset-0 w-full h-full">
-              <Image
-                src="/Clip path.png"
-                alt="Journey Path"
-                fill
-                style={{ objectFit: "cover" }}
-                priority
-              />
-            </div>
-
-            {/* Bike - positioned absolutely with high z-index to stay above path */}
-            <div
-              ref={bikeRef}
-              className="absolute left-1/2 transform -translate-x-1/2 w-30 h-30 ml-3"
-              style={{
-                transition: "transform 0.2s ease-out",
-                zIndex: 20, // Higher z-index to ensure bike is above path
-              }}
-            >
-              <Image
-                src="/bike ride.png"
-                alt="Motorcycle"
-                width={90}
-                height={200}
-                priority
-              />
-            </div>
-          </div>
-        </div>
-
-        {/* Time Markers Column */}
-        <div className="relative flex-shrink-0 md:w-auto flex flex-col justify-between  h-[800px] md:h-auto">
-          {journeySteps.map((step, index) => (
-            <div
-              key={`time-${index}`}
-              className={`flex items-center justify-center ${
-                index === 0 ? "mt-0" : index === 1 ? "mt-14" : "mt-14"
-              }`}
-            >
-              <Image
-                src={step.timeImage || "/placeholder.svg"}
-                alt={`Time marker ${index + 1}`}
-                width={150}
-                height={150}
-              />
-            </div>
-          ))}
-        </div>
-
-        {/* Content Column */}
-        <div className="flex-grow space-y-15 mt-8 md:mt-0">
-          {journeySteps.map((step, index) => (
-            <div
-              key={`content-${index}`}
-              className="grid grid-cols-1 md:grid-cols-2 gap-8"
-            >
-              {/* Text Content */}
-              <div className="flex flex-col w-xl">
-                <h2 className="text-3xl font-semibold mb-2 text-gray-900">
-                  {step.title}
-                </h2>
-                <h6 className="text-xs text-gray-600">{step.state}</h6>
-                <p className="mt-4 text-sm text-gray-600 leading-relaxed">
-                  {step.description}
-                </p>
-              </div>
-
-              {/* Journey Image */}
-
-              <div className="relative w-md h-48 ml-20 overflow-hidden rounded-lg">
-                <Image
-                  src={step.image || "/placeholder.svg"}
-                  alt={step.title}
-                  fill
-                  style={{ objectFit: "cover" }}
-                  // className="transform hover:scale-105 transition-transform duration-300"
-                />
-              </div>
-            </div>
-          ))}
-        </div>
       </div>
 
-      {/* Partner Section */}
-      <section className="bg-[#F8F1E9] w-full mt-20 py-16 px-6 sm:px-12">
-        <div className="max-w-6xl mx-auto flex flex-col lg:flex-row items-center gap-12">
-          {/* Text Section */}
-          <div className="lg:w-2/3 space-y-6">
-            <span className="text-sm tracking-wider uppercase text-gray-600">
-              Our Partner
-            </span>
-            <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 leading-tight">
-              Fueling Our Mission
-            </h2>
-            <p className="text-lg text-gray-700 leading-relaxed">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-              reprehenderit in voluptate velit esse cillum dolore eu fugiat
-              nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-              sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </p>
-          </div>
-
-          {/* Image Section */}
-          <div className="lg:w-1/3">
-            <div className="relative group overflow-hidden rounded-2xl">
-              <Image
-                src="/Royal Enfield.png"
-                alt="Royal Enfield Logo"
-                width={600}
-                height={500}
-                className="transition-transform duration-300 group-hover:scale-105"
-              />
+      {/* Main Content */}
+      <main className="pt-20 pb-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="relative">
+          {/* Timeline Line and Pointer */}
+          <div
+            ref={timelineRef}
+            className="absolute left-4 md:left-8 top-0 h-full w-1 "
+          >
+            <Image src="/Group 49.png" alt="Route" fill />
+            <div
+              ref={pointerRef}
+              className="absolute left-[-6px] w-4 h-4 rounded-full shadow-md transition-transform duration-300"
+            >
+              <Image src="/Group 48.png" alt="" fill />
             </div>
           </div>
+
+          {/* Timeline Sections */}
+          <div className="space-y-16 md:space-y-12 pl-12 md:pl-20">
+            {journeySteps.map((step, index) => (
+              <div
+                key={index}
+                ref={(el) => {
+                  sectionRefs.current[index] = el;
+                }}
+                className="flex flex-col md:flex-row items-start opacity-0 translate-y-10 transition-all duration-700 ease-out"
+              >
+                {/* Text Content */}
+                <div className="md:w-2/3 mb-6 md:mb-0">
+                  {/* Time Marker */}
+                  <div className="mb-4 bg-[#538C7B] container w-fit py-1 px-2 text-white rounded-full">
+                    {step.time}
+                  </div>
+                  <h2 className="text-xl md:text-2xl font-semibold text-gray-800 mb-2">
+                    {step.title}
+                  </h2>
+                  <h6 className="text-sm text-gray-500 mb-2">{step.state}</h6>
+                  <p className="text-gray-600 text-sm md:text-base leading-relaxed">
+                    {step.description}
+                  </p>
+                </div>
+
+                {/* Image */}
+                <div className="md:w-1/3 md:pl-8">
+                  <div className="w-full  h-48 md:h-64 relative  ">
+                    <Image
+                      src={step.image || "/placeholder.svg"}
+                      alt={step.title}
+                      fill
+                      className="  rounded-lg transition-opacity  duration-500 hover:opacity-90"
+                    />
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
-      </section>
+      </main>
     </div>
   );
 }

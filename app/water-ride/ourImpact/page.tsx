@@ -34,7 +34,13 @@ const states = [
     name: "Maharashtra",
     position: { top: "53%", right: "42%" },
     dialogue:
-      "Providing education and resources to underprivileged children in Maharashtra.",
+      "GRAM's water conservation efforts in Maharashtra have impacted over 50 villages, providing clean drinking water to more than 25,000 people.",
+    achievements: [
+      "Installed 75 water harvesting systems",
+      "Built 25 check dams across drought-prone regions",
+      "Conducted water quality testing in 100+ locations",
+      "Trained 500+ community members in water management",
+    ],
   },
   {
     name: "Karnataka",
