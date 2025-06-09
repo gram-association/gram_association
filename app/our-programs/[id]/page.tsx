@@ -46,36 +46,39 @@ export default async function ProgramPage({
                 src={program.image}
                 alt={program.title}
                 width={500}
-                height={500}
-                className="object-cover rounded-xl mt-60 w-full max-w-6xl h-full mx-auto"
+                height={433}
+                className="object-cover rounded-xl mt-60 w-full max-w-6xl h-[433px] mx-auto"
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
               />
-              <div className="w-full max-w-6xl mx-auto px-4 sm:px-0">
-                <p className="text-sm sm:text-base">
-                  {program.longDescription}
-                </p>
-              </div>
             </div>
             <div>
-              <div className="relative z-10 w-full max-w-lg mt-10 sm:mt-0 ml-0 sm:ml-2 py-8 px-2 text-white">
+              <div className="relative z-10 w-full max-w-full mt-10 sm:mt-0 ml-0 sm:ml-2 py-8 px-2 text-white">
                 <p className="text-xs sm:text-sm">
                   <span>
                     <Link href="/our-programs">Our Programs </Link>
                   </span>{" "}
                   / {program.title}
                 </p>
-                <h1 className="text-4xl sm:text-6xl mt-2">{program.title}</h1>
-              </div>
-              <div className="relative z-10 px-2 text-white w-full max-w-7xl mb-10">
-                <p className="text-xs sm:text-sm ml-0 sm:ml-2">
-                  {program.description}
-                </p>
+                <h1 className="text-4xl sm:text-5xl font-medium mt-2">
+                  {program.title}
+                </h1>
               </div>
             </div>
           </div>
         </section>
 
-        <section className="bg-[#F8F1E9] w-full max-w-4xl py-6 flex justify-center mt-[400px] items-center">
+        <section className="mt-[200px] items-center">
+          <div className="relative z-10 px-2 text-black w-full max-w-7xl mb-10">
+            <p className="text-xs sm:text-sm ml-0 sm:ml-2">
+              {program.description}
+            </p>
+          </div>
+          <div className="w-full max-w-6xl mx-auto px-4 sm:px-0">
+            <p className="text-sm sm:text-base">{program.longDescription}</p>
+          </div>
+        </section>
+
+        {/* <section className="bg-[#F8F1E9] w-full max-w-4xl py-6 flex justify-center mt-[400px] items-center">
           <div className="flex flex-col items-center gap-8 w-full px-4">
             <h2 className="text-gray-700 text-lg sm:text-xl font-semibold">
               Our Impact
@@ -180,7 +183,7 @@ export default async function ProgramPage({
               </div>
             </div>
           </div>
-        </section>
+        </section> */}
       </main>
     </div>
   );

@@ -29,25 +29,23 @@ export default function OurTeam() {
             {teamMembers.slice(0, 4).map((member, index) => (
               <div
                 key={index}
-                className="relative bg-gray-100 rounded-lg overflow-hidden"
+                className="relative bg-gray-100 rounded-lg overflow-hidden aspect-square sm:aspect-auto"
               >
-                <div className="relative w-full h-52 sm:h-52">
+                <div className="relative w-full h-full sm:h-52">
                   <Image
                     src={member.image}
                     alt={`${member.name} photo`}
-                    width={500}
-                    height={300}
+                    fill
                     className="rounded-t-lg object-cover"
+                    sizes="(max-width: 640px) 100vw, 25vw"
                   />
                 </div>
-                <div className="absolute bottom-4 left-4 right-4 rounded bg-gray-100/50 flex justify-between items-center px-3 ">
+                <div className="absolute bottom-4 left-4 right-4 rounded bg-gray-100/50 flex justify-between items-center px-3 py-2">
                   <div>
                     <h3 className="text-sm sm:text-lg font-semibold text-gray-800">
                       {member.name}
                     </h3>
-                    <p className="text-xs sm:text-sm text-gray-600">
-                      {member.role}
-                    </p>
+                    <p className="text-xs text-gray-600">{member.role}</p>
                   </div>
                   <a href="#" aria-label="LinkedIn profile">
                     <FaLinkedin size={20} className="sm:size-7" />
@@ -83,25 +81,23 @@ export default function OurTeam() {
               {teamMembers.slice(4).map((member, index) => (
                 <div
                   key={index}
-                  className="relative bg-gray-100 rounded-lg overflow-hidden"
+                  className="relative bg-gray-100 rounded-lg overflow-hidden aspect-square sm:aspect-auto"
                 >
-                  <div className="relative w-full h-52 sm:h-46">
+                  <div className="relative w-full h-full sm:h-46">
                     <Image
                       src={member.image}
                       alt={`${member.name} photo`}
-                      width={500}
-                      height={200}
+                      fill
                       className="rounded-t-lg object-cover"
+                      sizes="(max-width: 640px) 100vw, 25vw"
                     />
                   </div>
-                  <div className="absolute bottom-4 left-4 right-4 rounded bg-gray-100/50 flex justify-between items-center px-3 ">
+                  <div className="absolute bottom-4 left-4 right-4 rounded bg-gray-100/50 flex justify-between items-center px-3 py-2">
                     <div>
                       <h3 className="text-sm sm:text-lg font-semibold text-gray-800">
                         {member.name}
                       </h3>
-                      <p className="text-xs sm:text-xs text-gray-600">
-                        {member.role}
-                      </p>
+                      <p className="text-xs text-gray-600">{member.role}</p>
                     </div>
                     <a href="#" aria-label="LinkedIn profile">
                       <FaLinkedin size={20} className="sm:size-7" />

@@ -1,55 +1,58 @@
 export const programs = [
   {
     id: 1,
-    category: "Education",
-    title: "Program A",
+    category: "Water Conservation",
+    title:
+      "Rasabeda Spring Water Management Project (2019): Ending Water Crisis in Rasabeda Village, Jharkhand",
     description:
-      "Providing quality education to children in underserved communities through school construction, teacher training...",
+      "In the remote village of Rasabeda, nestled in the challenging terrain of the Chota Nagpur plateau, access...",
     image: "/education.png",
     slug: "a",
   },
   {
     id: 2,
-    category: "Environment",
-    title: "Program B",
+    category: "Water Conservation",
+    title:
+      "Restoring Hope Through Water: Pond Rejuvenation in Kherwatikra, Jharkhand",
     description:
-      "Providing access to clean and safe drinking water through well construction and water purification systems...",
+      "In 2020, amid the challenges of the COVID-19 pandemic, GRAM Association, in partnership with Barefoot College,...",
     image: "/environment.jpg",
     slug: "b",
   },
   {
     id: 3,
-    category: "Healthcare",
-    title: "Program C",
+    category: "Livelihood",
+    title:
+      "Women Leading the Way: Rasabeda Community Tourism Initiative (2020)",
     description:
-      "Establishing health centers in remote areas to provide primary healthcare services to underserved communities...",
+      "In 2020, GRAM Association, in partnership with IIM Ranchi, launched a unique experiment in community-driven, s....",
     image: "/healthcare.jpg",
     slug: "c",
   },
   {
     id: 4,
-    category: "Education",
-    title: "Program A",
+    category: "Health",
+    title: "Health Response: COVID Relief (2020)",
     description:
-      "Providing quality education to children in underserved communities through school construction, teacher training...",
+      "During the first wave of the pandemic, GRAM Association focused on supporting vulnerable communities in Ranchi district by...",
     image: "/education.png",
     slug: "d",
   },
   {
     id: 5,
-    category: "Environment",
-    title: "Program B",
+    category: "Education",
+    title: "Digital Bridge School Initiative (2020–21)",
     description:
-      "Providing access to clean and safe drinking water through well construction and water purification systems...",
+      "In many remote villages of Jharkhand, formal schooling remains out of reach for countless children. To bridge this gap, GR...",
     image: "/environment.jpg",
     slug: "e",
   },
   {
     id: 6,
-    category: "Healthcare",
-    title: "Program C",
+    category: "Community Engagement",
+    title: "Shodhyatra 2.0 – Rural Immersion with IIM Ranchi (2021) ",
     description:
-      "Establishing health centers in remote areas to provide primary healthcare services to underserved communities...",
+      "In March 2021, GRAM Association partnered with IIM Ranchi to host `Shodhyatra 2.0`, a hands-on immersion jo...",
     image: "/healthcare.jpg",
     slug: "f",
   },
@@ -75,7 +78,8 @@ interface ProgramData {
 export const programData: ProgramData = {
   a: {
     id: "A",
-    title: "Program A",
+    title:
+      "Rasabeda Spring Water Management Project (2019): Ending Water Crisis in Rasabeda Village, Jharkhand",
     description:
       "Our education initiatives focus on providing quality education to children in underserved communities through school construction, teacher training, and learning resources. We believe that education is a fundamental right and the key to breaking the cycle of poverty.",
     longDescription:

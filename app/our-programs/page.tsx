@@ -19,7 +19,7 @@ export default function Programs() {
       </div>
 
       <div className="flex justify-center space-x-2 sm:space-x-4 mb-8 flex-wrap gap-2">
-        {["All Programs", "Upcoming", "Education", "Health", "Environment"].map(
+        {["All Programs", "Water Conservation", "Livelihood", "Education"].map(
           (filter) => (
             <button
               key={filter}

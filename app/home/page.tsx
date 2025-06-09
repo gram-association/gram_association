@@ -1,102 +1,121 @@
 import { Button } from "@/components/ui/Button";
+import { Epilogue } from "next/font/google";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import OurPrograms from "./components/OurPrograms";
 import Image from "next/image";
 
+const epilogue = Epilogue({
+  subsets: ["latin"],
+  weight: ["400", "600", "700"],
+  variable: "--font-epilogue",
+});
+
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between py-24 bg-[linear-gradient(to_bottom,_#1D352E_600px,_white_600px)]">
       <section className="relative">
-        <div className=" h-72 sm:h-[500px] w-xl sm:min-w-screen">
-          <div className="absolute  inset-0">
+        <div className="flex flex-col sm:flex-row sm:h-[500px] sm:min-w-7xl">
+          {/* Image Section */}
+          <div className="relative w-full sm:h-full">
             <Image
               src="/hero-image.png"
               alt="community"
               width={1152}
               height={700}
-              className="object-cover mt-60 w-6xl  mx-auto  "
+              className="object-cover w-full h-72 sm:h-full sm:mt-60 sm:w-6xl sm:mx-auto"
+              priority
             />
           </div>
-          <div className="flex justify-evenly ">
-            <div className="relative z-10 w-sm  sm:w-lg ml-28  py-10 px-2  text-white">
-              <h1 className="text-2xl sm:text-6xl font-bold mt-10 ">
-                Building a Better Future Together
+          {/* Content Section */}
+          <div className="flex flex-col w-[1270px] h-[118px] mt-10 sm:flex-row sm:justify-evenly sm:absolute sm:inset-0">
+            <div className="`${epilogue.variable}` relative z-10 w-full sm:w-2xl sm:ml-18 py-2  text-white">
+              <h1 className="text-2xl sm:text-[44px] w-full font-semibold font-epilogue mt-1  text-center sm:text-left">
+                Building self-reliant India through self-reliant villages
               </h1>
             </div>
-            <div className="hidden md:block mt-28 mx-8 h-20 w-px bg-gray-300"></div>
-            <div className="relative z-10 py-10 px-2 text-white w-xl  mr-35">
-              <p className="text-sm mt-16">
+            <div className="hidden sm:block sm:mt-6 sm:mx-4 h-24 w-px  bg-gray-300"></div>
+            <div className="relative z-10 py-2 px-4 sm:px-2 text-white w-full sm:w-xl sm:mr-35">
+              <p className="text-sm text-center sm:text-left">
                 GRAM Association is dedicated to empowering communities through
                 sustainable development, education, healthcare, and clean water
                 initiatives that create lasting change.
               </p>
-              <Link href="/our-programs">
-                <Button className="bg-[#5A829A] text-white  py-1 w-fit mt-5 rounded-full hover:bg-cyan-700">
-                  OUR PROGRAMS
-                </Button>
-              </Link>
-              <Link href="/contact-us">
-                <Button className="border-2 ml-2  bg-transparent text-white  py-1 w-fit mt-5 rounded-full hover:bg-cyan-700">
-                  GET IN TOUCH
-                </Button>
-              </Link>
+              <div className="flex justify-center sm:justify-start space-x-2 mt-5">
+                <Link href="/contact-us">
+                  <Button className="bg-[#5A829A] text-white py-1 w-fit rounded-full hover:bg-cyan-700 ">
+                    GET IN TOUCH
+                  </Button>
+                </Link>
+              </div>
             </div>
           </div>
         </div>
       </section>
-
-      {/* Our Impact */}
-      <section className="py-16  text-cente mt-40">
-        <p className="container mx-auto bg-[#DEE6EB] w-fit rounded-lg px-2  text-gray-700 flex items-center">
-          Our Impact
+      {/* About us */}
+      <section className="py-8 md:py-16 text-center mt-10 md:mt-40">
+        <p className="container mx-auto bg-[#DEE6EB] w-fit rounded-lg px-2 text-gray-700 flex items-center text-sm md:text-base">
+          About Us
         </p>
-        <h2 className="text-4xl mt-4 text-center  mb-6">Who We Are?</h2>
-        <p className="max-w-3xl mx-auto mb-8 text-sm text-center text-gray-600">
-          Welcome to GRAM Association, where tradition meets innovation for a
-          sustainable future. Rooted in democratic values, we empower
-          marginalized communities, promote sustainable livelihoods, and revive
-          traditional environmental practices. By blending ancestral wisdom with
-          modern technology, we tackle climate resilience, social inclusion, and
-          public welfare.
+        <h2 className="text-2xl md:text-4xl mt-4 text-center mb-6">
+          Indigenous wisdom meets Innovation
+        </h2>
+        <p className="max-w-3xl mx-auto  text-xs md:text-sm text-center text-gray-600 px-4 md:px-0">
+          GRAM Association is committed to building an inclusive, equitable, and
+          sustainable future. We bridge the gap between age-old wisdom and
+          modern technology to uplift low resource communities, promote
+          sustainable livelihoods, reimagine traditional knowledge into
+          contemporary, sustainable practices while advancing holistic community
+          development.
         </p>
-        <div className="flex justify-center bg-[#F8F1E9] w-4xl py-8 rounded space-x-8">
-          <div>
-            <p className="text-4xl font-bold text-center text-[#5A829A]">
-              10K+
-            </p>
-            <p>Lives Transformed</p>
-          </div>
-          <div className="hidden md:block h-12 w-px bg-gray-300"></div>
-
-          <div>
-            <p className="text-4xl font-bold text-center text-[#5A829A]">10+</p>
-            <p>Villages Impacted</p>
-          </div>
-          <div className="hidden md:block h-12 w-px bg-gray-300"></div>
-
-          <div>
-            <p className="text-4xl font-bold text-center text-[#5A829A]">50+</p>
-            <p>Women Trained</p>
-          </div>
-          <div className="hidden md:block h-12 w-px bg-gray-300"></div>
-
-          <div>
-            <p className="text-4xl font-bold text-center text-[#5A829A]">3</p>
-            <p>Water Bodies</p>
-          </div>
-          <div className="hidden md:block h-12 w-px bg-gray-300"></div>
-
-          <div>
-            <p className="text-4xl font-bold text-center text-[#5A829A]">8</p>
-            <p>SDG Goals</p>
-          </div>
-        </div>
         <Link href="about-us">
-          <Button className="border-2 ml-2 mx-auto bg-transparent text-gray-700 bg-center  py-1 w-fit mt-5 rounded-full hover:bg-gray-200 flex items-center">
+          <Button className=" mx-auto bg-[#5A829A] text-white py-1 w-fit mt-5 rounded-full hover:bg-gray-200 hover:text-gray-700 flex items-center text-xs md:text-base px-4 md:px-6">
             LEARN MORE
           </Button>
         </Link>
+      </section>
+
+      {/* Our Impact */}
+      <section className="py-8 md:py-16 text-center mt-10 md:mt-5">
+        <p className="container mx-auto bg-[#DEE6EB] w-fit rounded-lg px-2 text-gray-700 flex items-center text-sm md:text-base">
+          Our Impact
+        </p>
+        <h2 className="text-2xl md:text-4xl mt-4 text-center mb-6">
+          Driving Meaningful Change
+        </h2>
+
+        <div className="flex flex-wrap justify-center bg-[#F8F1E9] w-full max-w-6xl mx-auto py-8 px-4 rounded space-x-4 md:space-x-8 space-y-4 md:space-y-0">
+          <div className="w-1/2 md:w-auto text-center">
+            <p className="text-2xl md:text-4xl font-bold text-[#5A829A]">
+              10K+
+            </p>
+            <p className="text-xs md:text-base">Lives Transformed</p>
+          </div>
+          <div className="hidden md:block h-12 w-px bg-gray-300"></div>
+
+          <div className="w-1/2 md:w-auto text-center">
+            <p className="text-2xl md:text-4xl font-bold text-[#5A829A]">10+</p>
+            <p className="text-xs md:text-base">Villages Impacted</p>
+          </div>
+          <div className="hidden md:block h-12 w-px bg-gray-300"></div>
+
+          <div className="w-1/2 md:w-auto text-center">
+            <p className="text-2xl md:text-4xl font-bold text-[#5A829A]">50+</p>
+            <p className="text-xs md:text-base">Women Trained</p>
+          </div>
+          <div className="hidden md:block h-12 w-px bg-gray-300"></div>
+
+          <div className="w-1/2 md:w-auto text-center">
+            <p className="text-2xl md:text-4xl font-bold text-[#5A829A]">3</p>
+            <p className="text-xs md:text-base">Water bodies rejuvenated</p>
+          </div>
+          <div className="hidden md:block h-12 w-px bg-gray-300"></div>
+
+          <div className="w-1/2 md:w-auto text-center">
+            <p className="text-2xl md:text-4xl font-bold text-[#5A829A]">8</p>
+            <p className="text-xs md:text-base">SDGs addressed</p>
+          </div>
+        </div>
       </section>
 
       {/* Our Vission and Mission */}
@@ -111,27 +130,42 @@ export default function Home() {
           </h3>
 
           <div className="flex flex-col md:flex-row justify-center gap-4 md:gap-6">
-            <div className="w-full md:w-1/2 max-w-md rounded-lg bg-white p-4 md:p-6">
-              <h3 className="text-lg md:text-xl font-bold mb-3 md:mb-4">
-                OUR VISION
+            <div className="w-full md:w-[600px] h-[274px] max-w-full rounded-lg bg-white p-4 md:p-6">
+              <h3 className="text-lg md:text-xl font-bold mb-3 md:mb-2">
+                Our Vision
               </h3>
-              <p className="text-gray-600 text-sm md:text-base">
-                The GRAM Association envisions an inclusive and sustainable
-                society. We strive for real change that promotes environmental
-                sustainability and sustainable livelihoods of marginalized
-                communities. We aim to create harmony between the built and the
-                natural environment for a sustainable future.
+              <p className="text-gray-600 text-sm md:text-xs leading-5">
+                GRAM Association envisions an inclusive, equitable, and
+                ecologically balanced society where self-reliant villages serve
+                as the foundation of national development. By empowering
+                self-governed, community-led institutions, we aim to foster
+                sustainable rural ecosystems. 
+                <br />
+                <br />
+                Inspired by Mahatma Gandhi's belief that "the soul of India
+                lives in its villages," we strive to support rural communities
+                into centers of resilience, dignity, and prosperity.
+                <br />
+                <br />
+                GRAM is committed towards enabling grassroots institutions and
+                influencing policies through interventions, aspiring to be a
+                recognised sectoral leader in livelihoods, water, agriculture,
+                health, and education, aligning our efforts with key Sustainable
+                Development Goals (SDGs)
               </p>
             </div>
-            <div className="w-full md:w-1/2 max-w-md rounded-lg bg-white p-4 md:p-6">
+            <div className="w-full md:w-[600px] max-w-full rounded-lg bg-white p-4 md:p-6">
               <h3 className="text-lg md:text-xl font-bold mb-3 md:mb-4">
-                OUR MISSION
+                Our Mission
               </h3>
-              <p className="text-gray-600 text-sm md:text-base">
-                To build nature-based solutions for climate resilience and
-                sustainable livelihoods by rejuvenating indigenous environmental
-                management practices melded with modern technological
-                advancements of the present.
+              <p className="text-gray-600 text-sm md:text-sm ">
+                To strengthen community capacities for holistic and sustainable
+                development by purposefully converging indigenous wisdom, and
+                contemporary technological advancements. Our mission focuses on
+                promoting sustainable livelihoods, ensuring water as well as
+                sanitation, enhancing health and education, fostering
+                environmental resilience, all through participatory and
+                inclusive approaches
               </p>
             </div>
           </div>
@@ -139,79 +173,85 @@ export default function Home() {
       </section>
 
       {/* our focus areas */}
-      <section className=" min-w-screen py-16 text-center ">
-        <div className="ml-30">
-          <p className="container  bg-[#DEE6EB] w-fit rounded-lg px-1 text-sm  text-gray-700 flex items-center mb-4">
+      <section className="min-h-screen py-8 md:py-16 text-center">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <p className="inline-block bg-[#DEE6EB] rounded-lg px-2 py-1 text-sm text-gray-700 mb-4 md:mb-6">
             Our Focus Areas
           </p>
-          <h2 className="text-3xl  text-start mb-6">THE 5 Es</h2>
+          <h2 className="text-2xl md:text-3xl font-bold text-start mb-6 md:mb-8">
+            THE 5 Es
+          </h2>
         </div>
-        <div className="flex justify-center  items-center space-x-2">
-          <div>
+        <div className="flex flex-col md:flex-row justify-center items-center md:space-x-4 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="hidden md:block">
             <Image
               src="/5Es.png"
               alt="5 Es Illustration"
               width={576}
               height={576}
-              className="w-xl h-xl ml-32"
+              className="w-full max-w-[576px] h-auto"
             />
-            {/* <Image src="/5es-image.jpg" alt="5 Es Illustration" width={300} height={300} /> */}
           </div>
-          <div className="space-y-4 text-left w-xl mr-10 -mt-18">
-            <div className="flex gap-4">
+          <div className="space-y-4 text-left w-full md:w-1/2">
+            <div className="flex gap-4 items-start">
               <div>
-                <Image src="/Group 6.png" alt="" width={40} height={40} />
+                <Image
+                  src="/Group 6.png"
+                  alt="Entrepreneurship Icon"
+                  width={40}
+                  height={40}
+                  className="w-10 h-10"
+                />
               </div>
               <div>
-                <p className="font-bold ">Entrepreneurship:</p>
+                <p className="font-bold">Entrepreneurship:</p>
                 <p className="text-gray-400 text-sm">
-                  Fostering innovation and self-reliance through personal
-                  development workshops that inspire knowledge, skills, and
-                  growth.
+                  Fostering a spirit of innovation, ownership, and initiative to
+                  drive sustainable change
                 </p>
               </div>
             </div>
-            <div className="flex gap-4">
+            <div className="flex gap-4 items-start">
               <div>
                 <Image
                   src="/Group 8.png"
-                  alt=""
+                  alt="Edification Icon"
                   width={40}
                   height={40}
                   className="w-10 h-10"
                 />
               </div>
               <div>
-                <p className="font-bold">Edification</p>
+                <p className="font-bold">Enrichment</p>
                 <p className="text-gray-400 text-sm">
-                  Enhancing learning opportunities to uplift individuals and
-                  societies, fostering wisdom and progress.
+                  Developing learning opportunities that help people grow and
+                  uplift communities within their society
                 </p>
               </div>
             </div>
-            <div className="flex gap-4">
+            <div className="flex gap-4 items-start">
               <div>
                 <Image
                   src="/Group 7.png"
-                  alt=""
+                  alt="Empowerment Icon"
                   width={40}
                   height={40}
                   className="w-10 h-10"
                 />
               </div>
               <div>
-                <p className="font-bold">Empowerment:</p>
+                <p className="font-bold">Enablement</p>
                 <p className="text-gray-400 text-sm">
-                  Enabling people to take charge of their own growth, instilling
-                  confidence, and driving positive change.
+                  Enabling individuals and communities to serve themselves,
+                  instilling confidence and driving a positive impact
                 </p>
               </div>
             </div>
-            <div className="flex gap-4">
+            <div className="flex gap-4 items-start">
               <div>
                 <Image
                   src="/Group 9.png"
-                  alt=""
+                  alt="Education Icon"
                   width={40}
                   height={40}
                   className="w-10 h-10"
@@ -220,16 +260,16 @@ export default function Home() {
               <div>
                 <p className="font-bold">Education</p>
                 <p className="text-gray-400 text-sm">
-                  Empowering communities by ensuring access to quality education
-                  and digital literacy, paving the way for a brighter future.s
+                  Enabling individuals and communities to serve themselves,
+                  instilling confidence and driving a positive impact
                 </p>
               </div>
             </div>
-            <div className="flex gap-4">
+            <div className="flex gap-4 items-start">
               <div>
                 <Image
                   src="/Group 10.png"
-                  alt=""
+                  alt="Environment Icon"
                   width={40}
                   height={40}
                   className="w-10 h-10"
@@ -239,7 +279,7 @@ export default function Home() {
                 <p className="font-bold">Environment:</p>
                 <p className="text-gray-400 text-sm">
                   Promoting sustainable practices and environmental
-                  consciousness to protect our planet for future generations.
+                  consciousness for future generations
                 </p>
               </div>
             </div>

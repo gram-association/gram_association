@@ -7,50 +7,64 @@ import { useEffect, useRef } from "react";
 interface JourneyStep {
   time: string;
   title: string;
-  state: string;
-  description: string;
+
+  description: string[];
   image: string;
 }
 
 const journeySteps: JourneyStep[] = [
   {
-    time: "Day 1",
-    title: "The Journey Begins",
-    state: "Mumbai, Maharashtra",
-    description:
-      "With a motorcycle packed with essentials and a heart full of determination, Shashank set off from Mumbai. The first stop was at a local school where he demonstrated simple rainwater harvesting techniques to enthusiastic students who were eager to be part of the solution.",
+    time: "Week 1",
+    title: "Rajasthan: Learning from Grassroots Innovations",
+
+    description: [
+      "Visited the SWRC Centre in Jawaja-Bayawar; interacted with NGO staff on rural water interventions and early childhood education through crèche schools.",
+      "Understood the construction of large check dams in remote areas and the importance of community involvement in water projects.",
+      "Engaged with the inspiring team at Sheroes Cafe, Udaipur, run by acid attack survivors, promoting dignity and livelihood.",
+      "At PEDO, Village Mada (Dungarpur), attended community meetings on livestock health and rainwater harvesting (RWH).",
+      "Explored the Maahi Haldi turmeric processing unit and learned about multilayer farming, drip irrigation, and the integration of agriculture with water conservation.",
+    ],
     image: "/Journey begins.png",
   },
   {
     time: "Week 2",
-    title: "Western Ghats Exploration",
-    state: "Karnataka & Kerala",
-    description:
-      "Traversing the lush landscapes of the Western Ghats, Shashank encountered diverse water conservation methods in coastal Kerala. He learned traditional techniques that sustained communities for generations, adapting to the monsoon patterns of the region.",
+    title: "Gujarat: Exploring Farming & Water Solutions",
+
+    description: [
+      "Visited Santrampur with SAARTHI to meet farmers and study water-related challenges in agriculture.",
+      "Volunteered at Sardar Patel Farms in Ahmedabad to learn organic farming practices.",
+      "Visited Rani ki Vav, a historic example of rainwater harvesting.",
+      "Engaged with FES (Foundation for Ecological Security) in Anand to understand water resource and pasture land management.",
+    ],
     image: "/Western ghats.png",
   },
   {
-    time: "Month 3",
-    title: "Desert Innovations",
-    state: "Rajasthan & Gujarat",
-    description:
-      "In the arid landscapes of Rajasthan, Shashank witnessed remarkable innovations in water harvesting. The ancient step wells and modern adaptations showed how communities had turned adversity into ingenuity, thriving and preserving every precious drop of liquid.",
+    time: "Week 3",
+    title: "Madhya Pradesh: Water Safety & Tribal Knowledge",
+
+    description: [
+      "Visited Jhabua with INREM Foundation to study fluoride-affected villages.",
+      "Interacted with the local bus union and inaugurated a temple flower composting unit.",
+      "Conducted a water session at Krishi Vigyan Kendra.",
+      "Visited Petlawad with SAMPARK to engage with tribal students",
+      "Explored seed banks and natural farming practices.",
+    ],
     image: "/Desert.png",
   },
   {
-    time: "Month 3",
-    title: "Desert Innovations",
-    state: "Rajasthan & Gujarat",
-    description:
-      "In the arid landscapes of Rajasthan, Shashank witnessed remarkable innovations in water harvesting. The ancient step wells and modern adaptations showed how communities had turned adversity into ingenuity, thriving and preserving every precious drop of liquid.",
-    image: "/Desert.png",
-  },
-  {
-    time: "Month 3",
-    title: "Desert Innovations",
-    state: "Rajasthan & Gujarat",
-    description:
-      "In the arid landscapes of Rajasthan, Shashank witnessed remarkable innovations in water harvesting. The ancient step wells and modern adaptations showed how communities had turned adversity into ingenuity, thriving and preserving every precious drop of liquid.",
+    time: "Week 4",
+    title: "Maharashtra: Community Water Management",
+
+    description: [
+      "Visited Dhule and met Mr. Pawar to assess a rainwater harvesting site and inaugurate a canal project.",
+      "Visited Deshbandhu Foundation to observe community-led water initiatives.",
+      "Visited households in Sakri with rooftop rainwater harvesting systems.",
+      "Conducted a water awareness session at an Adivasi hostel in Sakri.",
+      "Held an interactive session with police officers in Shanisingnapur on rural water issues.",
+      "Visited Hivrebazar and interacted with Shri Popat Rao Pawar to understand local water planning and plantation efforts.",
+      "Attended a village development session at Hind Swaraj Trust in Ralegan Siddhi and met Anna ji.",
+      "Interacted with village development officers in Solapur to discuss rural water management.",
+    ],
     image: "/Desert.png",
   },
 ];
@@ -154,20 +168,27 @@ export default function JourneyPage() {
                   <h2 className="text-xl md:text-2xl font-semibold text-gray-800 mb-2">
                     {step.title}
                   </h2>
-                  <h6 className="text-sm text-gray-500 mb-2">{step.state}</h6>
-                  <p className="text-gray-600 text-sm md:text-base leading-relaxed">
+                  {/* <h6 className="text-sm text-gray-500 mb-2">{step.state}</h6> */}
+                  <ul className="list-disc pl-6 text-gray-700 space-y-1">
+                    {step.description.map((description, idx) => (
+                      <li key={idx} className="text-indent-negative">
+                        {description}
+                      </li>
+                    ))}
+                  </ul>
+                  {/* <p className="text-gray-600 text-sm md:text-base leading-relaxed">
                     {step.description}
-                  </p>
+                  </p> */}
                 </div>
 
                 {/* Image */}
-                <div className="md:w-1/3 md:pl-8">
-                  <div className="w-full  h-48 md:h-64 relative  ">
+                <div className="w-full md:w-1/3 md:ml-8">
+                  <div className="w-full h-80  aspect-square md:h-64 relative  ">
                     <Image
                       src={step.image || "/placeholder.svg"}
                       alt={step.title}
                       fill
-                      className="  rounded-lg transition-opacity  duration-500 hover:opacity-90"
+                      className=" w-full h-96 object-cover rounded-lg transition-opacity  duration-500 hover:opacity-90"
                     />
                   </div>
                 </div>

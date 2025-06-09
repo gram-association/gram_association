@@ -3,9 +3,10 @@ import { JSX, useState } from "react";
 import JourneyHighlights from "../journeyHighlights/page";
 import TheRideStory from "../theRideStory/page";
 import WhatsNew from "../whatsNew/page";
+import UpcomingRide from "../upcomingRide/page";
 
 // Define the possible tab names as a union type
-type TabName = "Journey Highlights" | "The Ride Story" | "What's new";
+type TabName = "Journey Highlights" | "The Ride Story" | "Upcoming Ride";
 
 export default function Tabs() {
   // Use TabName type for activeTab state
@@ -15,7 +16,8 @@ export default function Tabs() {
   const tabContent: Record<TabName, JSX.Element> = {
     "Journey Highlights": <JourneyHighlights />,
     "The Ride Story": <TheRideStory />,
-    "What's new": <WhatsNew />,
+    "Upcoming Ride": <UpcomingRide />,
+    // "What's new": <WhatsNew />,
   };
 
   return (
@@ -46,6 +48,17 @@ export default function Tabs() {
             </button>
             <button
               className={`rounded-full py-2 px-6 ${
+                activeTab === "Upcoming Ride"
+                  ? "bg-[#1D352E] text-white hover:bg-green-950"
+                  : "bg-gray-200 text-gray-700"
+              }`}
+              onClick={() => setActiveTab("Upcoming Ride")}
+            >
+              Upcoming Ride
+            </button>
+
+            {/* <button
+              className={`rounded-full py-2 px-6 ${
                 activeTab === "What's new"
                   ? "bg-[#1D352E] text-white hover:bg-green-950"
                   : "bg-gray-200 text-gray-700"
@@ -53,7 +66,7 @@ export default function Tabs() {
               onClick={() => setActiveTab("What's new")}
             >
               What's new
-            </button>
+            </button> */}
           </div>
 
           {/* Tab Content */}

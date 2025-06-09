@@ -90,14 +90,16 @@ export default function OurImpact() {
     });
   }, [pathProgress]);
 
+  // Define states where dialogue should appear at the top
+  const topDialogueStates = [
+    "Maharashtra",
+    "Karnataka",
+    "Tamil Nadu",
+    "Andhra Pradesh",
+  ];
+
   return (
     <div ref={containerRef} className="h-full w-full">
-      {/* Header */}
-      {/* <header className="fixed top-0 left-0 right-0 z-10 bg-white shadow-md p-4">
-        <h1 className="text-3xl font-bold text-center text-blue-800">
-          Our Impact Across India
-        </h1>
-      </header> */}
       <p className="container mx-auto bg-gray-100 w-fit rounded-xl px-4 py-1 mt-20 text-gray-700 flex items-center text-sm sm:text-base">
         Impact
       </p>
@@ -117,8 +119,11 @@ export default function OurImpact() {
             className="w-full h-full"
           />
 
+          <div className=" absolute top-36 left-95  w-[380px] h-[430px]">
+            <Image src="/Vector 12.png" alt="Bike path" fill className="" />
+          </div>
           {/* Bike Path */}
-          <svg
+          {/* <svg
             className="absolute top-2 -left-2 w-full h-full"
             viewBox="0 0 100 100"
             preserveAspectRatio="xMaxYMin meet"
@@ -126,13 +131,12 @@ export default function OurImpact() {
             <path
               id="bikePath"
               d="M30 20 Q 23 34 22 40 Q 50 40 48 36 Q 35 55 40 55 Q 40 60 40 75 Q 45 85 52 90 Q 55 65 55 75 Q 75 47 78 48"
-              // d="M30 20 Q 25 40 25 40  Q 35 50 35 50 Q 40 70 40 70 Q 45 85 45 85 Q 50 65 50 65 Q 55 55 55 55"
               fill="none"
               stroke="#FF4D4F"
               strokeWidth="0.5"
               strokeDasharray="2,2"
             />
-          </svg>
+          </svg> */}
 
           {/* Bike Animation */}
           <motion.div
@@ -154,40 +158,53 @@ export default function OurImpact() {
               {/* Marker */}
               <motion.div
                 className="w-6 h-6"
-                initial={{ scale: 0.5, opacity: 0.5 }} // Initial state (small and faded)
+                initial={{ scale: 0.5, opacity: 0.5 }}
                 animate={{
-                  scale: activeState === index ? 1.2 : 0.5, // Pop up when active
-                  opacity: activeState === index ? 1 : 0.5, // Full opacity when active
+                  scale: activeState === index ? 1.2 : 0.5,
+                  opacity: activeState === index ? 1 : 0.5,
                 }}
-                transition={{ duration: 0.3 }} // Smooth animation
+                transition={{ duration: 0.3 }}
               >
                 <Image
                   src="/pin 3.png"
                   alt="pin"
                   fill
-                  className="hover:scale-110" // Optional hover effect
+                  className="hover:scale-110"
                 />
               </motion.div>
 
               {/* Dialogue Box */}
               {activeState === index && (
                 <motion.div
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={{
+                    opacity: 0,
+                    y: topDialogueStates.includes(state.name) ? -20 : 20,
+                  }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5 }}
-                  className="absolute top-6 left-6 w-88 p-4 bg-white rounded-lg shadow-lg border border-gray-200"
+                  className={`absolute ${
+                    topDialogueStates.includes(state.name)
+                      ? "bottom-6"
+                      : "top-6"
+                  } left-6 w-88 p-4 bg-white rounded-lg shadow-lg border border-gray-200`}
                 >
                   <h3 className="text-lg font-semibold text-blue-700">
                     {state.name}
                   </h3>
-                  <p className="text-xs text-gray-600 ">{state.dialogue}</p>
-                  <hr />
-                  <h3 className="text-lg font-semibold text-gray-800 mb-2">
-                    Key Achievements
-                  </h3>
-                  <ul className="list-disc list-inside text-gray-700 space-y-1">
-                    <li key={index}>{state.achievements}</li>
-                  </ul>
+                  <p className="text-xs text-gray-600">{state.dialogue}</p>
+                  {state.achievements && (
+                    <>
+                      <hr />
+                      <h3 className="text-lg font-semibold text-gray-800 mb-2">
+                        Key Achievements
+                      </h3>
+                      <ul className="list-disc list-inside text-gray-700 text-justify space-y-1">
+                        {state.achievements.map((achievement, idx) => (
+                          <li key={idx}>{achievement}</li>
+                        ))}
+                      </ul>
+                    </>
+                  )}
                 </motion.div>
               )}
             </div>

@@ -17,87 +17,93 @@ const teamMembers = [
 export default function Advisor() {
   return (
     <>
-      <div className=" flex flex-col items-center py-10 px-5">
-        <div className="self-start  mb-5">
-          <span className="bg-[#DEE6EB] text-gray-700 text-sm font-semibold  rounded-full">
+      <div className="flex flex-col items-center py-8 px-4 sm:px-5 md:py-10">
+        <div className="self-start mb-4 sm:mb-5">
+          <span className="bg-[#DEE6EB] text-gray-700 text-xs sm:text-sm font-semibold rounded-full px-3 py-1">
             Advisor
           </span>
         </div>
 
-        <h1 className="text-4xl self-start mb-10 text-gray-800">
+        <h1 className="text-2xl sm:text-3xl md:text-4xl self-start mb-6 sm:mb-10 text-gray-800">
           MEET THE SUPPORT OF GRAM
         </h1>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 max-w-6xl">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 max-w-6xl w-full">
           {teamMembers.slice(0, 4).map((member, index) => (
             <div
               key={index}
-              className="relative bg-gray-100 rounded-lg overflow-hidden"
+              className="relative bg-gray-100 rounded-lg overflow-hidden w-sm sm:w-auto aspect-square sm:aspect-auto"
             >
-              <div className="relative w-full h-48">
+              <div className="relative w-full h-full sm:h-48">
                 <Image
                   src={member.image}
                   alt={`${member.name} photo`}
                   width={300}
-                  height={200}
-                  className="rounded-t-lg object-cover"
+                  height={300}
+                  className="rounded-t-lg object-cover w-full h-full sm:h-48"
                 />
               </div>
-              {/* Member Info */}
-              <div className="px-2 absolute bottom-4 rounded bg-gray-100/50 w-56 ml-5 flex justify-between items-center">
+              <div className="px-2 absolute bottom-4 rounded bg-gray-100/50 w-[90%] sm:w-56 ml-2 sm:ml-5 flex justify-between items-center">
                 <div>
-                  <h3 className="text-lg font-semibold text-gray-800">
+                  <h3 className="text-base sm:text-lg font-semibold text-gray-800">
                     {member.name}
                   </h3>
-                  <p className="text-sm text-gray-600">{member.role}</p>
+                  <p className="text-xs sm:text-sm text-gray-600">
+                    {member.role}
+                  </p>
                 </div>
-                <a href="#" className="">
-                  <FaLinkedin size={24} />
+                <a href="#" aria-label={`LinkedIn profile of ${member.name}`}>
+                  <FaLinkedin size={20} className="sm:size-6" />
                 </a>
               </div>
             </div>
           ))}
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 max-w-6xl mt-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 max-w-6xl w-full mt-4 sm:mt-6">
           {teamMembers.slice(4).map((member, index) => (
             <div
               key={index}
-              className="relative bg-gray-100 rounded-lg overflow-hidden"
+              className="relative bg-gray-100 rounded-lg overflow-hidden w-sm sm:w-auto aspect-square sm:aspect-auto"
             >
-              <div className="relative w-full h-48">
+              <div className="relative w-full h-full sm:h-48">
                 <Image
                   src={member.image}
                   alt={`${member.name} photo`}
                   width={300}
-                  height={200}
-                  className="rounded-t-lg object-cover"
+                  height={300}
+                  className="rounded-t-lg object-cover w-full h-full sm:h-52"
                 />
               </div>
-              {/* Member Info */}
-              <div className="px-2 absolute bottom-4 rounded bg-gray-100/50 w-56 ml-5 flex justify-between items-center">
+              <div className="px-2 mb-6 absolute bottom-4 rounded bg-gray-100/50 w-[90%] sm:w-56 ml-2 sm:ml-5 flex justify-between items-center">
                 <div>
-                  <h3 className="text-lg font-semibold text-gray-800">
+                  <h3 className="text-base sm:text-lg font-semibold text-gray-800">
                     {member.name}
                   </h3>
-                  <p className="text-sm text-gray-600">{member.role}</p>
+                  <p className="text-xs sm:text-sm text-gray-600">
+                    {member.role}
+                  </p>
                 </div>
-                <a href="#" className="">
-                  <FaLinkedin size={24} />
+                <a href="#" aria-label={`LinkedIn profile of ${member.name}`}>
+                  <FaLinkedin size={20} className="sm:size-6" />
                 </a>
               </div>
             </div>
           ))}
-          {/* Third and Fourth Columns: Quote */}
-          <div className="col-span-2 flex items-center justify-center">
-            <div className="mb-20">
-              <Image src="/Frame.png" alt="" width={50} height={20} />
-              <p className="text-xl italic text-gray-600 ">
-                &ldquo;Listen to the people on the ground. <br />
-                They have all the solutions if you have the patience to
-                hear.&ldquo;
+          <div className="col-span-1 sm:col-span-2 md:col-span-2 flex items-center justify-center">
+            <div className="mb-10 sm:mb-20 text-center sm:text-left">
+              <Image
+                src="/Frame.png"
+                alt="Quote icon"
+                width={40}
+                height={16}
+                className="mx-auto sm:mx-0 mb-2"
+              />
+              <p className="text-lg sm:text-xl italic text-gray-600">
+                “Listen to the people on the ground. <br />
+                They have all the solutions if you have the patience to hear.“
               </p>
-              <p className="text-sm font-semibold text-gray-700">
+              <p className="text-xs sm:text-sm font-semibold text-gray-700 mt-2">
                 — Sanjay Buti Roy
               </p>
             </div>
