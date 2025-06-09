@@ -68,7 +68,7 @@ export default function Home() {
           contemporary, sustainable practices while advancing holistic community
           development.
         </p>
-        <Link href="about-us">
+        <Link href="/about-us">
           <Button className=" mx-auto bg-[#5A829A] text-white py-1 w-fit mt-5 rounded-full hover:bg-gray-200 hover:text-gray-700 flex items-center text-xs md:text-base px-4 md:px-6">
             LEARN MORE
           </Button>
@@ -84,7 +84,7 @@ export default function Home() {
           Driving Meaningful Change
         </h2>
 
-        <div className="flex flex-wrap justify-center bg-[#F8F1E9] w-full max-w-6xl mx-auto py-8 px-4 rounded space-x-4 md:space-x-8 space-y-4 md:space-y-0">
+        <div className="flex flex-wrap justify-center bg-[#F8F1E9] w-full min-w-5xl mx-auto py-8 px-4 rounded-lg space-x-4 md:space-x-8 space-y-4 md:space-y-0">
           <div className="w-1/2 md:w-auto text-center">
             <p className="text-2xl md:text-4xl font-bold text-[#5A829A]">
               10K+

@@ -67,7 +67,38 @@ export default async function ProgramPage({
           </div>
         </section>
 
-        <section className="mt-[200px] items-center">
+        {/* Content Section */}
+        <div className="max-w-7xl p-6 mt-[200px] text-start">
+          {/* Description */}
+          <h3 className="text-xl font-bold mb-2">
+            Transforming Lives Through Sustainable Water Solutions in Rasabeda
+          </h3>
+          <p className="text-gray-700 mb-6">{program.description}</p>
+
+          {/* Key Interventions */}
+          <h3 className="text-xl font-bold mb-4">Key Interventions</h3>
+          <ul className="list-disc list-inside mb-6">
+            {program.interventions.map((item, index) => (
+              <li key={index} className="mb-2">
+                <span className="font-semibold">{item.title}:</span>{" "}
+                {item.content}
+              </li>
+            ))}
+          </ul>
+
+          {/* Lasting Impact */}
+          <h3 className="text-xl font-bold mb-4">Lasting Impact</h3>
+          <ul className="list-disc list-inside">
+            {program.impacts.map((item, index) => (
+              <li key={index} className="mb-2">
+                <span className="font-semibold">{item.title}:</span>{" "}
+                {item.content}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* <section className="mt-[200px] items-center">
           <div className="relative z-10 px-2 text-black w-full max-w-7xl mb-10">
             <p className="text-xs sm:text-sm ml-0 sm:ml-2">
               {program.description}
@@ -76,7 +107,7 @@ export default async function ProgramPage({
           <div className="w-full max-w-6xl mx-auto px-4 sm:px-0">
             <p className="text-sm sm:text-base">{program.longDescription}</p>
           </div>
-        </section>
+        </section> */}
 
         {/* <section className="bg-[#F8F1E9] w-full max-w-4xl py-6 flex justify-center mt-[400px] items-center">
           <div className="flex flex-col items-center gap-8 w-full px-4">
