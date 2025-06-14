@@ -15,7 +15,7 @@ export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between py-24 bg-[linear-gradient(to_bottom,_#1D352E_600px,_white_600px)]">
       <section className="relative">
-        <div className="flex flex-col sm:flex-row sm:h-[500px] sm:min-w-7xl">
+        <div className="flex flex-col sm:flex-row sm:h-[500px] max-w-7xl mx-auto">
           {/* Image Section */}
           <div className="relative w-full sm:h-full">
             <Image
@@ -23,27 +23,29 @@ export default function Home() {
               alt="community"
               width={1152}
               height={700}
-              className="object-cover w-full h-72 sm:h-full sm:mt-60 sm:w-6xl sm:mx-auto"
+              className="object-cover w-full h-64 xs:h-72 sm:h-full sm:mt-60 sm:w-6xl sm:mx-auto"
               priority
             />
           </div>
           {/* Content Section */}
-          <div className="flex flex-col w-[1270px] h-[118px] mt-10 sm:flex-row sm:justify-evenly sm:absolute sm:inset-0">
-            <div className="`${epilogue.variable}` relative z-10 w-full sm:w-2xl sm:ml-18 py-2  text-white">
-              <h1 className="text-2xl sm:text-[44px] w-full font-semibold font-epilogue mt-1  text-center sm:text-left">
+          <div className="flex flex-col sm:flex-row sm:justify-evenly sm:absolute sm:inset-0 w-full sm:w-[1270px] mt-6 sm:mt-12 px-4 sm:px-0">
+            <div
+              className={`${epilogue.variable} relative z-10 w-full sm:w-2xl sm:ml-18 py-2 text-white`}
+            >
+              <h1 className="text-xl xs:text-2xl sm:text-[44px] font-semibold font-epilogue text-center sm:text-left leading-tight sm:leading-snug">
                 Building self-reliant India through self-reliant villages
               </h1>
             </div>
-            <div className="hidden sm:block sm:mt-6 sm:mx-4 h-24 w-px  bg-gray-300"></div>
+            <div className="hidden sm:block sm:mt-6 sm:mx-4 h-24 w-px bg-gray-300"></div>
             <div className="relative z-10 py-2 px-4 sm:px-2 text-white w-full sm:w-xl sm:mr-35">
-              <p className="text-sm text-center sm:text-left">
+              <p className="text-xs xs:text-sm text-center sm:text-left leading-relaxed">
                 GRAM Association is dedicated to empowering communities through
                 sustainable development, education, healthcare, and clean water
                 initiatives that create lasting change.
               </p>
-              <div className="flex justify-center sm:justify-start space-x-2 mt-5">
+              <div className="flex justify-center sm:justify-start space-x-2 mt-4 sm:mt-5">
                 <Link href="/contact-us">
-                  <Button className="bg-[#5A829A] text-white py-1 w-fit rounded-full hover:bg-cyan-700 ">
+                  <Button className="bg-[#5A829A] text-white py-1 px-4 w-fit rounded-full hover:bg-cyan-700 text-xs xs:text-sm">
                     GET IN TOUCH
                   </Button>
                 </Link>
@@ -53,7 +55,7 @@ export default function Home() {
         </div>
       </section>
       {/* About us */}
-      <section className="py-8 md:py-16 text-center mt-10 md:mt-40">
+      <section className="py-8 md:pt-16 text-center mt-10 md:mt-40">
         <p className="container mx-auto bg-[#DEE6EB] w-fit rounded-lg px-2 text-gray-700 flex items-center text-sm md:text-base">
           About Us
         </p>
@@ -76,7 +78,7 @@ export default function Home() {
       </section>
 
       {/* Our Impact */}
-      <section className="py-8 md:py-16 text-center mt-10 md:mt-5">
+      <section className="py-8 md:pb-16 text-center mt-10 md:mt-0">
         <p className="container mx-auto bg-[#DEE6EB] w-fit rounded-lg px-2 text-gray-700 flex items-center text-sm md:text-base">
           Our Impact
         </p>
@@ -120,26 +122,26 @@ export default function Home() {
 
       {/* Our Vission and Mission */}
       <section className="py-8 md:py-16 bg-[#BAD1CA] min-w-screen">
-        <div className="container mx-auto px-4">
-          <p className="text-center bg-[#DEE6EB] w-fit mx-auto rounded-lg px-2 py-1 text-xs md:text-sm text-gray-700 flex items-center">
+        <div className="container mx-auto px-4 sm:px-6">
+          <p className="text-center bg-[#DEE6EB] w-fit mx-auto rounded-lg px-2 py-1 text-xs sm:text-sm text-gray-700 flex items-center">
             Our Vision & Mission
           </p>
 
-          <h3 className="text-2xl md:text-4xl mt-4 text-center mb-6 md:mb-8 ">
+          <h3 className="text-xl sm:text-2xl md:text-4xl mt-4 text-center mb-6 md:mb-8">
             What Drives Us
           </h3>
 
           <div className="flex flex-col md:flex-row justify-center gap-4 md:gap-6">
-            <div className="w-full md:w-[600px] h-[274px] max-w-full rounded-lg bg-white p-4 md:p-6">
-              <h3 className="text-lg md:text-xl font-bold mb-3 md:mb-2">
+            <div className="w-full md:w-[600px] max-w-full rounded-lg bg-white p-4 sm:p-6">
+              <h3 className="text-base sm:text-lg md:text-xl font-bold mb-3 md:mb-2">
                 Our Vision
               </h3>
-              <p className="text-gray-600 text-sm md:text-xs leading-5">
+              <p className="text-gray-600 text-xs sm:text-xs leading-5">
                 GRAM Association envisions an inclusive, equitable, and
                 ecologically balanced society where self-reliant villages serve
                 as the foundation of national development. By empowering
                 self-governed, community-led institutions, we aim to foster
-                sustainable rural ecosystems. 
+                sustainable rural ecosystems.
                 <br />
                 <br />
                 Inspired by Mahatma Gandhi's belief that "the soul of India
@@ -154,11 +156,11 @@ export default function Home() {
                 Development Goals (SDGs)
               </p>
             </div>
-            <div className="w-full md:w-[600px] max-w-full rounded-lg bg-white p-4 md:p-6">
-              <h3 className="text-lg md:text-xl font-bold mb-3 md:mb-4">
+            <div className="w-full md:w-[600px] max-w-full rounded-lg bg-white p-4 sm:p-6">
+              <h3 className="text-base sm:text-lg md:text-xl font-bold mb-3 md:mb-4">
                 Our Mission
               </h3>
-              <p className="text-gray-600 text-sm md:text-sm ">
+              <p className="text-gray-600 text-xs sm:text-sm">
                 To strengthen community capacities for holistic and sustainable
                 development by purposefully converging indigenous wisdom, and
                 contemporary technological advancements. Our mission focuses on

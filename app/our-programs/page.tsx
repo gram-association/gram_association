@@ -1,8 +1,18 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
 import { programs } from "./data/programs";
+import Tabs from "./components/ProgramsTab";
 
 export default function Programs() {
+  const [activeFilter, setActiveFilter] = useState("All Programs");
+
+  const filteredPrograms =
+    activeFilter === "All Programs"
+      ? programs
+      : programs.filter((program) => program.category === activeFilter);
+
   return (
     <main className="flex min-h-screen bg-gradient-to-b from-[#f1ddaf] to-white bg-no-repeat bg-[length:100%_500px] flex-col items-center justify-between p-4 sm:p-8 lg:p-24">
       <div className="text-center py-8 sm:py-12">
@@ -18,21 +28,10 @@ export default function Programs() {
         </p>
       </div>
 
-      <div className="flex justify-center space-x-2 sm:space-x-4 mb-8 flex-wrap gap-2">
-        {["All Programs", "Water Conservation", "Livelihood", "Education"].map(
-          (filter) => (
-            <button
-              key={filter}
-              className="px-4 py-2 sm:px-6 sm:py-2 bg-gray-200 text-gray-700 text-sm sm:text-base rounded-full hover:bg-[#1D352E] hover:text-white transition whitespace-nowrap"
-            >
-              {filter}
-            </button>
-          )
-        )}
-      </div>
+      <Tabs activeFilter={activeFilter} setActiveFilter={setActiveFilter} />
 
       <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 px-4">
-        {programs.map((program) => (
+        {filteredPrograms.map((program) => (
           <div
             key={program.id}
             className="bg-white rounded-lg shadow-md overflow-hidden"
@@ -52,13 +51,12 @@ export default function Programs() {
               </div>
             </div>
             <div className="p-4">
-              <h3 className="text-lg font-semibold text-gray-800">
+              <h3 className="text-md font-semibold text-gray-800">
                 {program.title}
               </h3>
-              <p className={`text-gray-600 text-sm mt-2`}>
+              <p className="text-gray-600 text-sm mt-2">
                 {program.description}
               </p>
-
               <Link href={`/our-programs/${program.slug}`}>
                 <button className="mt-4 text-blue-600 font-semibold hover:underline">
                   LEARN MORE →

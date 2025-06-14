@@ -2,16 +2,20 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import ThemeToggle from "./theme-toggle";
 import Image from "next/image";
 import { Menu, X } from "lucide-react";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const pathname = usePathname();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
+
+  const isActive = (href: string) => pathname === href;
 
   return (
     <>
@@ -37,42 +41,54 @@ const Header = () => {
         <nav className="flex flex-col space-y-6 px-6 py-8">
           <Link
             href="/home"
-            className="text-gray-900 dark:text-white hover:text-gray-600 dark:hover:text-gray-300 text-base font-medium"
+            className={`text-gray-900 dark:text-white hover:text-gray-600 dark:hover:text-gray-300 text-base font-medium ${
+              isActive("/home") ? "font-bold" : ""
+            }`}
             onClick={toggleMenu}
           >
             Home
           </Link>
           <Link
             href="/about-us"
-            className="text-gray-900 dark:text-white hover:text-gray-600 dark:hover:text-gray-300 text-base font-medium"
+            className={`text-gray-900 dark:text-white hover:text-gray-600 dark:hover:text-gray-300 text-base font-medium ${
+              isActive("/about-us") ? "font-bold" : ""
+            }`}
             onClick={toggleMenu}
           >
             About Us
           </Link>
           <Link
             href="/our-programs"
-            className="text-gray-900 dark:text-white hover:text-gray-600 dark:hover:text-gray-300 text-base font-medium"
+            className={`text-gray-900 dark:text-white hover:text-gray-600 dark:hover:text-gray-300 text-base font-medium ${
+              isActive("/our-programs") ? "font-bold" : ""
+            }`}
             onClick={toggleMenu}
           >
             Our Programs
           </Link>
           <Link
             href="/water-ride"
-            className="text-gray-900 dark:text-white hover:text-gray-600 dark:hover:text-gray-300 text-base font-medium"
+            className={`text-gray-900 dark:text-white hover:text-gray-600 dark:hover:text-gray-300 text-base font-medium ${
+              isActive("/water-ride") ? "font-bold" : ""
+            }`}
             onClick={toggleMenu}
           >
             Water Ride
           </Link>
           <Link
             href="/media"
-            className="text-gray-900 dark:text-white hover:text-gray-600 dark:hover:text-gray-300 text-base font-medium"
+            className={`text-gray-900 dark:text-white hover:text-gray-600 dark:hover:text-gray-300 text-base font-medium ${
+              isActive("/media") ? "font-bold" : ""
+            }`}
             onClick={toggleMenu}
           >
             Media
           </Link>
           <Link
             href="/contact-us"
-            className="w-full py-2 bg-[#538C7B] dark:bg-[#4a7a6e] rounded-full text-white text-center text-base font-medium hover:bg-green-700 dark:hover:bg-green-800 transition-colors"
+            className={`w-full py-2 bg-[#538C7B] dark:bg-[#4a7a6e] rounded-full text-white text-center text-base font-medium hover:bg-green-700 dark:hover:bg-green-800 transition-colors ${
+              isActive("/contact-us") ? "font-bold" : ""
+            }`}
             onClick={toggleMenu}
           >
             CONTACT US
@@ -87,19 +103,25 @@ const Header = () => {
           <nav className="hidden lg:flex space-x-4 px-1">
             <Link
               href="/home"
-              className="text-gray-900 dark:text-white hover:text-gray-600 dark:hover:text-gray-300 text-sm"
+              className={`text-gray-900 dark:text-white hover:text-gray-600 dark:hover:text-gray-300 text-sm ${
+                isActive("/home") ? "font-bold" : ""
+              }`}
             >
               Home
             </Link>
             <Link
               href="/about-us"
-              className="text-gray-900 dark:text-white hover:text-gray-600 dark:hover:text-gray-300 text-sm w-16"
+              className={`text-gray-900 dark:text-white hover:text-gray-600 dark:hover:text-gray-300 text-sm w-16 ${
+                isActive("/about-us") ? "font-bold" : ""
+              }`}
             >
               About Us
             </Link>
             <Link
               href="/our-programs"
-              className="text-gray-900 dark:text-white hover:text-gray-600 dark:hover:text-gray-300 text-sm w-24"
+              className={`text-gray-900 dark:text-white hover:text-gray-600 dark:hover:text-gray-300 text-sm w-24 ${
+                isActive("/our-programs") ? "font-bold" : ""
+              }`}
             >
               Our Programs
             </Link>
@@ -119,19 +141,25 @@ const Header = () => {
           <nav className="hidden lg:flex space-x-6 items-center px-1">
             <Link
               href="/water-ride"
-              className="text-gray-900 dark:text-white hover:text-gray-600 dark:hover:text-gray-300 text-sm w-18"
+              className={`text-gray-900 dark:text-white hover:text-gray-600 dark:hover:text-gray-300 text-sm w-20 ${
+                isActive("/water-ride") ? "font-bold" : ""
+              }`}
             >
               Water Ride
             </Link>
             <Link
               href="/media"
-              className="text-gray-900 dark:text-white hover:text-gray-600 dark:hover:text-gray-300 text-sm"
+              className={`text-gray-900 dark:text-white hover:text-gray-600 dark:hover:text-gray-300 text-sm ${
+                isActive("/media") ? "font-bold" : ""
+              }`}
             >
               Media
             </Link>
             <Link
               href="/contact-us"
-              className="w-24 px-1 py-1 bg-[#538C7B] dark:bg-[#4a7a6e] rounded-full text-white text-sm hover:bg-green-700 dark:hover:bg-green-800 transition-colors text-center"
+              className={`w-24 px-1 py-1 bg-[#538C7B] dark:bg-[#4a7a6e] rounded-full text-white text-sm hover:bg-green-700 dark:hover:bg-green-800 transition-colors text-center ${
+                isActive("/contact-us") ? "font-bold" : ""
+              }`}
             >
               CONTACT US
             </Link>
