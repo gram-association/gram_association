@@ -5,24 +5,24 @@ import { notFound } from "next/navigation";
 import { programData } from "../data/programs";
 
 // Define TypeScript interface for program data
-interface Program {
-  id: string;
-  title: string;
-  description: string;
-  longDescription: string;
-  impact: {
-    schoolsBuilt: number;
-    studentsReached: string;
-    teachersTrained: number;
-    graduationRate: string;
-  };
-  partners: string[];
-  image: string;
-}
+// interface Program {
+//   id: string;
+//   title: string;
+//   description: string;
+//   longDescription: string;
+//   impact: {
+//     schoolsBuilt: number;
+//     studentsReached: string;
+//     teachersTrained: number;
+//     graduationRate: string;
+//   };
+//   partners: string[];
+//   image: string;
+// }
 
-interface ProgramPageProps {
-  params: { id: string };
-}
+// interface ProgramPageProps {
+//   params: { id: string };
+// }
 
 export default async function ProgramPage({
   params,

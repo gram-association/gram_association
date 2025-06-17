@@ -1,8 +1,8 @@
 import Link from "next/link";
 import Image from "next/image";
 import { whatsnew } from "../components/data/whatsNew";
-import { testimonials } from "../components/data/testimonial";
-import { div } from "framer-motion/client";
+// import { testimonials } from "../components/data/testimonial";
+// import { div } from "framer-motion/client";
 
 export default function WhatsNew() {
   return (

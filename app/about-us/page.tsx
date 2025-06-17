@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Advisor from "./components/Advisor";
-import OurPartners from "./components/OurPartners";
+// import OurPartners from "./components/OurPartners";
 import OurTeam from "./components/OurTeam";
 
 export default function AboutUs() {

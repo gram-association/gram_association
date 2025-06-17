@@ -1,16 +1,16 @@
 import { Button } from "@/components/ui/Button";
 import Image from "next/image";
 import Link from "next/link";
-import JourneyHighlights from "./journeyHighlights/page";
+// import JourneyHighlights from "./journeyHighlights/page";
 import Tabs from "./components/Tabs";
-import OurImpact from "./ourImpact/page";
-import { Epilogue } from "next/font/google";
+// import OurImpact from "./ourImpact/page";
+// import { Epilogue } from "next/font/google";
 
-const epilogue = Epilogue({
-  subsets: ["latin"],
-  weight: ["400", "600", "700"],
-  variable: "--font-epilogue",
-});
+// const epilogue = Epilogue({
+//   subsets: ["latin"],
+//   weight: ["400", "600", "700"],
+//   variable: "--font-epilogue",
+// });
 
 export default function WaterRide() {
   return (
