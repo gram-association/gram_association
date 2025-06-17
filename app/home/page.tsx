@@ -30,15 +30,15 @@ export default function Home() {
           {/* Content Section */}
           <div className="flex flex-col sm:flex-row sm:justify-evenly sm:absolute sm:inset-0 w-full sm:w-[1270px] mt-6 sm:mt-12 px-4 sm:px-0">
             <div
-              className={`${epilogue.variable} relative z-10 w-full sm:w-2xl sm:ml-18 py-2 text-white`}
+              className={`${epilogue.variable} relative z-10 w-full sm:w-4xl sm:ml-4 py-2 text-white`}
             >
-              <h1 className="text-xl xs:text-2xl sm:text-[44px] font-semibold font-epilogue text-center sm:text-left leading-tight sm:leading-snug">
+              <h1 className="text-xl xs:text-2xl sm:text-[54px] font-semibold font-epilogue text-center sm:text-left leading-tight sm:leading-snug">
                 Building self-reliant India through self-reliant villages
               </h1>
             </div>
             <div className="hidden sm:block sm:mt-6 sm:mx-4 h-24 w-px bg-gray-300"></div>
             <div className="relative z-10 py-2 px-4 sm:px-2 text-white w-full sm:w-xl sm:mr-35">
-              <p className="text-xs xs:text-sm text-center sm:text-left leading-relaxed">
+              <p className="text-xs sm:text-sm text-center sm:text-left leading-relaxed">
                 GRAM Association is dedicated to empowering communities through
                 sustainable development, education, healthcare, and clean water
                 initiatives that create lasting change.

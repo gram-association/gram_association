@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import Image from "next/image";
 
 const states = [
@@ -193,19 +193,9 @@ const states = [
 
 export default function OurImpact() {
   const containerRef = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start start", "end end"],
-  });
   const [isMobile, setIsMobile] = useState(false);
-  const [activeState, setActiveState] = useState<number | null>(null); // Explicitly type activeState
-
-  // Transform scroll progress into path progress for the bike (for desktop)
-  const pathProgress = useTransform(
-    scrollYProgress,
-    [0, 1],
-    [0, states.length - 1]
-  );
+  const [activeState, setActiveState] = useState<number>(0); // Default to Rajasthan (index 0)
+  const [previousState, setPreviousState] = useState<number | null>(null);
 
   // Handle window resize to detect mobile view
   useEffect(() => {
@@ -217,20 +207,13 @@ export default function OurImpact() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  // Scroll effect for desktop
-  useEffect(() => {
-    if (!isMobile) {
-      pathProgress.onChange((value) => {
-        const newStateIndex = Math.floor(value);
-        setActiveState(newStateIndex);
-      });
-    }
-  }, [pathProgress, isMobile]);
-
-  // Handle marker click for mobile
+  // Handle marker click
   const handleMarkerClick = (index: number) => {
-    if (isMobile) {
-      setActiveState(activeState === index ? null : index);
+    if (activeState !== index) {
+      setPreviousState(activeState);
+      setActiveState(index);
+    } else {
+      setActiveState(index); // Keep the dialogue open for the same state
     }
   };
 
@@ -241,6 +224,26 @@ export default function OurImpact() {
     "Tamil Nadu",
     "Andhra Pradesh",
   ];
+
+  // Generate path points for bike animation
+  const getPathPoints = (startIndex: number | null, endIndex: number) => {
+    if (startIndex === null) return [states[endIndex].position];
+
+    const path = [];
+    const start = Math.min(startIndex, endIndex);
+    const end = Math.max(startIndex, endIndex);
+
+    // Assume states array order reflects the path order
+    for (let i = start; i <= end; i++) {
+      path.push(states[i].position);
+    }
+
+    if (startIndex > endIndex) {
+      // Reverse path if moving backward
+      return path.reverse();
+    }
+    return path;
+  };
 
   return (
     <div ref={containerRef} className="h-full w-full">
@@ -253,8 +256,8 @@ export default function OurImpact() {
 
       {/* Map Section */}
       <div
-        className={`${
-          isMobile ? "relative h-[600px]" : "sticky top-0 h-screen"
+        className={`relative ${
+          isMobile ? "h-[600px]" : "h-screen"
         } flex items-center justify-center`}
       >
         <div
@@ -263,13 +266,14 @@ export default function OurImpact() {
           }`}
         >
           {/* Background Map Image */}
-          <div className="w-[400px] h-[550px] ">
+          <div className="w-[400px] h-[550px]">
             <Image
               src="/india map.png"
               alt="Map of India"
               fill
               style={{ objectFit: "contain" }}
               className="w-full h-full"
+              onError={() => console.error("Failed to load map image")}
             />
           </div>
 
@@ -281,22 +285,60 @@ export default function OurImpact() {
                 : "top-36 left-95 w-[380px] h-[430px]"
             }`}
           >
-            <Image src="/Vector 12.png" alt="Bike path" fill className="" />
+            <Image
+              src="/Vector 12.png"
+              alt="Bike path"
+              fill
+              className="z-10"
+              onError={() => console.error("Failed to load bike path image")}
+            />
           </div>
 
-          {/* Bike Animation (only for desktop) */}
-          {!isMobile && activeState !== null && (
+          {/* Bike Animation */}
+          {activeState !== null && (
             <motion.div
-              className="absolute"
-              style={{
-                top: states[activeState].position.top,
-                right: states[activeState].position.right,
+              className="absolute z-30"
+              animate={{
+                top: states[activeState].position[
+                  isMobile ? "mobileTop" : "top"
+                ],
+                right:
+                  states[activeState].position[
+                    isMobile ? "mobileRight" : "right"
+                  ],
                 translateX: "-50%",
                 translateY: "-50%",
               }}
-              transition={{ duration: 2 }}
+              transition={{
+                duration: 1.5,
+                ease: "easeInOut",
+                times:
+                  previousState !== null
+                    ? getPathPoints(previousState, activeState).map(
+                        (_, i) =>
+                          i /
+                          Math.max(
+                            1,
+                            getPathPoints(previousState, activeState).length - 1
+                          )
+                      )
+                    : [0, 1],
+                top: getPathPoints(previousState, activeState).map(
+                  (p) => p[isMobile ? "mobileTop" : "top"]
+                ),
+                right: getPathPoints(previousState, activeState).map(
+                  (p) => p[isMobile ? "mobileRight" : "right"]
+                ),
+              }}
             >
-              <Image src="/bike path.png" alt="Bike" width={40} height={40} />
+              <Image
+                src="/bike path.png"
+                alt="Bike"
+                width={40}
+                height={40}
+                className="z-30"
+                onError={() => console.error("Failed to load bike image")}
+              />
             </motion.div>
           )}
 
@@ -304,7 +346,7 @@ export default function OurImpact() {
           {states.map((state, index) => (
             <div
               key={state.name}
-              className="absolute cursor-pointer"
+              className="absolute cursor-pointer z-20"
               style={
                 isMobile
                   ? {
@@ -317,19 +359,22 @@ export default function OurImpact() {
             >
               {/* Marker */}
               <motion.div
-                className={isMobile ? "w-5 h-5" : "w-6 h-6"}
-                initial={{ scale: 0.5, opacity: 0.5 }}
+                className={`${isMobile ? "w-5 h-5" : "w-6 h-6"} relative z-20`}
+                initial={{ scale: 0.8, opacity: 0.7 }}
                 animate={{
-                  scale: activeState === index ? 1.2 : 0.5,
-                  opacity: activeState === index ? 1 : 0.5,
+                  scale: activeState === index ? 1.2 : 0.8,
+                  opacity: activeState === index ? 1 : 0.7,
                 }}
-                transition={{ duration: 0.3 }}
+                transition={{ duration: 0.3, ease: "easeInOut" }}
               >
                 <Image
                   src="/pin 3.png"
-                  alt="pin"
+                  alt={`Pin for ${state.name}`}
                   fill
-                  className="hover:scale-110"
+                  className="object-contain hover:scale-110 transition-transform z-20"
+                  onError={() =>
+                    console.error(`Failed to load pin image for ${state.name}`)
+                  }
                 />
               </motion.div>
 
@@ -350,9 +395,15 @@ export default function OurImpact() {
                       : isMobile
                       ? "top-5"
                       : "top-2"
-                  } ${index % 2 === 0 ? "left-6" : "right-6"} ${
+                  } ${
+                    state.name === "Andhra Pradesh"
+                      ? "left-6"
+                      : index % 2 === 0
+                      ? "left-6"
+                      : "right-6"
+                  } ${
                     isMobile ? "w-[220px] p-3" : "w-md p-4"
-                  } bg-white rounded-lg shadow-lg border border-gray-200 z-10`}
+                  } bg-white rounded-lg shadow-lg border border-gray-200 z-40`}
                 >
                   <h3
                     className={`${
