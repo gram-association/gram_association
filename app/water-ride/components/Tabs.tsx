@@ -2,7 +2,7 @@
 import { JSX, useState } from "react";
 import JourneyHighlights from "../journeyHighlights/page";
 import TheRideStory from "../theRideStory/page";
-import WhatsNew from "../whatsNew/page";
+// import WhatsNew from "../whatsNew/page";
 import UpcomingRide from "../upcomingRide/page";
 
 // Define the possible tab names as a union type

@@ -306,8 +306,8 @@ export default function OurImpact() {
                   states[activeState].position[
                     isMobile ? "mobileRight" : "right"
                   ],
-                translateX: "-50%",
-                translateY: "-50%",
+                // translateX: "-50%",
+                // translateY: "-50%",
               }}
               transition={{
                 duration: 1.5,
@@ -323,12 +323,12 @@ export default function OurImpact() {
                           )
                       )
                     : [0, 1],
-                top: getPathPoints(previousState, activeState).map(
-                  (p) => p[isMobile ? "mobileTop" : "top"]
-                ),
-                right: getPathPoints(previousState, activeState).map(
-                  (p) => p[isMobile ? "mobileRight" : "right"]
-                ),
+                // top: getPathPoints(previousState, activeState).map(
+                //   (p) => p[isMobile ? "mobileTop" : "top"]
+                // ),
+                // right: getPathPoints(previousState, activeState).map(
+                //   (p) => p[isMobile ? "mobileRight" : "right"]
+                // ),
               }}
             >
               <Image
