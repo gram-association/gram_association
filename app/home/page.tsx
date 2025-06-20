@@ -30,9 +30,9 @@ export default function Home() {
           {/* Content Section */}
           <div className="flex flex-col sm:flex-row sm:justify-evenly sm:absolute sm:inset-0 w-full sm:w-[1270px] mt-6 sm:mt-12 px-4 sm:px-0">
             <div
-              className={`${epilogue.variable} relative z-10 w-full sm:w-4xl sm:ml-4 py-2 text-white`}
+              className={`${epilogue.variable} relative z-10 w-full sm:w-4xl sm:ml-4  text-white`}
             >
-              <h1 className="text-xl xs:text-2xl sm:text-[54px] font-semibold font-epilogue text-center sm:text-left leading-tight sm:leading-snug">
+              <h1 className="text-xl xs:text-2xl sm:text-[52px] font-semibold font-epilogue text-center sm:text-left leading-tight sm:leading-snug">
                 Building self-reliant India through self-reliant villages
               </h1>
             </div>
@@ -59,10 +59,10 @@ export default function Home() {
         <p className="container mx-auto bg-[#DEE6EB] w-fit rounded-lg px-2 text-gray-700 flex items-center text-sm md:text-base">
           About Us
         </p>
-        <h2 className="text-2xl md:text-4xl mt-4 text-center mb-6">
+        <h2 className="text-2xl md:text-5xl mt-4 font-epilogue text-center mb-6">
           Indigenous wisdom meets Innovation
         </h2>
-        <p className="max-w-3xl mx-auto  text-xs md:text-sm text-center text-gray-600 px-4 md:px-0">
+        <p className="max-w-5xl mx-auto text-xs md:text-[16px] text-center text-gray-600 px-4 md:px-0">
           GRAM Association is committed to building an inclusive, equitable, and
           sustainable future. We bridge the gap between age-old wisdom and
           modern technology to uplift low resource communities, promote
@@ -71,7 +71,7 @@ export default function Home() {
           development.
         </p>
         <Link href="/about-us">
-          <Button className=" mx-auto bg-[#5A829A] text-white py-1 w-fit mt-5 rounded-full hover:bg-gray-200 hover:text-gray-700 flex items-center text-xs md:text-base px-4 md:px-6">
+          <Button className="mx-auto bg-[#5A829A] text-white py-1 w-fit mt-5 rounded-full hover:bg-gray-200 hover:text-gray-700 flex items-center text-xs md:text-base px-4 md:px-6">
             LEARN MORE
           </Button>
         </Link>
@@ -82,7 +82,7 @@ export default function Home() {
         <p className="container mx-auto bg-[#DEE6EB] w-fit rounded-lg px-2 text-gray-700 flex items-center text-sm md:text-base">
           Our Impact
         </p>
-        <h2 className="text-2xl md:text-4xl mt-4 text-center mb-6">
+        <h2 className="text-2xl md:text-5xl mt-4 font-epilogue  text-center mb-6">
           Driving Meaningful Change
         </h2>
 
@@ -120,20 +120,20 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Our Vission and Mission */}
+      {/* Our Vision and Mission */}
       <section className="py-8 md:py-16 bg-[#BAD1CA] min-w-screen">
         <div className="container mx-auto px-4 sm:px-6">
           <p className="text-center bg-[#DEE6EB] w-fit mx-auto rounded-lg px-2 py-1 text-xs sm:text-sm text-gray-700 flex items-center">
             Our Vision & Mission
           </p>
 
-          <h3 className="text-xl sm:text-2xl md:text-4xl mt-4 text-center mb-6 md:mb-8">
+          <h3 className="text-xl sm:text-2xl md:text-5xl mt-4 font-epilogue  text-center mb-6 md:mb-8">
             What Drives Us
           </h3>
 
           <div className="flex flex-col md:flex-row justify-center gap-4 md:gap-6">
             <div className="w-full md:w-[600px] max-w-full rounded-lg bg-white p-4 sm:p-6">
-              <h3 className="text-base sm:text-lg md:text-xl font-bold mb-3 md:mb-2">
+              <h3 className="text-base sm:text-lg md:text-xl  font-epilogue mb-3 md:mb-2">
                 Our Vision
               </h3>
               <p className="text-gray-600 text-xs sm:text-xs leading-5">
@@ -157,7 +157,7 @@ export default function Home() {
               </p>
             </div>
             <div className="w-full md:w-[600px] max-w-full rounded-lg bg-white p-4 sm:p-6">
-              <h3 className="text-base sm:text-lg md:text-xl font-bold mb-3 md:mb-4">
+              <h3 className="text-base sm:text-lg md:text-xl  font-epilogue mb-3 md:mb-4">
                 Our Mission
               </h3>
               <p className="text-gray-600 text-xs sm:text-sm">
@@ -174,13 +174,13 @@ export default function Home() {
         </div>
       </section>
 
-      {/* our focus areas */}
+      {/* Our Focus Areas */}
       <section className="min-h-screen py-8 md:py-16 text-center">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <p className="inline-block bg-[#DEE6EB] rounded-lg px-2 py-1 text-sm text-gray-700 mb-4 md:mb-6">
             Our Focus Areas
           </p>
-          <h2 className="text-2xl md:text-3xl font-bold text-start mb-6 md:mb-8">
+          <h2 className="text-2xl md:text-3xl  font-epilogue text-start mb-6 md:mb-8">
             THE 5 Es
           </h2>
         </div>
@@ -297,7 +297,7 @@ export default function Home() {
         <p className="container mx-auto bg-gray-100 w-fit rounded-lg px-4 py-2 text-gray-700 flex items-center text-sm sm:text-base">
           Get Involved
         </p>
-        <h2 className="text-3xl sm:text-4xl md:text-5xl mt-4 text-center mb-6 px-4">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl mt-4 font-epilogue  text-center mb-6 px-4">
           Join Us in Making a Difference
         </h2>
         <div className="flex flex-col sm:flex-row justify-center space-y-6 sm:space-y-0 sm:space-x-4 lg:space-x-8 px-4 max-w-7xl mx-auto">
@@ -310,7 +310,7 @@ export default function Home() {
               className="w-12 h-12 mx-auto"
             />
             <p className="font-bold my-2 text-lg">DONATE</p>
-            <p className="text-sm  text-gray-500 leading-relaxed">
+            <p className="text-sm text-gray-500 leading-relaxed">
               Your generous contribution helps us continue our work and expand
               our reach to more communities.
             </p>
@@ -330,7 +330,7 @@ export default function Home() {
               className="w-12 h-12 mx-auto"
             />
             <p className="font-bold my-2 text-lg">VOLUNTEER</p>
-            <p className="text-sm  text-gray-500 leading-relaxed">
+            <p className="text-sm text-gray-500 leading-relaxed">
               Contribute your time, skills, and energy to support our programs
               and make a direct impact.
             </p>
