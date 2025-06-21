@@ -2,27 +2,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
-import { programData } from "../data/programs";
-
-// Define TypeScript interface for program data
-// interface Program {
-//   id: string;
-//   title: string;
-//   description: string;
-//   longDescription: string;
-//   impact: {
-//     schoolsBuilt: number;
-//     studentsReached: string;
-//     teachersTrained: number;
-//     graduationRate: string;
-//   };
-//   partners: string[];
-//   image: string;
-// }
-
-// interface ProgramPageProps {
-//   params: { id: string };
-// }
+import { programData } from "../data/programsData";
 
 export default async function ProgramPage({
   params,
@@ -70,28 +50,26 @@ export default async function ProgramPage({
         {/* Content Section */}
         <div className="max-w-7xl p-6 mt-[200px] text-start">
           {/* Description */}
-          <h3 className="text-xl font-bold mb-2">
-            Transforming Lives Through Sustainable Water Solutions in Rasabeda
-          </h3>
+          <h3 className="text-xl font-bold mb-2">{program.header}</h3>
           <p className="text-gray-700 mb-6">{program.description}</p>
 
           {/* Key Interventions */}
-          <h3 className="text-xl font-bold mb-4">Key Interventions</h3>
+          <h3 className="text-xl font-bold mb-4">{program.header1}</h3>
           <ul className="list-disc list-inside mb-6">
             {program.interventions.map((item, index) => (
               <li key={index} className="mb-2">
-                <span className="font-semibold">{item.title}:</span>{" "}
+                <span className="font-semibold">{item.title}</span>{" "}
                 {item.content}
               </li>
             ))}
           </ul>
 
           {/* Lasting Impact */}
-          <h3 className="text-xl font-bold mb-4">Lasting Impact</h3>
+          <h3 className="text-xl font-bold mb-4">{program.header2}</h3>
           <ul className="list-disc list-inside">
             {program.impacts.map((item, index) => (
               <li key={index} className="mb-2">
-                <span className="font-semibold">{item.title}:</span>{" "}
+                <span className="font-semibold">{item.title}</span>{" "}
                 {item.content}
               </li>
             ))}
