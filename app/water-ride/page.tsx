@@ -15,7 +15,7 @@ import Tabs from "./components/Tabs";
 export default function WaterRide() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between py-10 sm:py-20 bg-[linear-gradient(to_bottom,_#5A829A_400px,_white_400px)]">
-      <section className="relative w-full max-w-7xl mx-auto">
+      <section className="relative w-full max-w-7xl mx-auto mt-6 sm:mt-0">
         <div className="h-64 sm:h-72 md:h-[500px] w-full sm:min-w-screen">
           <div className="absolute inset-0">
             <Image
@@ -23,12 +23,12 @@ export default function WaterRide() {
               alt="community"
               width={1152}
               height={700}
-              className="object-cover w-6xl rounded-xl mx-auto mt-20 sm:mt-60"
+              className="object-cover w-6xl rounded-xl mx-auto mt-18 sm:mt-60"
             />
           </div>
           <div className="flex flex-col md:flex-row justify-center md:justify-start items-center md:items-start">
-            <div className="`${epilogue.variable}` relative z-10 w-full md:w-auto max-w-md sm:ml-20 py-6 sm:py-10 px-2 text-white text-center md:text-left">
-              <h1 className="text-xl sm:text-2xl md:text-6xl font-epilogue font-bold mt-6 sm:mt-10">
+            <div className="`${epilogue.variable}` relative z-10 mt-3 sm:mt-10 w-full md:w-auto max-w-md sm:ml-20 py-6 sm:py-10 px-2 text-white text-center md:text-left">
+              <h1 className="text-xl sm:text-2xl md:text-6xl font-epilogue font-bold ">
                 The Water Ride Initiative
               </h1>
             </div>

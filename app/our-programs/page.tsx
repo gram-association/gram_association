@@ -19,10 +19,10 @@ export default function Programs() {
         <p className="container w-fit mx-auto bg-[#DEE6EB] rounded-lg px-2 py-1 text-xs sm:text-sm text-gray-700 flex items-center mb-4">
           Our Programs
         </p>
-        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800 px-4">
-          MAKING A LASTING IMPACT
+        <h1 className="text-2xl sm:text-3xl md:text-5xl  text-gray-800 px-4">
+          Making a Lasting Impact
         </h1>
-        <p className="text-gray-600 mt-4 text-xs sm:text-sm md:text-base w-full sm:w-[70%] mx-auto px-4">
+        <p className="text-gray-600 mt-4 text-xs sm:text-sm md:text-base w-full sm:w-[75%] mx-auto px-4">
           Explore our diverse range of programs designed to create sustainable
           change and improve lives in communities around the world.
         </p>
@@ -45,20 +45,18 @@ export default function Programs() {
                 className="w-full h-full object-cover"
               />
               <div className="absolute bottom-4 left-4">
-                <span className="bg-white/80 text-gray-700 text-sm font-semibold rounded-full px-3 py-1 border-0">
+                <span className="bg-white/80 text-gray-700 text-sm  rounded-full px-3 py-1 border-0">
                   {program.category}
                 </span>
               </div>
             </div>
             <div className="p-4">
-              <h3 className="text-md font-semibold text-gray-800">
-                {program.title}
-              </h3>
+              <h3 className="text-md  text-gray-800">{program.title}</h3>
               <p className="text-gray-600 text-sm mt-2">
                 {program.description}
               </p>
               <Link href={`/our-programs/${program.slug}`}>
-                <button className="mt-4 text-blue-600 font-semibold hover:underline">
+                <button className="mt-4 text-blue-600 hover:underline">
                   LEARN MORE →
                 </button>
               </Link>

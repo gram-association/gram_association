@@ -8,9 +8,7 @@ export default function Media() {
         <p className="container mx-auto text-center bg-gray-100 w-fit rounded-lg px-1 text-sm  text-gray-700 flex items-center mb-4">
           Media
         </p>
-        <h1 className="text-4xl md:text-5xl font-bold text-center ">
-          Media Highlights
-        </h1>
+        <h1 className="text-4xl md:text-5xl  text-center ">Media Highlights</h1>
       </div>
 
       <div className="container mx-auto py-8 px-4">

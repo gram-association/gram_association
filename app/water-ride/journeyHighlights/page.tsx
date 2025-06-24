@@ -22,7 +22,7 @@ export default function JourneyHighlights() {
               height={50}
               className="w-12 h-12 mx-auto"
             />
-            <p className="font-bold my-2 text-lg">8,000 Kilometers</p>
+            <p className=" my-2 text-lg">8,000 Kilometers</p>
             <p className="text-sm  text-gray-500 leading-relaxed">
               An epic motorcycle expedition across the Western and Eastern Ghats
               of India
@@ -36,7 +36,7 @@ export default function JourneyHighlights() {
               height={50}
               className="w-12 h-12 mx-auto"
             />
-            <p className="font-bold my-2 text-lg">13 States</p>
+            <p className=" my-2 text-lg">13 States</p>
             <p className="text-sm  text-gray-500 leading-relaxed">
               Connecting communities across diverse geographical and cultural
               landscapes
@@ -50,7 +50,7 @@ export default function JourneyHighlights() {
               height={50}
               className="w-12 h-12 mx-auto"
             />
-            <p className="font-bold my-2 text-lg">60 Supporters</p>
+            <p className=" my-2 text-lg">60 Supporters</p>
             <p className="text-sm text-gray-500 leading-relaxed">
               Engaging with local residents, NGOs, and traditional knowledge
               keepers
@@ -64,7 +64,7 @@ export default function JourneyHighlights() {
               height={50}
               className="w-12 h-12 mx-auto"
             />
-            <p className="font-bold my-2 text-lg">Outreach</p>
+            <p className=" my-2 text-lg">Outreach</p>
             <p className="text-sm text-gray-500 leading-relaxed">
               Workshops and demonstrations at schools and community centres
             </p>

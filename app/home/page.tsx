@@ -5,12 +5,6 @@ import Link from "next/link";
 import OurPrograms from "./components/OurPrograms";
 import Image from "next/image";
 
-const epilogue = Epilogue({
-  subsets: ["latin"],
-  weight: ["400", "600", "700"],
-  variable: "--font-epilogue",
-});
-
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between py-24 bg-[linear-gradient(to_bottom,_#1D352E_600px,_white_600px)]">
@@ -28,11 +22,9 @@ export default function Home() {
             />
           </div>
           {/* Content Section */}
-          <div className="flex flex-col sm:flex-row sm:justify-evenly sm:absolute sm:inset-0 w-full sm:w-[1270px] mt-6 sm:mt-12 px-4 sm:px-0">
-            <div
-              className={`${epilogue.variable} relative z-10 w-full sm:w-4xl sm:ml-4  text-white`}
-            >
-              <h1 className="text-xl xs:text-2xl sm:text-[52px] font-semibold font-epilogue text-center sm:text-left leading-tight sm:leading-snug">
+          <div className="flex flex-col sm:flex-row sm:justify-evenly sm:absolute sm:inset-0 w-full sm:w-[1277px] mt-6 sm:mt-12 px-4 sm:px-0">
+            <div className=" relative z-10 w-full sm:w-4xl   text-white">
+              <h1 className="text-xl xs:text-2xl sm:text-[48px] font-semibold text-center sm:text-left leading-tight sm:leading-snug">
                 Building self-reliant India through self-reliant villages
               </h1>
             </div>
@@ -59,7 +51,7 @@ export default function Home() {
         <p className="container mx-auto bg-[#DEE6EB] w-fit rounded-lg px-2 text-gray-700 flex items-center text-sm md:text-base">
           About Us
         </p>
-        <h2 className="text-2xl md:text-5xl mt-4 font-epilogue text-center mb-6">
+        <h2 className="text-2xl md:text-5xl mt-4 text-center mb-6">
           Indigenous wisdom meets Innovation
         </h2>
         <p className="max-w-5xl mx-auto text-xs md:text-[16px] text-center text-gray-600 px-4 md:px-0">
@@ -109,7 +101,9 @@ export default function Home() {
 
           <div className="w-1/2 md:w-auto text-center">
             <p className="text-2xl md:text-4xl font-bold text-[#5A829A]">3</p>
-            <p className="text-xs md:text-base">Water bodies rejuvenated</p>
+            <p className="text-xs md:text-base">
+              Water bodies <br /> rejuvenated
+            </p>
           </div>
           <div className="hidden md:block h-12 w-px bg-gray-300"></div>
 
@@ -136,7 +130,7 @@ export default function Home() {
               <h3 className="text-base sm:text-lg md:text-xl  font-epilogue mb-3 md:mb-2">
                 Our Vision
               </h3>
-              <p className="text-gray-600 text-xs sm:text-xs leading-5">
+              <p className="text-gray-600 text-xs sm:text-sm leading-5">
                 GRAM Association envisions an inclusive, equitable, and
                 ecologically balanced society where self-reliant villages serve
                 as the foundation of national development. By empowering

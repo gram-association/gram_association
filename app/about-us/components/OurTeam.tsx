@@ -16,7 +16,7 @@ export default function OurTeam() {
   return (
     <div className="flex items-center justify-center p-4 sm:p-8">
       <div className="max-w-6xl w-full">
-        <p className="inline-block bg-[#DEE6EB] w-fit rounded-full text-md sm:text-sm font-bold text-gray-700 px-3 py-1 mb-4">
+        <p className="inline-block bg-[#DEE6EB] w-fit rounded-full text-md sm:text-sm  text-gray-700 px-3 py-1 mb-4">
           Our Team
         </p>
         <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-gray-800 mb-6 sm:mb-8">
@@ -42,7 +42,7 @@ export default function OurTeam() {
                 </div>
                 <div className="absolute bottom-4 left-4 right-4 rounded bg-gray-100/50 flex justify-between items-center px-3 py-2">
                   <div>
-                    <h3 className="text-sm sm:text-lg font-semibold text-gray-800">
+                    <h3 className="text-sm sm:text-lg  text-gray-800">
                       {member.name}
                     </h3>
                     <p className="text-xs text-gray-600">{member.role}</p>
@@ -70,7 +70,7 @@ export default function OurTeam() {
                   “Listen to the people on the ground; they have all the
                   solutions if you have the patience to hear.“
                 </p>
-                <p className="text-md sm:text-sm font-semibold text-gray-800">
+                <p className="text-md sm:text-sm  text-gray-800">
                   — Sanjay Buti Roy
                 </p>
               </div>
@@ -94,7 +94,7 @@ export default function OurTeam() {
                   </div>
                   <div className="absolute bottom-4 left-4 right-4 rounded bg-gray-100/50 flex justify-between items-center px-3 py-2">
                     <div>
-                      <h3 className="text-sm sm:text-lg font-semibold text-gray-800">
+                      <h3 className="text-sm sm:text-lg  text-gray-800">
                         {member.name}
                       </h3>
                       <p className="text-xs text-gray-600">{member.role}</p>

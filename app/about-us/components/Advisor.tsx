@@ -28,11 +28,11 @@ export default function Advisor() {
           MEET THE SUPPORT OF GRAM
         </h1>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 max-w-6xl w-full">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 max-w-6xl w-full mx-auto sm:mx-0  ">
           {teamMembers.slice(0, 4).map((member, index) => (
             <div
               key={index}
-              className="relative bg-gray-100 rounded-lg overflow-hidden w-sm sm:w-auto aspect-square sm:aspect-auto"
+              className="relative bg-gray-100 rounded-lg overflow-hidden  aspect-square sm:aspect-auto"
             >
               <div className="relative w-full h-full sm:h-48">
                 <Image
@@ -45,7 +45,7 @@ export default function Advisor() {
               </div>
               <div className="px-2 absolute bottom-4 rounded bg-gray-100/50 w-[90%] sm:w-56 ml-2 sm:ml-5 flex justify-between items-center">
                 <div>
-                  <h3 className="text-base sm:text-lg font-semibold text-gray-800">
+                  <h3 className="text-base sm:text-lg  text-gray-800">
                     {member.name}
                   </h3>
                   <p className="text-xs sm:text-sm text-gray-600">
@@ -60,11 +60,11 @@ export default function Advisor() {
           ))}
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 max-w-6xl w-full mt-4 sm:mt-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 max-w-6xl w-full mt-4 sm:mt-6 mx-auto sm:mx-0">
           {teamMembers.slice(4).map((member, index) => (
             <div
               key={index}
-              className="relative bg-gray-100 rounded-lg overflow-hidden w-sm sm:w-auto aspect-square sm:aspect-auto"
+              className="relative bg-gray-100 rounded-lg overflow-hidden  aspect-square sm:aspect-auto"
             >
               <div className="relative w-full h-full sm:h-48">
                 <Image
@@ -77,7 +77,7 @@ export default function Advisor() {
               </div>
               <div className="px-2 mb-6 absolute bottom-4 rounded bg-gray-100/50 w-[90%] sm:w-56 ml-2 sm:ml-5 flex justify-between items-center">
                 <div>
-                  <h3 className="text-base sm:text-lg font-semibold text-gray-800">
+                  <h3 className="text-base sm:text-lg  text-gray-800">
                     {member.name}
                   </h3>
                   <p className="text-xs sm:text-sm text-gray-600">

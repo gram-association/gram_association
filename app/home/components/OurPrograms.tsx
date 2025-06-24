@@ -1,3 +1,4 @@
+import { Epilogue } from "next/font/google";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -15,33 +16,36 @@ export default function OurPrograms() {
             </h1>
           </div>
 
-          <div className="w-full min-w-screen flex flex-col  px-4">
+          <div className=" min-w-screen flex flex-col  ">
             <div className="flex flex-col md:flex-row ">
-              <div className="flex-1 bg-pink-100 p-6 ">
-                <h2 className="text-xl sm:text-lg font-semibold text-gray-800 mb-2">
-                  Rasabeda Spring Water Management Project (2019): Ending Water
-                  Crisis in Rasabeda Village, Jharkhand
-                </h2>
-                <p className="text-gray-600 mb-4 text-base sm:text-sm">
-                  In the remote village of Rasabeda, nestled in the challenging
-                  terrain of the Chota Nagpur plateau, access to clean water was
-                  once a daily struggle. To address this, GRAM Association
-                  developed their first crowdfunded project in collaboration
-                  with DEEKSHA NGO and IIM Ranchi under the Unnat Bharat
-                  Abhiyan, launched a holistic water management initiative that
-                  has since transformed the community’s relationship with water.
-                </p>
-                <Link href="/ProgramA">
-                  <button className="bg-teal-600 text-white px-4 py-2 rounded-full hover:bg-teal-700 transition">
-                    Read More
-                  </button>
-                </Link>
+              <div className="flex-1 bg-[#EBDDDB] p-6 ">
+                <div className=" ml-0 sm:ml-20">
+                  <h2 className="text-xl sm:text-2xl font-epilogue  text-gray-800 mb-2">
+                    Rasabeda Spring Water Management Project (2019): Ending
+                    Water Crisis in Rasabeda Village, Jharkhand
+                  </h2>
+                  <p className="text-gray-600 mb-4 text-base sm:text-base">
+                    In the remote village of Rasabeda, nestled in the
+                    challenging terrain of the Chota Nagpur plateau, access to
+                    clean water was once a daily struggle. To address this, GRAM
+                    Association developed their first crowdfunded project in
+                    collaboration with DEEKSHA NGO and IIM Ranchi under the
+                    Unnat Bharat Abhiyan, launched a holistic water management
+                    initiative that has since transformed the community’s
+                    relationship with water.
+                  </p>
+                  <Link href="">
+                    <button className="bg-teal-600 text-white px-4 py-2 rounded-full hover:bg-teal-700 transition">
+                      Read More
+                    </button>
+                  </Link>
+                </div>
               </div>
 
-              <div className="flex-1 bg-gray-300 h-full w-full   ">
+              <div className="flex-1 bg-gray-300 h-96 w-full   ">
                 <Image
                   src="/program A.png"
-                  alt=""
+                  alt="programs"
                   width={400}
                   height={600}
                   className="w-full h-full "
@@ -50,29 +54,32 @@ export default function OurPrograms() {
             </div>
 
             <div className="flex flex-col md:flex-row ">
-              <div className="flex-1 bg-teal-100 p-6 ">
-                <h2 className="text-xl sm:text-lg font-semibold text-gray-800 mb-2">
-                  Restoring Hope Through Water: Pond Rejuvenation in
-                  Kherwatikra, Jharkhand
-                </h2>
-                <p className="text-gray-600 mb-4 text-base sm:text-sm">
-                  In 2020, amid the challenges of the COVID-19 pandemic, GRAM
-                  Association, in partnership with Barefoot College, Tilonia,
-                  brought new life to Kherwatikra, a small tribal hamlet in the
-                  Ranchi district of Jharkhand. Despite abundant rainfall, the
-                  village of 38 Munda tribal families struggled with chronic
-                  water scarcity. The reason? Rapid water runoff and a lack of
-                  infrastructure to capture and retain rainwater. At the heart
-                  of the intervention was the revival of the village’s
-                  decades-old pond, Gudibandh Talab, which had fallen into
-                  disrepair over the years — filled with silt, unable to hold
-                  water, and contributing to falling groundwater levels.
-                </p>
-                <Link href="">
-                  <button className="bg-teal-600 text-white px-4 py-2 rounded-full hover:bg-teal-700 transition">
-                    Read More
-                  </button>
-                </Link>
+              <div className="flex-1 bg-[#DDE8E5] p-6 ">
+                <div className="ml-0 sm:ml-20">
+                  <h2 className="text-xl sm:text-2xl font-epilogue  text-gray-800 mb-2">
+                    Restoring Hope Through Water: Pond Rejuvenation in
+                    Kherwatikra, Jharkhand
+                  </h2>
+                  <p className="text-gray-600 mb-4 text-base sm:text-base">
+                    In 2020, amid the challenges of the COVID-19 pandemic, GRAM
+                    Association, in partnership with Barefoot College, Tilonia,
+                    brought new life to Kherwatikra, a small tribal hamlet in
+                    the Ranchi district of Jharkhand. Despite abundant rainfall,
+                    the village of 38 Munda tribal families struggled with
+                    chronic water scarcity. The reason? Rapid water runoff and a
+                    lack of infrastructure to capture and retain rainwater. At
+                    the heart of the intervention was the revival of the
+                    village’s decades-old pond, Gudibandh Talab, which had
+                    fallen into disrepair over the years — filled with silt,
+                    unable to hold water, and contributing to falling
+                    groundwater levels.
+                  </p>
+                  <Link href="">
+                    <button className="bg-teal-600 text-white px-4 py-2 rounded-full hover:bg-teal-700 transition">
+                      Read More
+                    </button>
+                  </Link>
+                </div>
               </div>
               <div className="flex-1 bg-gray-300 h-full ">
                 <Image
@@ -80,7 +87,7 @@ export default function OurPrograms() {
                   alt=""
                   width={400}
                   height={800}
-                  className="w-full h-[350px] object-cover"
+                  className="w-full h-[380px] object-cover"
                 />
               </div>
             </div>

@@ -5,23 +5,23 @@ import { FaFacebookF, FaInstagram, FaLinkedin } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <footer className="bg-[#7D463C] text-white px-4 py-8 sm:px-8 lg:px-16 flex flex-col gap-8 md:flex-row md:justify-between md:items-start text-sm">
+    <footer className="bg-[#7D463C] text-white px-4 py-8 sm:px-8 lg:px-16 flex flex-col gap-8 sm:gap-28 md:flex-row md:justify-between md:items-start text-sm">
       <div className="w-full md:w-2/5 lg:w-1/3 flex flex-col items-center md:items-start">
         <Image
-          src="/image.png"
+          src="/GRAM logotype full.jpg"
           alt="GRAM Association Logo"
-          width={200}
-          height={150}
-          className="w-48 h-auto md:w-64 lg:w-80"
+          width={500}
+          height={200}
+          className="w-68 h-auto  lg:w-96"
         />
-        <div className="mt-4 text-center w-88 md:text-left">
+        <div className="mt-4 text-center w-72 sm:w-[470px] md:text-left">
           <p className="text-sm  sm:text-xs">
             © 2024 Groundwater & Reforestation Adaptive Management Association,
             All rights reserved.
           </p>
         </div>
       </div>
-      <div className="flex flex-col-2 sm:flex-row sm:justify-between gap-8 sm:gap-12 md:gap-20 w-full md:w-3/5 lg:w-2/3">
+      <div className="flex flex-col-2 sm:flex-row sm:justify-between gap-8  md:gap-24 w-full md:w-3/5 lg:w-2/3">
         <div className="flex-1">
           <p className="text-lg sm:text-xl font-medium mb-4 text-left sm:text-left">
             Quick Links
