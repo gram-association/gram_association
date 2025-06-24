@@ -67,8 +67,8 @@ export default function Programs() {
         ))}
       </div>
 
-      <div className="bg-[#BAD1CA] w-screen mt-20 py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="bg-[#BAD1CA]  min-w-screen mt-20 py-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-0 lg:px-0">
           <p className="mx-auto text-center bg-gray-100 w-fit rounded-lg px-1 text-xs sm:text-sm text-gray-700 container items-center mb-6">
             Get Involved
           </p>
