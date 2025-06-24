@@ -129,9 +129,9 @@ const Header = () => {
           {/* Logo (Left on mobile, Center on desktop) */}
           <div className="flex items-center lg:w-36 lg:justify-center">
             <Image
-              src="/Logo.png"
+              src="/GRAM logotype.png"
               alt="GRAM Association Logo"
-              width={120}
+              width={145}
               height={40}
               className="lg:mx-1"
             />

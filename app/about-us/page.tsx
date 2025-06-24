@@ -12,10 +12,10 @@ export default function AboutUs() {
           <span className="inline-block bg-[#DEE6EB] rounded-full px-3 py-1 text-xs sm:text-sm font-medium text-gray-700 mb-4">
             About Us
           </span>
-          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-gray-800 mb-4">
+          <h1 className="font-epilogue text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-gray-800 mb-4">
             Our Story
           </h1>
-          <p className="text-sm sm:text-base md:text-sm text-gray-600 max-w-5xl mx-auto text-justify leading-relaxed">
+          <p className="font-sourceSans3 text-sm sm:text-base md:text-sm text-gray-600 max-w-5xl mx-auto text-justify leading-relaxed">
             GRAM (Groundwater & Reforestation Adaptive Management) Association
             began with a simple but powerful idea: that real change starts from
             within the community. It was founded by Shashank Singh, whose life
@@ -65,7 +65,7 @@ export default function AboutUs() {
             </div>
           </div>
           <div className="w-full lg:w-1/2 order-1 lg:order-2">
-            <p className="text-base sm:text-sm text-gray-600 text-justify leading-relaxed">
+            <p className="font-sourceSans3 text-base sm:text-sm text-gray-600 text-justify leading-relaxed">
               The experience left a deep imprint on him when one particular
               request echoed in his mind: “Agar kuch karna hi hai, to paani ke
               liye karo” (If you really want to help, do something about our

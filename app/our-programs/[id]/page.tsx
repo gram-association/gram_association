@@ -1,4 +1,3 @@
-// app/program/[id]/page.tsx
 import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
@@ -19,9 +18,9 @@ export default async function ProgramPage({
   return (
     <div>
       <main className="flex min-h-screen flex-col items-center justify-between p-4 sm:p-8 md:p-24 bg-[linear-gradient(to_bottom,_#1D352E_600px,_white_600px)]">
-        <section className="relative w-full">
+        <section className="relative w-full mt-10">
           <div className="h-[500px] w-full">
-            <div className="absolute inset-0">
+            <div className="absolute inset-0 mt-12 sm:mt-0">
               <Image
                 src={program.image}
                 alt={program.title}
@@ -39,7 +38,7 @@ export default async function ProgramPage({
                   </span>{" "}
                   / {program.title}
                 </p>
-                <h1 className="text-4xl sm:text-5xl font-medium mt-2">
+                <h1 className="text-3xl sm:text-5xl h-auto font-medium mt-2">
                   {program.title}
                 </h1>
               </div>
@@ -49,31 +48,63 @@ export default async function ProgramPage({
 
         {/* Content Section */}
         <div className="max-w-7xl p-6 mt-[200px] text-start">
-          {/* Description */}
-          <h3 className="text-xl font-bold mb-2">{program.header}</h3>
-          <p className="text-gray-700 mb-6">{program.description}</p>
+          <h3 className="text-xl  mb-2">{program.header}</h3>
+          <div className="text-gray-700 text-[16px] mb-6">
+            {Array.isArray(program.description)
+              ? program.description.map((paragraph, index) => (
+                  <p key={index} className="mb-4">
+                    {paragraph}
+                  </p>
+                ))
+              : program.description.split("\n").map((paragraph, index) => (
+                  <p key={index} className="mb-4">
+                    {paragraph}
+                  </p>
+                ))}
+          </div>
 
           {/* Key Interventions */}
-          <h3 className="text-xl font-bold mb-4">{program.header1}</h3>
+          <h3 className="text-xl  mb-4">{program.header1}</h3>
+          <p className="text-gray-700 mb-2">{program.headline}</p>
           <ul className="list-disc list-inside mb-6">
             {program.interventions.map((item, index) => (
               <li key={index} className="mb-2">
-                <span className="font-semibold">{item.title}</span>{" "}
-                {item.content}
+                {item.title ? (
+                  <>
+                    <span>{item.title}</span>
+                    <div className="text-gray-700 ml-4">{item.content}</div>
+                  </>
+                ) : (
+                  <span className="text-gray-700">{item.content}</span>
+                )}
+              </li>
+            ))}
+          </ul>
+          <p className="text-gray-700 mb-4">{program.para3}</p>
+
+          {/* Lasting Impact */}
+          <h3 className="text-xl  mb-4">{program.header2}</h3>
+          <ul className="list-disc list-inside">
+            {program.impacts.map((item, index) => (
+              <li key={index} className=" mb-2">
+                {item.title ? (
+                  <>
+                    <span className="font-medium">{item.title}</span>
+                    <div className="text-gray-700 text-md ml-4">
+                      {item.content}
+                    </div>
+                  </>
+                ) : (
+                  <span className="text-gray-700">{item.content}</span>
+                )}
               </li>
             ))}
           </ul>
 
-          {/* Lasting Impact */}
-          <h3 className="text-xl font-bold mb-4">{program.header2}</h3>
-          <ul className="list-disc list-inside">
-            {program.impacts.map((item, index) => (
-              <li key={index} className="mb-2">
-                <span className="font-semibold">{item.title}</span>{" "}
-                {item.content}
-              </li>
-            ))}
-          </ul>
+          <h3 className="text-xl  mb-4">{program.paraTitle1}</h3>
+          <p className="text-gray-700 mb-6">{program.para1}</p>
+          <h3 className="text-xl  mb-4">{program.paraTitle2}</h3>
+          <p className="text-gray-700 mb-6">{program.para2}</p>
         </div>
       </main>
     </div>

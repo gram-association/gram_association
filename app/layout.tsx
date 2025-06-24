@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Epilogue, Geist, Geist_Mono, Source_Sans_3 } from "next/font/google";
 import "./globals.css";
 import Footer from "@/components/Footer";
 import { ThemeProvider } from "next-themes";
@@ -15,12 +15,23 @@ const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
 });
+const epilogue = Epilogue({
+  subsets: ["latin"],
+  weight: ["400", "600", "700"],
+  variable: "--font-epilogue",
+});
+const sourceSans3 = Source_Sans_3({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+  style: ["normal", "italic"],
+  variable: "--font-source-sans-3",
+});
 
 export const metadata: Metadata = {
   title: "GRAM Association",
   description: "Empowering Communities, Transforming Lives",
   icons: {
-    icon: "/logo-icon.png",
+    icon: "/GRAM logomark.jpg",
   },
   openGraph: {
     title: "GRAM Association",
@@ -29,7 +40,7 @@ export const metadata: Metadata = {
     siteName: "GRAM Association",
     images: [
       {
-        url: "/logo.png",
+        url: "/GRAM logotype.png",
         width: 800,
         height: 600,
       },
@@ -41,7 +52,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "GRAM Association",
     description: "Empowering Communities, Transforming Lives",
-    images: ["/logo.png"],
+    images: ["/GRAM logotype.png"],
   },
 
   metadataBase: new URL("https://gramassociation.org"),
@@ -67,7 +78,7 @@ export default async function RootLayout({
   return (
     <html lang="en" className={theme} suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable}  antialiased`}
       >
         <ThemeProvider
           attribute="class"

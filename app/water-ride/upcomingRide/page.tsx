@@ -8,7 +8,7 @@ export default function UpcomingRide() {
         <p className="container w-fit mx-auto bg-[#DEE6EB] rounded-lg px-2 py-1 text-xs sm:text-sm text-gray-700 flex items-center mb-4">
           The Upcoming Rides
         </p>
-        <h1 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-gray-800 mb-4 sm:mb-6">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl  text-gray-800 mb-4 sm:mb-6">
           Water Odyssey
         </h1>
         <p className="text-gray-600 max-w-full sm:max-w-2xl md:max-w-5xl mx-auto text-xs sm:text-sm leading-relaxed px-4 sm:px-0">
@@ -23,7 +23,7 @@ export default function UpcomingRide() {
       </div>
       <section className="bg-[#F8F1E9] max-w-full mx-auto px-4 sm:px-6 md:px-10 py-10 flex flex-col md:flex-row justify-center items-center">
         <div className="w-full md:w-[740px] h-auto md:h-[286px] mb-6 md:mb-0">
-          <h2 className="text-2xl sm:text-3xl font-bold mb-2 text-center md:text-left">
+          <h2 className="text-2xl sm:text-3xl mb-2 text-center md:text-left">
             Planned Route
           </h2>
           <p className="text-gray-700 text-xs sm:text-sm md:text-xs leading-relaxed">
@@ -66,10 +66,10 @@ export default function UpcomingRide() {
         </div>
       </section>
       <div className="max-w-full">
-        <div className="relative bg-[#BAD1CA] w-full max-w-full h-auto min-h-[420px] flex flex-col   gap-6 py-6 md:flex-row md:justify-center md:h-[420px]">
+        <div className="relative bg-[#BAD1CA] w-full max-w-full h-auto min-h-[420px] flex flex-col  gap-6 py-6 md:flex-row md:justify-center md:h-[420px]">
           {/* Goal of the Ride */}
-          <div className="w-[90%] sm:w-[550px] h-auto min-h-[150px] sm:h-[187px] bg-white px-4 sm:px-8 pt-2 mt-4 rounded-lg shadow-md order-1">
-            <h2 className="text-base sm:text-lg font-semibold mb-2">
+          <div className="w-[90%] sm:w-[550px] h-50 min-h-[150px] sm:h-[187px] bg-white px-4 sm:px-8 pt-2 mt-4 mx-auto sm:mx-0 rounded-lg shadow-md order-1">
+            <h2 className="text-base sm:text-lg  mb-2">
               Goal of the Ride
             </h2>
             <p className="text-gray-600 text-xs sm:text-sm">
@@ -85,8 +85,8 @@ export default function UpcomingRide() {
           </div>
 
           {/* The Cause/Ideas */}
-          <div className="w-[90%] sm:w-[550px] h-auto min-h-[150px] sm:h-[187px] bg-white px-4 sm:px-8 pt-2 mt-4 rounded-lg shadow-md order-2">
-            <h2 className="text-base sm:text-lg font-semibold mb-2">
+          <div className="w-[90%] sm:w-[550px] h-50 min-h-[150px] sm:h-[187px] bg-white px-4 sm:px-8 pt-2 mt-4 mx-auto sm:mx-0 rounded-lg shadow-md order-2">
+            <h2 className="text-base sm:text-lg  mb-2">
               The Cause/Ideas
             </h2>
             <p className="text-gray-600 text-xs sm:text-sm">
@@ -101,7 +101,7 @@ export default function UpcomingRide() {
             </p>
           </div>
 
-          <h1 className="text-2xl sm:text-4xl font-light text-center mb-4  sm:mb-6 order-3 md:absolute md:bottom-24">
+          <h1 className="text-2xl sm:text-4xl  text-center mb-4  sm:mb-6 order-3 md:absolute md:bottom-24">
             Support the Movement
           </h1>
 
@@ -121,7 +121,7 @@ export default function UpcomingRide() {
       {/* Bottom Section: Share Your Story */}
       <div className="w-full max-w-full h-[391px] bg-[#BAD1CA]">
         <div className="p-4 mx-auto text-center">
-          <h1 className="text-5xl md:text-5xl  font-light mb-4  md:mt-36 mt-20">
+          <h1 className="text-5xl md:text-5xl mb-4  md:mt-36 mt-20">
             Share your Water Story
           </h1>
           <textarea
