@@ -67,6 +67,58 @@ const journeySteps: JourneyStep[] = [
     ],
     image: "/Desert.png",
   },
+  {
+    time: "Week 5",
+    title: "Karnataka: Infrastructure & Inclusion",
+    description: [
+      "Visited Tungabhadra Dam and canal systems in Hospet with Mr. Vivek Kumar.",
+      "Explored temples and ancient rainwater harvesting structures in Hampi.",
+      "Interacted with farmers' union and THAMATE team in Pavagada to understand Dalit farming and water issues.",
+    ],
+    image: "/Journey begins.png ",
+  },
+  {
+    time: "Week 6",
+    title: "Kerala: Traditional Water Wisdom",
+    description: [
+      "Visited Wayanad with RAASTA to learn about local water interventions.",
+      "Observed how deforestation affects streamflow despite high rainfall.",
+      "Studied rejuvenation of traditional kulams (ponds) and puzhas (streams)",
+    ],
+    image: "/Western ghats.png ",
+  },
+  {
+    time: "Week 7",
+    title: "Tamil Nadu: Community, Conservation & Culture",
+    description: [
+      "Interacted with members at Vivekananda Kendra in Kanyakumari to discuss rainwater harvesting.",
+      "Visited Abdul Kalam Memorial and Dhanushkodi to understand water issues in saline environments.",
+      "Visited the historic Meenakshi Temple in Madurai.",
+      "Learned about traditional Eris (tank) systems near the outskirts of Chennai",
+    ],
+    image: "/Desert.png ",
+  },
+  {
+    time: "Week 8",
+    title: "Andhra Pradesh: Traditional Storage & Urban Shortages",
+    description: [
+      "Visited Nellore to study drought conditions and learn about cheruvus (community tanks) for water storage.",
+      "Explored Ongole’s drinking water crisis and observed the use of old kunta systems for rainwater harvesting.",
+      "Visited Vijayawada, Samarlakota, and Visakhapatnam to understand regional water management practices.",
+    ],
+    image: "/Western ghats.png ",
+  },
+  {
+    time: "Week 9",
+    title: "Odisha: Tribal Outreach & Institutional Engagement",
+    description: [
+      "Interacted with students at a residential tribal school in Behrampur with GRAM Vikas.",
+      "Visited a village where GRAM Vikas implemented gravity-fed piped water and storage systems.",
+      "Conducted a session at Kalinga Institute of Social Sciences (KIIT University) in Bhubaneswar on water conservation.",
+      "Engaged with students and faculty for knowledge exchange.",
+    ],
+    image: "/Desert.png",
+  },
 ];
 
 export default function JourneyPage() {
@@ -124,10 +176,10 @@ export default function JourneyPage() {
   return (
     <div className="min-h-screen font-sans">
       <div className="max-w-7xl ml-10  px-4 py-4">
-        <p className="container w-fit  bg-[#DEE6EB] rounded-lg px-2 py-1 text-xs sm:text-sm text-gray-700 flex items-center mb-4">
+        <p className="container w-fit  bg-[#DEE6EB] dark:bg-gray-700 rounded-lg px-2 py-1 text-xs sm:text-sm text-gray-700 dark:text-gray-200 flex items-center mb-4">
           Extraordinary Journey
         </p>
-        <h1 className="text-2xl md:text-4xl font-bold text-gray-800">
+        <h1 className="text-2xl md:text-4xl font-bold text-gray-800 dark:text-gray-200">
           The Ride Story
         </h1>
       </div>
@@ -162,14 +214,14 @@ export default function JourneyPage() {
                 {/* Text Content */}
                 <div className="md:w-2/3 mb-6 md:mb-0">
                   {/* Time Marker */}
-                  <div className="mb-4 bg-[#538C7B] container w-fit py-1 px-2 text-white rounded-full">
+                  <div className="mb-4 bg-[#538C7B] dark:bg-gray-700 container w-fit py-1 px-2 text-white rounded-full">
                     {step.time}
                   </div>
-                  <h2 className="text-xl md:text-2xl font-semibold text-gray-800 mb-2">
+                  <h2 className="text-xl md:text-2xl font-semibold text-gray-800 dark:text-gray-200 mb-2">
                     {step.title}
                   </h2>
                   {/* <h6 className="text-sm text-gray-500 mb-2">{step.state}</h6> */}
-                  <ul className="list-disc pl-6 text-gray-700 space-y-1">
+                  <ul className="list-disc pl-6 text-gray-700 dark:text-gray-400 space-y-1">
                     {step.description.map((description, idx) => (
                       <li key={idx} className="text-indent-negative">
                         {description}

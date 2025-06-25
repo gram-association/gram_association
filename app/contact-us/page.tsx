@@ -5,7 +5,7 @@ import Image from "next/image";
 
 export default function ContactUs() {
   return (
-    <main className="flex min-h-screen bg-[linear-gradient(to_bottom,_#1D352E_440px,_white_0)] p-4 sm:p-8 md:p-12 lg:p-20 ">
+    <main className="flex min-h-screen bg-[linear-gradient(to_bottom,_#1D352E_440px,_white_0)] dark:bg-[linear-gradient(to_bottom,_#052e0c_600px,_#0f172a_600px)] p-4 sm:p-8 md:p-12 lg:p-20 ">
       <div className="flex flex-col items-center justify-between w-full max-w-7xl mx-auto">
         <div className="w-full flex flex-col lg:flex-row items-center justify-between gap-6 sm:gap-8 mt-28 sm:mt-16 lg:mt-24 animate-fade-in">
           {/* Contact Info Section */}
@@ -52,7 +52,7 @@ export default function ContactUs() {
             </div>
 
             <div className="space-y-4 mt-8">
-              <h3 className="text-lg sm:text-xl text-black mt-24 sm:mt-2 font-medium">
+              <h3 className="text-lg sm:text-xl text-black dark:text-gray-200 mt-24 sm:mt-2 font-medium">
                 Find us here
               </h3>
               <div className="h-64 sm:h-72 rounded-lg overflow-hidden transition-transform hover:scale-[1.02] duration-300">
@@ -69,7 +69,7 @@ export default function ContactUs() {
           </div>
 
           {/* Contact Form Section */}
-          <div className="w-full lg:w-1/2 bg-white drop-shadow-lg text-gray-800 rounded-lg p-4 sm:p-6 md:p-8 mt-8 lg:mt-0 animate-slide-up">
+          <div className="w-full lg:w-1/2 bg-white dark:bg-gray-800 drop-shadow-lg text-gray-800 dark:text-gray-200 rounded-lg p-4 sm:p-6 md:p-8 mt-8 lg:mt-0 animate-slide-up">
             <ContactForm />
           </div>
         </div>

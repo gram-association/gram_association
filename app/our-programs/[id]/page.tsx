@@ -17,7 +17,7 @@ export default async function ProgramPage({
 
   return (
     <div>
-      <main className="flex min-h-screen flex-col items-center justify-between p-4 sm:p-8 md:p-24 bg-[linear-gradient(to_bottom,_#1D352E_600px,_white_600px)]">
+      <main className="flex min-h-screen flex-col items-center justify-between p-4 sm:p-8 md:p-24 bg-[linear-gradient(to_bottom,_#1D352E_600px,_white_600px)] dark:bg-[linear-gradient(to_bottom,_#052e0c_600px,_#0f172a_600px)]">
         <section className="relative w-full mt-10">
           <div className="h-[500px] w-full">
             <div className="absolute inset-0 mt-12 sm:mt-0">
@@ -49,7 +49,7 @@ export default async function ProgramPage({
         {/* Content Section */}
         <div className="max-w-7xl p-6 mt-[200px] text-start">
           <h3 className="text-xl  mb-2">{program.header}</h3>
-          <div className="text-gray-700 text-[16px] mb-6">
+          <div className="text-gray-700 dark:text-gray-400 text-[16px] mb-6">
             {Array.isArray(program.description)
               ? program.description.map((paragraph, index) => (
                   <p key={index} className="mb-4">
@@ -65,22 +65,30 @@ export default async function ProgramPage({
 
           {/* Key Interventions */}
           <h3 className="text-xl  mb-4">{program.header1}</h3>
-          <p className="text-gray-700 mb-2">{program.headline}</p>
+          <p className="text-gray-700 dark:text-gray-400 mb-2">
+            {program.headline}
+          </p>
           <ul className="list-disc list-inside mb-6">
             {program.interventions.map((item, index) => (
               <li key={index} className="mb-2">
                 {item.title ? (
                   <>
                     <span>{item.title}</span>
-                    <div className="text-gray-700 ml-4">{item.content}</div>
+                    <div className="text-gray-700 dark:text-gray-400 ml-4">
+                      {item.content}
+                    </div>
                   </>
                 ) : (
-                  <span className="text-gray-700">{item.content}</span>
+                  <span className="text-gray-700 dark:text-gray-400">
+                    {item.content}
+                  </span>
                 )}
               </li>
             ))}
           </ul>
-          <p className="text-gray-700 mb-4">{program.para3}</p>
+          <p className="text-gray-700 dark:text-gray-400 mb-4">
+            {program.para3}
+          </p>
 
           {/* Lasting Impact */}
           <h3 className="text-xl  mb-4">{program.header2}</h3>
@@ -90,21 +98,27 @@ export default async function ProgramPage({
                 {item.title ? (
                   <>
                     <span className="font-medium">{item.title}</span>
-                    <div className="text-gray-700 text-md ml-4">
+                    <div className="text-gray-700 dark:text-gray-400 text-md ml-4">
                       {item.content}
                     </div>
                   </>
                 ) : (
-                  <span className="text-gray-700">{item.content}</span>
+                  <span className="text-gray-700 dark:text-gray-400">
+                    {item.content}
+                  </span>
                 )}
               </li>
             ))}
           </ul>
 
           <h3 className="text-xl  mb-4">{program.paraTitle1}</h3>
-          <p className="text-gray-700 mb-6">{program.para1}</p>
+          <p className="text-gray-700 dark:text-gray-400 mb-6">
+            {program.para1}
+          </p>
           <h3 className="text-xl  mb-4">{program.paraTitle2}</h3>
-          <p className="text-gray-700 mb-6">{program.para2}</p>
+          <p className="text-gray-700 dark:text-gray-400 mb-6">
+            {program.para2}
+          </p>
         </div>
       </main>
     </div>

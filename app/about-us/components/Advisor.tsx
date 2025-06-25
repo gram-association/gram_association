@@ -19,12 +19,12 @@ export default function Advisor() {
     <>
       <div className="flex flex-col items-center py-8 px-4 sm:px-5 md:py-10">
         <div className="self-start mb-4 sm:mb-5">
-          <span className="bg-[#DEE6EB] text-gray-700 text-xs sm:text-sm font-semibold rounded-full px-3 py-1">
+          <span className="bg-[#DEE6EB] dark:bg-gray-700 text-gray-700 dark:text-gray-200 text-xs sm:text-sm font-semibold rounded-full px-3 py-1">
             Advisor
           </span>
         </div>
 
-        <h1 className="text-2xl sm:text-3xl md:text-4xl self-start mb-6 sm:mb-10 text-gray-800">
+        <h1 className="text-2xl sm:text-3xl md:text-4xl self-start mb-6 sm:mb-10 text-gray-800 dark:text-gray-200">
           MEET THE SUPPORT OF GRAM
         </h1>
 
@@ -99,11 +99,11 @@ export default function Advisor() {
                 height={16}
                 className="mx-auto sm:mx-0 mb-2"
               />
-              <p className="text-lg sm:text-xl italic text-gray-600">
+              <p className="text-lg sm:text-xl italic text-gray-600 dark:text-gray-300">
                 “Listen to the people on the ground. <br />
                 They have all the solutions if you have the patience to hear.“
               </p>
-              <p className="text-xs sm:text-sm font-semibold text-gray-700 mt-2">
+              <p className="text-xs sm:text-sm font-semibold text-gray-700 dark:text-gray-200 mt-2">
                 — Sanjay Buti Roy
               </p>
             </div>

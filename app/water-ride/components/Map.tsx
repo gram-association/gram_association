@@ -308,7 +308,7 @@ export default function MapComponent() {
         }
       `}</style>
 
-      <p className="container mx-auto bg-gray-100 w-fit rounded-xl px-4 py-1 mt-20 text-gray-700 flex items-center text-sm sm:text-base">
+      <p className="container mx-auto bg-gray-100 dark:bg-gray-700  w-fit rounded-xl px-4 py-1 mt-20 text-gray-700 dark:text-gray-200 flex items-center text-sm sm:text-base">
         Impact
       </p>
       <h2 className="text-3xl sm:text-4xl md:text-5xl mt-4 text-center mb-6 px-4">

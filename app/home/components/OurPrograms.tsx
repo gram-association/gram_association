@@ -84,7 +84,7 @@ export default function OurPrograms() {
               <div className="flex-1 bg-gray-300 dark:bg-gray-700 h-full">
                 <Image
                   src="/story-image.png"
-                  alt=""
+                  alt="story image"
                   width={400}
                   height={800}
                   className="w-full h-[380px] object-cover"

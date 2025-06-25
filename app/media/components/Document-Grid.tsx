@@ -36,7 +36,9 @@ export function DocumentGrid({ items }: DocumentGridProps) {
 
           {/* Item details */}
           <div className="mt-2">
-            <p className="text-sm text-gray-800 line-clamp-2">{item.title}</p>
+            <p className="text-sm text-gray-800 dark:text-gray-200 line-clamp-2">
+              {item.title}
+            </p>
             <p className="text-xs text-gray-500 mt-1">{item.date}</p>
           </div>
         </div>
