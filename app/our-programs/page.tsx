@@ -81,12 +81,13 @@ export default function Programs() {
                 reach more communities. Every donation, no matter the size,
                 makes a difference.
               </p>
-              <Link href="/contact-us">
+              <Link href="/contact-us?type=donate">
                 <button className="bg-[#538C7B] text-white px-4 py-2 sm:px-6 sm:py-2 rounded-full hover:bg-teal-700 transition text-sm sm:text-base">
                   DONATE NOW
                 </button>
               </Link>
             </div>
+
             <div className="bg-white dark:bg-gray-900 p-6 rounded-lg shadow-md">
               <h2 className="text-lg sm:text-xl font-semibold mb-4">
                 Volunteer

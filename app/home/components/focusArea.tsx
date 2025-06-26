@@ -1,87 +1,61 @@
-import { useLayoutEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 
 const FocusAreas = () => {
   const imageRef = useRef<HTMLImageElement | null>(null);
-  const iconRefs = useRef<Array<HTMLImageElement | null>>([]);
+  const textRefs = useRef<Array<HTMLDivElement | null>>([]);
+  const circleRef = useRef<HTMLDivElement | null>(null);
   const [lines, setLines] = useState<
     Array<{ startX: number; startY: number; endX: number; endY: number }>
   >([]);
 
   // Example coordinates for the 5 Es in the image (relative to the image's top-left corner)
+  // Adjust these based on the actual positions in your 5Es.png image
   const imagePoints = [
-    { x: 400, y: 70 }, // Entrepreneurship
-    { x: 466, y: 160 }, // Enrichment
-    { x: 500, y: 260 }, // Enablement
-    { x: 480, y: 370 }, // Education
-    { x: 440, y: 470 }, // Environment
+    { x: 100, y: 50 }, // Entrepreneurship (e.g., top-left)
+    { x: 300, y: 100 }, // Enrichment (e.g., top-right)
+    { x: 200, y: 288 }, // Enablement (e.g., center)
+    { x: 100, y: 476 }, // Education (e.g., bottom-left)
+    { x: 300, y: 526 }, // Environment (e.g., bottom-right)
   ];
 
-  const updateLines = () => {
-    if (!imageRef.current || iconRefs.current.some((ref) => !ref)) {
-      console.log("Missing refs:", {
-        imageRef: !!imageRef.current,
-        iconRefsAssigned: iconRefs.current.map((ref, i) => !!ref),
+  useEffect(() => {
+    const updateLines = () => {
+      if (!imageRef.current || textRefs.current.length < 5) return;
+
+      const imageRect = imageRef.current.getBoundingClientRect();
+      const newLines = textRefs.current.map((textRef, index) => {
+        if (!textRef) return null;
+        const textRect = textRef.getBoundingClientRect();
+        // Start point: middle-right of the text block
+        const startX = textRect.right;
+        const startY = textRect.top + textRect.height / 2;
+        // End point: specific point in the image (adjusted to viewport coordinates)
+        const endX =
+          imageRect.left + (imagePoints[index].x * imageRect.width) / 576;
+        const endY =
+          imageRect.top + (imagePoints[index].y * imageRect.height) / 576;
+
+        return { startX, startY, endX, endY };
       });
-      return false;
-    }
-
-    const imageRect = imageRef.current.getBoundingClientRect();
-    const newLines = iconRefs.current.map((iconRef, index) => {
-      if (!iconRef) return null;
-      const iconRect = iconRef.getBoundingClientRect();
-      // Start point: right edge of the icon, vertically centered
-      const startX = iconRect.left + iconRect.width / 8;
-      const startY = iconRect.top + iconRect.height / 2;
-      // End point: specific point in the image (adjusted to viewport coordinates)
-      const endX =
-        imageRect.left + (imagePoints[index].x * imageRect.width) / 576;
-      const endY =
-        imageRect.top + (imagePoints[index].y * imageRect.height) / 576;
-
-      return { startX, startY, endX, endY };
-    });
-
-    if (newLines.some((line) => !line)) {
-      console.log("Some lines are null:", newLines);
-      return false;
-    }
-
-    setLines(
-      newLines as {
-        startX: number;
-        startY: number;
-        endX: number;
-        endY: number;
-      }[]
-    );
-    return true;
-  };
-
-  useLayoutEffect(() => {
-    let animationFrameId: number; // Declare animationFrameId in the outer scope
-
-    // Try updating lines immediately
-    let success = updateLines();
-
-    // Fallback: retry if refs are not ready
-    if (!success) {
-      const retry = () => {
-        if (updateLines()) {
-          cancelAnimationFrame(animationFrameId);
-        } else {
-          animationFrameId = requestAnimationFrame(retry);
-        }
-      };
-      animationFrameId = requestAnimationFrame(retry);
-    }
-
-    // Update lines on resize
-    window.addEventListener("resize", updateLines);
-    return () => {
-      window.removeEventListener("resize", updateLines);
-      cancelAnimationFrame(animationFrameId);
+      setLines(
+        newLines.filter(
+          (
+            line
+          ): line is {
+            startX: number;
+            startY: number;
+            endX: number;
+            endY: number;
+          } => line !== null
+        )
+      );
     };
+
+    // Update lines on mount and resize
+    updateLines();
+    window.addEventListener("resize", updateLines);
+    return () => window.removeEventListener("resize", updateLines);
   }, []);
 
   return (
@@ -95,17 +69,11 @@ const FocusAreas = () => {
         </h2>
       </div>
       <div className="flex flex-col md:flex-row justify-center items-center md:space-x-4 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative">
-        <div className="hidden md:block relative">
-          <Image
-            ref={imageRef}
-            src="/5es image.png"
-            alt="5 Es Illustration"
-            width={250}
-            height={250}
-            className="w-full max-w-[576px] h-auto mr-20"
-          />
-        </div>
-        <div className="space-y-4 text-left w-full md:w-1/2 ml-30">
+        <div
+          ref={circleRef}
+          className="w-[450px] h-[450px] rounded-full border-2 border-gray-400 `${{zIndex:10}}` mr-20 "
+        >
+          {/* SVG for drawing lines */}
           <svg
             className="absolute top-0 left-0 w-full h-full pointer-events-none"
             style={{ zIndex: 10 }}
@@ -122,6 +90,18 @@ const FocusAreas = () => {
               />
             ))}
           </svg>
+          <div className="hidden md:block relative">
+            <Image
+              ref={imageRef}
+              src="/focus area.png"
+              alt="5 Es Illustration"
+              width={250}
+              height={250}
+              className="w-80 max-w-[576px] h-auto mx-auto mt-10"
+            />
+          </div>
+        </div>
+        <div className="space-y-4 text-left w-full md:w-1/2">
           {[
             {
               icon: "/Group 6.png",
@@ -142,19 +122,22 @@ const FocusAreas = () => {
               icon: "/Group 9.png",
               title: "Education",
               desc: "Equipping individuals with knowledge and skills to foster personal and community development",
-            },
+            }, // Fixed duplicate description
             {
               icon: "/Group 10.png",
               title: "Environment",
               desc: "Promoting sustainable practices and environmental consciousness for future generations",
             },
           ].map((item, index) => (
-            <div key={index} className="flex gap-4 items-start">
-              <div style={{ zIndex: 10 }}>
+            <div
+              key={index}
+              ref={(el) => {
+                textRefs.current[index] = el;
+              }}
+              className="flex gap-4 items-start"
+            >
+              <div>
                 <Image
-                  ref={(el) => {
-                    iconRefs.current[index] = el;
-                  }}
                   src={item.icon}
                   alt={`${item.title} Icon`}
                   width={40}

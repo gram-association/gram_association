@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useSearchParams } from "next/navigation";
 import { Button } from "@/components/ui/Button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -13,8 +14,9 @@ import {
 } from "@/components/ui/select";
 
 export default function ContactForm() {
+  const searchParams = useSearchParams();
   const [formData, setFormData] = useState({
-    joinAs: "Individual",
+    joinAs: searchParams.get("type") === "donate" ? "Donate" : "Individual",
     firstName: "",
     lastName: "",
     email: "",
@@ -22,6 +24,12 @@ export default function ContactForm() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (searchParams.get("type") === "donate") {
+      setFormData((prev) => ({ ...prev, joinAs: "Donate" }));
+    }
+  }, [searchParams]);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -57,7 +65,7 @@ export default function ContactForm() {
 
       console.log("Response status:", response.status);
       console.log("Response headers:", Object.fromEntries(response.headers));
-      const text = await response.text(); // Get raw response for debugging
+      const text = await response.text();
       console.log("Raw response:", text);
 
       let data;
@@ -70,7 +78,8 @@ export default function ContactForm() {
       if (data.result === "success") {
         setSubmitStatus("Form submitted successfully!");
         setFormData({
-          joinAs: "Individual",
+          joinAs:
+            searchParams.get("type") === "donate" ? "Donate" : "Individual",
           firstName: "",
           lastName: "",
           email: "",
@@ -80,7 +89,6 @@ export default function ContactForm() {
         throw new Error(data.error || "Submission failed");
       }
     } catch (error: unknown) {
-      // Improved error logging
       const errorMessage =
         error instanceof Error
           ? error.message
@@ -112,7 +120,7 @@ export default function ContactForm() {
               <SelectItem value="Individual">Individual</SelectItem>
               <SelectItem value="Organization">Organization</SelectItem>
               <SelectItem value="Corporate">Corporate</SelectItem>
-              <SelectItem value="Donate Now">Donate Now</SelectItem>
+              <SelectItem value="Donate">Donate</SelectItem>
             </SelectContent>
           </Select>
         </div>
@@ -128,7 +136,7 @@ export default function ContactForm() {
             <Input
               id="firstName"
               name="firstName"
-              placeholder="Enter first name"
+              placeholder="Enter First name"
               value={formData.firstName}
               onChange={handleChange}
               className="w-full border-gray-300 text-sm sm:text-base"
@@ -145,7 +153,7 @@ export default function ContactForm() {
             <Input
               id="lastName"
               name="lastName"
-              placeholder="Enter last name"
+              placeholder="Enter Last name"
               value={formData.lastName}
               onChange={handleChange}
               className="w-full border-gray-300 text-sm sm:text-base"

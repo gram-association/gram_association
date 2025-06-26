@@ -386,7 +386,7 @@ export default function MapComponent() {
       {/* Custom Dialogue Box */}
       {activeState !== null && dialoguePosition && (
         <div
-          className="absolute z-40 w-[300px] sm:w-[507px] p-4 bg-white rounded-lg shadow-lg border border-gray-200 text-sm"
+          className="absolute z-[500] w-[300px] sm:w-[507px] p-4 bg-white rounded-lg shadow-lg border border-gray-200 text-sm"
           style={{
             left: dialoguePosition.x - (isMobile ? 470 : 253.5), // Center horizontally
             top: dialoguePosition.y,

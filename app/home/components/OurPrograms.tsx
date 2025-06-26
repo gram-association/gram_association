@@ -34,7 +34,7 @@ export default function OurPrograms() {
                     initiative that has since transformed the community’s
                     relationship with water.
                   </p>
-                  <Link href="">
+                  <Link href="/our-programs/${program.slug}">
                     <button className="bg-teal-600 text-white px-4 py-2 rounded-full hover:bg-teal-700 dark:hover:bg-teal-800 transition">
                       Read More
                     </button>
@@ -74,7 +74,7 @@ export default function OurPrograms() {
                     unable to hold water, and contributing to falling
                     groundwater levels.
                   </p>
-                  <Link href="">
+                  <Link href="/our-programs/${program.slug.b}">
                     <button className="bg-teal-600 text-white px-4 py-2 rounded-full hover:bg-teal-700 dark:hover:bg-teal-800 transition">
                       Read More
                     </button>

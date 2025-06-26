@@ -104,7 +104,7 @@ const Header = () => {
             <Link
               href="/home"
               className={`text-gray-900 dark:text-white hover:text-gray-600 dark:hover:text-gray-300 text-sm ${
-                isActive("/home") ? "font-bold" : ""
+                isActive("/home/") ? "font-bold " : ""
               }`}
             >
               Home
@@ -112,7 +112,7 @@ const Header = () => {
             <Link
               href="/about-us"
               className={`text-gray-900 dark:text-white hover:text-gray-600 dark:hover:text-gray-300 text-sm w-16 ${
-                isActive("/about-us") ? "font-bold" : ""
+                isActive("/about-us/") ? "font-bold " : ""
               }`}
             >
               About Us
@@ -120,7 +120,7 @@ const Header = () => {
             <Link
               href="/our-programs"
               className={`text-gray-900 dark:text-white hover:text-gray-600 dark:hover:text-gray-300 text-sm w-24 ${
-                isActive("/our-programs") ? "font-bold" : ""
+                isActive("/our-programs/") ? "font-bold" : ""
               }`}
             >
               Our Programs
@@ -142,7 +142,7 @@ const Header = () => {
             <Link
               href="/water-ride"
               className={`text-gray-900 dark:text-white hover:text-gray-600 dark:hover:text-gray-300 text-sm w-20 ${
-                isActive("/water-ride") ? "font-bold" : ""
+                isActive("/water-ride/") ? "font-bold" : ""
               }`}
             >
               Water Ride
@@ -150,7 +150,7 @@ const Header = () => {
             <Link
               href="/media"
               className={`text-gray-900 dark:text-white hover:text-gray-600 dark:hover:text-gray-300 text-sm ${
-                isActive("/media") ? "font-bold" : ""
+                isActive("/media/") ? "font-bold" : ""
               }`}
             >
               Media
@@ -158,7 +158,7 @@ const Header = () => {
             <Link
               href="/contact-us"
               className={`w-24 px-1 py-1 bg-[#538C7B] dark:bg-[#4a7a6e] rounded-full text-white text-sm hover:bg-green-700 dark:hover:bg-green-800 transition-colors text-center ${
-                isActive("/contact-us") ? "font-bold" : ""
+                isActive("/contact-us/") ? "font-bold" : ""
               }`}
             >
               CONTACT US
