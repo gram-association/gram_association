@@ -197,14 +197,14 @@ export default function Home() {
           </h2>
         </div>
         <div className="flex flex-col md:flex-row justify-center items-center md:space-x-8 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="hidden md:block relative">
-            <div className="relative w-[450px] h-[450px] mr-20 rounded-full border-2 border-gray-300 border-l-transparent  dark:border-gray-600 flex items-center justify-center">
+          <div className="relative mb-8 md:mb-0">
+            <div className="relative w-[350px] h-[350px] mx-auto md:w-[450px] md:h-[450px] md:mr-20 rounded-full border-2 border-gray-300 border-l-transparent dark:border-gray-600 flex items-center justify-center">
               <Image
                 src="/focus area.png"
                 alt="5 Es Illustration"
-                width={250}
-                height={250}
-                className="w-80 max-w-[500px] h-auto"
+                width={200}
+                height={200}
+                className="w-64 max-w-[400px] h-auto md:w-80 md:max-w-[500px]"
               />
             </div>
           </div>

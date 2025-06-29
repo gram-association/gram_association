@@ -103,7 +103,7 @@ export default function Advisor() {
                 “Listen to the people on the ground. <br />
                 They have all the solutions if you have the patience to hear.“
               </p>
-              <p className="text-xs sm:text-sm font-semibold text-gray-700 dark:text-gray-200 mt-2">
+              <p className="text-xs sm:text-sm  text-gray-700 dark:text-gray-200 mt-2">
                 — Sanjay Buti Roy
               </p>
             </div>

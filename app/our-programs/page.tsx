@@ -56,7 +56,7 @@ export default function Programs() {
                 {program.description}
               </p>
               <Link href={`/our-programs/${program.slug}`}>
-                <button className="mt-4 text-blue-600 hover:underline">
+                <button className=" mt-4 text-blue-600 hover:underline">
                   LEARN MORE →
                 </button>
               </Link>
