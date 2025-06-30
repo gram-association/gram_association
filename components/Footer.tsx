@@ -67,26 +67,26 @@ const Footer = () => {
             <div className="flex items-start w-full max-w-xs">
               <MapPin className="w-5 h-5 mt-1 mr-3 flex-shrink-0 text-white dark:text-gray-300" />
               <p className="text-xs sm:text-sm text-white dark:text-gray-300">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor
+                Maya Villa, Rani Bagan Joda Talab Road, Briatu City: Ranchi,
+                State: Jharkhand Postal Code: 834009
               </p>
             </div>
             <div className="flex items-center">
               <Mail className="w-5 h-5 mr-3 flex-shrink-0 text-white dark:text-gray-300" />
               <Link
-                href="mailto:mail@gramassociation.org"
+                href="mailto:gram.association@gmail.com"
                 className="text-white dark:text-gray-300 hover:underline text-xs sm:text-sm"
               >
-                mail@gramassociation.org
+                gram.association@gmail.com
               </Link>
             </div>
             <div className="flex items-center">
               <Phone className="w-5 h-5 mr-3 flex-shrink-0 text-white dark:text-gray-300" />
               <a
-                href="tel:+919354453917"
+                href="tel:+919556655285"
                 className="text-white dark:text-gray-300 hover:underline text-xs sm:text-sm"
               >
-                +91 9354453917
+                +91 9556655285
               </a>
             </div>
             <div className="flex space-x-4 mt-4">
