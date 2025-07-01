@@ -1,8 +1,11 @@
 interface Program {
+  map(
+    arg0: (img: any, index: any) => { src: any; alt: string; title: any }
+  ): unknown;
   id: string;
   title: string;
   description: string | string[];
-  image: string;
+  image: string | string[];
   header: string;
   headline: string;
   header1: string;
@@ -75,7 +78,7 @@ export const programData: ProgramData = {
           "The formation of the Jal Samiti has not only ensured the upkeep of the water systems but also fostered a deeper sense of responsibility and collective pride.",
       },
     ],
-    image: "/Rectangle 25.png",
+    image: ["/Rectangle 25.png", "/Rectangle 26.jpg", "/Rectangle 27.jpg"],
     header1: "Key Interventions",
     header2: "Lasting Impact",
     header:
@@ -86,6 +89,11 @@ export const programData: ProgramData = {
     para2: "",
     headline: "",
     para3: "",
+    map: function (
+      arg0: (img: any, index: any) => { src: any; alt: string; title: any }
+    ): unknown {
+      throw new Error("Function not implemented.");
+    },
   },
   b: {
     id: "B",
@@ -149,6 +157,11 @@ export const programData: ProgramData = {
     para2: "",
     headline: "",
     para3: "",
+    map: function (
+      arg0: (img: any, index: any) => { src: any; alt: string; title: any }
+    ): unknown {
+      throw new Error("Function not implemented.");
+    },
   },
   c: {
     id: "c",
@@ -188,6 +201,11 @@ export const programData: ProgramData = {
       "Even when our role is limited to facilitation, GRAM Association remains deeply committed to enabling sustainable access to safe drinking water. This project is a reflection of our approach , collaborative, community-driven, and impact-oriented and our readiness to support partners in delivering essential services to underserved regions.",
     headline: "",
     para3: "",
+    map: function (
+      arg0: (img: any, index: any) => { src: any; alt: string; title: any }
+    ): unknown {
+      throw new Error("Function not implemented.");
+    },
   },
   d: {
     id: "d",
@@ -242,6 +260,11 @@ export const programData: ProgramData = {
     para2: "",
     headline: "",
     para3: "",
+    map: function (
+      arg0: (img: any, index: any) => { src: any; alt: string; title: any }
+    ): unknown {
+      throw new Error("Function not implemented.");
+    },
   },
   e: {
     id: "E",
@@ -306,6 +329,11 @@ export const programData: ProgramData = {
     para1: "",
     para2:
       "Once the training was complete, the project was formally handed over to the community, enabling them to run it independently and expand at their own pace.",
+    map: function (
+      arg0: (img: any, index: any) => { src: any; alt: string; title: any }
+    ): unknown {
+      throw new Error("Function not implemented.");
+    },
   },
 
   f: {
@@ -358,6 +386,11 @@ export const programData: ProgramData = {
     para2: "",
     headline: "",
     para3: "",
+    map: function (
+      arg0: (img: any, index: any) => { src: any; alt: string; title: any }
+    ): unknown {
+      throw new Error("Function not implemented.");
+    },
   },
   g: {
     id: "G",
@@ -376,6 +409,11 @@ export const programData: ProgramData = {
     para2: "",
     headline: "",
     para3: "",
+    map: function (
+      arg0: (img: any, index: any) => { src: any; alt: string; title: any }
+    ): unknown {
+      throw new Error("Function not implemented.");
+    },
   },
   h: {
     id: "H",
@@ -428,6 +466,11 @@ export const programData: ProgramData = {
     para2: "",
     headline: "",
     para3: "",
+    map: function (
+      arg0: (img: any, index: any) => { src: any; alt: string; title: any }
+    ): unknown {
+      throw new Error("Function not implemented.");
+    },
   },
   i: {
     id: "I",
@@ -474,6 +517,11 @@ export const programData: ProgramData = {
     para2: "",
     headline: "",
     para3: "",
+    map: function (
+      arg0: (img: any, index: any) => { src: any; alt: string; title: any }
+    ): unknown {
+      throw new Error("Function not implemented.");
+    },
   },
   j: {
     id: "J",
@@ -528,5 +576,10 @@ export const programData: ProgramData = {
     para2: "",
     headline: "",
     para3: "",
+    map: function (
+      arg0: (img: any, index: any) => { src: any; alt: string; title: any }
+    ): unknown {
+      throw new Error("Function not implemented.");
+    },
   },
 };

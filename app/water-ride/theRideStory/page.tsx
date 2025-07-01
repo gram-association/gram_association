@@ -235,12 +235,12 @@ export default function JourneyPage() {
 
                 {/* Image */}
                 <div className="w-full md:w-1/3 md:ml-8">
-                  <div className="w-full h-80  aspect-square md:h-64 relative  ">
+                  <div className="w-full h-auto  aspect-square md:h-auto relative  justify-center items-center ">
                     <Image
                       src={step.image || "/placeholder.svg"}
                       alt={step.title}
                       fill
-                      className=" w-full h-96 object-cover rounded-lg transition-opacity  duration-500 hover:opacity-90"
+                      className=" w-full h-full  rounded-lg transition-opacity  duration-500 hover:opacity-90"
                     />
                   </div>
                 </div>

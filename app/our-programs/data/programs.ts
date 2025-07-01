@@ -6,7 +6,7 @@ export const programs = [
       "Rasabeda Spring Water Management Project (2019): Ending Water Crisis in Rasabeda Village, Jharkhand",
     description:
       "In the remote village of Rasabeda, nestled in the challenging terrain of the Chota Nagpur plateau, access...",
-    image: "/education.png",
+    image: ["/education.png", "/environment.jpg", "/healthcare.jpg"],
     slug: "a",
   },
   {

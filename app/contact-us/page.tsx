@@ -5,7 +5,7 @@ import Image from "next/image";
 
 export default function ContactUs() {
   return (
-    <main className="flex min-h-screen bg-[linear-gradient(to_bottom,_#1D352E_440px,_white_0)] dark:bg-[linear-gradient(to_bottom,_#052e0c_600px,_#0f172a_600px)] p-4 sm:p-8 md:p-12 lg:p-20 ">
+    <main className="flex min-h-screen bg-[linear-gradient(to_bottom,_#1D352E_440px,_white_0)] dark:bg-[linear-gradient(to_bottom,_#052e0c_400px,_#0f172a_600px)] p-4 sm:p-8 md:p-12 lg:p-20 ">
       <div className="flex flex-col items-center justify-between w-full max-w-7xl mx-auto">
         <div className="w-full flex flex-col lg:flex-row items-center justify-between gap-6 sm:gap-8 mt-28 sm:mt-16 lg:mt-24 animate-fade-in">
           {/* Contact Info Section */}
@@ -22,10 +22,12 @@ export default function ContactUs() {
             <div className="space-y-4">
               <div className="flex items-start hover:scale-105 transition-transform duration-300">
                 <MapPin className="w-5 h-5 mt-1 mr-3 flex-shrink-0" />
-                <p className="text-sm sm:text-base leading-relaxed">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor
-                </p>
+                <Link href="https://maps.app.goo.gl/cvhwRUCdQngrpHg77?g_st=iw">
+                  <p className="text-sm sm:text-base leading-relaxed">
+                    Maya Villa, Rani Bagan Joda Talab Road, Briatu, Ranchi,
+                    Jharkhand-834009
+                  </p>
+                </Link>
               </div>
 
               <div className="flex items-center hover:scale-105 transition-transform duration-300">
@@ -35,18 +37,18 @@ export default function ContactUs() {
                   className="hover:underline text-sm sm:text-base"
                   aria-label="Email us"
                 >
-                  mail@gramassociation.org
+                  gram.association@gmail.com
                 </Link>
               </div>
 
               <div className="flex items-center hover:scale-105 transition-transform duration-300">
                 <Phone className="w-5 h-5 mr-3 flex-shrink-0" />
                 <a
-                  href="tel:+919354453917"
+                  href="tel:+919556655285"
                   className="hover:underline text-sm sm:text-base"
                   aria-label="Call us"
                 >
-                  +91 9354453917
+                  +91 9556655285
                 </a>
               </div>
             </div>
@@ -55,15 +57,26 @@ export default function ContactUs() {
               <h3 className="text-lg sm:text-xl text-black dark:text-gray-200 mt-24 sm:mt-2 font-medium">
                 Find us here
               </h3>
-              <div className="h-64 sm:h-72 rounded-lg overflow-hidden transition-transform hover:scale-[1.02] duration-300">
-                <Image
+              <div className="relative h-64 sm:h-72 rounded-lg overflow-hidden transition-transform hover:scale-[1.01] duration-300">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3018.170446156105!2d85.35717097532502!3d23.39342297891554!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjPCsDIzJzM2LjMiTiA4NcKwMjEnMzUuMSJF!5e1!3m2!1sen!2sin!4v1751358741939!5m2!1sen!2sin"
+                  style={{
+                    border: 0,
+                    position: "absolute",
+                    width: "100%",
+                    height: "100%",
+                  }}
+                  referrerPolicy="no-referrer-when-downgrade"
+                />
+
+                {/* <Image
                   src="/map-image.png"
                   alt="Map location"
                   width={518}
                   height={250}
                   className="w-full h-full object-cover"
                   priority
-                />
+                /> */}
               </div>
             </div>
           </div>
@@ -74,36 +87,6 @@ export default function ContactUs() {
           </div>
         </div>
       </div>
-
-      {/* Custom CSS for Animations */}
-      {/* <style jsx>{`
-        @keyframes fade-in {
-          from {
-            opacity: 0;
-            transform: translateY(20px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-        @keyframes slide-up {
-          from {
-            opacity: 0;
-            transform: translateY(30px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-        .animate-fade-in {
-          animation: fade-in 0.8s ease-out forwards;
-        }
-        .animate-slide-up {
-          animation: slide-up 0.8s ease-out forwards;
-        }
-      `}</style> */}
     </main>
   );
 }

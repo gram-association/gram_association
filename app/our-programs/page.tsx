@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { programs } from "./data/programs";
 import Tabs from "./components/ProgramsTab";
+import AutoScrollCarousel from "@/components/auto-scroll-carousel";
 
 export default function Programs() {
   const [activeFilter, setActiveFilter] = useState("All Programs");
@@ -15,7 +16,7 @@ export default function Programs() {
 
   return (
     <main className="flex min-h-screen bg-gradient-to-b from-[#f1ddaf] to-white dark:from-[#5f4b1b] dark:to-[#0f172a] bg-no-repeat bg-[length:100%_500px] dark:bg-[#0f172a] flex-col items-center justify-between p-4 sm:p-8 lg:p-24">
-      <div className="text-center py-8 sm:py-12">
+      <div className="text-center py-24 sm:py-12">
         <p className="container w-fit mx-auto bg-[#DEE6EB] dark:bg-gray-700 rounded-lg px-2 py-1 text-xs sm:text-sm text-gray-700 dark:text-gray-200 flex items-center mb-4">
           Our Programs
         </p>
@@ -37,13 +38,26 @@ export default function Programs() {
             className="bg-white rounded-lg shadow-md overflow-hidden"
           >
             <div className="relative h-48">
-              <Image
+              <AutoScrollCarousel
+                images={
+                  Array.isArray(program.image) ? program.image : [program.image]
+                }
+                height="200px"
+                autoScrollInterval={3000}
+                pauseOnHover={true}
+                loop={true}
+                transitionDuration={500}
+                // objectFit="cover"
+                className="w-full h-full rounded-t-lg"
+                sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
+              />
+              {/* <Image
                 src={program.image}
                 alt={program.title}
                 width={500}
                 height={500}
                 className="w-full h-full object-cover"
-              />
+              /> */}
               <div className="absolute bottom-4 left-4">
                 <span className="bg-white/80 text-gray-700 text-sm  rounded-full px-3 py-1 border-0">
                   {program.category}
@@ -56,7 +70,7 @@ export default function Programs() {
                 {program.description}
               </p>
               <Link href={`/our-programs/${program.slug}`}>
-                <button className=" mt-4 text-blue-600 hover:underline">
+                <button className="mt-4 text-blue-600 hover:underline">
                   LEARN MORE →
                 </button>
               </Link>

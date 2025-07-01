@@ -66,16 +66,19 @@ const Footer = () => {
           <div className="space-y-3 flex flex-col items-start sm:items-start">
             <div className="flex items-start w-full max-w-xs">
               <MapPin className="w-5 h-5 mt-1 mr-3 flex-shrink-0 text-white dark:text-gray-300" />
-              <p className="text-xs sm:text-sm text-white dark:text-gray-300">
-                Maya Villa, Rani Bagan Joda Talab Road, Briatu City: Ranchi,
-                State: Jharkhand Postal Code: 834009
-              </p>
+              <Link href="https://maps.app.goo.gl/cvhwRUCdQngrpHg77?g_st=iw">
+                <p className="text-xs sm:text-sm text-white dark:text-gray-300">
+                  Maya Villa, Rani Bagan Joda Talab Road, Briatu, Ranchi,
+                  Jharkhand-834009
+                </p>
+              </Link>
             </div>
             <div className="flex items-center">
               <Mail className="w-5 h-5 mr-3 flex-shrink-0 text-white dark:text-gray-300" />
               <Link
                 href="mailto:gram.association@gmail.com"
                 className="text-white dark:text-gray-300 hover:underline text-xs sm:text-sm"
+                aria-label="Email us"
               >
                 gram.association@gmail.com
               </Link>
@@ -91,19 +94,19 @@ const Footer = () => {
             </div>
             <div className="flex space-x-4 mt-4">
               <a
-                href="#"
+                href="https://www.facebook.com/associationgram/"
                 className="bg-gray-100 dark:bg-gray-700 text-[#7a4e45] dark:text-gray-200 p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors"
               >
                 <FaFacebookF className="w-4 h-4" />
               </a>
               <a
-                href="#"
+                href="https://in.linkedin.com/company/associationgram"
                 className="bg-white dark:bg-gray-700 text-[#7a4e45] dark:text-gray-200 p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors"
               >
                 <FaLinkedin className="w-4 h-4" />
               </a>
               <a
-                href="#"
+                href="https://www.instagram.com/gram.association/"
                 className="bg-white dark:bg-gray-700 text-[#7a4e45] dark:text-gray-200 p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors"
               >
                 <FaInstagram className="w-4 h-4" />

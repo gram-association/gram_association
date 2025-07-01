@@ -6,6 +6,7 @@ import Link from "next/link";
 import OurPrograms from "./components/OurPrograms";
 import Image from "next/image";
 import FocusAreas from "./components/focusArea";
+import OurImpact from "./components/ourImpact";
 
 export default function Home() {
   return (
@@ -72,65 +73,7 @@ export default function Home() {
       </section>
 
       {/* Our Impact */}
-      <section className="py-8 md:pb-16 text-center mt-10 md:mt-0">
-        <p className="container mx-auto bg-[#DEE6EB] dark:bg-gray-700 w-fit rounded-lg px-2 text-gray-700 dark:text-gray-200 flex items-center text-sm md:text-base">
-          Our Impact
-        </p>
-        <h2 className="text-2xl md:text-5xl mt-4 font-epilogue text-center mb-6 text-gray-900 dark:text-gray-100">
-          Driving Meaningful Change
-        </h2>
-
-        <div className="flex flex-wrap justify-center bg-[#F8F1E9] dark:bg-gray-800 w-full min-w-5xl mx-auto py-8 px-4 rounded-lg space-x-4 md:space-x-8 space-y-4 md:space-y-0">
-          <div className="w-1/2 md:w-auto text-center">
-            <p className="text-2xl md:text-4xl font-bold text-[#5A829A] dark:text-cyan-400">
-              10K+
-            </p>
-            <p className="text-xs md:text-base text-gray-700 dark:text-gray-300">
-              Lives Transformed
-            </p>
-          </div>
-          <div className="hidden md:block h-12 w-px bg-gray-300 dark:bg-gray-600"></div>
-
-          <div className="w-1/2 md:w-auto text-center">
-            <p className="text-2xl md:text-4xl font-bold text-[#5A829A] dark:text-cyan-400">
-              10+
-            </p>
-            <p className="text-xs md:text-base text-gray-700 dark:text-gray-300">
-              Villages Impacted
-            </p>
-          </div>
-          <div className="hidden md:block h-12 w-px bg-gray-300 dark:bg-gray-600"></div>
-
-          <div className="w-1/2 md:w-auto text-center">
-            <p className="text-2xl md:text-4xl font-bold text-[#5A829A] dark:text-cyan-400">
-              50+
-            </p>
-            <p className="text-xs md:text-base text-gray-700 dark:text-gray-300">
-              Women Trained
-            </p>
-          </div>
-          <div className="hidden md:block h-12 w-px bg-gray-300 dark:bg-gray-600"></div>
-
-          <div className="w-1/2 md:w-auto text-center">
-            <p className="text-2xl md:text-4xl font-bold text-[#5A829A] dark:text-cyan-400">
-              3
-            </p>
-            <p className="text-xs md:text-base text-gray-700 dark:text-gray-300">
-              Water bodies <br /> rejuvenated
-            </p>
-          </div>
-          <div className="hidden md:block h-12 w-px bg-gray-300 dark:bg-gray-600"></div>
-
-          <div className="w-1/2 md:w-auto text-center">
-            <p className="text-2xl md:text-4xl font-bold text-[#5A829A] dark:text-cyan-400">
-              8
-            </p>
-            <p className="text-xs md:text-base text-gray-700 dark:text-gray-300">
-              SDGs addressed
-            </p>
-          </div>
-        </div>
-      </section>
+      <OurImpact />
 
       {/* Our Vision and Mission */}
       <section className="py-8 md:py-16 bg-[#BAD1CA] dark:bg-gray-900 min-w-screen">
