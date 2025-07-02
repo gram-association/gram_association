@@ -1,5 +1,6 @@
 "use client";
 
+import AutoScrollCarousel from "@/components/auto-scroll-carousel";
 import Image from "next/image";
 import { useEffect, useRef } from "react";
 
@@ -9,7 +10,7 @@ interface JourneyStep {
   title: string;
 
   description: string[];
-  image: string;
+  image: string | string[];
 }
 
 const journeySteps: JourneyStep[] = [
@@ -24,7 +25,11 @@ const journeySteps: JourneyStep[] = [
       "At PEDO, Village Mada (Dungarpur), attended community meetings on livestock health and rainwater harvesting (RWH).",
       "Explored the Maahi Haldi turmeric processing unit and learned about multilayer farming, drip irrigation, and the integration of agriculture with water conservation.",
     ],
-    image: "/Journey begins.png",
+    image: [
+      "/assets/water-ride/rajasthan/Shortlist 1.JPG",
+      "/assets/water-ride/rajasthan/Shortlist 2.JPG",
+      "/assets/water-ride/rajasthan/Shortlist 3.JPG",
+    ],
   },
   {
     time: "Week 2",
@@ -36,7 +41,11 @@ const journeySteps: JourneyStep[] = [
       "Visited Rani ki Vav, a historic example of rainwater harvesting.",
       "Engaged with FES (Foundation for Ecological Security) in Anand to understand water resource and pasture land management.",
     ],
-    image: "/Western ghats.png",
+    image: [
+      "/assets/water-ride/gujarat/Shortlist 1.JPG",
+      "/assets/water-ride/gujarat/Shortlist 2.JPG",
+      "/assets/water-ride/gujarat/Shortlist 3.JPG",
+    ],
   },
   {
     time: "Week 3",
@@ -49,7 +58,11 @@ const journeySteps: JourneyStep[] = [
       "Visited Petlawad with SAMPARK to engage with tribal students",
       "Explored seed banks and natural farming practices.",
     ],
-    image: "/Desert.png",
+    image: [
+      "/assets/water-ride/mp/Shortlist 1.JPG",
+      "/assets/water-ride/mp/Shortlist 2.JPG",
+      "/assets/water-ride/mp/Shortlist 3.JPG",
+    ],
   },
   {
     time: "Week 4",
@@ -65,7 +78,11 @@ const journeySteps: JourneyStep[] = [
       "Attended a village development session at Hind Swaraj Trust in Ralegan Siddhi and met Anna ji.",
       "Interacted with village development officers in Solapur to discuss rural water management.",
     ],
-    image: "/Desert.png",
+    image: [
+      "/assets/water-ride/maharashtra/Shortlist 1.JPG",
+      "/assets/water-ride/maharashtra/Shortlist 2.JPG",
+      "/assets/water-ride/maharashtra/Shortlist 3.JPG",
+    ],
   },
   {
     time: "Week 5",
@@ -75,7 +92,11 @@ const journeySteps: JourneyStep[] = [
       "Explored temples and ancient rainwater harvesting structures in Hampi.",
       "Interacted with farmers' union and THAMATE team in Pavagada to understand Dalit farming and water issues.",
     ],
-    image: "/Journey begins.png ",
+    image: [
+      "/assets/water-ride/karnataka/Shortlist 1.JPG",
+      "/assets/water-ride/karnataka/Shortlist 2.JPG",
+      "/assets/water-ride/karnataka/Shortlist 3.JPG",
+    ],
   },
   {
     time: "Week 6",
@@ -85,7 +106,11 @@ const journeySteps: JourneyStep[] = [
       "Observed how deforestation affects streamflow despite high rainfall.",
       "Studied rejuvenation of traditional kulams (ponds) and puzhas (streams)",
     ],
-    image: "/Western ghats.png ",
+    image: [
+      "/assets/water-ride/kerala/Shortlist 1.JPG",
+      "/assets/water-ride/kerala/Shortlist 2.JPG",
+      "/assets/water-ride/kerala/Shortlist 3.JPG",
+    ],
   },
   {
     time: "Week 7",
@@ -96,7 +121,11 @@ const journeySteps: JourneyStep[] = [
       "Visited the historic Meenakshi Temple in Madurai.",
       "Learned about traditional Eris (tank) systems near the outskirts of Chennai",
     ],
-    image: "/Desert.png ",
+    image: [
+      "/assets/water-ride/tamilnadu/Shortlist 1.JPG",
+      "/assets/water-ride/tamilnadu/Shortlist 2.JPG",
+      "/assets/water-ride/tamilnadu/Shortlist 3.JPG",
+    ],
   },
   {
     time: "Week 8",
@@ -106,7 +135,11 @@ const journeySteps: JourneyStep[] = [
       "Explored Ongole’s drinking water crisis and observed the use of old kunta systems for rainwater harvesting.",
       "Visited Vijayawada, Samarlakota, and Visakhapatnam to understand regional water management practices.",
     ],
-    image: "/Western ghats.png ",
+    image: [
+      "/assets/water-ride/andhrapradesh/Shortlist 1.JPG",
+      "/assets/water-ride/andhrapradesh/Shortlist 2.JPG",
+      "/assets/water-ride/andhrapradesh/Shortlist 3.JPG",
+    ],
   },
   {
     time: "Week 9",
@@ -117,7 +150,11 @@ const journeySteps: JourneyStep[] = [
       "Conducted a session at Kalinga Institute of Social Sciences (KIIT University) in Bhubaneswar on water conservation.",
       "Engaged with students and faculty for knowledge exchange.",
     ],
-    image: "/Desert.png",
+    image: [
+      "/assets/water-ride/odisha/Shortlist 1.JPG",
+      "/assets/water-ride/odisha/Shortlist 2.jPG",
+      "/assets/water-ride/odisha/Shortlist 3.JPG",
+    ],
   },
 ];
 
@@ -185,7 +222,7 @@ export default function JourneyPage() {
       </div>
 
       {/* Main Content */}
-      <main className="pt-20 pb-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <main className="pt-6 pb-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="relative">
           {/* Timeline Line and Pointer */}
           <div
@@ -209,7 +246,7 @@ export default function JourneyPage() {
                 ref={(el) => {
                   sectionRefs.current[index] = el;
                 }}
-                className="flex flex-col md:flex-row items-start opacity-0 translate-y-10 transition-all duration-700 ease-out"
+                className="flex flex-col md:flex-row items-start opacity-0 translate-y-8 transition-all duration-700 ease-out"
               >
                 {/* Text Content */}
                 <div className="md:w-2/3 mb-6 md:mb-0">
@@ -220,7 +257,6 @@ export default function JourneyPage() {
                   <h2 className="text-xl md:text-2xl font-semibold text-gray-800 dark:text-gray-200 mb-2">
                     {step.title}
                   </h2>
-                  {/* <h6 className="text-sm text-gray-500 mb-2">{step.state}</h6> */}
                   <ul className="list-disc pl-6 text-gray-700 dark:text-gray-400 space-y-1">
                     {step.description.map((description, idx) => (
                       <li key={idx} className="text-indent-negative">
@@ -228,20 +264,32 @@ export default function JourneyPage() {
                       </li>
                     ))}
                   </ul>
-                  {/* <p className="text-gray-600 text-sm md:text-base leading-relaxed">
-                    {step.description}
-                  </p> */}
                 </div>
 
                 {/* Image */}
                 <div className="w-full md:w-1/3 md:ml-8">
-                  <div className="w-full h-auto  aspect-square md:h-auto relative  justify-center items-center ">
-                    <Image
+                  <div className="w-full h-auto  aspect-square md:h-auto relative py-10 justify-center items-center rounded-lg ">
+                    <AutoScrollCarousel
+                      images={
+                        Array.isArray(step.image) ? step.image : [step.image]
+                      }
+                      height="280px"
+                      autoScrollInterval={3000}
+                      imageClassName="rounded-lg"
+                      containerClassName="rounded-lg "
+                      pauseOnHover={true}
+                      loop={true}
+                      transitionDuration={500}
+                      // objectFit="cover"
+                      className="w-full h-full rounded-t-lg"
+                      sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
+                    />
+                    {/* <Image
                       src={step.image || "/placeholder.svg"}
                       alt={step.title}
                       fill
                       className=" w-full h-full  rounded-lg transition-opacity  duration-500 hover:opacity-90"
-                    />
+                    /> */}
                   </div>
                 </div>
               </div>

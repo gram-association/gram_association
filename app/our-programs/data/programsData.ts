@@ -78,7 +78,12 @@ export const programData: ProgramData = {
           "The formation of the Jal Samiti has not only ensured the upkeep of the water systems but also fostered a deeper sense of responsibility and collective pride.",
       },
     ],
-    image: ["/Rectangle 25.png", "/Rectangle 26.jpg", "/Rectangle 27.jpg"],
+    image: [
+      "/assets/our-programs/rasabedaSpringwater/Shortlist 1.jpg",
+      "/assets/our-programs/rasabedaSpringwater/Shortlist 2.jpg",
+      "/assets/our-programs/rasabedaSpringwater/Shortlist 3.JPEG",
+      "/assets/our-programs/rasabedaSpringwater/Shortlist 4.jpg",
+    ],
     header1: "Key Interventions",
     header2: "Lasting Impact",
     header:
@@ -99,7 +104,12 @@ export const programData: ProgramData = {
     id: "B",
     title:
       "Restoring Hope Through Water: Pond Rejuvenation in Kherwatikra, Jharkhand",
-    image: "/Rectangle 26.jpg",
+    image: [
+      "/assets/our-programs/pondRejuvenation/Shortlist 1 (1).jpg",
+      "/assets/our-programs/pondRejuvenation/Shortlist 2 (1).jpg",
+      "/assets/our-programs/pondRejuvenation/Shortlist 3.jpg",
+      "/assets/our-programs/pondRejuvenation/Shortlist 4.JPEG",
+    ],
     description: [
       "In 2020, amid the challenges of the COVID-19 pandemic, GRAM Association, in partnership with Barefoot College, Tilonia, brought new life to Kherwatikra, a small tribal hamlet in the Ranchi district of Jharkhand. Despite abundant rainfall, the village of 38 Munda tribal families struggled with chronic water scarcity. The reason? Rapid water runoff and a lack of infrastructure to capture and retain rainwater.",
       " At the heart of the intervention was the revival of the village’s decades-old pond, Gudibandh Talab, which had fallen into disrepair over the years — filled with silt, unable to hold water, and contributing to falling groundwater levels.",
@@ -167,7 +177,12 @@ export const programData: ProgramData = {
     id: "c",
     title:
       "Laying the Groundwork for Safe Water Access: Birbhum Fluoride Mitigation Support Project (2020–2021)",
-    image: "/Rectangle 27.jpg",
+    image: [
+      "/assets/our-programs/birbhumProject/Shortlist 1 (2).jpg",
+      "/assets/our-programs/birbhumProject/Shortlist 2 (2).jpg",
+      "/assets/our-programs/birbhumProject/Shortlist 3 (1).jpg",
+      "/assets/our-programs/birbhumProject/Shortlist 4 (1).jpg",
+    ],
     description: [
       "In 2020, GRAM Association partnered with INNODI, under a larger initiative driven by the National Stock Exchange Foundation (NSEF) and the International Centre for Clean Water (ICCW), to address the critical issue of fluoride and salinity contamination in drinking water across nine villages in Khoyrasol block, Birbhum district, West Bengal.",
       " Though GRAM’s role was focused on the project’s early stages, our contribution was pivotal in setting the foundation for long-term impact.",
@@ -211,7 +226,12 @@ export const programData: ProgramData = {
     id: "d",
     title:
       "Women Leading the Way: Rasabeda Community Tourism Initiative (2020)",
-    image: "/Rectangle 27.jpg",
+    image: [
+      "/assets/our-programs/rasabedaTourism/Shortlist 1.jpg",
+      "/assets/our-programs/rasabedaTourism/Shortlist 2.JPG",
+      "/assets/our-programs/rasabedaTourism/Shortlist 3.JPG",
+      "/assets/our-programs/rasabedaTourism/Shortlist 4.JPG",
+    ],
     description: [
       "In 2020, GRAM Association, in partnership with IIM Ranchi, launched a unique experiment in community-driven, sustainable tourism in the picturesque village of Rasabeda, Jharkhand. At the heart of this initiative was a bold and inspiring goal: to empower rural women by giving them the platform to lead, manage, and benefit from local tourism.",
       "This women-led initiative opened new doors for the community ,economically, socially, and culturally  by turning Rasabeda’s everyday life, traditions, and landscapes into a welcoming, immersive experience for visitors.",
@@ -270,7 +290,12 @@ export const programData: ProgramData = {
     id: "E",
     title:
       "Reviving Tradition, Building Futures: Leaf Plate & Bowl Training Initiative (2022)",
-    image: "/Rectangle 25.png",
+    image: [
+      "/assets/our-programs/leafplatemaking/Shortlist 1.JPG",
+      "/assets/our-programs/leafplatemaking/Shortlist 2.JPG",
+      "/assets/our-programs/leafplatemaking/Shortlist 3.JPG",
+      "/assets/our-programs/leafplatemaking/Shortlist 4.JPG",
+    ],
     description: [
       "In 2022, GRAM Association, in partnership with IIM Ranchi and under the Unnat Bharat Abhiyan framework, introduced a hands-on training program designed to revive a traditional craft , making plates and bowls from sal leaves. The 12-day initiative focused on empowering tribal women through skill development, sustainability, and entrepreneurship.",
       " Rooted in local knowledge and aligned with eco-friendly practices, this initiative provided a meaningful alternative to plastic disposables while creating new livelihood opportunities.",
@@ -339,7 +364,12 @@ export const programData: ProgramData = {
   f: {
     id: "F",
     title: "Dharampur Rural Tourism Project (2024–25)",
-    image: "/Rectangle 26.jpg",
+    image: [
+      "/assets/our-programs/dharampurRuralTourism/Shortlist 1.JPG",
+      "/assets/our-programs/dharampurRuralTourism/Shortlist 2.JPG",
+      "/assets/our-programs/dharampurRuralTourism/Shortlist 3.JPG",
+      "/assets/our-programs/dharampurRuralTourism/Shortlist 4.JPG",
+    ],
     description: [
       "In collaboration with NABARD",
       " Nestled in the Silli Block of Ranchi district, the village of Dharampur is home to 70 tribal families whose connection to nature, tradition, and community runs deep. In 2024, GRAM Association, with support from NABARD, launched a rural tourism project designed to tap into this richness—transforming the village into an immersive eco-cultural destination.",
@@ -395,7 +425,12 @@ export const programData: ProgramData = {
   g: {
     id: "G",
     title: "Health Response: COVID Relief (2020)",
-    image: "/Rectangle 25.png",
+    image: [
+      "/assets/our-programs/COVIDRelief/Shortlist 1.JPG",
+      "/assets/our-programs/COVIDRelief/Shortlist 2.JPG",
+      "/assets/our-programs/COVIDRelief/Shortlist 3.JPG",
+      "/assets/our-programs/COVIDRelief/Shortlist 4.JPG",
+    ],
     description:
       "During the first wave of the pandemic, GRAM Association focused on supporting vulnerable communities in Ranchi district by providing nutritional aid to over 325 individuals. The relief effort prioritized the pregnant women, lactating mothers,  elderly, and families with limited access to resources, ensuring basic health and dignity during the crisis.",
     interventions: [],
@@ -456,7 +491,12 @@ export const programData: ProgramData = {
       },
     ],
 
-    image: "/Rectangle 26.jpg",
+    image: [
+      "/assets/our-programs/bridgeSchool/Shortlist 1.JPG",
+      "/assets/our-programs/bridgeSchool/Shortlist 2.jpeg",
+      "/assets/our-programs/bridgeSchool/Shortlist 3.jpeg",
+      "/assets/our-programs/bridgeSchool/Shortlist 4.jpeg",
+    ],
     header1: "What the Program Offered",
     header2: "Impact",
     header: "In partnership with Barefoot College",
@@ -507,7 +547,12 @@ export const programData: ProgramData = {
         content: "Promoted practical, sustainable models of change",
       },
     ],
-    image: "/Rectangle 27.jpg",
+    image: [
+      "/assets/our-programs/sodhyatra/Shortlist 1.jpg",
+      "/assets/our-programs/sodhyatra/Shortlist 2.jpg",
+      "/assets/our-programs/sodhyatra/Shortlist 3.jpg",
+      "/assets/our-programs/sodhyatra/Shortlist 4.jpg",
+    ],
     header1: "Highlights",
     header2: "Outcomes",
     header: "",
@@ -526,7 +571,12 @@ export const programData: ProgramData = {
   j: {
     id: "J",
     title: "Community Food Forest Initiative (2020)",
-    image: "/Rectangle 25.png",
+    image: [
+      "/assets/our-programs/food forest/Shortlist 1.jpg",
+      "/assets/our-programs/food forest/Shortlist 2.jpg",
+      "/assets/our-programs/food forest/Shortlist 3.jpg",
+      "/assets/our-programs/food forest/Shortlist 4.jpg",
+    ],
     description: [
       "Locations: Haislabera & Jargadhora, Jharkhand | In collaboration with DEEKSHA NGO",
       " Food insecurity and environmental degradation often go hand-in-hand in remote villages. To address both, GRAM Association and DEEKSHA NGO came together in 2020 to initiate community-managed food forests in Haislabera and Jargadhora villages.",

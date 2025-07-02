@@ -34,10 +34,10 @@ export default async function ProgramPage({
               <AutoScrollCarousel
                 images={carouselImages}
                 autoScrollInterval={3000}
-                height="433px"
+                height="450px"
                 className="mt-60 w-full max-w-6xl mx-auto rounded-lg"
-                imageClassName="rounded-lg"
-                containerClassName="rounded-lg"
+                imageClassName="rounded-lg h-full"
+                containerClassName="rounded-lg "
                 showDots={true}
                 pauseOnHover={true}
                 loop={true}

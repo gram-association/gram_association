@@ -76,7 +76,7 @@ export default function UpcomingRide() {
         </div>
         <div>
           <Image
-            src="/Journey begins.png"
+            src="/Desert.png"
             alt="planned route"
             width={500}
             height={700}

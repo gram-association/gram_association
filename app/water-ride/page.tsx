@@ -46,6 +46,7 @@ export default function WaterRide() {
           </div>
         </div>
       </section>
+
       <Tabs />
     </main>
   );

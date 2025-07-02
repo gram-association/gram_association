@@ -39,7 +39,7 @@ export default function AboutUs() {
         </div>
         <div className="relative w-full md:w-5xl h-[300px] md:h-[400px] mt-8 md:mt-0 md:ml-6 rounded-xl overflow-hidden shadow-xl">
           <Image
-            src="/story-image.png"
+            src="/assets/about-us/DSC_0365.JPG"
             alt="Story Image"
             fill
             className="object-cover transition-transform duration-500 hover:scale-105"
@@ -55,7 +55,7 @@ export default function AboutUs() {
           <div className="w-full lg:w-1/2  order-2 lg:order-1">
             <div className="relative aspect-video w-full h-[400px] rounded-xl overflow-hidden shadow-xl">
               <Image
-                src="/story-image.png"
+                src="/assets/about-us/IMG_0008.JPG"
                 alt="Story Image"
                 fill
                 className="object-cover transition-transform  duration-500 hover:scale-105"
