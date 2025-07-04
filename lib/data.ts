@@ -1,4 +1,4 @@
-import type { DocumentItem, ImageType, VideoItem } from "./types";
+import type { DocumentItem, ImageType,} from "./types";
 
 export const images: ImageType[] = [
   {
@@ -58,7 +58,7 @@ export const images: ImageType[] = [
   },
 ];
 
-export const videoData: VideoItem[] = [
+export const videoData = [
   {
     id: "v1",
     type: "videos",

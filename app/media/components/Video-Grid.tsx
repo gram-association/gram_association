@@ -7,10 +7,10 @@ interface VideoGridProps {
   items: VideoItem[];
 }
 
-export function VideoGrid({ items }: VideoGridProps) {
+export function VideoGrid({ items }: any) {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-      {items.map((item) => {
+      {items.map((item: any) => {
         // Extract YouTube video ID from URL or use directly if it's just the ID
         const videoId = item.youtubeUrl?.includes("youtube.com")
           ? new URL(item.youtubeUrl).searchParams.get("v")
