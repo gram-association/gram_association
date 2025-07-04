@@ -81,7 +81,7 @@ export default function OurPrograms() {
         </div>
 
         <div className="mt-8">
-          <Link href={`/our-programs/${program1.id}`}>
+          <Link href={`/our-programs`}>
             <button className="border-2 border-teal-600 text-teal-600 px-6 py-2 rounded-full hover:bg-teal-600 hover:text-white dark:border-teal-500 dark:text-teal-500 dark:hover:bg-teal-700 dark:hover:text-white transition">
               VIEW MORE
             </button>
