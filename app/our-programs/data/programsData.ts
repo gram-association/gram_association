@@ -81,7 +81,7 @@ export const programData: ProgramData = {
     image: [
       "/assets/our-programs/rasabedaSpringwater/Shortlist 1.jpg",
       "/assets/our-programs/rasabedaSpringwater/Shortlist 2.jpg",
-      "/assets/our-programs/rasabedaSpringwater/Shortlist 3.JPEG",
+      "/assets/our-programs/rasabedaSpringwater/Shortlist 3.jpg",
       "/assets/our-programs/rasabedaSpringwater/Shortlist 4.jpg",
     ],
     header1: "Key Interventions",

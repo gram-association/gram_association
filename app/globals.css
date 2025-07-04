@@ -137,3 +137,21 @@
     display: none; /* Chrome, Safari, and Opera */
   }
 }
+@keyframes scroll {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%); /* Move half the width for seamless loop */
+  }
+}
+
+.animate-scroll {
+  display: flex;
+  animation: scroll 10s linear infinite; /* Adjust duration for speed */
+}
+
+/* Optional: Pause animation on hover */
+.animate-scroll:hover {
+  animation-play-state: paused;
+}
