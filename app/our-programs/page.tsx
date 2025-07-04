@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { programs } from "./data/programs";
 import Tabs from "./components/ProgramsTab";
+import AutoScrollCarousel from "@/components/auto-scroll-carousel";
 
 export default function Programs() {
   const [activeFilter, setActiveFilter] = useState("All Programs");
@@ -14,15 +15,15 @@ export default function Programs() {
       : programs.filter((program) => program.category === activeFilter);
 
   return (
-    <main className="flex min-h-screen bg-gradient-to-b from-[#f1ddaf] to-white bg-no-repeat bg-[length:100%_500px] flex-col items-center justify-between p-4 sm:p-8 lg:p-24">
-      <div className="text-center py-8 sm:py-12">
-        <p className="container w-fit mx-auto bg-[#DEE6EB] rounded-lg px-2 py-1 text-xs sm:text-sm text-gray-700 flex items-center mb-4">
+    <main className="flex min-h-screen bg-gradient-to-b from-[#f1ddaf] to-white dark:from-[#5f4b1b] dark:to-[#0f172a] bg-no-repeat bg-[length:100%_500px] dark:bg-[#0f172a] flex-col items-center justify-between p-4 sm:p-8 lg:p-24">
+      <div className="text-center py-24 sm:py-12">
+        <p className="container w-fit mx-auto bg-[#DEE6EB] dark:bg-gray-700 rounded-lg px-2 py-1 text-xs sm:text-sm text-gray-700 dark:text-gray-200 flex items-center mb-4">
           Our Programs
         </p>
-        <h1 className="text-2xl sm:text-3xl md:text-5xl  text-gray-800 px-4">
+        <h1 className="text-2xl sm:text-3xl md:text-5xl  text-gray-800 dark:text-gray-200 px-4">
           Making a Lasting Impact
         </h1>
-        <p className="text-gray-600 mt-4 text-xs sm:text-sm md:text-base w-full sm:w-[75%] mx-auto px-4">
+        <p className="text-gray-600 dark:text-gray-200 mt-4 text-xs sm:text-sm md:text-base w-full sm:w-[75%] mx-auto px-4">
           Explore our diverse range of programs designed to create sustainable
           change and improve lives in communities around the world.
         </p>
@@ -37,13 +38,26 @@ export default function Programs() {
             className="bg-white rounded-lg shadow-md overflow-hidden"
           >
             <div className="relative h-48">
-              <Image
+              <AutoScrollCarousel
+                images={
+                  Array.isArray(program.image) ? program.image : [program.image]
+                }
+                height="200px"
+                autoScrollInterval={3000}
+                pauseOnHover={true}
+                loop={true}
+                transitionDuration={500}
+                // objectFit="cover"
+                className="w-full h-full rounded-t-lg"
+                sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
+              />
+              {/* <Image
                 src={program.image}
                 alt={program.title}
                 width={500}
                 height={500}
                 className="w-full h-full object-cover"
-              />
+              /> */}
               <div className="absolute bottom-4 left-4">
                 <span className="bg-white/80 text-gray-700 text-sm  rounded-full px-3 py-1 border-0">
                   {program.category}
@@ -65,33 +79,34 @@ export default function Programs() {
         ))}
       </div>
 
-      <div className="bg-[#BAD1CA]  min-w-screen mt-20 py-12">
+      <div className="bg-[#BAD1CA] dark:bg-gray-800  min-w-screen mt-20 py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-0 lg:px-0">
-          <p className="mx-auto text-center bg-gray-100 w-fit rounded-lg px-1 text-xs sm:text-sm text-gray-700 container items-center mb-6">
+          <p className="mx-auto text-center bg-gray-100 dark:bg-gray-600 w-fit rounded-lg px-1 text-xs sm:text-sm text-gray-700 dark:text-gray-200 container items-center mb-6">
             Get Involved
           </p>
           <h1 className="text-3xl sm:text-4xl lg:text-5xl tracking-wider text-center mb-8">
             Support Our Programs
           </h1>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-5xl mx-auto">
-            <div className="bg-white p-6 rounded-lg shadow-md">
+            <div className="bg-white dark:bg-gray-900 p-6 rounded-lg shadow-md">
               <h2 className="text-lg sm:text-xl font-semibold mb-4">Donate</h2>
-              <p className="text-gray-600 mb-6 text-sm sm:text-base">
+              <p className="text-gray-600 dark:text-gray-200 mb-6 text-sm sm:text-base">
                 Your generous contribution helps us expand our programs and
                 reach more communities. Every donation, no matter the size,
                 makes a difference.
               </p>
-              <Link href="/contact-us">
+              <Link href="/contact-us?type=donate">
                 <button className="bg-[#538C7B] text-white px-4 py-2 sm:px-6 sm:py-2 rounded-full hover:bg-teal-700 transition text-sm sm:text-base">
                   DONATE NOW
                 </button>
               </Link>
             </div>
-            <div className="bg-white p-6 rounded-lg shadow-md">
+
+            <div className="bg-white dark:bg-gray-900 p-6 rounded-lg shadow-md">
               <h2 className="text-lg sm:text-xl font-semibold mb-4">
                 Volunteer
               </h2>
-              <p className="text-gray-600 mb-6 text-sm sm:text-base">
+              <p className="text-gray-600 dark:text-gray-200 mb-6 text-sm sm:text-base">
                 Join our team of dedicated volunteers and contribute your
                 skills, time, and passion to support our programs and make a
                 direct impact.

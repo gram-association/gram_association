@@ -16,10 +16,10 @@ export default function OurTeam() {
   return (
     <div className="flex items-center justify-center p-4 sm:p-8">
       <div className="max-w-6xl w-full">
-        <p className="inline-block bg-[#DEE6EB] w-fit rounded-full text-md sm:text-sm  text-gray-700 px-3 py-1 mb-4">
+        <p className="inline-block bg-[#DEE6EB] dark:bg-gray-700 w-fit rounded-full text-md sm:text-sm  text-gray-700 dark:text-gray-200 px-3 py-1 mb-4">
           Our Team
         </p>
-        <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-gray-800 mb-6 sm:mb-8">
+        <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-gray-800 dark:text-gray-200 mb-6 sm:mb-8">
           Meet the People Behind GRAM
         </h1>
 
@@ -66,11 +66,11 @@ export default function OurTeam() {
                   height={16}
                   className="mb-2 sm:mb-4"
                 />
-                <p className="text-xl sm:text-sm italic text-gray-600 mb-2 sm:mb-4">
+                <p className="text-xl sm:text-sm italic text-gray-600 dark:text-gray-300 mb-2 sm:mb-4">
                   “Listen to the people on the ground; they have all the
                   solutions if you have the patience to hear.“
                 </p>
-                <p className="text-md sm:text-sm  text-gray-800">
+                <p className="text-md sm:text-sm  text-gray-800 dark:text-gray-200">
                   — Sanjay Buti Roy
                 </p>
               </div>

@@ -11,7 +11,7 @@ import { documentData, videoData } from "@/lib/data";
 
 interface GalleryProps {
   images: ImageType[];
-  videos: VideoItem[];
+  videos: any[];
   documents: DocumentItem[];
 }
 

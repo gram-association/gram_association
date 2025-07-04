@@ -1,15 +1,15 @@
 "use client";
 import { Button } from "@/components/ui/Button";
-import { Epilogue } from "next/font/google";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import OurPrograms from "./components/OurPrograms";
 import Image from "next/image";
 import FocusAreas from "./components/focusArea";
+import OurImpact from "./components/ourImpact";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between pt-24 bg-[linear-gradient(to_bottom,_#1D352E_600px,_white_600px)] dark:bg-[linear-gradient(to_bottom,_#052e0c_600px,_#0f172a_600px)]">
+    <main className="flex min-h-screen flex-col items-center justify-between py-24 bg-[linear-gradient(to_bottom,_#1D352E_600px,_white_600px)] dark:bg-[linear-gradient(to_bottom,_#052e0c_600px,_#0f172a_600px)]">
       <section className="relative">
         <div className="flex flex-col sm:flex-row sm:h-[500px] max-w-7xl mx-auto">
           {/* Image Section */}
@@ -72,65 +72,7 @@ export default function Home() {
       </section>
 
       {/* Our Impact */}
-      <section className="py-8 md:pb-16 text-center mt-10 md:mt-0">
-        <p className="container mx-auto bg-[#DEE6EB] dark:bg-gray-700 w-fit rounded-lg px-2 text-gray-700 dark:text-gray-200 flex items-center text-sm md:text-base">
-          Our Impact
-        </p>
-        <h2 className="text-2xl md:text-5xl mt-4 font-epilogue text-center mb-6 text-gray-900 dark:text-gray-100">
-          Driving Meaningful Change
-        </h2>
-
-        <div className="flex flex-wrap justify-center bg-[#F8F1E9] dark:bg-gray-800 w-full min-w-5xl mx-auto py-8 px-4 rounded-lg space-x-4 md:space-x-8 space-y-4 md:space-y-0">
-          <div className="w-1/2 md:w-auto text-center">
-            <p className="text-2xl md:text-4xl font-bold text-[#5A829A] dark:text-cyan-400">
-              10K+
-            </p>
-            <p className="text-xs md:text-base text-gray-700 dark:text-gray-300">
-              Lives Transformed
-            </p>
-          </div>
-          <div className="hidden md:block h-12 w-px bg-gray-300 dark:bg-gray-600"></div>
-
-          <div className="w-1/2 md:w-auto text-center">
-            <p className="text-2xl md:text-4xl font-bold text-[#5A829A] dark:text-cyan-400">
-              10+
-            </p>
-            <p className="text-xs md:text-base text-gray-700 dark:text-gray-300">
-              Villages Impacted
-            </p>
-          </div>
-          <div className="hidden md:block h-12 w-px bg-gray-300 dark:bg-gray-600"></div>
-
-          <div className="w-1/2 md:w-auto text-center">
-            <p className="text-2xl md:text-4xl font-bold text-[#5A829A] dark:text-cyan-400">
-              50+
-            </p>
-            <p className="text-xs md:text-base text-gray-700 dark:text-gray-300">
-              Women Trained
-            </p>
-          </div>
-          <div className="hidden md:block h-12 w-px bg-gray-300 dark:bg-gray-600"></div>
-
-          <div className="w-1/2 md:w-auto text-center">
-            <p className="text-2xl md:text-4xl font-bold text-[#5A829A] dark:text-cyan-400">
-              3
-            </p>
-            <p className="text-xs md:text-base text-gray-700 dark:text-gray-300">
-              Water bodies <br /> rejuvenated
-            </p>
-          </div>
-          <div className="hidden md:block h-12 w-px bg-gray-300 dark:bg-gray-600"></div>
-
-          <div className="w-1/2 md:w-auto text-center">
-            <p className="text-2xl md:text-4xl font-bold text-[#5A829A] dark:text-cyan-400">
-              8
-            </p>
-            <p className="text-xs md:text-base text-gray-700 dark:text-gray-300">
-              SDGs addressed
-            </p>
-          </div>
-        </div>
-      </section>
+      <OurImpact />
 
       {/* Our Vision and Mission */}
       <section className="py-8 md:py-16 bg-[#BAD1CA] dark:bg-gray-900 min-w-screen">
@@ -187,129 +129,6 @@ export default function Home() {
       </section>
 
       {/* Our Focus Areas */}
-      {/* <section className="min-h-screen py-8 md:py-16 text-center bg-white dark:bg-gray-900">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <p className="inline-block bg-[#DEE6EB] dark:bg-gray-700 rounded-lg px-2 py-1 text-sm text-gray-700 dark:text-gray-200 mb-4 md:mb-6">
-            Our Focus Areas
-          </p>
-          <h2 className="text-2xl md:text-3xl font-epilogue text-start mb-6 md:mb-8 text-gray-900 dark:text-gray-100">
-            THE 5 Es
-          </h2>
-        </div>
-        <div className="flex flex-col md:flex-row justify-center items-center md:space-x-4 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="hidden md:block">
-            <Image
-              src="/5Es.png"
-              alt="5 Es Illustration"
-              width={576}
-              height={576}
-              className="w-full max-w-[576px] h-auto"
-            />
-          </div>
-          <div className="space-y-4 text-left w-full md:w-1/2">
-            <div className="flex gap-4 items-start">
-              <div>
-                <Image
-                  src="/Group 6.png"
-                  alt="Entrepreneurship Icon"
-                  width={40}
-                  height={40}
-                  className="w-10 h-10"
-                />
-              </div>
-              <div>
-                <p className="font-bold text-gray-900 dark:text-gray-100">
-                  Entrepreneurship:
-                </p>
-                <p className="text-gray-400 dark:text-gray-500 text-sm">
-                  Fostering a spirit of innovation, ownership, and initiative to
-                  drive sustainable change
-                </p>
-              </div>
-            </div>
-            <div className="flex gap-4 items-start">
-              <div>
-                <Image
-                  src="/Group 8.png"
-                  alt="Edification Icon"
-                  width={40}
-                  height={40}
-                  className="w-10 h-10"
-                />
-              </div>
-              <div>
-                <p className="font-bold text-gray-900 dark:text-gray-100">
-                  Enrichment
-                </p>
-                <p className="text-gray-400 dark:text-gray-500 text-sm">
-                  Developing learning opportunities that help people grow and
-                  uplift communities within their society
-                </p>
-              </div>
-            </div>
-            <div className="flex gap-4 items-start">
-              <div>
-                <Image
-                  src="/Group 7.png"
-                  alt="Empowerment Icon"
-                  width={40}
-                  height={40}
-                  className="w-10 h-10"
-                />
-              </div>
-              <div>
-                <p className="font-bold text-gray-900 dark:text-gray-100">
-                  Enablement
-                </p>
-                <p className="text-gray-400 dark:text-gray-500 text-sm">
-                  Enabling individuals and communities to serve themselves,
-                  instilling confidence and driving a positive impact
-                </p>
-              </div>
-            </div>
-            <div className="flex gap-4 items-start">
-              <div>
-                <Image
-                  src="/Group 9.png"
-                  alt="Education Icon"
-                  width={40}
-                  height={40}
-                  className="w-10 h-10"
-                />
-              </div>
-              <div>
-                <p className="font-bold text-gray-900 dark:text-gray-100">
-                  Education
-                </p>
-                <p className="text-gray-400 dark:text-gray-500 text-sm">
-                  Enabling individuals and communities to serve themselves,
-                  instilling confidence and driving a positive impact
-                </p>
-              </div>
-            </div>
-            <div className="flex gap-4 items-start">
-              <div>
-                <Image
-                  src="/Group 10.png"
-                  alt="Environment Icon"
-                  width={40}
-                  height={40}
-                  className="w-10 h-10"
-                />
-              </div>
-              <div>
-                <p className="font-bold text-gray-900 dark:text-gray-100">
-                  Environment:
-                </p>
-                <p className="text-gray-400 dark:text-gray-500 text-sm">
-                  Promoting sustainable practices and environmental
-                  consciousness for future generations
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section> */}
       <FocusAreas />
 
       {/* Our Programs */}
@@ -340,7 +159,10 @@ export default function Home() {
               our reach to more communities.
             </p>
             <div className="mt-6 flex justify-center text-teal-500 dark:text-teal-400 gap-1">
-              <Link href="" className="font-bold text-sm hover:underline">
+              <Link
+                href="/contact-us?type=donate"
+                className="font-bold text-sm hover:underline"
+              >
                 DONATE NOW
               </Link>
               <ArrowRight className="w-4 h-4" />
@@ -362,7 +184,10 @@ export default function Home() {
               and make a direct impact.
             </p>
             <div className="mt-6 flex justify-center text-teal-500 dark:text-teal-400 gap-1">
-              <Link href="" className="font-bold text-sm hover:underline">
+              <Link
+                href="/contact-us"
+                className="font-bold text-sm hover:underline"
+              >
                 BECOME A VOLUNTEER
               </Link>
               <ArrowRight className="w-4 h-4" />
@@ -384,7 +209,10 @@ export default function Home() {
               impact and reach more communities.
             </p>
             <div className="mt-6 flex justify-center text-teal-500 dark:text-teal-400 gap-1">
-              <Link href="" className="font-bold text-sm hover:underline">
+              <Link
+                href="/contact-us"
+                className="font-bold text-sm hover:underline"
+              >
                 BECOME A PARTNER
               </Link>
               <ArrowRight className="w-4 h-4" />

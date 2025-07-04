@@ -14,6 +14,7 @@ interface BaseMediaItem {
 export interface VideoItem extends BaseMediaItem {
   type: "videos";
   duration?: string;
+  youtubeUrl: string;
 }
 export interface DocumentItem extends BaseMediaItem {
   type: "documents";

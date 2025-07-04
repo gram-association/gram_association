@@ -27,9 +27,9 @@ export default function Tabs() {
           {/* Tab Buttons */}
           <div className="flex w-full space-x-4 justify-center">
             <button
-              className={`rounded-full py-2 px-6 ${
+              className={`rounded-full text-sm md:text-lg  py-2 px-2 md:px-6 ${
                 activeTab === "Journey Highlights"
-                  ? "bg-[#1D352E] text-white hover:bg-green-950"
+                  ? "bg-[#1D352E] dark:bg-[#1a2723] text-white hover:bg-green-950"
                   : "bg-gray-200 text-gray-700"
               }`}
               onClick={() => setActiveTab("Journey Highlights")}
@@ -37,7 +37,7 @@ export default function Tabs() {
               Journey Highlights
             </button>
             <button
-              className={`rounded-full py-2 px-6 ${
+              className={`rounded-full text-sm md:text-lg py-2 px-2 md:px-6 ${
                 activeTab === "The Ride Story"
                   ? "bg-[#1D352E] text-white hover:bg-green-950"
                   : "bg-gray-200 text-gray-700"
@@ -47,7 +47,7 @@ export default function Tabs() {
               The Ride Story
             </button>
             <button
-              className={`rounded-full py-2 px-6 ${
+              className={`rounded-full text-sm md:text-lg py-2 px-2 md:px-6 ${
                 activeTab === "Upcoming Ride"
                   ? "bg-[#1D352E] text-white hover:bg-green-950"
                   : "bg-gray-200 text-gray-700"

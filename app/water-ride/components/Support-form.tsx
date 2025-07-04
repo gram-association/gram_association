@@ -41,7 +41,7 @@ export default function Support() {
   return (
     <form onSubmit={handleSubmit} className="space-y-6 w-full max-w-lg">
       <div className="space-y-4">
-        <label className="block text-gray-700 font-medium text-sm sm:text-base">
+        <label className="block text-gray-700 dark:text-gray-200 font-medium text-sm sm:text-base">
           Be the part of Ride
         </label>
         <Select value={formData.joinAs} onValueChange={handleSelectChange}>
@@ -60,7 +60,7 @@ export default function Support() {
         <div className="space-y-2">
           <label
             htmlFor="firstName"
-            className="block text-gray-700 font-medium text-sm sm:text-base"
+            className="block text-gray-700 dark:text-gray-200 font-medium text-sm sm:text-base"
           >
             First name
           </label>
@@ -76,7 +76,7 @@ export default function Support() {
         <div className="space-y-2">
           <label
             htmlFor="lastName"
-            className="block text-gray-700 font-medium text-sm sm:text-base"
+            className="block text-gray-700 dark:text-gray-200 font-medium text-sm sm:text-base"
           >
             Last name
           </label>
@@ -94,7 +94,7 @@ export default function Support() {
       <div className="space-y-2">
         <label
           htmlFor="email"
-          className="block text-gray-700 font-medium text-sm sm:text-base"
+          className="block text-gray-700 dark:text-gray-200 font-medium text-sm sm:text-base"
         >
           Email
         </label>
@@ -112,7 +112,7 @@ export default function Support() {
       <div className="space-y-2">
         <label
           htmlFor="query"
-          className="block text-gray-700 font-medium text-sm sm:text-base"
+          className="block text-gray-700 dark:text-gray-200 font-medium text-sm sm:text-base"
         >
           Your Query
         </label>
@@ -128,7 +128,7 @@ export default function Support() {
 
       <Button
         type="submit"
-        className="w-full bg-[#538C7B] hover:bg-[#4a7a6e] text-white py-3 rounded-md transition-colors text-sm sm:text-base"
+        className="w-full dark:bg-[#304f53] bg-[#538C7B] hover:bg-[#4a7a6e] dark:hover:bg-[#406d74] text-white py-3 rounded-md transition-colors text-sm sm:text-base"
       >
         SUBMIT
       </Button>

@@ -77,6 +77,13 @@ const config = {
         epilogue: ["Epilogue", "sans-serif"],
         sourceSans: ['"Source Sans 3"', "sans-serif"],
       },
+      utilities: {
+        ".scrollbar-hide": {
+          "-webkit-scrollbar": { display: "none" },
+          "scrollbar-width": "none",
+          "-ms-overflow-style": "none",
+        },
+      },
     },
   },
   plugins: [require("tailwindcss-animate")],

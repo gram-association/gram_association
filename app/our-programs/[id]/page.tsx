@@ -1,7 +1,7 @@
 import Link from "next/link";
-import Image from "next/image";
 import { notFound } from "next/navigation";
 import { programData } from "../data/programsData";
+import AutoScrollCarousel from "@/components/auto-scroll-carousel";
 
 export default async function ProgramPage({
   params,
@@ -13,23 +13,40 @@ export default async function ProgramPage({
   if (!id) {
     notFound();
   }
+
   const program = programData[id.toLowerCase()] || programData["a"];
+
+  // Convert program images to carousel format
+  const carouselImages = Array.isArray(program.image)
+    ? program.image.map((img, index) => ({
+        src: img,
+        alt: `${program.title} - Image ${index + 1}`,
+        title: program.title,
+      }))
+    : [{ src: program.image, alt: program.title, title: program.title }];
 
   return (
     <div>
-      <main className="flex min-h-screen flex-col items-center justify-between p-4 sm:p-8 md:p-24 bg-[linear-gradient(to_bottom,_#1D352E_600px,_white_600px)]">
+      <main className="flex min-h-screen flex-col items-center justify-between p-4 sm:p-8 md:p-24 bg-[linear-gradient(to_bottom,_#1D352E_600px,_white_600px)] dark:bg-[linear-gradient(to_bottom,_#052e0c_600px,_#0f172a_600px)]">
         <section className="relative w-full mt-10">
           <div className="h-[500px] w-full">
             <div className="absolute inset-0 mt-12 sm:mt-0">
-              <Image
-                src={program.image}
-                alt={program.title}
-                width={500}
-                height={433}
-                className="object-cover rounded-xl mt-60 w-full max-w-6xl h-[433px] mx-auto"
+              <AutoScrollCarousel
+                images={carouselImages}
+                autoScrollInterval={3000}
+                height="450px"
+                className="mt-60 w-full max-w-6xl mx-auto rounded-lg"
+                imageClassName="rounded-lg h-full"
+                containerClassName="rounded-lg "
+                showDots={true}
+                pauseOnHover={true}
+                loop={true}
+                transitionDuration={700}
+                objectFit="cover"
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
               />
             </div>
+
             <div>
               <div className="relative z-10 w-full max-w-full mt-10 sm:mt-0 ml-0 sm:ml-2 py-8 px-2 text-white">
                 <p className="text-xs sm:text-sm">
@@ -48,8 +65,8 @@ export default async function ProgramPage({
 
         {/* Content Section */}
         <div className="max-w-7xl p-6 mt-[200px] text-start">
-          <h3 className="text-xl  mb-2">{program.header}</h3>
-          <div className="text-gray-700 text-[16px] mb-6">
+          <h3 className="text-xl mb-2">{program.header}</h3>
+          <div className="text-gray-700 dark:text-gray-400 text-[16px] mb-6">
             {Array.isArray(program.description)
               ? program.description.map((paragraph, index) => (
                   <p key={index} className="mb-4">
@@ -64,47 +81,63 @@ export default async function ProgramPage({
           </div>
 
           {/* Key Interventions */}
-          <h3 className="text-xl  mb-4">{program.header1}</h3>
-          <p className="text-gray-700 mb-2">{program.headline}</p>
+          <h3 className="text-xl mb-4">{program.header1}</h3>
+          <p className="text-gray-700 dark:text-gray-400 mb-2">
+            {program.headline}
+          </p>
           <ul className="list-disc list-inside mb-6">
             {program.interventions.map((item, index) => (
               <li key={index} className="mb-2">
                 {item.title ? (
                   <>
                     <span>{item.title}</span>
-                    <div className="text-gray-700 ml-4">{item.content}</div>
-                  </>
-                ) : (
-                  <span className="text-gray-700">{item.content}</span>
-                )}
-              </li>
-            ))}
-          </ul>
-          <p className="text-gray-700 mb-4">{program.para3}</p>
-
-          {/* Lasting Impact */}
-          <h3 className="text-xl  mb-4">{program.header2}</h3>
-          <ul className="list-disc list-inside">
-            {program.impacts.map((item, index) => (
-              <li key={index} className=" mb-2">
-                {item.title ? (
-                  <>
-                    <span className="font-medium">{item.title}</span>
-                    <div className="text-gray-700 text-md ml-4">
+                    <div className="text-gray-700 dark:text-gray-400 ml-4">
                       {item.content}
                     </div>
                   </>
                 ) : (
-                  <span className="text-gray-700">{item.content}</span>
+                  <span className="text-gray-700 dark:text-gray-400">
+                    {item.content}
+                  </span>
                 )}
               </li>
             ))}
           </ul>
 
-          <h3 className="text-xl  mb-4">{program.paraTitle1}</h3>
-          <p className="text-gray-700 mb-6">{program.para1}</p>
-          <h3 className="text-xl  mb-4">{program.paraTitle2}</h3>
-          <p className="text-gray-700 mb-6">{program.para2}</p>
+          <p className="text-gray-700 dark:text-gray-400 mb-4">
+            {program.para3}
+          </p>
+
+          {/* Lasting Impact */}
+          <h3 className="text-xl mb-4">{program.header2}</h3>
+          <ul className="list-disc list-inside">
+            {program.impacts.map((item, index) => (
+              <li key={index} className="mb-2">
+                {item.title ? (
+                  <>
+                    <span className="font-medium">{item.title}</span>
+                    <div className="text-gray-700 dark:text-gray-400 text-md ml-4">
+                      {item.content}
+                    </div>
+                  </>
+                ) : (
+                  <span className="text-gray-700 dark:text-gray-400">
+                    {item.content}
+                  </span>
+                )}
+              </li>
+            ))}
+          </ul>
+
+          <h3 className="text-xl mb-4">{program.paraTitle1}</h3>
+          <p className="text-gray-700 dark:text-gray-400 mb-6">
+            {program.para1}
+          </p>
+
+          <h3 className="text-xl mb-4">{program.paraTitle2}</h3>
+          <p className="text-gray-700 dark:text-gray-400 mb-6">
+            {program.para2}
+          </p>
         </div>
       </main>
     </div>
