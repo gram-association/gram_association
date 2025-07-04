@@ -1,7 +1,6 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  
   trailingSlash: true,
   eslint: {
     // Warning: This allows production builds to successfully complete even if
