@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
+import ImageWithLoader from "./ImageWithLoader";
 
 interface CarouselImage {
   src: string;
@@ -134,7 +135,7 @@ export default function AutoScrollCarousel({
               key={`${image.src}-${index}`}
               className="w-full h-full flex-shrink-0"
             >
-              <Image
+              <ImageWithLoader
                 src={image.src || "/placeholder.svg"}
                 alt={image.alt || `Image ${index + 1}`}
                 width={500}

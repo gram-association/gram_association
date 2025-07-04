@@ -9,7 +9,7 @@ export const programs = [
     image: [
       "/assets/our-programs/rasabedaSpringwater/Shortlist 1.jpg",
       "/assets/our-programs/rasabedaSpringwater/Shortlist 2.jpg",
-      "/assets/our-programs/rasabedaSpringwater/Shortlist 3.JPEG",
+      "/assets/our-programs/rasabedaSpringwater/Shortlist 3.jpg",
       "/assets/our-programs/rasabedaSpringwater/Shortlist 4.jpg",
     ],
     slug: "a",

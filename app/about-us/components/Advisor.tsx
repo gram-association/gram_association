@@ -4,40 +4,36 @@ import { FaLinkedin } from "react-icons/fa";
 const teamMembers = [
   {
     name: "Barefoot",
-    role: "Founder",
     image: "/assets/about-us/support/Barefoot.png",
   },
   {
     name: "deeksha",
-    role: "Partner",
     image: "/assets/about-us/support/DEEKSHA.webp",
   },
   {
     name: "iim ranchi",
-    role: "Partner",
     image: "/assets/about-us/support/IIM Ranchi.png",
   },
   {
     name: "innovation",
-    role: "Partner",
     image: "/assets/about-us/support/innovations.png",
   },
   {
     name: "NABARD",
-    role: "Partner",
     image: "/assets/about-us/support/NABARD .webp",
   },
   {
     name: "NEST Lamka",
-    role: "Partner",
     image: "/assets/about-us/support/NEST Lamka.png",
   },
   {
     name: "we support",
-    role: "Partner",
     image: "/assets/about-us/support/we support.png",
   },
 ];
+
+// Duplicate the array for seamless looping
+const loopedTeamMembers = [...teamMembers, ...teamMembers, ...teamMembers];
 
 export default function Advisor() {
   return (
@@ -53,71 +49,30 @@ export default function Advisor() {
           MEET THE SUPPORT OF GRAM
         </h1>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 max-w-6xl w-full mx-auto sm:mx-0 ">
-          {teamMembers.slice(0, 4).map((member, index) => (
-            <div
-              key={index}
-              className="relative bg-white rounded-lg overflow-hidden  aspect-square sm:aspect-auto"
-            >
-              <div className="relative w-full h-full sm:h-48">
-                <Image
-                  src={member.image}
-                  alt={`${member.name} photo`}
-                  width={200}
-                  height={200}
-                  className="rounded-t-lg  w-full h-full sm:h-48"
-                />
-              </div>
-              {/* <div className="px-2 absolute bottom-4 rounded bg-gray-100/50 w-[90%] sm:w-56 ml-2 sm:ml-5 flex justify-between items-center">
-                <div>
-                  <h3 className="text-base sm:text-lg  text-gray-800">
-                    {member.name}
-                  </h3>
-                  <p className="text-xs sm:text-sm text-gray-600">
-                    {member.role}
-                  </p>
+        {/* Horizontal scrolling container */}
+        <div className="w-full max-w-6xl overflow-hidden">
+          <div className="flex animate-scroll">
+            {loopedTeamMembers.map((member, index) => (
+              <div
+                key={index}
+                className="flex-shrink-0 w-40 sm:w-48 md:w-56 mx-2"
+              >
+                <div className="relative bg-white rounded-lg overflow-hidden ">
+                  <Image
+                    src={member.image}
+                    alt={`${member.name} photo`}
+                    width={200}
+                    height={200}
+                    className="rounded-lg w-full h-40 sm:h-48 object-contain p-4"
+                  />
                 </div>
-                <a href="#" aria-label={`LinkedIn profile of ${member.name}`}>
-                  <FaLinkedin size={20} className="sm:size-6" />
-                </a>
-              </div> */}
-            </div>
-          ))}
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 max-w-6xl w-full mt-4 sm:mt-6 mx-auto sm:mx-0">
-          {teamMembers.slice(4).map((member, index) => (
-            <div
-              key={index}
-              className="relative bg-white rounded-lg overflow-hidden  aspect-square sm:aspect-auto"
-            >
-              <div className="relative w-full h-full sm:h-48">
-                <Image
-                  src={member.image}
-                  alt={`${member.name} photo`}
-                  width={200}
-                  height={200}
-                  className="rounded-t-lg  w-full h-full sm:h-48"
-                />
               </div>
-              {/* <div className="px-2 mb-6 absolute bottom-4 rounded bg-gray-100/50 w-[90%] sm:w-56 ml-2 sm:ml-5 flex justify-between items-center">
-                <div>
-                  <h3 className="text-base sm:text-lg  text-gray-800">
-                    {member.name}
-                  </h3>
-                  <p className="text-xs sm:text-sm text-gray-600">
-                    {member.role}
-                  </p>
-                </div>
-                <a href="#" aria-label={`LinkedIn profile of ${member.name}`}>
-                  <FaLinkedin size={20} className="sm:size-6" />
-                </a>
-              </div> */}
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
-      <div className="">
+
+      <div className="px-4 sm:px-5">
         <div className="mb-10 sm:mb-5 text-center sm:text-left">
           <Image
             src="/Frame.png"
@@ -130,7 +85,7 @@ export default function Advisor() {
             “Listen to the people on the ground. <br />
             They have all the solutions if you have the patience to hear.“
           </p>
-          <p className="text-xs sm:text-sm  text-gray-700 dark:text-gray-200 mt-2">
+          <p className="text-xs sm:text-sm text-gray-700 dark:text-gray-200 mt-2">
             — Sanjay Buti Roy
           </p>
         </div>
