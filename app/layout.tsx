@@ -33,6 +33,7 @@ export const metadata: Metadata = {
   icons: {
     icon: "/GRAM logomark.jpg",
   },
+  metadataBase: new URL("https://gramassociation.org"),
   openGraph: {
     title: "GRAM Association",
     description: "Empowering Communities, Transforming Lives",
@@ -40,7 +41,7 @@ export const metadata: Metadata = {
     siteName: "GRAM Association",
     images: [
       {
-        url: "/GRAM logotype.png",
+        url: "https://gramassociation.org/GRAM_logotype.png",
         width: 800,
         height: 600,
       },
@@ -52,10 +53,9 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "GRAM Association",
     description: "Empowering Communities, Transforming Lives",
-    images: ["/GRAM logotype.png"],
+    images: ["https://gramassociation.org/GRAM_logotype.png"],
   },
 
-  metadataBase: new URL("https://gramassociation.org"),
   verification: {
     google: "google-site-verification=your-google-verification-code",
     yandex: "yandex-verification: your-yandex-verification-code",

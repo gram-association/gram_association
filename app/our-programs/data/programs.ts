@@ -7,10 +7,10 @@ export const programs = [
     description:
       "In the remote village of Rasabeda, nestled in the challenging terrain of the Chota Nagpur plateau, access...",
     image: [
-      "/assets/our-programs/rasabedaSpringwater/Shortlist 1.jpg",
-      "/assets/our-programs/rasabedaSpringwater/Shortlist 2.jpg",
-      "/assets/our-programs/rasabedaSpringwater/Shortlist 3.jpg",
-      "/assets/our-programs/rasabedaSpringwater/Shortlist 4.jpg",
+      "/assets/our-programs/rasabedaSpringwater/Shortlist_1.jpg",
+      "/assets/our-programs/rasabedaSpringwater/Shortlist_2.jpg",
+      "/assets/our-programs/rasabedaSpringwater/Shortlist_3.jpg",
+      "/assets/our-programs/rasabedaSpringwater/Shortlist_4.jpg",
     ],
     slug: "a",
   },
@@ -22,10 +22,10 @@ export const programs = [
     description:
       "In 2020, amid the challenges of the COVID-19 pandemic, GRAM Association, in partnership with Barefoot College,...",
     image: [
-      "/assets/our-programs/pondRejuvenation/Shortlist 1 (1).jpg",
-      "/assets/our-programs/pondRejuvenation/Shortlist 2 (1).jpg",
-      "/assets/our-programs/pondRejuvenation/Shortlist 3.jpg",
-      "/assets/our-programs/pondRejuvenation/Shortlist 4.JPEG",
+      "/assets/our-programs/pondRejuvenation/Shortlist_1.jpg",
+      "/assets/our-programs/pondRejuvenation/Shortlist_2.jpg",
+      "/assets/our-programs/pondRejuvenation/Shortlist_3.jpg",
+      "/assets/our-programs/pondRejuvenation/Shortlist_4.jpg",
     ],
     slug: "b",
   },
@@ -37,10 +37,10 @@ export const programs = [
     description:
       "In 2020, GRAM Association partnered with INNODI, under a larger initiative driven by the National Stock Ex....",
     image: [
-      "/assets/our-programs/birbhumProject/Shortlist 1 (2).jpg",
-      "/assets/our-programs/birbhumProject/Shortlist 2 (2).jpg",
-      "/assets/our-programs/birbhumProject/Shortlist 3 (1).jpg",
-      "/assets/our-programs/birbhumProject/Shortlist 4 (1).jpg",
+      "/assets/our-programs/birbhumProject/Shortlist_1.jpg",
+      "/assets/our-programs/birbhumProject/Shortlist_2.jpg",
+      "/assets/our-programs/birbhumProject/Shortlist_3.jpg",
+      "/assets/our-programs/birbhumProject/Shortlist_4.jpg",
     ],
     slug: "c",
   },
@@ -52,10 +52,10 @@ export const programs = [
     description:
       "In 2020, GRAM Association, in partnership with IIM Ranchi, launched a unique experiment in community-driven, s....",
     image: [
-      "/assets/our-programs/rasabedaTourism/Shortlist 1.jpg",
-      "/assets/our-programs/rasabedaTourism/Shortlist 2.JPG",
-      "/assets/our-programs/rasabedaTourism/Shortlist 3.JPG",
-      "/assets/our-programs/rasabedaTourism/Shortlist 4.JPG",
+      "/assets/our-programs/rasabedaTourism/Shortlist_1.jpg",
+      "/assets/our-programs/rasabedaTourism/Shortlist_2.jpg",
+      "/assets/our-programs/rasabedaTourism/Shortlist_3.jpg",
+      "/assets/our-programs/rasabedaTourism/Shortlist_4.jpg",
     ],
     slug: "d",
   },
@@ -67,10 +67,10 @@ export const programs = [
     description:
       "In 2022, GRAM Association, in partnership with IIM Ranchi and under the Unnat Bharat Abhiyan framework, i...",
     image: [
-      "/assets/our-programs/leafplatemaking/Shortlist 1.JPG",
-      "/assets/our-programs/leafplatemaking/Shortlist 2.JPG",
-      "/assets/our-programs/leafplatemaking/Shortlist 3.JPG",
-      "/assets/our-programs/leafplatemaking/Shortlist 4.JPG",
+      "/assets/our-programs/leafplatemaking/Shortlist_1.jpg",
+      "/assets/our-programs/leafplatemaking/Shortlist_2.jpg",
+      "/assets/our-programs/leafplatemaking/Shortlist_3.jpg",
+      "/assets/our-programs/leafplatemaking/Shortlist_4.jpg",
     ],
     slug: "e",
   },
@@ -81,10 +81,10 @@ export const programs = [
     description:
       "In collaboration with NABARD Nestled in the Silli Block of Ranchi district, the village of Dharampur is home to 70....",
     image: [
-      "/assets/our-programs/dharampurRuralTourism/Shortlist 1.JPG",
-      "/assets/our-programs/dharampurRuralTourism/Shortlist 2.JPG",
-      "/assets/our-programs/dharampurRuralTourism/Shortlist 3.JPG",
-      "/assets/our-programs/dharampurRuralTourism/Shortlist 4.JPG",
+      "/assets/our-programs/dharampurRuralTourism/Shortlist_1.jpg",
+      "/assets/our-programs/dharampurRuralTourism/Shortlist_2.jpg",
+      "/assets/our-programs/dharampurRuralTourism/Shortlist_3.jpg",
+      "/assets/our-programs/dharampurRuralTourism/Shortlist_4.jpg",
     ],
     slug: "f",
   },
@@ -95,10 +95,10 @@ export const programs = [
     description:
       "During the first wave of the pandemic, GRAM Association focused on supporting vulnerable communities in Ranchi district by...",
     image: [
-      "/assets/our-programs/COVIDRelief/Shortlist 1.JPG",
-      "/assets/our-programs/COVIDRelief/Shortlist 2.JPG",
-      "/assets/our-programs/COVIDRelief/Shortlist 3.JPG",
-      "/assets/our-programs/COVIDRelief/Shortlist 4.JPG",
+      "/assets/our-programs/COVIDRelief/Shortlist_1.jpg",
+      "/assets/our-programs/COVIDRelief/Shortlist_2.jpg",
+      "/assets/our-programs/COVIDRelief/Shortlist_3.jpg",
+      "/assets/our-programs/COVIDRelief/Shortlist_4.jpg",
     ],
     slug: "g",
   },
@@ -109,10 +109,10 @@ export const programs = [
     description:
       "In many remote villages of Jharkhand, formal schooling remains out of reach for countless children. To bridge this gap, GR...",
     image: [
-      "/assets/our-programs/bridgeSchool/Shortlist 1.JPG",
-      "/assets/our-programs/bridgeSchool/Shortlist 2.jpeg",
-      "/assets/our-programs/bridgeSchool/Shortlist 3.jpeg",
-      "/assets/our-programs/bridgeSchool/Shortlist 4.jpeg",
+      "/assets/our-programs/bridgeSchool/Shortlist_1.jpg",
+      "/assets/our-programs/bridgeSchool/Shortlist_2.jpg",
+      "/assets/our-programs/bridgeSchool/Shortlist_3.jpg",
+      "/assets/our-programs/bridgeSchool/Shortlist_4.jpg",
     ],
     slug: "h",
   },
@@ -123,10 +123,10 @@ export const programs = [
     description:
       "In March 2021, GRAM Association partnered with IIM Ranchi to host `Shodhyatra 2.0`, a hands-on immersion jo...",
     image: [
-      "/assets/our-programs/sodhyatra/Shortlist 1.jpg",
-      "/assets/our-programs/sodhyatra/Shortlist 2.jpg",
-      "/assets/our-programs/sodhyatra/Shortlist 3.jpg",
-      "/assets/our-programs/sodhyatra/Shortlist 4.jpg",
+      "/assets/our-programs/sodhyatra/Shortlist_1.jpg",
+      "/assets/our-programs/sodhyatra/Shortlist_2.jpg",
+      "/assets/our-programs/sodhyatra/Shortlist_3.jpg",
+      "/assets/our-programs/sodhyatra/Shortlist_4.jpg",
     ],
     slug: "i",
   },
