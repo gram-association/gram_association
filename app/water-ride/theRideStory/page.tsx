@@ -26,9 +26,9 @@ const journeySteps: JourneyStep[] = [
       "Explored the Maahi Haldi turmeric processing unit and learned about multilayer farming, drip irrigation, and the integration of agriculture with water conservation.",
     ],
     image: [
-      "/assets/water-ride/rajasthan/Shortlist 1.JPG",
-      "/assets/water-ride/rajasthan/Shortlist 2.JPG",
-      "/assets/water-ride/rajasthan/Shortlist 3.JPG",
+      "/assets/water-ride/rajasthan/Shortlist_1.jpg",
+      "/assets/water-ride/rajasthan/Shortlist_2.jpg",
+      "/assets/water-ride/rajasthan/Shortlist_3.jpg",
     ],
   },
   {
@@ -42,9 +42,9 @@ const journeySteps: JourneyStep[] = [
       "Engaged with FES (Foundation for Ecological Security) in Anand to understand water resource and pasture land management.",
     ],
     image: [
-      "/assets/water-ride/gujarat/Shortlist 1.JPG",
-      "/assets/water-ride/gujarat/Shortlist 2.JPG",
-      "/assets/water-ride/gujarat/Shortlist 3.JPG",
+      "/assets/water-ride/gujarat/Shortlist_1.jpg",
+      "/assets/water-ride/gujarat/Shortlist_2.jpg",
+      "/assets/water-ride/gujarat/Shortlist_3.jpg",
     ],
   },
   {
@@ -59,9 +59,9 @@ const journeySteps: JourneyStep[] = [
       "Explored seed banks and natural farming practices.",
     ],
     image: [
-      "/assets/water-ride/mp/Shortlist 1.JPG",
-      "/assets/water-ride/mp/Shortlist 2.JPG",
-      "/assets/water-ride/mp/Shortlist 3.JPG",
+      "/assets/water-ride/mp/Shortlist_1.jpg",
+      "/assets/water-ride/mp/Shortlist_2.jpg",
+      "/assets/water-ride/mp/Shortlist_3.jpg",
     ],
   },
   {
@@ -79,9 +79,9 @@ const journeySteps: JourneyStep[] = [
       "Interacted with village development officers in Solapur to discuss rural water management.",
     ],
     image: [
-      "/assets/water-ride/maharashtra/Shortlist 1.JPG",
-      "/assets/water-ride/maharashtra/Shortlist 2.JPG",
-      "/assets/water-ride/maharashtra/Shortlist 3.JPG",
+      "/assets/water-ride/maharashtra/Shortlist_1.jpg",
+      "/assets/water-ride/maharashtra/Shortlist_2.jpg",
+      "/assets/water-ride/maharashtra/Shortlist_3.jpg",
     ],
   },
   {
@@ -93,9 +93,9 @@ const journeySteps: JourneyStep[] = [
       "Interacted with farmers' union and THAMATE team in Pavagada to understand Dalit farming and water issues.",
     ],
     image: [
-      "/assets/water-ride/karnataka/Shortlist 1.JPG",
-      "/assets/water-ride/karnataka/Shortlist 2.JPG",
-      "/assets/water-ride/karnataka/Shortlist 3.JPG",
+      "/assets/water-ride/karnataka/Shortlist_1.jpg",
+      "/assets/water-ride/karnataka/Shortlist_2.jpg",
+      "/assets/water-ride/karnataka/Shortlist_3.jpg",
     ],
   },
   {
@@ -107,9 +107,9 @@ const journeySteps: JourneyStep[] = [
       "Studied rejuvenation of traditional kulams (ponds) and puzhas (streams)",
     ],
     image: [
-      "/assets/water-ride/kerala/Shortlist 1.JPG",
-      "/assets/water-ride/kerala/Shortlist 2.JPG",
-      "/assets/water-ride/kerala/Shortlist 3.JPG",
+      "/assets/water-ride/kerala/Shortlist_1.jpg",
+      "/assets/water-ride/kerala/Shortlist_2.jpg",
+      "/assets/water-ride/kerala/Shortlist_3.jpg",
     ],
   },
   {
@@ -122,9 +122,9 @@ const journeySteps: JourneyStep[] = [
       "Learned about traditional Eris (tank) systems near the outskirts of Chennai",
     ],
     image: [
-      "/assets/water-ride/tamilnadu/Shortlist 1.JPG",
-      "/assets/water-ride/tamilnadu/Shortlist 2.JPG",
-      "/assets/water-ride/tamilnadu/Shortlist 3.JPG",
+      "/assets/water-ride/tamilnadu/Shortlist_1.jpg",
+      "/assets/water-ride/tamilnadu/Shortlist_2.jpg",
+      "/assets/water-ride/tamilnadu/Shortlist_3.jpg",
     ],
   },
   {
@@ -136,9 +136,9 @@ const journeySteps: JourneyStep[] = [
       "Visited Vijayawada, Samarlakota, and Visakhapatnam to understand regional water management practices.",
     ],
     image: [
-      "/assets/water-ride/andhrapradesh/Shortlist 1.JPG",
-      "/assets/water-ride/andhrapradesh/Shortlist 2.JPG",
-      "/assets/water-ride/andhrapradesh/Shortlist 3.JPG",
+      "/assets/water-ride/andhrapradesh/Shortlist_1.jpg",
+      "/assets/water-ride/andhrapradesh/Shortlist_2.jpg",
+      "/assets/water-ride/andhrapradesh/Shortlist_3.jpg",
     ],
   },
   {
@@ -151,9 +151,9 @@ const journeySteps: JourneyStep[] = [
       "Engaged with students and faculty for knowledge exchange.",
     ],
     image: [
-      "/assets/water-ride/odisha/Shortlist 1.JPG",
-      "/assets/water-ride/odisha/Shortlist 2.jPG",
-      "/assets/water-ride/odisha/Shortlist 3.JPG",
+      "/assets/water-ride/odisha/Shortlist_1.jpg",
+      "/assets/water-ride/odisha/Shortlist_2.jpg",
+      "/assets/water-ride/odisha/Shortlist_3.jpg",
     ],
   },
 ];
