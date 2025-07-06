@@ -18,8 +18,8 @@ export default function Home() {
               src="/homeCommunity.png"
               alt="community"
               width={1152}
-              height={500}
-              className="object-fill rounded-lg w-full h-64 xs:h-72 sm:h-full sm:mt-60 sm:w-6xl sm:mx-auto"
+              height={450}
+              className="object-contain rounded-lg w-full h-64 xs:h-72 sm:h-full sm:mt-60 sm:w-6xl sm:mx-auto"
               priority
             />
           </div>

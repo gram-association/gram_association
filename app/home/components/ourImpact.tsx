@@ -163,10 +163,10 @@ const OurImpact: React.FC = () => {
       {/* Mobile View (Horizontal Scroller with Hidden Scrollbar) */}
       <div
         ref={scrollerRef}
-        className="md:hidden overflow-x-auto snap-x snap-mandatory flex w-xl mx-auto py-8 px-4 bg-[#F8F1E9] dark:bg-gray-800 rounded-lg scrollbar-hide"
+        className="md:hidden overflow-x-auto snap-x snap-mandatory flex w-[400px] mx-auto py-8 px-4 bg-[#F8F1E9] dark:bg-gray-800 rounded-lg scrollbar-hide"
         onScroll={handleScroll}
       >
-        <div className="flex-none snap-center w-xl flex justify-center space-x-6">
+        <div className="flex-none snap-center w-full flex justify-center items-center space-x-6">
           <div className="text-center min-w-[100px]">
             <CountUp
               end={10000}
