@@ -13,13 +13,13 @@ export default function Home() {
       <section className="relative">
         <div className="flex flex-col sm:flex-row sm:h-[500px] max-w-7xl mx-auto">
           {/* Image Section */}
-          <div className="relative w-full sm:h-full">
+          <div className="relative w-full sm:h-full ">
             <Image
-              src="/hero-image.png"
+              src="/homeCommunity.png"
               alt="community"
               width={1152}
-              height={700}
-              className="object-cover w-full h-64 xs:h-72 sm:h-full sm:mt-60 sm:w-6xl sm:mx-auto"
+              height={500}
+              className="object-fill rounded-lg w-full h-64 xs:h-72 sm:h-full sm:mt-60 sm:w-6xl sm:mx-auto"
               priority
             />
           </div>

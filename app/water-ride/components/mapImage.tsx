@@ -7,7 +7,7 @@ import Image from "next/image";
 const states = [
   {
     name: "Rajasthan",
-    position: { top: "13%", right: "48%" },
+    position: { top: "10%", right: "48%" },
     geographical: [
       "Semi-arid to arid state; low rainfall (400–600 mm annually)",
       "Frequent droughts; erratic monsoon patterns",
@@ -25,7 +25,7 @@ const states = [
   },
   {
     name: "Gujarat",
-    position: { top: "28%", right: "55%" },
+    position: { top: "26%", right: "55%" },
     geographical: [
       "Seasonal rivers and streams",
       "Coastal areas affected by salinity intrusion",
@@ -43,7 +43,7 @@ const states = [
   },
   {
     name: "Madhya Pradesh",
-    position: { top: "28%", right: "38%" },
+    position: { top: "25%", right: "36%" },
     geographical: [
       "Central Indian plateau with mixed topography",
       "Forested and tribal-dominated regions with hilly terrain",
@@ -61,7 +61,7 @@ const states = [
   },
   {
     name: "Maharashtra",
-    position: { top: "46%", right: "41%" },
+    position: { top: "43%", right: "41%" },
     geographical: [
       "Lies in rain-shadow of Western Ghats; rainfall ~500–600 mm annually",
       "Drought-prone zones with semi-arid conditions",
@@ -79,7 +79,7 @@ const states = [
   },
   {
     name: "Karnataka",
-    position: { top: "66%", right: "42%" },
+    position: { top: "63%", right: "42%" },
     geographical: [
       "Diverse terrain: Western Ghats on the west, Deccan Plateau in the interior",
       "Significant groundwater variability due to hard rock formations",
@@ -97,7 +97,7 @@ const states = [
   },
   {
     name: "Kerala",
-    position: { top: "88%", right: "38%" },
+    position: { top: "86%", right: "38%" },
     geographical: [
       "Western Ghats mountain range with dense forests on the east",
       "Coastal plains vulnerable to flooding and saltwater intrusion",
@@ -115,7 +115,7 @@ const states = [
   },
   {
     name: "Tamil Nadu",
-    position: { top: "80%", right: "33%" },
+    position: { top: "77%", right: "33%" },
     geographical: [
       "Rainfall influenced by Northeast and Southwest monsoons",
       "Coastal areas prone to cyclones and saline water intrusion",
@@ -133,7 +133,7 @@ const states = [
   },
   {
     name: "Andhra Pradesh",
-    position: { top: "65%", right: "32%" },
+    position: { top: "64%", right: "32%" },
     geographical: [
       "Eastern Ghats hill ranges with moderate rainfall",
       "Large network of tanks and canals for irrigation",
@@ -151,7 +151,7 @@ const states = [
   },
   {
     name: "Odisha",
-    position: { top: "42%", right: "16%" },
+    position: { top: "40%", right: "16%" },
     geographical: [
       "Eastern Ghats hills with moderate to high rainfall",
       "Flood-prone coastal areas, presence of extensive wetlands, mangroves, and estuaries",
@@ -188,7 +188,7 @@ export default function MapComponent() {
 
   return (
     <div className="h-full w-full">
-      <p className="container mx-auto bg-gray-100 w-fit rounded-xl px-2 sm:px-4 py-1 mt-10 sm:mt-20 text-gray-700 flex items-center text-xs sm:text-base">
+      <p className="container mx-auto bg-[#DEE6EB] w-fit rounded-xl px-2 sm:px-4 py-1 mt-10 sm:mt-20 text-gray-700 flex items-center text-xs sm:text-base">
         Impact
       </p>
       <h2 className="text-xl sm:text-3xl md:text-4xl lg:text-5xl mt-4 text-center mb-6 px-4">
@@ -196,13 +196,14 @@ export default function MapComponent() {
       </h2>
 
       {/* Map Section */}
-      <div className="sticky top-0 h-screen flex items-center justify-center">
-        <div className="relative w-full max-w-4xl h-full sm:h-[80vh] md:h-full">
+      <div className="  h-[350px] lg:h-screen flex justify-center mt-14 sm:mt-0">
+        <div className="relative w-full max-w-4xl h-[300px] sm:h-[80vh] md:h-full scale-[1.3] sm:scale-[1]">
           {/* Background Map Image */}
           <Image
             src="/India.png"
             alt="Map of India"
-            fill
+            width={500}
+            height={500}
             style={{ objectFit: "contain" }}
             className="w-full h-full"
           />
@@ -212,17 +213,16 @@ export default function MapComponent() {
             className="absolute"
             style={{
               top: states[activeState].position.top,
-              // Dynamically set left or right based on dialogue position
               [rightDialogueStates.includes(states[activeState].name)
                 ? "right"
                 : "right"]: rightDialogueStates.includes(
                 states[activeState].name
               )
-                ? `calc(${states[activeState].position.right} )` // Shift bike to the left
-                : states[activeState].position.right, // Keep bike on the right
+                ? `calc(${states[activeState].position.right} )`
+                : states[activeState].position.right,
               translateX: rightDialogueStates.includes(states[activeState].name)
                 ? "50%"
-                : "-50%", // Adjust for centering
+                : "-50%",
               translateY: "-50%",
             }}
             transition={{ duration: 0.5 }}
@@ -236,7 +236,7 @@ export default function MapComponent() {
             />
           </motion.div>
 
-          {/* State Markers and Dialogues */}
+          {/* State Markers and Floating Dialogues */}
           {states.map((state, index) => (
             <div key={state.name} className="absolute" style={state.position}>
               {/* Marker */}
@@ -255,11 +255,11 @@ export default function MapComponent() {
                   src="/pin.png"
                   alt={`Pin for ${state.name}`}
                   fill
-                  className="hover:scale-125 "
+                  className="hover:scale-125"
                 />
               </motion.div>
 
-              {/* Dialogue Box */}
+              {/* Floating Dialogue for large screens only */}
               {activeState === index && (
                 <motion.div
                   initial={{
@@ -268,54 +268,86 @@ export default function MapComponent() {
                   }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5 }}
-                  className={`absolute ${
+                  className={`absolute sm:block hidden scrollbar-hide ${
                     topDialogueStates.includes(state.name)
-                      ? "bottom-6 sm:bottom-8"
-                      : "top-2 sm:top-4"
+                      ? "bottom-6 lg:bottom-8"
+                      : "top-2 lg:top-4"
                   } ${
                     rightDialogueStates.includes(state.name)
-                      ? "right-6 sm:right-8"
-                      : "right-6 sm:left-8"
-                  } w-[200px] sm:w-[507px] p-2 sm:p-4 bg-white rounded-lg shadow-lg border border-gray-200 z-0 overflow-y-auto`}
+                      ? "-right-30 sm:right-8"
+                      : "-left-30 sm:left-8"
+                  } w-[250px] lg:w-[507px] h-[250px] lg:h-auto p-2 sm:p-4 bg-white rounded-lg shadow-lg border border-gray-200 z-0 overflow-y-auto`}
                 >
-                  <h3 className="text-sm sm:text-lg font-semibold text-black">
+                  <h3 className="text-sm sm:text-lg text-black">
                     {state.name}
                   </h3>
 
-                  {state.geographical && (
-                    <>
-                      <h3 className="font-semibold text-gray-800 mt-2">
-                        Geographical Overview
-                      </h3>
-                      <ul className="pb-1 sm:pb-2 list-disc list-inside text-gray-700 text-justify space-y-0.5 sm:space-y-1">
-                        {state.geographical.map((geographical, idx) => (
-                          <li key={idx}>{geographical}</li>
-                        ))}
-                      </ul>
-                      <hr />
-                      <h3 className="font-semibold text-gray-800 mt-2">
-                        Water Issues
-                      </h3>
-                      <ul className="pb-1 sm:pb-2 list-disc list-inside text-gray-700 text-justify space-y-0.5 sm:space-y-1">
-                        {state.waterissues.map((waterissues, idx) => (
-                          <li key={idx}>{waterissues}</li>
-                        ))}
-                      </ul>
-                      <hr />
-                      <h3 className="font-semibold text-gray-800 mt-2">
-                        Traditional Water Wisdom
-                      </h3>
-                      <ul className="list-disc list-inside text-gray-700 text-justify space-y-0.5 sm:space-y-1">
-                        {state.wisdom.map((wisdom, idx) => (
-                          <li key={idx}>{wisdom}</li>
-                        ))}
-                      </ul>
-                    </>
-                  )}
+                  <h3 className="font-semibold text-gray-800 mt-2 text-sm lg:text-lg">
+                    Geographical Overview
+                  </h3>
+                  <ul className="pb-1 sm:pb-2 text-xs lg:text-[17px] list-disc list-inside text-gray-700 text-justify space-y-0.5 sm:space-y-1">
+                    {state.geographical.map((item, idx) => (
+                      <li key={idx}>{item}</li>
+                    ))}
+                  </ul>
+                  <hr />
+                  <h3 className="font-semibold text-gray-800 mt-2 text-sm lg:text-lg">
+                    Water Issues
+                  </h3>
+                  <ul className="pb-1 sm:pb-2 text-xs lg:text-[17px] list-disc list-inside text-gray-700 text-justify space-y-0.5 sm:space-y-1">
+                    {state.waterissues.map((item, idx) => (
+                      <li key={idx}>{item}</li>
+                    ))}
+                  </ul>
+                  <hr />
+                  <h3 className="font-semibold text-sm lg:text-lg text-gray-800 mt-2">
+                    Traditional Water Wisdom
+                  </h3>
+                  <ul className="list-disc text-xs lg:text-[17px] list-inside text-gray-700 text-justify space-y-0.5 sm:space-y-1">
+                    {state.wisdom.map((item, idx) => (
+                      <li key={idx}>{item}</li>
+                    ))}
+                  </ul>
                 </motion.div>
               )}
             </div>
           ))}
+        </div>
+      </div>
+
+      {/* Mobile dialogue box below map */}
+      <div className="sm:hidden px-4 mt-6">
+        <div className="w-full bg-white rounded-lg shadow-lg border border-gray-200 p-4 max-h-auto overflow-y-auto">
+          <h3 className="text-lg font-semibold text-black">
+            {states[activeState].name}
+          </h3>
+
+          <h4 className="font-semibold text-gray-800 mt-2 text-sm">
+            Geographical Overview
+          </h4>
+          <ul className="list-disc list-inside text-xs text-gray-700 space-y-1">
+            {states[activeState].geographical.map((item, idx) => (
+              <li key={idx}>{item}</li>
+            ))}
+          </ul>
+
+          <h4 className="font-semibold text-gray-800 mt-2 text-sm">
+            Water Issues
+          </h4>
+          <ul className="list-disc list-inside text-xs text-gray-700 space-y-1">
+            {states[activeState].waterissues.map((item, idx) => (
+              <li key={idx}>{item}</li>
+            ))}
+          </ul>
+
+          <h4 className="font-semibold text-gray-800 mt-2 text-sm">
+            Traditional Water Wisdom
+          </h4>
+          <ul className="list-disc list-inside text-xs text-gray-700 space-y-1">
+            {states[activeState].wisdom.map((item, idx) => (
+              <li key={idx}>{item}</li>
+            ))}
+          </ul>
         </div>
       </div>
     </div>

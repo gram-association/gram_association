@@ -11,7 +11,7 @@ export default function WaterRide() {
         <div className="h-64 sm:h-72 md:h-[500px] w-full sm:min-w-screen">
           <div className="absolute inset-0">
             <Image
-              src="/waterRide Hero.png"
+              src="/waterRide.png"
               alt="community"
               width={1152}
               height={700}
