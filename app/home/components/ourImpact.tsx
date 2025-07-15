@@ -152,7 +152,7 @@ const OurImpact: React.FC = () => {
   }, []);
 
   return (
-    <section className="py-8 md:pb-16 text-center mt-10 md:mt-0">
+    <section className="py-8 md:pb-16 text-center mt-2 md:mt-0">
       <p className="container mx-auto bg-[#DEE6EB] dark:bg-gray-700 w-fit rounded-lg px-2 text-gray-700 dark:text-gray-200 flex items-center text-sm md:text-base">
         Our Impact
       </p>

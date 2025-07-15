@@ -45,7 +45,7 @@ const loopedTeamMembers = [
 export default function Advisor() {
   return (
     <>
-      <div className="flex flex-col items-center py-8 px-4 sm:px-5 md:py-">
+      <div className="flex flex-col items-center py-8 px-4 sm:px-5 md:py-14">
         <div className="self-start mb-4 sm:mb-5">
           <span className="bg-[#DEE6EB] dark:bg-gray-700 text-gray-700 dark:text-gray-200 text-xs sm:text-sm font-semibold rounded-full px-3 py-1">
             Advisor

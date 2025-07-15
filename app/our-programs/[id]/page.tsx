@@ -31,8 +31,8 @@ export default async function ProgramPage({
         <section className="relative w-full mt-10">
           <div className="h-auto w-full flex flex-col gap-6">
             {/* Title Section */}
-            <div className="relative z-10 w-full max-w-full ml-0 sm:ml-2 py-8 px-2 text-white">
-              <p className="text-xs sm:text-sm">
+            <div className="relative z-10 w-full max-w-full ml-0 sm:ml-2 py-8 px-2  text-white">
+              <p className="text-xs sm:text-sm mt-14">
                 <span>
                   <Link href="/our-programs">Our Programs </Link>
                 </span>{" "}

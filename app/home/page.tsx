@@ -19,19 +19,19 @@ export default function Home() {
               alt="community"
               width={1152}
               height={450}
-              className="object-contain rounded-lg w-full h-64  sm:h-full sm:mt-52 sm:w-6xl sm:mx-auto"
+              className="object-cover w-6xl rounded-xl border border-gray-400 mx-auto mt-36 sm:mt-60"
               priority
             />
           </div>
           {/* Content Section */}
-          <div className="flex flex-col sm:flex-row sm:justify-evenly sm:absolute sm:inset-0 w-full sm:w-[1277px] mt-6 sm:mt-12 px-4 sm:px-0">
+          <div className="flex flex-col sm:flex-row sm:justify-evenly sm:absolute sm:inset-0 w-full sm:w-[1277px] -mt-56 sm:mt-12 px-4 sm:px-0">
             <div className="relative z-10 w-full sm:w-4xl text-white dark:text-white">
               <h1 className="text-xl xs:text-2xl sm:text-[48px] font-semibold text-center sm:text-left leading-tight sm:leading-snug">
                 Building self-reliant India through self-reliant villages
               </h1>
             </div>
             <div className="hidden sm:block sm:mt-6 sm:mx-4 h-24 w-px bg-gray-300 dark:bg-gray-600"></div>
-            <div className="relative z-10 py-2 px-4 sm:px-2 text-white dark:text-gray-200 w-full sm:w-xl sm:mr-35">
+            <div className="relative z-10 py-2 px-4 sm:px-2 text-white dark:text-gray-200 w-full sm:w-xl sm:mr-35 mt-48 sm:mt-0">
               <p className="text-xs sm:text-sm text-center sm:text-left leading-relaxed">
                 GRAM Association is dedicated to empowering communities through
                 sustainable development, education, healthcare, and clean water
@@ -49,7 +49,7 @@ export default function Home() {
         </div>
       </section>
       {/* About us */}
-      <section className="py-8 md:pt-16 text-center mt-10 md:mt-40">
+      <section className="py-8 md:pt-16 text-center mt-20 md:mt-40">
         <p className="container mx-auto bg-[#DEE6EB] dark:bg-gray-700 w-fit rounded-lg px-2 text-gray-700 dark:text-gray-200 flex items-center text-sm md:text-base">
           About Us
         </p>
