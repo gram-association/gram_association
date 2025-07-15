@@ -53,7 +53,7 @@ export default function ContactUs() {
               </div>
             </div>
 
-            <div className="space-y-4 mt-10 sm:mt-32 md:mt-16">
+            <div className="space-y-4 mt-10 sm:mt-32 md:mt-12">
               <h3 className="text-lg sm:text-xl md:text-xl lg:text-xl text-black dark:text-gray-200 mt-24 sm:mt-4 md:mt-4 font-medium">
                 Find us here
               </h3>

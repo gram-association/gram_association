@@ -243,7 +243,7 @@ const OurImpact: React.FC = () => {
             Lives Transformed
           </p>
         </div>
-        <div className="hidden md:block h-12 w-px bg-gray-300 dark:bg-gray-600"></div>
+        <div className="hidden md:block h-14 w-px bg-gray-300 dark:bg-gray-600"></div>
 
         <div className="w-1/2 md:w-auto text-center">
           <CountUp end={10} suffix="+" />
@@ -251,7 +251,7 @@ const OurImpact: React.FC = () => {
             Villages Impacted
           </p>
         </div>
-        <div className="hidden md:block h-12 w-px bg-gray-300 dark:bg-gray-600"></div>
+        <div className="hidden md:block h-14 w-px bg-gray-300 dark:bg-gray-600"></div>
 
         <div className="w-1/2 md:w-auto text-center">
           <CountUp end={50} suffix="+" />
@@ -259,7 +259,7 @@ const OurImpact: React.FC = () => {
             Women Trained
           </p>
         </div>
-        <div className="hidden md:block h-12 w-px bg-gray-300 dark:bg-gray-600"></div>
+        <div className="hidden md:block h-14 w-px bg-gray-300 dark:bg-gray-600"></div>
 
         <div className="w-1/2 md:w-auto text-center">
           <CountUp end={3} />
@@ -267,7 +267,7 @@ const OurImpact: React.FC = () => {
             Water bodies <br /> rejuvenated
           </p>
         </div>
-        <div className="hidden md:block h-12 w-px bg-gray-300 dark:bg-gray-600"></div>
+        <div className="hidden md:block h-14 w-px bg-gray-300 dark:bg-gray-600"></div>
 
         <div className="w-1/2 md:w-auto text-center">
           <CountUp end={8} />

@@ -106,7 +106,7 @@ export default function ContactForm() {
   };
 
   return (
-    <div className="space-y-6 w-full max-w-lg">
+    <div className="space-y-6 w-full max-w-lg ">
       <form onSubmit={handleSubmit}>
         <div className="space-y-4">
           <label className="block text-gray-700 dark:text-gray-200 font-medium text-sm sm:text-base">

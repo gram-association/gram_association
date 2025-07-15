@@ -7,7 +7,7 @@ export default function JourneyHighlights() {
   return (
     <main>
       <section className="py-8 bg-[#F8F1E9] dark:bg-gray-800  min-w-screen text-center mt-10">
-        <p className="container mx-auto bg-[#DEE6EB] dark:bg-gray-700 w-fit rounded-lg px-4 py-2 text-gray-700 dark:text-gray-200 flex items-center text-sm sm:text-base">
+        <p className="container mx-auto bg-[#DEE6EB] dark:bg-gray-700 w-fit rounded-lg px-4  text-gray-700 dark:text-gray-200 flex items-center text-sm sm:text-base">
           Get Involved
         </p>
         <h2 className="text-3xl sm:text-4xl md:text-5xl mt-4 text-center mb-6 px-4">

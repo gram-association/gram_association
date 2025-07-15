@@ -103,7 +103,7 @@ export const programData: ProgramData = {
   b: {
     id: "B",
     title:
-      "Restoring Hope Through Water: Pond Rejuvenation in Kherwatikra, Jharkhand",
+      "Restoring Hope Through Water : Pond Rejuvenation in Kherwatikra, Jharkhand",
     image: [
       "/assets/our-programs/pondRejuvenation/Shortlist_1.jpg",
       "/assets/our-programs/pondRejuvenation/Shortlist_2.jpg",

@@ -239,7 +239,7 @@ export default function JourneyPage() {
           </div>
 
           {/* Timeline Sections */}
-          <div className="space-y-16 md:space-y-12 pl-12 md:pl-20">
+          <div className="space-y-16 md:space-y-8 pl-12 md:pl-20">
             {journeySteps.map((step, index) => (
               <div
                 key={index}
