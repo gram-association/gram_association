@@ -13,13 +13,13 @@ export default function Home() {
       <section className="relative">
         <div className="flex flex-col sm:flex-row sm:h-[500px] max-w-7xl mx-auto">
           {/* Image Section */}
-          <div className="relative w-full sm:h-full ">
+          <div className="relative w-full sm:h-full">
             <Image
               src="/homeCommunity.png"
               alt="community"
               width={1152}
               height={450}
-              className="object-contain rounded-lg w-full h-64 xs:h-72 sm:h-full sm:mt-60 sm:w-6xl sm:mx-auto"
+              className="object-contain rounded-lg w-full h-64  sm:h-full sm:mt-52 sm:w-6xl sm:mx-auto"
               priority
             />
           </div>
@@ -75,7 +75,7 @@ export default function Home() {
       <OurImpact />
 
       {/* Our Vision and Mission */}
-      <section className="py-8 md:py-16 bg-[#BAD1CA] dark:bg-gray-900 min-w-screen">
+      <section className="py-8 md:py-10 bg-[#BAD1CA] dark:bg-gray-900 min-w-screen">
         <div className="container mx-auto px-4 sm:px-6">
           <p className="text-center bg-[#DEE6EB] dark:bg-gray-700 w-fit mx-auto rounded-lg px-2 py-1 text-xs sm:text-sm text-gray-700 dark:text-gray-200 flex items-center">
             Our Vision & Mission
@@ -135,8 +135,8 @@ export default function Home() {
       <OurPrograms />
 
       {/* Get Involved */}
-      <section className="py-8 bg-[#F8F1E9] dark:bg-gray-800 min-w-screen text-center">
-        <p className="container mx-auto bg-gray-100 dark:bg-gray-700 w-fit rounded-lg px-4 py-2 text-gray-700 dark:text-gray-200 flex items-center text-sm sm:text-base">
+      <section className="py-8 mt-4 bg-[#F8F1E9] dark:bg-gray-800 min-w-screen text-center">
+        <p className="container mx-auto bg-[#DEE6EB] dark:bg-gray-700 w-fit rounded-lg px-4  text-gray-700 dark:text-gray-200 flex items-center text-md sm:text-base">
           Get Involved
         </p>
         <h2 className="text-3xl sm:text-4xl md:text-5xl mt-4 font-epilogue text-center mb-6 px-4 text-gray-900 dark:text-gray-100">

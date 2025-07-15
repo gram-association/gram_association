@@ -20,10 +20,10 @@ export default function OurPrograms() {
     <main className="min-w-screen bg-white dark:bg-gray-900">
       <div className="flex flex-col items-center py-8">
         <div>
-          <p className="container mx-auto text-center bg-gray-100 dark:bg-gray-700 w-fit rounded-lg px-1 text-sm text-gray-700 dark:text-gray-200 flex items-center mb-4">
+          <p className="container mx-auto text-center bg-[#DEE6EB]  dark:bg-gray-700 w-fit rounded-lg px-1 text-md text-gray-700 dark:text-gray-200 flex items-center mb-4">
             Our Programs
           </p>
-          <h1 className="text-4xl text-center text-gray-800 dark:text-gray-100 mb-12">
+          <h1 className="text-5xl text-center text-gray-800 dark:text-gray-100 mb-8">
             Making a Lasting Impact
           </h1>
         </div>

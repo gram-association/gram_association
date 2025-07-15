@@ -27,17 +27,31 @@ export default async function ProgramPage({
 
   return (
     <div>
-      <main className="flex min-h-screen flex-col items-center justify-between p-4 sm:p-8 md:p-24 bg-[linear-gradient(to_bottom,_#1D352E_600px,_white_600px)] dark:bg-[linear-gradient(to_bottom,_#052e0c_600px,_#0f172a_600px)]">
+      <main className="flex min-h-screen flex-col items-center justify-between p-4 sm:p-8 md:px-24 md:pt-24 bg-[linear-gradient(to_bottom,_#1D352E_600px,_white_600px)] dark:bg-[linear-gradient(to_bottom,_#052e0c_600px,_#0f172a_600px)]">
         <section className="relative w-full mt-10">
-          <div className="h-[500px] w-full">
-            <div className="absolute inset-0 mt-12 sm:mt-0">
+          <div className="h-auto w-full flex flex-col gap-6">
+            {/* Title Section */}
+            <div className="relative z-10 w-full max-w-full ml-0 sm:ml-2 py-8 px-2 text-white">
+              <p className="text-xs sm:text-sm">
+                <span>
+                  <Link href="/our-programs">Our Programs </Link>
+                </span>{" "}
+                / {program.title}
+              </p>
+              <h1 className="text-3xl sm:text-5xl h-auto font-medium mt-2">
+                {program.title}
+              </h1>
+            </div>
+
+            {/* Carousel Section */}
+            <div className="w-full max-w-6xl mx-auto">
               <AutoScrollCarousel
                 images={carouselImages}
                 autoScrollInterval={3000}
                 height="450px"
-                className="mt-60 w-full max-w-6xl mx-auto rounded-lg"
+                className="w-full rounded-lg"
                 imageClassName="rounded-lg h-full"
-                containerClassName="rounded-lg "
+                containerClassName="rounded-lg"
                 showDots={true}
                 pauseOnHover={true}
                 loop={true}
@@ -46,25 +60,11 @@ export default async function ProgramPage({
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
               />
             </div>
-
-            <div>
-              <div className="relative z-10 w-full max-w-full mt-10 sm:mt-0 ml-0 sm:ml-2 py-8 px-2 text-white">
-                <p className="text-xs sm:text-sm">
-                  <span>
-                    <Link href="/our-programs">Our Programs </Link>
-                  </span>{" "}
-                  / {program.title}
-                </p>
-                <h1 className="text-3xl sm:text-5xl h-auto font-medium mt-2">
-                  {program.title}
-                </h1>
-              </div>
-            </div>
           </div>
         </section>
 
         {/* Content Section */}
-        <div className="max-w-7xl p-6 mt-[200px] text-start">
+        <div className="max-w-7xl p-6 mt-6 text-start">
           <h3 className="text-xl mb-2">{program.header}</h3>
           <div className="text-gray-700 dark:text-gray-400 text-[16px] mb-6">
             {Array.isArray(program.description)

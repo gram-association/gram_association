@@ -773,10 +773,10 @@ export default function WaterRideMap() {
   }
 
   return (
-    <main className="h-screen w-full mb-10 ">
+    <main className="h-screen w-full mb-8 ">
       {/* Header */}
       <div className="mb-8">
-        <p className="container mx-auto bg-[#DEE6EB] w-fit rounded-xl px-2 sm:px-4 py-1 mt-10 sm:mt-20 text-gray-700 flex items-center text-xs sm:text-base">
+        <p className="container mx-auto bg-[#DEE6EB] w-fit rounded-xl px-2 sm:px-4 mt-10 sm:mt-10 text-gray-700 flex items-center text-xs sm:text-base">
           Impact
         </p>
         <h2 className="text-xl sm:text-3xl md:text-4xl lg:text-5xl mt-4 text-center mb-6 px-4">
@@ -884,7 +884,7 @@ export default function WaterRideMap() {
       </div>
 
       {/* Desktop View */}
-      <div className="mx-2 sm:mx-10 mt-10 sm:mt-2 mb-24 hidden lg:block">
+      <div className="mx-2 sm:mx-10 mt-10 sm:mt-2 mb-18 hidden lg:block">
         {/* Two Column Layout - 50% Map, 50% State List + Details */}
         <div className="h-[80vh] w-full flex bg-white rounded-xl shadow-lg overflow-hidden">
           {/* Left Half: Map */}

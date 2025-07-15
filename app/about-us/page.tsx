@@ -50,7 +50,7 @@ export default function AboutUs() {
       </section>
 
       {/* How We Started Section */}
-      <section className="w-full max-w-7xl mx-auto my-16 md:my-24 animate-fade-in">
+      <section className="w-full max-w-7xl mx-auto my-16 md:mt-10 animate-fade-in">
         <div className="flex flex-col lg:flex-row items-center gap-8 md:gap-12">
           <div className="w-full lg:w-1/2  order-2 lg:order-1">
             <div className="relative aspect-video w-full h-[400px] rounded-xl overflow-hidden shadow-xl">
@@ -105,66 +105,8 @@ export default function AboutUs() {
         </div>
       </section>
 
-      {/* Our Values Section */}
-      {/* <section className="w-screen bg-pink-50 py-16 md:py-10 my-10">
-        <div className="max-w-full mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <span className="inline-block bg-[#DEE6EB] rounded-full px-3 py-1 text-xs sm:text-sm font-medium text-gray-700 mb-6">
-              Our Values
-            </span>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl  text-gray-800 mb-10">
-              What We Believe In
-            </h2>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-            {[
-              {
-                title: "Community Empowerment",
-                description:
-                  "We involve local communities to lead development, creating sustainable change.",
-              },
-              {
-                title: "Collaboration",
-                description:
-                  "We work in partnership with communities, organizations, and individuals to amplify our impact.",
-              },
-              {
-                title: "Innovation",
-                description:
-                  "We embrace innovative approaches and solutions to address social challenges.",
-              },
-              {
-                title: "Integrity",
-                description:
-                  "We operate with transparency, accountability, and the highest ethical standards in our work.",
-              },
-              {
-                title: "Equity",
-                description:
-                  "We are committed to promoting diversity, inclusion, and fairness in all aspects of our work.",
-              },
-              {
-                title: "Sustainability",
-                description:
-                  "We focus on creating solutions that are environmentally, socially, and economically sustainable.",
-              },
-            ].map((value, index) => (
-              <div
-                key={index}
-                className="bg-white p-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
-              >
-                <h3 className="text-md md:text-xl font-semibold text-gray-800 mb-2">
-                  {value.title}
-                </h3>
-                <p className="text-sm text-gray-600">{value.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section> */}
-
       {/* Team, Partners, and Advisor Sections */}
-      <section className="w-full max-w-7xl mx-auto space-y-24 py-16">
+      <section className="w-full max-w-7xl mx-auto space-y-20 ">
         <OurTeam />
         {/* <OurPartners /> */}
         <Advisor />

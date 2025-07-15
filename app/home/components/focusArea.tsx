@@ -4,16 +4,16 @@ export default function FocusAreas() {
   return (
     <section className="min-h-screen py-8 md:py-16 text-center bg-white dark:bg-gray-900">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <p className="inline-block bg-[#DEE6EB] dark:bg-gray-700 rounded-lg px-2 py-1 text-sm text-gray-700 dark:text-gray-200 mb-4 md:mb-6">
+        <p className="container text-center bg-[#DEE6EB]   dark:bg-gray-700 w-fit rounded-lg px-1 text-md text-gray-700 dark:text-gray-200 flex justify-start mb-4">
           Our Focus Areas
         </p>
-        <h2 className="text-2xl md:text-3xl font-epilogue text-start mb-6 md:mb-8 text-gray-900 dark:text-gray-100">
+        <h2 className="text-2xl md:text-5xl font-epilogue text-start mb-6 md:mb-8 text-gray-900 dark:text-gray-100">
           THE 5 Es
         </h2>
       </div>
       <div className="flex flex-col md:flex-row justify-center items-center md:space-x-8 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="relative mb-8 md:mb-0">
-          <div className="relative w-[350px] h-[350px] mx-auto md:w-[450px] md:h-[450px] md:mr-20 rounded-full border-2 border-gray-300 border-l-transparent dark:border-gray-600 flex items-center justify-center">
+          <div className="relative w-[350px] h-[350px] mx-auto md:w-[450px] md:h-[450px] md:mr-20 rounded-full border-2 border-gray-300 border-l-transparent dark:border-gray-600 dark:border-l-transparent flex items-center justify-center">
             <Image
               src="/focus area.png"
               alt="5 Es Illustration"
