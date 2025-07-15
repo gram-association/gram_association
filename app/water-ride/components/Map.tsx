@@ -775,7 +775,7 @@ export default function WaterRideMap() {
   return (
     <main className="h-screen w-full mb-8 ">
       {/* Header */}
-      <div className="mb-8">
+      <div className="mb-2 sm:mb-8">
         <p className="container mx-auto bg-[#DEE6EB] w-fit rounded-xl px-2 sm:px-4 mt-10 sm:mt-10 text-gray-700 flex items-center text-xs sm:text-base">
           Impact
         </p>

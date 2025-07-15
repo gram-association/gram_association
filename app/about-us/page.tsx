@@ -106,7 +106,7 @@ export default function AboutUs() {
       </section>
 
       {/* Team, Partners, and Advisor Sections */}
-      <section className="w-full max-w-7xl mx-auto space-y-20 ">
+      <section className="w-full max-w-7xl mx-auto ">
         <OurTeam />
         {/* <OurPartners /> */}
         <Advisor />

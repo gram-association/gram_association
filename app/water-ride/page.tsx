@@ -19,8 +19,8 @@ export default function WaterRide() {
             />
           </div>
           <div className="flex flex-col md:flex-row justify-center md:justify-start items-center md:items-start">
-            <div className="`${epilogue.variable}` relative z-10 mt-3 sm:mt-10 w-full md:w-auto max-w-md sm:ml-20 py-6 sm:py-10 px-2 text-white dark:text-gray-100 text-center md:text-left">
-              <h1 className="text-xl sm:text-2xl md:text-6xl font-epilogue font-bold">
+            <div className=" relative z-10 mt-3 sm:mt-10 w-full md:w-auto max-w-md sm:ml-20 py-6 sm:py-10 px-2 text-white dark:text-gray-100 text-center md:text-left">
+              <h1 className="text-xl sm:text-2xl md:text-6xl font-bold">
                 The Water Ride Initiative
               </h1>
             </div>

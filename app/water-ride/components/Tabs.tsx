@@ -21,11 +21,11 @@ export default function Tabs() {
   };
 
   return (
-    <div className="flex justify-center items-center mt-48">
+    <div className="flex justify-center items-center mt-48 px-4">
       <div className="flex justify-center">
         <div className="w-full max-w-screen">
           {/* Tab Buttons */}
-          <div className="flex w-full space-x-4 justify-center">
+          <div className="flex w-full space-x-1 sm:space-x-4 justify-center">
             <button
               className={`rounded-full text-sm md:text-lg  py-2 px-2 md:px-6 ${
                 activeTab === "Journey Highlights"
