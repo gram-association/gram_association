@@ -53,14 +53,15 @@ export default function Home() {
         <p className="container mx-auto bg-[#DEE6EB] dark:bg-gray-700 w-fit rounded-lg px-2 text-gray-700 dark:text-gray-200 flex items-center text-sm md:text-base">
           About Us
         </p>
-        <h2 className="text-2xl md:text-5xl mt-4 text-center mb-6 text-gray-900 dark:text-gray-100">
-          Indigenous wisdom meets Innovation
+        <h2 className="text-2xl italic md:text-5xl mt-4 text-center mb-6 text-gray-900 dark:text-gray-100">
+          “Indigenous wisdom meets Innovation”
         </h2>
-        <p className="max-w-5xl mx-auto text-xs md:text-[16px] text-center text-gray-600 dark:text-gray-400 px-4 md:px-0">
-          GRAM Association is committed to building an inclusive, equitable, and
-          sustainable future. We bridge the gap between age-old wisdom and
-          modern technology to uplift low resource communities, promote
-          sustainable livelihoods, reimagine traditional knowledge into
+        <p className="max-w-5xl mx-auto text-sm md:text-[16px] text-center text-gray-600 dark:text-gray-400 px-4 md:px-0">
+          GRAM Association is committed to{" "}
+          <span className="italic font-bold">building</span> an inclusive,
+          equitable, and sustainable future. We bridge the gap between age-old
+          wisdom and modern technology to uplift low resource communities,
+          promote sustainable livelihoods, reinvent traditional knowledge into
           contemporary, sustainable practices while advancing holistic community
           development.
         </p>
@@ -91,23 +92,27 @@ export default function Home() {
                 Our Vision
               </h3>
               <p className="text-gray-600 dark:text-gray-400 text-xs sm:text-sm leading-5">
-                GRAM Association envisions an inclusive, equitable, and
-                ecologically balanced society where self-reliant villages serve
-                as the foundation of national development. By empowering
-                self-governed, community-led institutions, we aim to foster
+                We envision an inclusive, equitable, and ecologically
+                sustainable society where self reliant villages are the true
+                bedrock of national development. We believe that real, lasting
+                change blossoms from within, which is why we focus on empowering
+                self-governed, community led institutions to foster thriving,
                 sustainable rural ecosystems.
                 <br />
                 <br />
-                Inspired by Mahatma Gandhi's belief that "the soul of India
-                lives in its villages," we strive to support rural communities
-                into centers of resilience, dignity, and prosperity.
+                We draw deep inspiration from Mahatma Gandhi's profound
+                conviction that "the soul of India lives in its villages." Our
+                commitment is to transform these rural communities into vibrant
+                centers of resilience, dignity, and prosperity.
                 <br />
                 <br />
-                GRAM is committed towards enabling grassroots institutions and
-                influencing policies through interventions, aspiring to be a
-                recognised sectoral leader in livelihoods, water, agriculture,
-                health, and education, aligning our efforts with key Sustainable
-                Development Goals (SDGs)
+                GRAM is dedicated to enabling grassroots institutions and
+                influencing policies through impactful interventions. We aspire
+                to be a recognized leader across crucial development sectors:
+                livelihoods, water, agriculture, health, and education. Every
+                effort we make is strategically aligned with the Sustainable
+                Development Goals (SDGs), ensuring our work contributes to a
+                broader global agenda for a better future.
               </p>
             </div>
             <div className="w-full md:w-[600px] max-w-full rounded-lg bg-white dark:bg-gray-800 p-4 sm:p-6">
@@ -115,13 +120,30 @@ export default function Home() {
                 Our Mission
               </h3>
               <p className="text-gray-600 dark:text-gray-400 text-xs sm:text-sm">
-                To strengthen community capacities for holistic and sustainable
-                development by purposefully converging indigenous wisdom, and
-                contemporary technological advancements. Our mission focuses on
-                promoting sustainable livelihoods, ensuring water as well as
-                sanitation, enhancing health and education, fostering
-                environmental resilience, all through participatory and
-                inclusive approaches
+                Enable self-governed, community-led institutions in rural areas,
+                fostering self reliance and sustainable development,
+                establishing or strengthening local bodies (like, self-help
+                groups, or community-based organizations) that have the
+                authority and capacity to make decisions about their own
+                affairs. This includes managing local resources, planning
+                development initiatives, and co-creating meaningful change.
+                <br />
+                <br />
+                Implement integrated interventions across livelihoods, water,
+                agriculture, health, and education, aligning with Sustainable
+                Development Goals (SDGs). Emphasis is on active participation
+                and leadership from within the community. It's not about
+                external agencies imposing solutions, but rather facilitating a
+                process where community members identify their needs, develop
+                strategies, and implement them.
+                <br />
+                <br />
+                Enable grassroots change and influence policy, contributing to
+                an inclusive, equitable, and ecologically balanced society. All
+                initiatives undertaken by these self-governed institutions
+                should be environmentally sound, socially equitable, and
+                economically viable, ensuring long term benefits for the
+                community and future generations.
               </p>
             </div>
           </div>

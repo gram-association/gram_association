@@ -16,28 +16,34 @@ export default function AboutUs() {
             Our Story
           </h1>
           <p className=" text-sm sm:text-base md:text-sm text-gray-600 dark:text-gray-200 max-w-5xl mx-auto text-justify leading-relaxed">
-            GRAM (Groundwater & Reforestation Adaptive Management) Association
-            began with a simple but powerful idea: that real change starts from
-            within the community. It was founded by Shashank Singh, whose life
-            took a turning point during his time as an SBI Youth for India
-            Fellow at Barefoot College, Tilonia, Rajasthan. Under the mentorship
-            of Dr. Sanjit ‘Bunker’ Roy, Shashank spent 13 months living and
-            working alongside community members, listening to their stories,
-            understanding their struggles and realizing that the biggest
-            challenge they faced was availability of water.
+            Words are a powerful mode of communication at the same time language
+            is for communication and 10 words echoed in the mind of our founder.
+            Shashank’s journey started as a Fellow with SBI Fellowship placed
+            with Barefoot College Tilonia, Rajasthan. In the initial days of the
+            Fellowship when he was trying to understand how he could make
+            himself useful to the cause he met the community and was trying to
+            understand the ground realities. When he met a woman who said “Agar
+            kuch karna hi hai, to paani ke liye karo” those 10 words etched in
+            his mind and those simple yet powerful words became his motivation
+            to keep going. Post his Fellowship, the urge to do more stayed
+            strong.
             <br />
             <br />
-            When he asked a woman from the community about her problems, she
-            spoke about the daily struggle to fetch drinking water and the
-            hardship of caring for their cattle in a dry, unforgiving land. That
-            conversation stayed with him. It led him to mobilize the community
-            to revitalised a pond, turning it into a vital water source for over
-            5,000 animals across five villages. For Shashank, it wasn’t just
-            about building a pond; it was about building hope, dignity, and
-            resilience.
+            This powerful conviction raised curiosity in Shashank to commence an
+            epic journey on his motorcycle, traversing 13 states on a mission he
+            named <span className="font-bold">“Harvesting the Heaven.”</span> He
+            visited villages, schools, NGOs, and civil societies; learning from
+            the wisdom of the community and enforcing the common idea of the
+            importance of rainwater harvesting as one of the solutions to water
+            issues scarcity across geographies. The journey tested him,
+            challenged him, and ultimately shaped his dream: to bring
+            sustainable water management to every corner of the nation. Which
+            led to the birth of GRAM (Groundwater & Reforestation Adaptive
+            Management) Association, 2019 with a simple idea that real change
+            starts within the community.
           </p>
         </div>
-        <div className="relative w-full md:w-5xl h-[300px] md:h-[400px] mt-8 md:mt-0 md:ml-6 rounded-xl overflow-hidden shadow-xl">
+        <div className="relative w-full md:w-5xl h-[300px] md:h-[400px] mt-12 md:mt-0 md:ml-6 rounded-xl overflow-hidden shadow-xl">
           <Image
             src="/assets/about-us/DSC_0365.JPG"
             alt="Story Image"
@@ -66,24 +72,26 @@ export default function AboutUs() {
           </div>
           <div className="w-full lg:w-1/2 order-1 lg:order-2">
             <p className="font-sourceSans3 text-base sm:text-sm text-gray-600 dark:text-gray-200 text-justify leading-relaxed">
-              The experience left a deep imprint on him when one particular
-              request echoed in his mind: “Agar kuch karna hi hai, to paani ke
-              liye karo” (If you really want to help, do something about our
-              water). That simple plea became his motivation to keep going. Post
-              his Fellowship,  the urge to do more stayed strong. This inspired
-              Shashank to commence his journey on a motorcycle, traveling across
-              13 states on a journey he called “Harvesting the Heaven.” 
+              GRAM started as an organisation focused on water and environment
+              conservation. However, as GRAM grew and its roots deepened within
+              various communities, a vital truth became abundantly clear, the
+              development sector is not a collection of isolated issues, but a
+              cross cutting tapestry. Water scarcity, for instance, isn't just
+              an environmental problem; it impacts women who walk miles to fetch
+              it, children whose education suffers due to waterborne illnesses,
+              and livelihoods dependent on agriculture.
               <br />
               <br />
-              Along the way, he visited villages, schools, NGOs, and civil
-              societies; learning from the wisdom rooted deep in India’s soil,
-              and sharing the importance of rainwater harvesting as a solution
-              to water scarcity. The journey tested him, challenged him, and
-              ultimately shaped his dream: to make water accessible for the last
-              mile beneficiaries. 
+              Over the years, as passionate individuals with diverse expertise
+              joined hands with Shashank, GRAM's vision naturally expanded. What
+              started as a dedicated effort in water and environmental
+              conservation has organically evolved into a more holistic approach
+              to community well-being. This growth wasn't a deviation from our
+              core, but rather a realization that true, sustainable impact
+              requires addressing the interconnected needs of a community.
               <br />
               <br />
-              In 2019, that dream took shape as the GRAM Association. What
+              {/* In 2019, that dream took shape as the GRAM Association. What
               started with a focus on indigenous water conservation methods grew
               into a mission that connects water security, livelihood,
               environmental sustainability, health, education, and relief
@@ -99,7 +107,7 @@ export default function AboutUs() {
               people; working to build a future where communities don’t just
               survive, but thrive. We’re proud of how far we’ve come, and even
               more excited about where we’re headed. Because when communities
-              lead, real change follows.
+              lead, real change follows. */}
             </p>
           </div>
         </div>
