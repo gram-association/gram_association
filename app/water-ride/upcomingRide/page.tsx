@@ -44,8 +44,8 @@ export default function UpcomingRide() {
         </p>
       </div>
       <div className="bg-[#F8F1E9] dark:bg-gray-800 max-w-full mx-auto py-6 sm:py-8 md:py-12 flex flex-col md:flex-row justify-center items-center">
-        <div className="text-start pl-10">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl  text-gray-800 dark:text-gray-200 mb-4 sm:mb-6">
+        <div className="text-center  w-full sm:w-2/3 sm:text-start p-2 pl-0 sm:pl-10">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl text-gray-800 dark:text-gray-200 mb-4 sm:mb-6">
             The Unfinished Ride
           </h2>
 
@@ -74,24 +74,26 @@ export default function UpcomingRide() {
             <span className="font-semibold">Shashank Singh, Founder, GRAM</span>
           </p>
         </div>
-        <div>
-          <Image
-            src="/Desert.png"
-            alt="planned route"
-            width={500}
-            height={700}
-            className="w-full h-full ml-4 mt-6"
-          />
+        <div className="w-xs sm:w-2/5">
+          <div className="w-sm sm:w-2xl h-[300px] m-6 sm:m-2 rounded-lg">
+            <Image
+              src="/assets/water-ride/RE2.jpg"
+              alt="planned route"
+              width={500}
+              height={700}
+              className="object-cover w-xs sm:w-[450px] h-full -ml-6  sm:ml-4 mt-0 sm:mt-6 rounded-lg"
+            />
+          </div>
         </div>
       </div>
       <div className="bg-[#BAD1CA] dark:bg-gray-700 w-full max-w-full  py-6 sm:py-8 md:py-12 flex flex-col md:flex-row justify-center items-center">
-        <div>
+        <div className="m-6 sm:m-2 rounded-lg">
           <Image
-            src="/Journey begins.png"
+            src="/assets/water-ride/UntitledDesign.png"
             alt="planned route"
             width={500}
             height={700}
-            className="w-full h-full ml-4 mt-6"
+            className="w-full h-full ml-0 sm:ml-4 mt-0 sm:mt-6 rounded-lg"
           />
         </div>
         <div>
@@ -207,13 +209,13 @@ export default function UpcomingRide() {
             every mile.
           </p>
         </div>
-        <div className="w-full md:w-1/3 h-auto md:h-[286px] flex justify-center items-center">
+        <div className="w-full md:w-1/3 h-auto md:h-[286px] flex justify-center items-center rounded-lg">
           <Image
-            src="/Journey begins.png"
+            src="/assets/water-ride/RoyalEnfield.png"
             alt="planned route"
             width={500}
-            height={700}
-            className="w-full h-full ml-4 mt-6"
+            height={750}
+            className="object-cover w-full h-full ml-0 sm:ml-4 mt-0 sm:mt-6 rounded-lg"
           />
         </div>
       </section>

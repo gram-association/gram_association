@@ -43,7 +43,7 @@ export default function AboutUs() {
             starts within the community.
           </p>
         </div>
-        <div className="relative w-full md:w-5xl h-[300px] md:h-[400px] mt-12 md:mt-0 md:ml-6 rounded-xl overflow-hidden shadow-xl">
+        <div className="relative w-full md:w-5xl h-[300px] md:h-[400px] mt-12 md:mt-10 md:ml-6 rounded-xl overflow-hidden shadow-xl">
           <Image
             src="/assets/about-us/DSC_0365.JPG"
             alt="Story Image"
