@@ -412,7 +412,7 @@ export default function WaterRideMap() {
         }
 
         const map = window.L.map(mapDiv.current, {
-          center: [22.5, 80],
+          center: [19.5, 78.5],
           zoom: 5,
           minZoom: 4,
           maxZoom: 15,
@@ -607,10 +607,10 @@ export default function WaterRideMap() {
         setIsMoving(false);
 
         // Final position and zoom
-        mapRef.current.setView([endLat, endLng], 8, {
-          animate: true,
-          duration: 1,
-        });
+        // mapRef.current.setView([endLat, endLng], 8, {
+        //   animate: true,
+        //   duration: 1,
+        // });
         return;
       }
 
@@ -902,7 +902,7 @@ export default function WaterRideMap() {
                     />
                   </div>
                   <h3 className="text-xl font-semibold text-gray-800 mb-2">
-                    Loading Heritage Map
+                    Loading Map
                   </h3>
                   <p className="text-sm text-gray-600">
                     Preparing your journey across India...
@@ -915,7 +915,7 @@ export default function WaterRideMap() {
           {/* Right Half: State List + Details */}
           <div className="w-2/3 flex">
             {/* State List Column */}
-            <div className="w-1/2 bg-gray-50 dark:bg-gray-600 border-l  flex flex-col">
+            <div className="w-1/3 bg-gray-50 dark:bg-gray-600 border-l  flex flex-col">
               {/* State List */}
               <div className="flex-1 overflow-y-auto scrollbar-hide">
                 <div className="py-3 px-4">

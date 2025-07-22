@@ -1,15 +1,64 @@
 import Image from "next/image";
 import React from "react";
 import { FaLinkedin } from "react-icons/fa";
+import { Linkedin } from "lucide-react";
 
 const teamMembers = [
-  { name: "Shashank Singh", role: "Founder", image: "/founder.png" },
-  { name: "Devesh Singh", role: "Partner", image: "/partner1.png" },
-  { name: "Adv. Ankita", role: "Partner", image: "/partner2.png" },
-  { name: "Pooja Sharma", role: "Partner", image: "/partner2.png" },
-  { name: "Devesh Singh", role: "Partner", image: "/partner3.png" },
-  { name: "Adv. Ankita", role: "Partner", image: "/partner4.png" },
-  { name: "Devesh Singh", role: "Partner", image: "/partner1.png" },
+  {
+    name: "Shashank Singh",
+    role: "Founder",
+    image: "/assets/about-us/team/ShashankSingh-Founder-Director.jpeg",
+  },
+  {
+    name: "Devesh Singh",
+    role: "Associate",
+    image: "/assets/about-us/team/DeveshSingh-Associate.jpeg",
+  },
+  {
+    name: "Arunima",
+    role: "Partner",
+    image: "/assets/about-us/team/Arunima(1).jpeg",
+  },
+  {
+    name: "Yuvraj Seth",
+    role: "Project Coordinator",
+    image: "/assets/about-us/team/YuvrajSeth-ProjectCoordinator.jpeg",
+  },
+  {
+    name: "Rudraksh Singh Deo",
+    role: "Associate",
+    image: "/assets/about-us/team/RudrakshSinghDeo-Associate.jpeg",
+  },
+  {
+    name: "Syed Faizan Parwaiz",
+    role: "PolicyResearch",
+    image: "/assets/about-us/team/SyedFaizanParwaiz-PolicyResearch.jpeg",
+  },
+  {
+    name: "Archit",
+    role: "Volunteer",
+    image: "/assets/about-us/team/Archit-Volunteer.jpg",
+  },
+  {
+    name: "Roshan Kumar",
+    role: "Associate",
+    image: "/assets/about-us/team/RoshanKumar-Associate.jpeg",
+  },
+  {
+    name: "Karthick Sakthivel",
+    role: "Consultant",
+    image: "/assets/about-us/team/KarthickSakthivel-Consultant.jpeg",
+  },
+  {
+    name: "Ajay Kumar",
+    role: "ACMA, Legal Advisor",
+    image: "/assets/about-us/team/AjayKumar-ACMA,LegalAdvisor.jpeg",
+  },
+  {
+    name: "Rao Samrat",
+    role: "Volunteer",
+    image: "/assets/about-us/team/RaoSamrat-Volunteer.jpeg",
+  },
 ];
 
 export default function OurTeam() {
@@ -23,90 +72,53 @@ export default function OurTeam() {
           Meet the People Behind GRAM
         </h1>
 
-        <div className="space-y-6">
-          {/* First Row: Team Members */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
-            {teamMembers.slice(0, 4).map((member, index) => (
-              <div
-                key={index}
-                className="relative bg-gray-100 rounded-lg overflow-hidden aspect-square sm:aspect-auto"
-              >
-                <div className="relative w-full h-full sm:h-52">
-                  <Image
-                    src={member.image}
-                    alt={`${member.name} photo`}
-                    fill
-                    className="rounded-t-lg object-cover"
-                    sizes="(max-width: 640px) 100vw, 25vw"
-                  />
-                </div>
-                <div className="absolute bottom-4 left-4 right-4 rounded bg-gray-100/50 flex justify-between items-center px-3 py-2">
-                  <div>
-                    <h3 className="text-sm sm:text-lg  text-gray-800">
-                      {member.name}
-                    </h3>
-                    <p className="text-xs text-gray-600">{member.role}</p>
-                  </div>
-                  <a href="#" aria-label="LinkedIn profile">
-                    <FaLinkedin size={20} className="sm:size-7" />
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+          {teamMembers.map((member, index) => (
+            <div
+              key={index}
+              className="group relative bg-transparent  rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden border border-gray-100 dark:border-gray-700"
+            >
+              {/* Image Container */}
+              <div className="relative h-72 overflow-hidden">
+                <Image
+                  src={member.image || "/placeholder.svg"}
+                  alt={`${member.name} - ${member.role}`}
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-110"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                />
+                {/* Gradient Overlay */}
+                <div className="absolute inset-0 blur-lg bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+
+                {/* LinkedIn Button - Appears on Hover */}
+                <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
+                  <a
+                    // href={member.linkedin}
+                    className="inline-flex items-center justify-center w-10 h-10 bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-full shadow-lg hover:bg-blue-600 hover:text-white transition-all duration-200"
+                    aria-label={`${member.name}'s LinkedIn profile`}
+                  >
+                    <Linkedin size={18} />
                   </a>
                 </div>
               </div>
-            ))}
-          </div>
 
-          {/* Second Row: Quote + Remaining Team Members */}
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-            <div className="flex items-center col-span-1">
-              <div>
-                <Image
-                  src="/Frame.png"
-                  alt="Frame decoration"
-                  width={40}
-                  height={16}
-                  className="mb-2 sm:mb-4"
-                />
-                <p className="text-xl sm:text-sm italic text-gray-600 dark:text-gray-300 mb-2 sm:mb-4">
-                  “Listen to the people on the ground; they have all the
-                  solutions if you have the patience to hear.“
+              {/* Content */}
+              <div className="px-6 py-2 bg-transparent backdrop:backdrop-blur-sm">
+                <h3 className="text-xl font-bold text-gray-900  mb-2 group-hover:text-blue-600  transition-colors duration-200">
+                  {member.name}
+                </h3>
+                <p className="text-gray-600 dark:text-gray-300 font-medium">
+                  {member.role}
                 </p>
-                <p className="text-md sm:text-sm  text-gray-800 dark:text-gray-200">
-                  — Sanjay Buti Roy
-                </p>
+
+                {/* Decorative Line */}
+                {/* <div className="mt-4 h-1 w-12 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" /> */}
               </div>
-            </div>
 
-            {/* Remaining Team Members */}
-            <div className="col-span-1 md:col-span-3 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-              {teamMembers.slice(4).map((member, index) => (
-                <div
-                  key={index}
-                  className="relative bg-gray-100 rounded-lg overflow-hidden aspect-square sm:aspect-auto"
-                >
-                  <div className="relative w-full h-full sm:h-46">
-                    <Image
-                      src={member.image}
-                      alt={`${member.name} photo`}
-                      fill
-                      className="rounded-t-lg object-cover"
-                      sizes="(max-width: 640px) 100vw, 25vw"
-                    />
-                  </div>
-                  <div className="absolute bottom-4 left-4 right-4 rounded bg-gray-100/50 flex justify-between items-center px-3 py-2">
-                    <div>
-                      <h3 className="text-sm sm:text-lg  text-gray-800">
-                        {member.name}
-                      </h3>
-                      <p className="text-xs text-gray-600">{member.role}</p>
-                    </div>
-                    <a href="#" aria-label="LinkedIn profile">
-                      <FaLinkedin size={20} className="sm:size-7" />
-                    </a>
-                  </div>
-                </div>
-              ))}
+              {/* Hover Effect Border */}
+              <div className="absolute inset-0 rounded-2xl border-2 border-transparent group-hover:border-blue-200 dark:group-hover:border-blue-800 transition-colors duration-300 pointer-events-none" />
             </div>
-          </div>
+          ))}
         </div>
       </div>
     </div>

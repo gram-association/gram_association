@@ -6,6 +6,7 @@ import OurPrograms from "./components/OurPrograms";
 import Image from "next/image";
 import FocusAreas from "./components/focusArea";
 import OurImpact from "./components/ourImpact";
+import VisionMissionSection from "./components/visionMission";
 
 export default function Home() {
   return (
@@ -76,7 +77,8 @@ export default function Home() {
       <OurImpact />
 
       {/* Our Vision and Mission */}
-      <section className="py-8 md:py-10 bg-[#BAD1CA] dark:bg-gray-900 min-w-screen">
+      <VisionMissionSection />
+      {/* <section className="py-8 md:py-10 bg-[#BAD1CA] dark:bg-gray-900 min-w-screen">
         <div className="container mx-auto px-4 sm:px-6">
           <p className="text-center bg-[#DEE6EB] dark:bg-gray-700 w-fit mx-auto rounded-lg px-2 py-1 text-xs sm:text-sm text-gray-700 dark:text-gray-200 flex items-center">
             Our Vision & Mission
@@ -148,7 +150,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Our Focus Areas */}
       <FocusAreas />

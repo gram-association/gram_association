@@ -48,6 +48,7 @@ export default function ContactForm() {
     setSubmitStatus(null);
 
     const formDataToSend = new FormData();
+    formDataToSend.append("formType", "Gram");
     formDataToSend.append("JoinAs", formData.joinAs);
     formDataToSend.append("FirstName", formData.firstName);
     formDataToSend.append("LastName", formData.lastName);
@@ -56,7 +57,7 @@ export default function ContactForm() {
 
     try {
       const response = await fetch(
-        "https://script.google.com/macros/s/AKfycbwWNxKCfxKnpzFHUoEXmUHRimVYjWAnPxELDxPcylDr9ClOmLcr-FkBPtR6NiKr8_nLMg/exec",
+        "https://script.google.com/macros/s/AKfycbyoB78xBATVdIbVm9boqu0e7gQTxfvGgEzsVwdkFZtAeRoshCR5XRrDvRNQb2Oy1QHYNw/exec",
         {
           method: "POST",
           body: formDataToSend,

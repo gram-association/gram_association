@@ -2,6 +2,7 @@ import Image from "next/image";
 import Advisor from "./components/Advisor";
 // import OurPartners from "./components/OurPartners";
 import OurTeam from "./components/OurTeam";
+import Support from "./components/Support";
 
 export default function AboutUs() {
   return (
@@ -43,7 +44,7 @@ export default function AboutUs() {
             starts within the community.
           </p>
         </div>
-        <div className="relative w-full md:w-5xl h-[300px] md:h-[400px] mt-12 md:mt-10 md:ml-6 rounded-xl overflow-hidden shadow-xl">
+        <div className="relative w-full md:w-5xl h-[300px] md:h-[380px] mt-12 md:mt-28 md:ml-6 rounded-xl overflow-hidden shadow-xl">
           <Image
             src="/assets/about-us/DSC_0365.JPG"
             alt="Story Image"
@@ -59,7 +60,7 @@ export default function AboutUs() {
       <section className="w-full max-w-7xl mx-auto my-16 md:mt-10 animate-fade-in">
         <div className="flex flex-col lg:flex-row items-center gap-8 md:gap-12">
           <div className="w-full lg:w-1/2  order-2 lg:order-1">
-            <div className="relative aspect-video w-full h-[400px] rounded-xl overflow-hidden shadow-xl">
+            <div className="relative aspect-video w-full h-[320px] rounded-xl overflow-hidden shadow-xl">
               <Image
                 src="/assets/about-us/IMG_0008.JPG"
                 alt="Story Image"
@@ -116,8 +117,8 @@ export default function AboutUs() {
       {/* Team, Partners, and Advisor Sections */}
       <section className="w-full max-w-7xl mx-auto ">
         <OurTeam />
-        {/* <OurPartners /> */}
         <Advisor />
+        <Support />
       </section>
     </main>
   );

@@ -21,4 +21,5 @@ export interface DocumentItem extends BaseMediaItem {
   hasQrCode?: boolean;
   fileSize?: string;
   fileType?: string;
+  fileUrl?: string | undefined;
 }

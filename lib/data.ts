@@ -112,9 +112,11 @@ export const documentData: DocumentItem[] = [
   {
     id: "d1",
     type: "documents",
-    title: "Lorem ipsum dolor sit amet, consectetur adipiscing",
+    title: "Compendium of Best Practices Water Mangement in Tribal Areas",
     date: "27 Mar, 2023",
-    imageUrl: "/Rectangle 61Doc.png?height=300&width=400",
+    imageUrl: "/assets/media/doc1.png",
+    fileUrl:
+      "https://drive.google.com/file/d/1xxKhuEMs8AZOx3JexJTb5kkiRjTH_Ah9/view?usp=drive_link",
     hasQrCode: true,
     fileSize: "2.4 MB",
     fileType: "PDF",

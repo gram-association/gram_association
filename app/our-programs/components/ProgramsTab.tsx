@@ -15,6 +15,9 @@ export default function Tabs({
     "Water Conservation",
     "Livelihood",
     "Education",
+    "Health",
+    "Community Engagement",
+    "Environment",
   ];
 
   return (
