@@ -43,7 +43,7 @@ export function VideoGrid({ items }: VideoGridProps) {
                 <p className="text-sm text-gray-800 dark:text-gray-200 line-clamp-2">
                   {item.title}
                 </p>
-                <p className="text-xs text-gray-500 mt-1">{item.date}</p>
+                {/* <p className="text-xs text-gray-500 mt-1">{item.date}</p> */}
               </div>
             </div>
           );
@@ -66,7 +66,7 @@ export function VideoGrid({ items }: VideoGridProps) {
               <p className="text-sm text-gray-800 dark:text-gray-200 line-clamp-2">
                 {item.title}
               </p>
-              <p className="text-xs text-gray-500 mt-1">{item.date}</p>
+              {/* <p className="text-xs text-gray-500 mt-1">{item.date}</p> */}
             </div>
           </div>
         );

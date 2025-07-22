@@ -37,7 +37,7 @@ const MissionCards: React.FC = () => {
         {missions.map((mission, index) => (
           <div
             key={index}
-            className="bg-white dark:bg-gray-700 shadow-md rounded-lg p-6 transform transition duration-300 hover:scale-105 hover:shadow-xl"
+            className="bg-white dark:bg-gray-700 shadow-md rounded-lg p-6 transform transition duration-300 hover:scale-105 hover:shadow-xl hover:border hover:border-blue-300"
           >
             <Image
               src={mission.img || "/palcehoder.svg"}

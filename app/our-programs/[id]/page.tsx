@@ -2,6 +2,13 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { programData } from "../data/programsData";
 import AutoScrollCarousel from "@/components/auto-scroll-carousel";
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
 
 export default async function ProgramPage({
   params,
@@ -28,16 +35,27 @@ export default async function ProgramPage({
   return (
     <div>
       <main className="flex min-h-screen flex-col items-center justify-between p-4 sm:p-8 md:px-24 md:pt-24 bg-[linear-gradient(to_bottom,_#1D352E_600px,_white_600px)] dark:bg-[linear-gradient(to_bottom,_#052e0c_600px,_#0f172a_600px)]">
-        <section className="relative w-full mt-10">
+        <section className="relative w-full mt-2 sm:mt-0">
           <div className="h-auto w-full flex flex-col gap-6">
             {/* Title Section */}
-            <div className="relative z-10 w-full max-w-full ml-0 sm:ml-2 py-8 px-2  text-white">
-              <p className="text-xs sm:text-sm mt-14">
-                <span>
-                  <Link href="/our-programs">Our Programs </Link>
-                </span>{" "}
-                / {program.title}
-              </p>
+            <div className="relative z-10 w-full max-w-full ml-0 sm:ml-2 py-8 px-2 text-white">
+              <Breadcrumb className="flex flex-col md:flex-row items-start md:items-center gap-2 md:gap-1 text-xs sm:text-sm mt-14 md:mt-2 text-white">
+                <BreadcrumbItem>
+                  <BreadcrumbLink
+                    asChild
+                    className="text-white hover:text-gray-400 text-base md:text-lg"
+                  >
+                    <Link href="/our-programs">Our Programs</Link>
+                  </BreadcrumbLink>
+                </BreadcrumbItem>
+                <BreadcrumbSeparator className="list-none hidden md:block " />
+                <BreadcrumbItem>
+                  <BreadcrumbPage className="text-white text-base md:text-lg break-words max-w-full">
+                    {program.title}
+                  </BreadcrumbPage>
+                </BreadcrumbItem>
+              </Breadcrumb>
+
               <h1 className="text-3xl sm:text-5xl h-auto font-medium mt-2">
                 {program.title}
               </h1>
