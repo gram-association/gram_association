@@ -20,6 +20,8 @@ export default function Support() {
     email: "",
     query: "",
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [message, setMessage] = useState("");
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -32,10 +34,47 @@ export default function Support() {
     setFormData((prev) => ({ ...prev, joinAs: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
-    // Add your form submission logic here
+    setIsSubmitting(true);
+    setMessage("");
+
+    const formDataToSend = new FormData();
+    formDataToSend.append("formType", "Support");
+    formDataToSend.append("JoinAs", formData.joinAs);
+    formDataToSend.append("FirstName", formData.firstName);
+    formDataToSend.append("LastName", formData.lastName);
+    formDataToSend.append("Email", formData.email);
+    formDataToSend.append("Query", formData.query);
+
+    try {
+      const response = await fetch(
+        "https://script.google.com/macros/s/AKfycbyoB78xBATVdIbVm9boqu0e7gQTxfvGgEzsVwdkFZtAeRoshCR5XRrDvRNQb2Oy1QHYNw/exec",
+        {
+          method: "POST",
+          body: formDataToSend,
+        }
+      );
+
+      const data = await response.json();
+      if (data.result === "success") {
+        setMessage("Form submitted successfully!");
+        setFormData({
+          joinAs: "Ride",
+          firstName: "",
+          lastName: "",
+          email: "",
+          query: "",
+        });
+      } else {
+        setMessage("Submission failed. Please try again.");
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      setMessage("An error occurred. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -128,10 +167,21 @@ export default function Support() {
 
       <Button
         type="submit"
+        disabled={isSubmitting}
         className="w-full dark:bg-[#304f53] bg-[#538C7B] hover:bg-[#4a7a6e] dark:hover:bg-[#406d74] text-white py-3 rounded-md transition-colors text-sm sm:text-base"
       >
-        SUBMIT
+        {isSubmitting ? "Submitting..." : "SUBMIT"}
       </Button>
+
+      {message && (
+        <div
+          className={`text-sm sm:text-base ${
+            message.includes("success") ? "text-green-600" : "text-red-600"
+          }`}
+        >
+          {message}
+        </div>
+      )}
     </form>
   );
 }

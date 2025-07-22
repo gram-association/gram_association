@@ -61,19 +61,14 @@ export default function OurPrograms() {
 
               {/* Image Section */}
               <div className="flex-1 h-[385px] bg-gray-300 dark:bg-gray-700">
-                <AutoScrollCarousel
-                  images={
+                <img
+                  src={
                     Array.isArray(program.image)
-                      ? program.image
-                      : [program.image]
+                      ? program.image[0]
+                      : program.image
                   }
-                  height="385px"
-                  objectFit="cover"
-                  autoScrollInterval={3000}
-                  pauseOnHover={true}
-                  loop={true}
-                  transitionDuration={500}
-                  className="w-full h-full"
+                  alt={program.title}
+                  className="w-full h-full object-cover"
                 />
               </div>
             </div>

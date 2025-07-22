@@ -1,4 +1,4 @@
-import type { DocumentItem, ImageType,} from "./types";
+import type { DocumentItem, ImageType } from "./types";
 
 export const images: ImageType[] = [
   {
@@ -64,15 +64,14 @@ export const videoData = [
     type: "videos",
     title: "Lorem ipsum dolor sit amet, consectetur adipiscing",
     date: "13 May, 2023",
-    imageUrl: "/Rectangle 61.png?height=300&width=400",
-    duration: "3:45",
+    youtubeUrl: "https://youtu.be/fbWP4nOyhVA?si=YCckVWNKob0lkOJe",
   },
   {
     id: "v2",
     type: "videos",
     title: "Lorem ipsum dolor sit amet, consectetur adipiscing",
     date: "02 Mar, 2023",
-    imageUrl: "/Rectangle 63.png?height=300&width=400",
+    youtubeUrl: "https://youtu.be/Cpc9jSMjmM4?si=vVVr2kxl3ppoBmgC",
     duration: "2:30",
   },
   {
@@ -80,7 +79,7 @@ export const videoData = [
     type: "videos",
     title: "Lorem ipsum dolor sit amet, consectetur adipiscing",
     date: "27 Mar, 2023",
-    imageUrl: "/Rectangle 65.png?height=300&width=400",
+    youtubeUrl: "https://youtu.be/fbWP4nOyhVA?feature=shared",
     duration: "4:15",
   },
   {
@@ -88,7 +87,7 @@ export const videoData = [
     type: "videos",
     title: "Lorem ipsum dolor sit amet, consectetur adipiscing",
     date: "15 Feb, 2023",
-    imageUrl: "/Rectangle 69.png?height=300&width=400",
+    youtubeUrl: "https://youtu.be/NFHkWtZDyvA?si=fq6tOigIUmglluxN",
     duration: "1:50",
   },
   {
@@ -96,26 +95,28 @@ export const videoData = [
     type: "videos",
     title: "Lorem ipsum dolor sit amet, consectetur adipiscing",
     date: "20 Apr, 2023",
-    imageUrl: "/Rectangle 70.png?height=300&width=400",
+    youtubeUrl: "https://youtu.be/TpWj6MH1lNc?si=_o4YsFAJJtqCO5aW",
     duration: "5:20",
   },
-  {
-    id: "v6",
-    type: "videos",
-    title: "Lorem ipsum dolor sit amet, consectetur adipiscing",
-    date: "05 Dec, 2023",
-    imageUrl: "/Rectangle 71.png?height=300&width=400",
-    duration: "2:10",
-  },
+  // {
+  //   id: "v6",
+  //   type: "videos",
+  //   title: "Lorem ipsum dolor sit amet, consectetur adipiscing",
+  //   date: "05 Dec, 2023",
+  //   youtubeUrl: "/Rectangle 71.png?height=300&width=400",
+  //   duration: "2:10",
+  // },
 ];
 
 export const documentData: DocumentItem[] = [
   {
     id: "d1",
     type: "documents",
-    title: "Lorem ipsum dolor sit amet, consectetur adipiscing",
+    title: "Compendium of Best Practices Water Mangement in Tribal Areas",
     date: "27 Mar, 2023",
-    imageUrl: "/Rectangle 61Doc.png?height=300&width=400",
+    imageUrl: "/assets/media/doc1.png",
+    fileUrl:
+      "https://drive.google.com/file/d/1xxKhuEMs8AZOx3JexJTb5kkiRjTH_Ah9/view?usp=drive_link",
     hasQrCode: true,
     fileSize: "2.4 MB",
     fileType: "PDF",

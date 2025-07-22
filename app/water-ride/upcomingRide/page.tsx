@@ -44,8 +44,8 @@ export default function UpcomingRide() {
         </p>
       </div>
       <div className="bg-[#F8F1E9] dark:bg-gray-800 max-w-full mx-auto py-6 sm:py-8 md:py-12 flex flex-col md:flex-row justify-center items-center">
-        <div className="text-start pl-10">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl  text-gray-800 dark:text-gray-200 mb-4 sm:mb-6">
+        <div className="text-center  w-full sm:w-2/3 sm:text-start p-2 pl-0 sm:pl-10">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl text-gray-800 dark:text-gray-200 mb-4 sm:mb-6">
             The Unfinished Ride
           </h2>
 
@@ -74,24 +74,26 @@ export default function UpcomingRide() {
             <span className="font-semibold">Shashank Singh, Founder, GRAM</span>
           </p>
         </div>
-        <div>
-          <Image
-            src="/Desert.png"
-            alt="planned route"
-            width={500}
-            height={700}
-            className="w-full h-full ml-4 mt-6"
-          />
+        <div className="w-xs sm:w-2/5">
+          <div className="w-sm sm:w-2xl h-[300px] m-6 sm:m-2 rounded-lg">
+            <Image
+              src="/assets/water-ride/RE2.jpg"
+              alt="planned route"
+              width={500}
+              height={700}
+              className="object-cover w-xs sm:w-[450px] h-full -ml-6  sm:ml-4 mt-0 sm:mt-6 rounded-lg"
+            />
+          </div>
         </div>
       </div>
       <div className="bg-[#BAD1CA] dark:bg-gray-700 w-full max-w-full  py-6 sm:py-8 md:py-12 flex flex-col md:flex-row justify-center items-center">
-        <div>
+        <div className="m-6 sm:m-2 rounded-lg">
           <Image
-            src="/Journey begins.png"
+            src="/assets/water-ride/UntitledDesign.png"
             alt="planned route"
             width={500}
             height={700}
-            className="w-full h-full ml-4 mt-6"
+            className="w-full h-full ml-0 sm:ml-4 mt-0 sm:mt-6 rounded-lg"
           />
         </div>
         <div>
@@ -174,11 +176,11 @@ export default function UpcomingRide() {
         </div>
       </section>
       <section className="bg-[#F8F1E9] dark:bg-gray-800 max-w-full mx-auto px-4 sm:px-6 md:px-10 py-10 flex flex-col md:flex-row justify-center items-center">
-        <div className="w-full md:w-[740px] h-auto md:h-[286px] mb-6 md:mb-0">
+        <div className="w-full md:w-[740px] h-auto md:h-[325px] mb-6 md:mb-0">
           <h2 className="text-2xl sm:text-3xl mb-2 text-center md:text-left">
             Planned Route
           </h2>
-          <p className="text-gray-700 dark:text-gray-200 text-xs sm:text-sm md:text-xs leading-relaxed">
+          <p className="text-gray-700 dark:text-gray-200 text-xs  md:text-sm leading-relaxed">
             We are gearing up for an epic bike ride that will take us across 19
             incredible states and union territories of India. Our journey will
             begin in the coastal landscapes of Odisha, then move through the
@@ -207,22 +209,22 @@ export default function UpcomingRide() {
             every mile.
           </p>
         </div>
-        <div className="w-full md:w-1/3 h-auto md:h-[286px] flex justify-center items-center">
+        <div className="w-full md:w-1/3 h-auto md:h-[325px] flex justify-center items-center rounded-lg">
           <Image
-            src="/Journey begins.png"
+            src="/assets/water-ride/RoyalEnfield.png"
             alt="planned route"
             width={500}
-            height={700}
-            className="w-full h-full ml-4 mt-6"
+            height={750}
+            className="object-cover w-full h-full ml-0 sm:ml-4 mt-0 sm:mt-6 rounded-lg"
           />
         </div>
       </section>
       <MissionCards />
 
       <div className="max-w-full">
-        <div className="relative bg-[#BAD1CA] dark:bg-gray-700 w-full max-w-full h-auto min-h-[420px] flex flex-col  gap-6 py-6 md:flex-row md:justify-center md:h-[420px]">
+        <div className="relative bg-[#BAD1CA] dark:bg-gray-700 w-full max-w-full h-auto max-h-[320px] flex md:justify-center md:h-[270px]">
           {/* Goal of the Ride */}
-          <div className="w-[90%] sm:w-[550px] h-50 min-h-[150px] sm:h-[187px] bg-white dark:bg-gray-900 px-4 sm:px-8 pt-2 mt-4 mx-auto sm:mx-0 rounded-lg shadow-md order-1">
+          {/* <div className="w-[90%] sm:w-[550px] h-50 min-h-[150px] sm:h-[187px] bg-white dark:bg-gray-900 px-4 sm:px-8 pt-2 mt-4 mx-auto sm:mx-0 rounded-lg shadow-md order-1">
             <h2 className="text-base sm:text-lg  mb-2">Goal of the Ride</h2>
             <p className="text-gray-600 dark:text-gray-200 text-xs sm:text-sm">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -234,10 +236,10 @@ export default function UpcomingRide() {
               nulla pariatur. Excepteur sint occaecat cupidatat non proident,
               sunt in culpa qui officia deserunt mollit anim id est laborum.
             </p>
-          </div>
+          </div> */}
 
           {/* The Cause/Ideas */}
-          <div className="w-[90%] sm:w-[550px] h-50 min-h-[150px] sm:h-[187px] bg-white dark:bg-gray-900 px-4 sm:px-8 pt-2 mt-4 mx-auto sm:mx-0 rounded-lg shadow-md order-2">
+          {/* <div className="w-[90%] sm:w-[550px] h-50 min-h-[150px] sm:h-[187px] bg-white dark:bg-gray-900 px-4 sm:px-8 pt-2 mt-4 mx-auto sm:mx-0 rounded-lg shadow-md order-2">
             <h2 className="text-base sm:text-lg  mb-2">The Cause/Ideas</h2>
             <p className="text-gray-600 dark:text-gray-200 text-xs sm:text-sm">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -249,19 +251,19 @@ export default function UpcomingRide() {
               nulla pariatur. Excepteur sint occaecat cupidatat non proident,
               sunt in culpa qui officia deserunt mollit anim id est laborum.
             </p>
-          </div>
+          </div> */}
 
-          <h1 className="text-2xl sm:text-4xl  text-center mb-4  sm:mb-6 order-3 md:absolute md:bottom-24">
+          <h1 className="text-2xl sm:text-4xl  text-center mt-8  sm:mb-6 order-3 md:absolute ">
             Support the Movement
           </h1>
 
           {/* Form for larger screens */}
-          <div className="hidden md:block absolute top-80 w-[90%] max-w-[600px] bg-white dark:bg-gray-950 p-8 rounded-lg shadow-xl order-4">
+          <div className="hidden md:block absolute top-24 w-[90%] max-w-[600px] bg-white dark:bg-gray-950 p-8 rounded-lg shadow-xl order-4">
             <Support />
           </div>
         </div>
       </div>
-      <div className="max-w-full h-auto min-h-[300px] bg-[#F8F1E9] dark:bg-gray-900 order-5 flex justify-center items-start">
+      <div className="max-w-full h-auto min-h-[250px] bg-[#F8F1E9] dark:bg-gray-900 order-5 flex justify-center items-start">
         {/* Form for mobile view */}
         <div className="md:hidden w-[90%] max-w-[600px] bg-white dark:bg-gray-950 p-8 rounded-lg shadow-xl mt-6">
           <Support />

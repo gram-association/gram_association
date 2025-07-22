@@ -167,7 +167,7 @@ const Header = () => {
 
           {/* Mobile Right Side: Theme Toggle and Menu Button */}
           <div className="flex items-center space-x-2 lg:hidden">
-            <ThemeToggle />
+            {/* <ThemeToggle /> */}
             <button
               onClick={toggleMenu}
               className="p-1 text-gray-900 dark:text-white"
@@ -178,9 +178,7 @@ const Header = () => {
           </div>
 
           {/* Desktop Theme Toggle (Hidden on mobile) */}
-          <div className="hidden lg:block">
-            <ThemeToggle />
-          </div>
+          <div className="hidden lg:block">{/* <ThemeToggle /> */}</div>
         </div>
       </header>
     </>

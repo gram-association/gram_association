@@ -48,6 +48,7 @@ export default function ContactForm() {
     setSubmitStatus(null);
 
     const formDataToSend = new FormData();
+    formDataToSend.append("formType", "Gram");
     formDataToSend.append("JoinAs", formData.joinAs);
     formDataToSend.append("FirstName", formData.firstName);
     formDataToSend.append("LastName", formData.lastName);
@@ -56,7 +57,7 @@ export default function ContactForm() {
 
     try {
       const response = await fetch(
-        "https://script.google.com/macros/s/AKfycbwN0ERWNLDvw5p0n5hdnyS_Cm4escVtkqZRRBdz24hpv4Id7Yf1WFh5jy6Stsisd180Iw/exec",
+        "https://script.google.com/macros/s/AKfycbyoB78xBATVdIbVm9boqu0e7gQTxfvGgEzsVwdkFZtAeRoshCR5XRrDvRNQb2Oy1QHYNw/exec",
         {
           method: "POST",
           body: formDataToSend,
@@ -89,16 +90,21 @@ export default function ContactForm() {
         throw new Error(data.error || "Submission failed");
       }
     } catch (error: unknown) {
-      const errorMessage =
-        error instanceof Error
-          ? error.message
-          : typeof error === "string"
-          ? error
-          : JSON.stringify(error);
-      console.error("Error submitting form:", {
-        message: errorMessage,
-        error: error instanceof Error ? error : error,
-      });
+      let errorMessage: string;
+
+      if (error instanceof Error) {
+        errorMessage = error.message;
+      } else if (typeof error === "string") {
+        errorMessage = error;
+      } else {
+        try {
+          errorMessage = JSON.stringify(error);
+        } catch {
+          errorMessage = "An unknown error occurred.";
+        }
+      }
+
+      console.error("Error submitting form:", error);
       setSubmitStatus(`Submission failed: ${errorMessage}`);
     } finally {
       setIsSubmitting(false);
@@ -118,9 +124,27 @@ export default function ContactForm() {
             </SelectTrigger>
             <SelectContent>
               <SelectItem value="Individual">Individual</SelectItem>
-              <SelectItem value="Organization">Organization</SelectItem>
-              <SelectItem value="Corporate">Corporate</SelectItem>
-              <SelectItem value="Donate">Donate</SelectItem>
+              <SelectItem value="Donate">Donor / Funder</SelectItem>
+              <SelectItem value="Corporate CSR Representative">
+                Corporate CSR Representative
+              </SelectItem>
+              <SelectItem value="Development Partner / NGO">
+                Development Partner / NGO
+              </SelectItem>
+              <SelectItem value="Volunteer / Intern">
+                Volunteer / Intern
+              </SelectItem>
+              <SelectItem value="Advisor / Mentor">Advisor / Mentor</SelectItem>
+              <SelectItem value="Job Seeker">Job Seeker</SelectItem>
+              <SelectItem value="Community Member / Beneficiary">
+                Community Member / Beneficiary
+              </SelectItem>
+              <SelectItem value="Supporter / Well-wisher">
+                Supporter / Well-wisher
+              </SelectItem>
+              <SelectItem value="Other (please specify)">
+                Other (please specify)
+              </SelectItem>
             </SelectContent>
           </Select>
         </div>

@@ -31,7 +31,7 @@ export const programs = [
   },
   {
     id: 3,
-    category: "water Conservation",
+    category: "Water Conservation",
     title:
       "Laying the Groundwork for Safe Water Access: Birbhum Fluoride Mitigation Support Project (2020–2021)",
     description:
