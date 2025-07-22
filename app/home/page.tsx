@@ -28,7 +28,7 @@ export default function Home() {
           <div className="flex flex-col sm:flex-row sm:justify-evenly sm:absolute sm:inset-0 w-full sm:w-[1277px] -mt-56 sm:mt-12 px-4 sm:px-0">
             <div className="relative z-10 w-full sm:w-4xl text-white dark:text-white">
               <h1 className="text-xl xs:text-2xl sm:text-[48px] font-semibold text-center sm:text-left leading-tight sm:leading-snug">
-                Building self-reliant India through self-reliant villages
+                Building self-reliant India <br /> through self-reliant villages
               </h1>
             </div>
             <div className="hidden sm:block sm:mt-6 sm:mx-4 h-24 w-px bg-gray-300 dark:bg-gray-600"></div>

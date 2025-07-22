@@ -11,6 +11,15 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+} from "@/components/ui/alert-dialog";
 
 export default function Support() {
   const [formData, setFormData] = useState({
@@ -20,24 +29,32 @@ export default function Support() {
     email: "",
     query: "",
   });
+
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [message, setMessage] = useState("");
+  const [dialogOpen, setDialogOpen] = useState(false);
+  const [dialogMessage, setDialogMessage] = useState("");
+  const [isSuccess, setIsSuccess] = useState(false);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
   };
 
   const handleSelectChange = (value: string) => {
-    setFormData((prev) => ({ ...prev, joinAs: value }));
+    setFormData((prevData) => ({
+      ...prevData,
+      joinAs: value,
+    }));
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    setMessage("");
 
     const formDataToSend = new FormData();
     formDataToSend.append("formType", "Support");
@@ -55,10 +72,10 @@ export default function Support() {
           body: formDataToSend,
         }
       );
-
       const data = await response.json();
       if (data.result === "success") {
-        setMessage("Form submitted successfully!");
+        setDialogMessage("Form submitted successfully!");
+        setIsSuccess(true);
         setFormData({
           joinAs: "Ride",
           firstName: "",
@@ -67,11 +84,15 @@ export default function Support() {
           query: "",
         });
       } else {
-        setMessage("Submission failed. Please try again.");
+        setDialogMessage("Submission failed. Please try again.");
+        setIsSuccess(false);
       }
+      setDialogOpen(true);
     } catch (error) {
       console.error("Error submitting form:", error);
-      setMessage("An error occurred. Please try again.");
+      setDialogMessage("An error occurred. Please try again.");
+      setIsSuccess(false);
+      setDialogOpen(true);
     } finally {
       setIsSubmitting(false);
     }
@@ -173,15 +194,28 @@ export default function Support() {
         {isSubmitting ? "Submitting..." : "SUBMIT"}
       </Button>
 
-      {message && (
-        <div
-          className={`text-sm sm:text-base ${
-            message.includes("success") ? "text-green-600" : "text-red-600"
-          }`}
-        >
-          {message}
-        </div>
-      )}
+      <AlertDialog open={dialogOpen} onOpenChange={setDialogOpen}>
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle>
+              {isSuccess ? "Success!" : "Error"}
+            </AlertDialogTitle>
+            <AlertDialogDescription
+              className={isSuccess ? "text-green-600" : "text-red-600"}
+            >
+              {dialogMessage}
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogAction
+              onClick={() => setDialogOpen(false)}
+              className="bg-[#538C7B]"
+            >
+              Close
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
     </form>
   );
 }
