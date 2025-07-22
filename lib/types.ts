@@ -11,8 +11,11 @@ interface BaseMediaItem {
   date: string;
   imageUrl: string;
 }
-export interface VideoItem extends BaseMediaItem {
-  type: "videos";
+export interface VideoItem {
+  id: string;
+  title: string;
+  date: string;
+  type: string;
   duration?: string;
   youtubeUrl: string;
 }

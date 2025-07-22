@@ -12,6 +12,15 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import {
+  AlertDialog,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogAction,
+} from "@/components/ui/alert-dialog";
 
 export default function ContactForm() {
   const searchParams = useSearchParams();
@@ -24,6 +33,7 @@ export default function ContactForm() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<string | null>(null);
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
 
   useEffect(() => {
     if (searchParams.get("type") === "donate") {
@@ -108,11 +118,12 @@ export default function ContactForm() {
       setSubmitStatus(`Submission failed: ${errorMessage}`);
     } finally {
       setIsSubmitting(false);
+      setIsDialogOpen(true);
     }
   };
 
   return (
-    <div className="space-y-6 w-full max-w-lg ">
+    <div className="space-y-6 w-full max-w-lg">
       <form onSubmit={handleSubmit}>
         <div className="space-y-4">
           <label className="block text-gray-700 dark:text-gray-200 font-medium text-sm sm:text-base">
@@ -231,15 +242,33 @@ export default function ContactForm() {
           {isSubmitting ? "Submitting..." : "SUBMIT"}
         </Button>
       </form>
-      {submitStatus && (
-        <p
-          className={`text-sm sm:text-base ${
-            submitStatus.includes("success") ? "text-green-600" : "text-red-600"
-          }`}
-        >
-          {submitStatus}
-        </p>
-      )}
+
+      <AlertDialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle>
+              {submitStatus?.includes("success") ? "Success" : "Error"}
+            </AlertDialogTitle>
+            <AlertDialogDescription
+              className={`text-sm sm:text-base ${
+                submitStatus?.includes("success")
+                  ? "text-green-600"
+                  : "text-red-600"
+              }`}
+            >
+              {submitStatus}
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogAction
+              className="bg-[#538C7B] hover:bg-[#4a7a6e] focus:ring-[#538C7B]"
+              onClick={() => setIsDialogOpen(false)}
+            >
+              Close
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
     </div>
   );
 }

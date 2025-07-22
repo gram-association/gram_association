@@ -1,16 +1,28 @@
 "use client";
 import type React from "react";
 import { useState } from "react";
+import {
+  AlertDialog,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogAction,
+} from "@/components/ui/alert-dialog";
+import { Button } from "@/components/ui/Button";
 
 export default function Story() {
   const [story, setStory] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [message, setMessage] = useState("");
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!story.trim()) {
       setMessage("Please write your story before submitting");
+      setIsDialogOpen(true);
       return;
     }
 
@@ -43,6 +55,7 @@ export default function Story() {
       setMessage("An error occurred. Please try again.");
     } finally {
       setIsSubmitting(false);
+      setIsDialogOpen(true);
     }
   };
 
@@ -73,16 +86,34 @@ export default function Story() {
               {isSubmitting ? "..." : "➤"}
             </button>
           </div>
-          {message && (
-            <div
-              className={`mt-4 text-sm sm:text-base ${
-                message.includes("success") ? "text-green-600" : "text-red-600"
-              }`}
-            >
-              {message}
-            </div>
-          )}
         </form>
+
+        <AlertDialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
+          <AlertDialogContent>
+            <AlertDialogHeader>
+              <AlertDialogTitle>
+                {message.includes("success") ? "Success" : "Error"}
+              </AlertDialogTitle>
+              <AlertDialogDescription
+                className={`text-sm sm:text-base ${
+                  message.includes("success")
+                    ? "text-green-600"
+                    : "text-red-600"
+                }`}
+              >
+                {message}
+              </AlertDialogDescription>
+            </AlertDialogHeader>
+            <AlertDialogFooter>
+              <AlertDialogAction
+                className="bg-[#5A8B6E] hover:bg-[#4A7A5E] focus:ring-[#5A8B6E]"
+                onClick={() => setIsDialogOpen(false)}
+              >
+                Close
+              </AlertDialogAction>
+            </AlertDialogFooter>
+          </AlertDialogContent>
+        </AlertDialog>
       </div>
     </div>
   );

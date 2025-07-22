@@ -37,7 +37,7 @@ const MissionCards: React.FC = () => {
         {missions.map((mission, index) => (
           <div
             key={index}
-            className="bg-white dark:bg-gray-700 shadow-md rounded-lg p-6 transform transition duration-300 hover:scale-105 hover:shadow-lg"
+            className="bg-white dark:bg-gray-700 shadow-md rounded-lg p-6 transform transition duration-300 hover:scale-105 hover:shadow-xl"
           >
             <Image
               src={mission.img || "/palcehoder.svg"}
@@ -49,12 +49,19 @@ const MissionCards: React.FC = () => {
             <h2 className="text-xl font-semibold text-gray-900 dark:text-gray-200 text-center mb-4">
               {mission.pillar}
             </h2>
-            <p className="text-gray-700 dark:text-gray-200 mb-2">
-              <strong>Action:</strong> <br />
+            <p className="text-gray-700 dark:text-gray-200 mb-4">
+              <span className="text-[#5b818d] font-semibold flex justify-center text-[18px] -mb-4">
+                Action
+              </span>
+              <br />
               {mission.action}
             </p>
-            <p className="text-gray-700 dark:text-gray-200">
-              <strong>Impact Target:</strong> <br />
+            <hr />
+            <p className="text-gray-700 dark:text-gray-200 mt-2 ">
+              <span className="text-[#5b818d] font-semibold flex justify-center text-[18px] -mb-4">
+                Impact Target
+              </span>
+              <br />
               {mission.impact}
             </p>
           </div>
