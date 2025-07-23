@@ -2,9 +2,8 @@ import type { Metadata } from "next";
 import { Epilogue, Geist, Geist_Mono, Source_Sans_3 } from "next/font/google";
 import "./globals.css";
 import Footer from "@/components/Footer";
-import { ThemeProvider } from "next-themes";
 import Header from "@/components/Header";
-import { cookies } from "next/headers";
+import { Suspense } from "react";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -71,25 +70,16 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  // Read theme from cookie on server
-  const cookieStore = await cookies();
-  const theme = cookieStore.get("theme")?.value || "system";
-
   return (
     <html lang="en" className={"light"} suppressHydrationWarning>
       <body
         className={`${geistSans.variable} ${geistMono.variable}  antialiased`}
       >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="light"
-          enableSystem
-          disableTransitionOnChange
-        >
+        <Suspense fallback={<div>Loading ...</div>}>
           <Header />
           {children}
           <Footer />
-        </ThemeProvider>
+        </Suspense>
       </body>
     </html>
   );
