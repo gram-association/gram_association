@@ -76,13 +76,13 @@ export default async function RootLayout({
   const theme = cookieStore.get("theme")?.value || "system";
 
   return (
-    <html lang="en" className={theme} suppressHydrationWarning>
+    <html lang="en" className={"light"} suppressHydrationWarning>
       <body
         className={`${geistSans.variable} ${geistMono.variable}  antialiased`}
       >
         <ThemeProvider
           attribute="class"
-          defaultTheme="system"
+          defaultTheme="light"
           enableSystem
           disableTransitionOnChange
         >
