@@ -62,39 +62,41 @@ export const videoData = [
   {
     id: "v1",
     type: "videos",
-    title: "Lorem ipsum dolor sit amet, consectetur adipiscing",
-    date: "13 May, 2023",
+    title: "India- `Rasabeda` Village Water Project",
+
     youtubeUrl: "https://youtu.be/fbWP4nOyhVA?si=YCckVWNKob0lkOJe",
   },
   {
     id: "v2",
     type: "videos",
-    title: "Lorem ipsum dolor sit amet, consectetur adipiscing",
-    date: "02 Mar, 2023",
+    title: "Rasabeda Village Tourism || Unnat Bharat Abhiyan || IIM Ranchi",
+
     youtubeUrl: "https://youtu.be/Cpc9jSMjmM4?si=vVVr2kxl3ppoBmgC",
     duration: "2:30",
   },
-  {
-    id: "v3",
-    type: "videos",
-    title: "Lorem ipsum dolor sit amet, consectetur adipiscing",
-    date: "27 Mar, 2023",
-    youtubeUrl: "https://youtu.be/fbWP4nOyhVA?feature=shared",
-    duration: "4:15",
-  },
+  // {
+  //   id: "v3",
+  //   type: "videos",
+  //   title: "Lorem ipsum dolor sit amet, consectetur adipiscing",
+  //   date: "27 Mar, 2023",
+  //   youtubeUrl: "https://youtu.be/fbWP4nOyhVA?feature=shared",
+  //   duration: "4:15",
+  // },
   {
     id: "v4",
     type: "videos",
-    title: "Lorem ipsum dolor sit amet, consectetur adipiscing",
-    date: "15 Feb, 2023",
+    title:
+      "Rasabeda : The Water Project | A Documentary | 2020 | A Journey Of Two Warriors",
+
     youtubeUrl: "https://youtu.be/NFHkWtZDyvA?si=fq6tOigIUmglluxN",
     duration: "1:50",
   },
   {
     id: "v5",
     type: "videos",
-    title: "Lorem ipsum dolor sit amet, consectetur adipiscing",
-    date: "20 Apr, 2023",
+    title:
+      "Kherwatikra Pond Rejuvenation,Ranchi | Documentary film | 2021 | Happy New Year",
+
     youtubeUrl: "https://youtu.be/TpWj6MH1lNc?si=_o4YsFAJJtqCO5aW",
     duration: "5:20",
   },

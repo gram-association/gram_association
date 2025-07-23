@@ -14,7 +14,7 @@ interface BaseMediaItem {
 export interface VideoItem {
   id: string;
   title: string;
-  date: string;
+
   type: string;
   duration?: string;
   youtubeUrl: string;
