@@ -2,6 +2,7 @@ import { Mail, MapPin, Phone } from "lucide-react";
 import ContactForm from "./components/Contact-form";
 import Link from "next/link";
 import Image from "next/image";
+import { Suspense } from "react";
 
 export default function ContactUs() {
   return (
@@ -74,7 +75,9 @@ export default function ContactUs() {
 
           {/* Contact Form Section */}
           <div className="w-full md:w-2/5 lg:w-1/2 bg-white dark:bg-gray-800 drop-shadow-lg text-gray-800 dark:text-gray-200 rounded-lg p-4 sm:p-6 md:p-6 lg:p-8 mt-8 md:mt-0 lg:mt-0 animate-slide-up">
-            <ContactForm />
+            <Suspense fallback={<div>Loading...</div>}>
+              <ContactForm />
+            </Suspense>
           </div>
         </div>
       </div>
