@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Advisor from "./components/Advisor";
-// import OurPartners from "./components/OurPartners";
 import OurTeam from "./components/OurTeam";
 import Support from "./components/Support";
 
@@ -90,31 +89,12 @@ export default function AboutUs() {
               to community well-being. This growth wasn't a deviation from our
               core, but rather a realization that true, sustainable impact
               requires addressing the interconnected needs of a community.
-              <br />
-              <br />
-              {/* In 2019, that dream took shape as the GRAM Association. What
-              started with a focus on indigenous water conservation methods grew
-              into a mission that connects water security, livelihood,
-              environmental sustainability, health, education, and relief
-              activities. At GRAM, we believe that indigenous wisdom, when
-              combined with thoughtful innovation, can transform lives and
-              landscapes.
-              <br />
-              <br />
-              The road hasn’t always been easy. There have been uncertainties,
-              and a global pandemic along the way. But through it all, our
-              commitment has only grown stronger. Today, GRAM stands as a
-              living, breathing movement supported by the people, for the
-              people; working to build a future where communities don’t just
-              survive, but thrive. We’re proud of how far we’ve come, and even
-              more excited about where we’re headed. Because when communities
-              lead, real change follows. */}
             </p>
           </div>
         </div>
       </section>
 
-      {/* Team, Partners, and Advisor Sections */}
+      {/* Team, Advisor and Support Sections */}
       <section className="w-full max-w-7xl mx-auto ">
         <OurTeam />
         <Advisor />

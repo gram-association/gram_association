@@ -1,7 +1,6 @@
 import { Mail, MapPin, Phone } from "lucide-react";
 import ContactForm from "./components/Contact-form";
 import Link from "next/link";
-import Image from "next/image";
 import { Suspense } from "react";
 
 export default function ContactUs() {

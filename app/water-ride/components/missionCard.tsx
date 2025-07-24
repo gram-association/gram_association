@@ -50,18 +50,10 @@ const MissionCards: React.FC = () => {
               {mission.pillar}
             </h2>
             <p className="text-gray-700 dark:text-gray-200 mb-4">
-              <span className="text-[#5b818d] font-semibold flex justify-center text-[18px] -mb-4">
-                Action
-              </span>
-              <br />
               {mission.action}
             </p>
             <hr />
             <p className="text-gray-700 dark:text-gray-200 mt-2 ">
-              <span className="text-[#5b818d] font-semibold flex justify-center text-[18px] -mb-4">
-                Impact Target
-              </span>
-              <br />
               {mission.impact}
             </p>
           </div>

@@ -13,6 +13,7 @@ interface JourneyStep {
   image: string | string[];
 }
 
+// Data
 const journeySteps: JourneyStep[] = [
   {
     time: "Week 1",
@@ -222,12 +223,12 @@ export default function JourneyPage() {
       </div>
 
       {/* Main Content */}
-      <main className="pt-6 pb-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <main className="pt-6 pb-10 max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 mb-48sm:mb-0">
         <div className="relative">
           {/* Timeline Line and Pointer */}
           <div
             ref={timelineRef}
-            className="absolute left-4 md:left-8 top-0 h-full w-1 "
+            className="absolute left-2 md:left-8 top-0 h-full w-1  "
           >
             <Image src="/Group 49.png" alt="Route" fill />
             <div
@@ -239,7 +240,7 @@ export default function JourneyPage() {
           </div>
 
           {/* Timeline Sections */}
-          <div className="space-y-16 md:space-y-8 pl-12 md:pl-20">
+          <div className="space-y-16 md:space-y-8 pl-8 md:pl-20">
             {journeySteps.map((step, index) => (
               <div
                 key={index}
@@ -284,12 +285,6 @@ export default function JourneyPage() {
                       className="w-full h-full rounded-t-lg"
                       sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
                     />
-                    {/* <Image
-                      src={step.image || "/placeholder.svg"}
-                      alt={step.title}
-                      fill
-                      className=" w-full h-full  rounded-lg transition-opacity  duration-500 hover:opacity-90"
-                    /> */}
                   </div>
                 </div>
               </div>

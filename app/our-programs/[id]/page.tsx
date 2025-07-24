@@ -56,7 +56,8 @@ export default async function ProgramPage({
                 </BreadcrumbItem>
               </Breadcrumb>
 
-              <h1 className="text-3xl sm:text-5xl h-auto font-medium mt-2">
+              {/* Main Title */}
+              <h1 className="text-3xl sm:text-5xl h-auto font-medium mt-5">
                 {program.title}
               </h1>
             </div>

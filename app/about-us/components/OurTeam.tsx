@@ -1,6 +1,5 @@
 import Image from "next/image";
 import React from "react";
-import { FaLinkedin } from "react-icons/fa";
 import { Linkedin } from "lucide-react";
 
 const teamMembers = [
@@ -79,7 +78,7 @@ export default function OurTeam() {
               className="group relative bg-transparent  rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden border border-gray-100 dark:border-gray-700"
             >
               {/* Image Container */}
-              <div className="relative h-72 overflow-hidden">
+              <div className="relative h-[250px] overflow-hidden">
                 <Image
                   src={member.image || "/placeholder.svg"}
                   alt={`${member.name} - ${member.role}`}
@@ -110,9 +109,6 @@ export default function OurTeam() {
                 <p className="text-gray-600 dark:text-gray-300 font-medium">
                   {member.role}
                 </p>
-
-                {/* Decorative Line */}
-                {/* <div className="mt-4 h-1 w-12 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" /> */}
               </div>
 
               {/* Hover Effect Border */}

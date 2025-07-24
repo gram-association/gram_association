@@ -10,7 +10,6 @@ import {
   AlertDialogTitle,
   AlertDialogAction,
 } from "@/components/ui/alert-dialog";
-import { Button } from "@/components/ui/Button";
 
 export default function Story() {
   const [story, setStory] = useState("");
@@ -36,7 +35,7 @@ export default function Story() {
 
     try {
       const response = await fetch(
-        "https://script.google.com/macros/s/AKfycbyoB78xBATVdIbVm9boqu0e7gQTxfvGgEzsVwdkFZtAeRoshCR5XRrDvRNQb2Oy1QHYNw/exec",
+        "https://script.google.com/macros/s/AKfycbzmwEH-8xq-vkqUUyWGu-oeZCzlCa3UYsFa7eCW-GL7-Taon8_6jtHAaum7OXnWS4tYCA/exec",
         {
           method: "POST",
           body: formDataToSend,

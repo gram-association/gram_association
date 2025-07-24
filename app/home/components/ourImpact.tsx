@@ -98,7 +98,7 @@ const CountUp: React.FC<{
   return (
     <span
       ref={elementRef}
-      className="text-2xl md:text-4xl font-bold text-[#5A829A] dark:text-cyan-400"
+      className="text-2xl md:text-4xl font-bold text-[#5A829A] "
     >
       {formatDisplayValue(count, end, suffix)}
     </span>
@@ -153,17 +153,17 @@ const OurImpact: React.FC = () => {
 
   return (
     <section className="py-8 md:pb-16 text-center mt-2 md:mt-0">
-      <p className="container mx-auto bg-[#DEE6EB] dark:bg-gray-700 w-fit rounded-lg px-2 text-gray-700 dark:text-gray-200 flex items-center text-sm md:text-base">
+      <p className="container mx-auto bg-[#DEE6EB]  w-fit rounded-lg px-2 text-gray-700  flex items-center text-sm md:text-base">
         Our Impact
       </p>
-      <h2 className="text-2xl md:text-5xl mt-4 font-epilogue text-center mb-6 text-gray-900 dark:text-gray-100">
+      <h2 className="text-2xl md:text-5xl mt-4 font-epilogue text-center mb-6 text-gray-900 ">
         Driving Meaningful Change
       </h2>
 
       {/* Mobile View (Horizontal Scroller with Hidden Scrollbar) */}
       <div
         ref={scrollerRef}
-        className="md:hidden overflow-x-auto snap-x snap-mandatory flex w-[400px] mx-auto py-8 px-4 bg-[#F8F1E9] dark:bg-gray-800 rounded-lg scrollbar-hide"
+        className="md:hidden overflow-x-auto snap-x snap-mandatory flex w-[400px] mx-auto py-8 px-4 bg-[#F8F1E9]  rounded-lg scrollbar-hide"
         onScroll={handleScroll}
       >
         <div className="flex-none snap-center w-full flex justify-center items-center space-x-6">
@@ -174,9 +174,7 @@ const OurImpact: React.FC = () => {
               slideIndex={0}
               currentSlide={currentSlide}
             />
-            <p className="text-xs text-gray-700 dark:text-gray-300">
-              Lives Transformed
-            </p>
+            <p className="text-xs text-gray-700 ">Lives Transformed</p>
           </div>
           <div className="text-center min-w-[100px]">
             <CountUp
@@ -185,9 +183,7 @@ const OurImpact: React.FC = () => {
               slideIndex={0}
               currentSlide={currentSlide}
             />
-            <p className="text-xs text-gray-700 dark:text-gray-300">
-              Villages Impacted
-            </p>
+            <p className="text-xs text-gray-700 ">Villages Impacted</p>
           </div>
         </div>
         <div className="flex-none snap-center w-full flex justify-center space-x-6">
@@ -198,23 +194,17 @@ const OurImpact: React.FC = () => {
               slideIndex={1}
               currentSlide={currentSlide}
             />
-            <p className="text-xs text-gray-700 dark:text-gray-300">
-              Women Trained
-            </p>
+            <p className="text-xs text-gray-700 ">Women Trained</p>
           </div>
           <div className="text-center min-w-[100px]">
             <CountUp end={3} slideIndex={1} currentSlide={currentSlide} />
-            <p className="text-xs text-gray-700 dark:text-gray-300">
-              Water bodies rejuvenated
-            </p>
+            <p className="text-xs text-gray-700 ">Water bodies rejuvenated</p>
           </div>
         </div>
         <div className="flex-none snap-center w-full flex justify-center space-x-4">
           <div className="text-center min-w-[100px]">
             <CountUp end={8} slideIndex={2} currentSlide={currentSlide} />
-            <p className="text-xs text-gray-700 dark:text-gray-300">
-              SDGs addressed
-            </p>
+            <p className="text-xs text-gray-700 ">SDGs addressed</p>
           </div>
         </div>
       </div>
@@ -226,9 +216,7 @@ const OurImpact: React.FC = () => {
             key={index}
             onClick={() => goToSlide(index)}
             className={`w-3 h-3 rounded-full ${
-              currentSlide === index
-                ? "bg-[#5A829A] dark:bg-cyan-400"
-                : "bg-gray-300 dark:bg-gray-600"
+              currentSlide === index ? "bg-[#5A829A] " : "bg-gray-300 "
             }`}
             aria-label={`Go to slide ${index + 1}`}
           />
@@ -236,44 +224,40 @@ const OurImpact: React.FC = () => {
       </div>
 
       {/* Desktop View (Original Layout) */}
-      <div className="hidden md:flex flex-wrap justify-center bg-[#F8F1E9] dark:bg-gray-800 w-full min-w-5xl mx-auto py-8 px-4 rounded-lg space-x-4 md:space-x-8 space-y-4 md:space-y-0">
+      <div className="hidden md:flex flex-wrap justify-center bg-[#F8F1E9]  w-full min-w-5xl mx-auto py-8 px-4 rounded-lg space-x-4 md:space-x-8 space-y-4 md:space-y-0">
         <div className="w-1/2 md:w-auto text-center">
           <CountUp end={10000} suffix="K+" />
-          <p className="text-xs md:text-base text-gray-700 dark:text-gray-300">
+          <p className="text-xs md:text-base text-gray-700">
             Lives Transformed
           </p>
         </div>
-        <div className="hidden md:block h-14 w-px bg-gray-300 dark:bg-gray-600"></div>
+        <div className="hidden md:block h-14 w-px bg-gray-300 "></div>
 
         <div className="w-1/2 md:w-auto text-center">
           <CountUp end={10} suffix="+" />
-          <p className="text-xs md:text-base text-gray-700 dark:text-gray-300">
+          <p className="text-xs md:text-base text-gray-700">
             Villages Impacted
           </p>
         </div>
-        <div className="hidden md:block h-14 w-px bg-gray-300 dark:bg-gray-600"></div>
+        <div className="hidden md:block h-14 w-px bg-gray-300 "></div>
 
         <div className="w-1/2 md:w-auto text-center">
           <CountUp end={50} suffix="+" />
-          <p className="text-xs md:text-base text-gray-700 dark:text-gray-300">
-            Women Trained
-          </p>
+          <p className="text-xs md:text-base text-gray-700">Women Trained</p>
         </div>
-        <div className="hidden md:block h-14 w-px bg-gray-300 dark:bg-gray-600"></div>
+        <div className="hidden md:block h-14 w-px bg-gray-300 "></div>
 
         <div className="w-1/2 md:w-auto text-center">
           <CountUp end={3} />
-          <p className="text-xs md:text-base text-gray-700 dark:text-gray-300">
+          <p className="text-xs md:text-base text-gray-700">
             Water bodies <br /> rejuvenated
           </p>
         </div>
-        <div className="hidden md:block h-14 w-px bg-gray-300 dark:bg-gray-600"></div>
+        <div className="hidden md:block h-14 w-px bg-gray-300 "></div>
 
         <div className="w-1/2 md:w-auto text-center">
           <CountUp end={8} />
-          <p className="text-xs md:text-base text-gray-700 dark:text-gray-300">
-            SDGs addressed
-          </p>
+          <p className="text-xs md:text-base text-gray-700 ">SDGs addressed</p>
         </div>
       </div>
     </section>

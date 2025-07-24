@@ -4,7 +4,7 @@ import { useState } from "react";
 
 import { ImageGrid } from "./Image-Grid";
 import { Lightbox } from "./LightBox";
-import type { DocumentItem, ImageType, VideoItem } from "@/lib/types";
+import type { DocumentItem, ImageType } from "@/lib/types";
 import { VideoGrid } from "./Video-Grid";
 import { DocumentGrid } from "./Document-Grid";
 import { documentData, videoData } from "@/lib/data";
@@ -18,7 +18,6 @@ interface GalleryProps {
 export function Gallery({ images }: GalleryProps) {
   const [activeTab, setActiveTab] = useState("photos");
   const [selectedImage, setSelectedImage] = useState<ImageType | null>(null);
-
   const [lightboxOpen, setLightboxOpen] = useState(false);
 
   const handleImageClick = (image: ImageType) => {
@@ -83,6 +82,7 @@ export function Gallery({ images }: GalleryProps) {
           selectedImage={selectedImage}
           onClose={closeLightbox}
           onSelectImage={setSelectedImage}
+          image={null}
         />
       )}
     </div>
