@@ -1,8 +1,10 @@
 export interface ImageType {
+  [x: string]: any;
   id: string;
   src: string;
   alt: string;
-  description: string;
+  width: number;
+  height: number;
 }
 
 interface BaseMediaItem {

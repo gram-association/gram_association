@@ -1,10 +1,8 @@
 "use client";
-import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { programs } from "./data/programs";
 import Tabs from "./components/ProgramsTab";
-import AutoScrollCarousel from "@/components/auto-scroll-carousel";
 
 export default function Programs() {
   const [activeFilter, setActiveFilter] = useState("All Programs");
@@ -38,26 +36,15 @@ export default function Programs() {
             className="bg-white rounded-lg shadow-md overflow-hidden"
           >
             <div className="relative h-48">
-              <AutoScrollCarousel
-                images={
-                  Array.isArray(program.image) ? program.image : [program.image]
+              <img
+                src={
+                  Array.isArray(program.image)
+                    ? program.image[0]
+                    : program.image
                 }
-                height="200px"
-                autoScrollInterval={3000}
-                pauseOnHover={true}
-                loop={true}
-                transitionDuration={500}
-                // objectFit="cover"
-                className="w-full h-full rounded-t-lg"
-                sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
-              />
-              {/* <Image
-                src={program.image}
                 alt={program.title}
-                width={500}
-                height={500}
                 className="w-full h-full object-cover"
-              /> */}
+              />
               <div className="absolute bottom-4 left-4">
                 <span className="bg-white/80 text-gray-700 text-sm  rounded-full px-3 py-1 border-0">
                   {program.category}
@@ -70,7 +57,7 @@ export default function Programs() {
                 {program.description}
               </p>
               <Link href={`/our-programs/${program.slug}`}>
-                <button className="mt-4 text-blue-600 hover:underline">
+                <button className="mt-4 text-blue-600 hover:underline cursor-pointer">
                   LEARN MORE →
                 </button>
               </Link>

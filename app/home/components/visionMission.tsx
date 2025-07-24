@@ -73,9 +73,7 @@ export default function VisionMissionSection() {
             key={index}
             onClick={() => onDotClick(index * 0.5)}
             className={`w-2 h-2 rounded-full transition-all duration-300 hover:scale-125 ${
-              activeDot === index
-                ? "bg-gray-600 dark:bg-gray-300"
-                : "bg-gray-300 dark:bg-gray-600"
+              activeDot === index ? "bg-gray-600 " : "bg-gray-300 "
             }`}
             aria-label={`Scroll to section ${index + 1}`}
           />
@@ -85,18 +83,18 @@ export default function VisionMissionSection() {
   };
 
   return (
-    <section className="py-8 md:py-10 bg-[#BAD1CA] dark:bg-gray-900 min-w-screen">
+    <section className="py-8 md:py-10 bg-[#BAD1CA]  min-w-screen">
       <div className="container mx-auto px-4 sm:px-6">
-        <p className="text-center bg-[#DEE6EB] dark:bg-gray-700 w-fit mx-auto rounded-lg px-2 py-1 text-xs sm:text-sm text-gray-700 dark:text-gray-200 flex items-center">
+        <p className="text-center bg-[#DEE6EB]  w-fit mx-auto rounded-lg px-2 py-1 text-xs sm:text-sm text-gray-700  flex items-center">
           Our Vision & Mission
         </p>
-        <h3 className="text-xl sm:text-2xl md:text-5xl mt-4 font-epilogue text-center mb-6 md:mb-8 text-gray-900 dark:text-gray-100">
+        <h3 className="text-xl sm:text-2xl md:text-5xl mt-4 font-epilogue text-center mb-6 md:mb-8 text-gray-900 ">
           What Drives Us
         </h3>
         <div className="flex flex-col md:flex-row justify-center gap-4 md:gap-6">
           {/* Vision Card */}
-          <div className="w-full md:w-[600px] max-w-full rounded-lg bg-white dark:bg-gray-800 p-4 sm:p-6 relative">
-            <h3 className="text-base sm:text-lg md:text-xl font-epilogue mb-3 md:mb-2 text-gray-900 dark:text-gray-100">
+          <div className="w-full md:w-[600px] max-w-full rounded-lg bg-white  p-4 sm:p-6 relative">
+            <h3 className="text-base sm:text-lg md:text-xl font-epilogue mb-3 md:mb-2 text-gray-900 ">
               Our Vision
             </h3>
             <div className="flex gap-4">
@@ -108,7 +106,7 @@ export default function VisionMissionSection() {
                   msOverflowStyle: "none",
                 }}
               >
-                <p className="text-gray-600 dark:text-gray-400 text-xs sm:text-lg ">
+                <p className="text-gray-600  text-xs sm:text-lg ">
                   We envision an inclusive, equitable, and ecologically
                   sustainable society where self reliant villages are the true
                   bedrock of national development. We believe that real, lasting
@@ -144,8 +142,8 @@ export default function VisionMissionSection() {
           </div>
 
           {/* Mission Card */}
-          <div className="w-full md:w-[600px] max-w-full rounded-lg bg-white dark:bg-gray-800 p-4 sm:p-6 relative">
-            <h3 className="text-base sm:text-lg md:text-xl font-epilogue mb-3 md:mb-4 text-gray-900 dark:text-gray-100">
+          <div className="w-full md:w-[600px] max-w-full rounded-lg bg-white  p-4 sm:p-6 relative">
+            <h3 className="text-base sm:text-lg md:text-xl font-epilogue mb-3 md:mb-4 text-gray-900 ">
               Our Mission
             </h3>
             <div className="flex gap-4">
@@ -157,7 +155,7 @@ export default function VisionMissionSection() {
                   msOverflowStyle: "none",
                 }}
               >
-                <p className="text-gray-600 dark:text-gray-400 text-xs sm:text-lg">
+                <p className="text-gray-600  text-xs sm:text-lg">
                   Enable self-governed, community-led institutions in rural
                   areas, fostering self reliance and sustainable development,
                   establishing or strengthening local bodies (like, self-help

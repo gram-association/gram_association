@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Support from "../components/Support-form";
-import { Button } from "@/components/ui/Button";
 import MissionCards from "../components/missionCard";
 import Story from "../components/storySection";
 
@@ -131,7 +130,7 @@ export default function UpcomingRide() {
           </p>
         </div>
       </div>
-
+      {/* Route Section */}
       <section className="text-left py-8 sm:py-12 md:py-12 px-4 sm:px-8 md:px-20 bg-gray-50 dark:bg-gray-900">
         <div className="max-w-full mx-auto bg-white dark:bg-gray-800 shadow-lg rounded-lg p-6 sm:p-8 transition-all duration-300 hover:shadow-xl">
           <h3 className="text-3xl sm:text-4xl md:text-5xl  text-gray-800 dark:text-gray-100 mb-2">
@@ -175,6 +174,8 @@ export default function UpcomingRide() {
           </p>
         </div>
       </section>
+
+      {/* Planned Route Section */}
       <section className="bg-[#F8F1E9] dark:bg-gray-800 max-w-full mx-auto px-4 sm:px-6 md:px-10 py-10 flex flex-col md:flex-row justify-center items-center">
         <div className="w-full md:w-[740px] h-auto md:h-[325px] mb-6 md:mb-0">
           <h2 className="text-2xl sm:text-3xl mb-2 text-center md:text-left">
@@ -219,41 +220,14 @@ export default function UpcomingRide() {
           />
         </div>
       </section>
+
+      {/* 4Pillar Mission Section */}
       <MissionCards />
 
+      {/* Support Form Section */}
       <div className="max-w-full">
         <div className="relative bg-[#BAD1CA] dark:bg-gray-700 w-full max-w-full h-auto max-h-[320px] flex md:justify-center md:h-[270px]">
-          {/* Goal of the Ride */}
-          {/* <div className="w-[90%] sm:w-[550px] h-50 min-h-[150px] sm:h-[187px] bg-white dark:bg-gray-900 px-4 sm:px-8 pt-2 mt-4 mx-auto sm:mx-0 rounded-lg shadow-md order-1">
-            <h2 className="text-base sm:text-lg  mb-2">Goal of the Ride</h2>
-            <p className="text-gray-600 dark:text-gray-200 text-xs sm:text-sm">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              Eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-              reprehenderit in voluptate velit esse cillum dolore eu fugiat
-              nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-              sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </p>
-          </div> */}
-
-          {/* The Cause/Ideas */}
-          {/* <div className="w-[90%] sm:w-[550px] h-50 min-h-[150px] sm:h-[187px] bg-white dark:bg-gray-900 px-4 sm:px-8 pt-2 mt-4 mx-auto sm:mx-0 rounded-lg shadow-md order-2">
-            <h2 className="text-base sm:text-lg  mb-2">The Cause/Ideas</h2>
-            <p className="text-gray-600 dark:text-gray-200 text-xs sm:text-sm">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              Eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-              reprehenderit in voluptate velit esse cillum dolore eu fugiat
-              nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-              sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </p>
-          </div> */}
-
-          <h1 className="text-2xl sm:text-4xl  text-center mt-8  sm:mb-6 order-3 md:absolute ">
+          <h1 className="text-2xl sm:text-4xl  text-center mx-auto mt-8  sm:mb-6 order-3 md:absolute ">
             Support the Movement
           </h1>
 
@@ -263,34 +237,15 @@ export default function UpcomingRide() {
           </div>
         </div>
       </div>
-      <div className="max-w-full h-auto min-h-[250px] bg-[#F8F1E9] dark:bg-gray-900 order-5 flex justify-center items-start">
+      <div className="max-w-full h-auto min-h-[300px] bg-[#F8F1E9] dark:bg-gray-900 order-5 flex justify-center items-start">
         {/* Form for mobile view */}
-        <div className="md:hidden w-[90%] max-w-[600px] bg-white dark:bg-gray-950 p-8 rounded-lg shadow-xl mt-6">
+        <div className="md:hidden w-[90%] max-w-[600px] bg-white dark:bg-gray-950 p-8 rounded-lg shadow-xl ">
           <Support />
         </div>
       </div>
 
       {/* Bottom Section: Share Your Story */}
       <Story />
-      {/* <div className="w-full max-w-full h-[391px] bg-[#BAD1CA] dark:bg-gray-700">
-        <div className="p-4 mx-auto text-center">
-          <h1 className="text-5xl md:text-5xl mb-4 md:mt-36 mt-20">
-            Share your Water Story
-          </h1>
-          <div className="relative w-[600px] md:w-[600px] max-w-[90%] mx-auto">
-            <textarea
-              placeholder="Start writing from here..."
-              className="w-full p-4 bg-white dark:bg-gray-600 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#5A8B6E] h-15 resize-none pr-24"
-            ></textarea>
-            <button
-              type="submit"
-              className="absolute right-0 bottom-3  px-4 py-1 bg- text-[#5A8B6E] text-3xl rounded-md hover:text-[#4A7A5E] focus:outline-none focus:ring-2 focus:ring-[#5A8B6E] transition-colors "
-            >
-              ➤
-            </button>
-          </div>
-        </div>
-      </div> */}
     </main>
   );
 }

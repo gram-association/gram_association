@@ -27,7 +27,14 @@ export default function Support() {
     firstName: "",
     lastName: "",
     email: "",
+    mobileNo: "",
+    countryCode: "+91",
     query: "",
+  });
+
+  const [formErrors, setFormErrors] = useState({
+    email: "",
+    mobileNo: "",
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -36,7 +43,9 @@ export default function Support() {
   const [isSuccess, setIsSuccess] = useState(false);
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >
   ) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({
@@ -52,8 +61,28 @@ export default function Support() {
     }));
   };
 
+  const validate = () => {
+    const errors = { email: "", mobileNo: "" };
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const mobileRegex = /^[0-9]{7,15}$/;
+
+    if (!emailRegex.test(formData.email)) {
+      errors.email = "Please enter a valid email address.";
+    }
+
+    if (!mobileRegex.test(formData.mobileNo)) {
+      errors.mobileNo = "Please enter a valid mobile number (7–15 digits).";
+    }
+
+    setFormErrors(errors);
+    return !errors.email && !errors.mobileNo;
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    if (!validate()) return;
+
     setIsSubmitting(true);
 
     const formDataToSend = new FormData();
@@ -62,17 +91,23 @@ export default function Support() {
     formDataToSend.append("FirstName", formData.firstName);
     formDataToSend.append("LastName", formData.lastName);
     formDataToSend.append("Email", formData.email);
+    formDataToSend.append(
+      "MobileNo",
+      `${formData.countryCode}${formData.mobileNo.replace(/\s+/g, "")}`
+    );
     formDataToSend.append("Query", formData.query);
 
     try {
       const response = await fetch(
-        "https://script.google.com/macros/s/AKfycbyoB78xBATVdIbVm9boqu0e7gQTxfvGgEzsVwdkFZtAeRoshCR5XRrDvRNQb2Oy1QHYNw/exec",
+        "https://script.google.com/macros/s/AKfycbzmwEH-8xq-vkqUUyWGu-oeZCzlCa3UYsFa7eCW-GL7-Taon8_6jtHAaum7OXnWS4tYCA/exec",
         {
           method: "POST",
           body: formDataToSend,
         }
       );
+
       const data = await response.json();
+
       if (data.result === "success") {
         setDialogMessage("Form submitted successfully!");
         setIsSuccess(true);
@@ -81,20 +116,22 @@ export default function Support() {
           firstName: "",
           lastName: "",
           email: "",
+          mobileNo: "",
+          countryCode: "+91",
           query: "",
         });
+        setFormErrors({ email: "", mobileNo: "" });
       } else {
         setDialogMessage("Submission failed. Please try again.");
         setIsSuccess(false);
       }
-      setDialogOpen(true);
     } catch (error) {
       console.error("Error submitting form:", error);
       setDialogMessage("An error occurred. Please try again.");
       setIsSuccess(false);
-      setDialogOpen(true);
     } finally {
       setIsSubmitting(false);
+      setDialogOpen(true);
     }
   };
 
@@ -167,6 +204,44 @@ export default function Support() {
           onChange={handleChange}
           className="w-full border-gray-300 text-sm sm:text-base"
         />
+        {formErrors.email && (
+          <p className="text-red-600 text-xs">{formErrors.email}</p>
+        )}
+      </div>
+
+      <div className="space-y-2">
+        <label
+          htmlFor="mobileNo"
+          className="block text-gray-700 dark:text-gray-200 font-medium text-sm sm:text-base"
+        >
+          Mobile No.
+        </label>
+        <div className="flex items-center space-x-2">
+          <select
+            name="countryCode"
+            value={formData.countryCode}
+            onChange={handleChange}
+            className="border border-gray-300 rounded-md p-1 text-sm sm:text-base bg-white dark:bg-gray-800 dark:text-white"
+          >
+            <option value="+91">+91</option>
+            <option value="+1">+1</option>
+            <option value="+44">+44</option>
+            <option value="+61">+61</option>
+            <option value="+81">+81</option>
+          </select>
+          <Input
+            id="mobileNo"
+            name="mobileNo"
+            type="tel"
+            placeholder="0987654321"
+            value={formData.mobileNo}
+            onChange={handleChange}
+            className="w-full border-gray-300 text-sm sm:text-base"
+          />
+        </div>
+        {formErrors.mobileNo && (
+          <p className="text-red-600 text-xs">{formErrors.mobileNo}</p>
+        )}
       </div>
 
       <div className="space-y-2">

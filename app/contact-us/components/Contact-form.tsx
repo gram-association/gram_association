@@ -29,8 +29,16 @@ export default function ContactForm() {
     firstName: "",
     lastName: "",
     email: "",
+    mobileNo: "",
+    countryCode: "+91",
     query: "",
   });
+
+  const [formErrors, setFormErrors] = useState({
+    email: "",
+    mobileNo: "",
+  });
+
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<string | null>(null);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
@@ -42,7 +50,9 @@ export default function ContactForm() {
   }, [searchParams]);
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -52,10 +62,30 @@ export default function ContactForm() {
     setFormData((prev) => ({ ...prev, joinAs: value }));
   };
 
+  const validate = () => {
+    const errors = { email: "", mobileNo: "" };
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const mobileRegex = /^[0-9]{7,15}$/;
+
+    if (!emailRegex.test(formData.email)) {
+      errors.email = "Please enter a valid email address.";
+    }
+
+    if (!mobileRegex.test(formData.mobileNo)) {
+      errors.mobileNo = "Please enter a valid mobile number (7–15 digits).";
+    }
+
+    setFormErrors(errors);
+    return !errors.email && !errors.mobileNo;
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitting(true);
     setSubmitStatus(null);
+
+    if (!validate()) return; // Stop submission if invalid
+
+    setIsSubmitting(true);
 
     const formDataToSend = new FormData();
     formDataToSend.append("formType", "Gram");
@@ -63,22 +93,23 @@ export default function ContactForm() {
     formDataToSend.append("FirstName", formData.firstName);
     formDataToSend.append("LastName", formData.lastName);
     formDataToSend.append("Email", formData.email);
+    formDataToSend.append(
+      "MobileNo",
+      `${formData.countryCode}${formData.mobileNo.replace(/\s+/g, "")}`
+    );
+
     formDataToSend.append("Query", formData.query);
 
     try {
       const response = await fetch(
-        "https://script.google.com/macros/s/AKfycbyoB78xBATVdIbVm9boqu0e7gQTxfvGgEzsVwdkFZtAeRoshCR5XRrDvRNQb2Oy1QHYNw/exec",
+        "https://script.google.com/macros/s/AKfycbzmwEH-8xq-vkqUUyWGu-oeZCzlCa3UYsFa7eCW-GL7-Taon8_6jtHAaum7OXnWS4tYCA/exec",
         {
           method: "POST",
           body: formDataToSend,
         }
       );
 
-      console.log("Response status:", response.status);
-      console.log("Response headers:", Object.fromEntries(response.headers));
       const text = await response.text();
-      console.log("Raw response:", text);
-
       let data;
       try {
         data = JSON.parse(text);
@@ -94,8 +125,11 @@ export default function ContactForm() {
           firstName: "",
           lastName: "",
           email: "",
+          mobileNo: "",
+          countryCode: "+91",
           query: "",
         });
+        setFormErrors({ email: "", mobileNo: "" });
       } else {
         throw new Error(data.error || "Submission failed");
       }
@@ -214,6 +248,47 @@ export default function ContactForm() {
             className="w-full border-gray-300 text-sm sm:text-base"
             required
           />
+          {formErrors.email && (
+            <p className="text-red-600 text-xs mt-1">{formErrors.email}</p>
+          )}
+        </div>
+
+        <div className="space-y-2 mt-2">
+          <label
+            htmlFor="mobileNo"
+            className="block text-gray-700 dark:text-gray-200 font-medium text-sm sm:text-base"
+          >
+            Mobile No.
+          </label>
+          <div className="flex items-center space-x-2">
+            <select
+              name="countryCode"
+              value={formData.countryCode}
+              onChange={handleChange}
+              className="border border-gray-300 rounded-md p-1 text-sm sm:text-base bg-white dark:bg-gray-800 dark:text-white"
+              required
+            >
+              <option value="+91">+91</option>
+              <option value="+1">+1</option>
+              <option value="+44">+44</option>
+              <option value="+61">+61</option>
+              <option value="+81">+81</option>
+            </select>
+
+            <Input
+              id="mobileNo"
+              name="mobileNo"
+              type="tel"
+              placeholder="09876 54321"
+              value={formData.mobileNo}
+              onChange={handleChange}
+              className="flex-1 border-gray-300 text-sm sm:text-base"
+              required
+            />
+          </div>
+          {formErrors.mobileNo && (
+            <p className="text-red-600 text-xs mt-1">{formErrors.mobileNo}</p>
+          )}
         </div>
 
         <div className="space-y-2 mt-2">

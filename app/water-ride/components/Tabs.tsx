@@ -2,7 +2,6 @@
 import { JSX, useState } from "react";
 import JourneyHighlights from "../journeyHighlights/page";
 import TheRideStory from "../theRideStory/page";
-// import WhatsNew from "../whatsNew/page";
 import UpcomingRide from "../upcomingRide/page";
 
 // Define the possible tab names as a union type
@@ -17,7 +16,6 @@ export default function Tabs() {
     "Journey Highlights": <JourneyHighlights />,
     "The Ride Story": <TheRideStory />,
     "Upcoming Ride": <UpcomingRide />,
-    // "What's new": <WhatsNew />,
   };
 
   return (
@@ -56,17 +54,6 @@ export default function Tabs() {
             >
               Upcoming Ride
             </button>
-
-            {/* <button
-              className={`rounded-full py-2 px-6 ${
-                activeTab === "What's new"
-                  ? "bg-[#1D352E] text-white hover:bg-green-950"
-                  : "bg-gray-200 text-gray-700"
-              }`}
-              onClick={() => setActiveTab("What's new")}
-            >
-              What's new
-            </button> */}
           </div>
 
           {/* Tab Content */}

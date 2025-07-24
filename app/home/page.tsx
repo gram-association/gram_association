@@ -25,8 +25,8 @@ export default function Home() {
             />
           </div>
           {/* Content Section */}
-          <div className="flex flex-col sm:flex-row sm:justify-evenly sm:absolute sm:inset-0 w-full sm:w-[1277px] -mt-56 sm:mt-12 px-4 sm:px-0">
-            <div className="relative z-10 w-full sm:w-4xl text-white dark:text-white">
+          <div className="flex flex-col sm:flex-row sm:justify-evenly sm:absolute sm:inset-0 w-full sm:w-[1290px] -mt-56 sm:mt-12 px-4 sm:px-0">
+            <div className="relative z-10 w-full sm:w-6xl text-white dark:text-white">
               <h1 className="text-xl xs:text-2xl sm:text-[48px] font-semibold text-center sm:text-left leading-tight sm:leading-snug">
                 Building self-reliant India <br /> through self-reliant villages
               </h1>
@@ -78,79 +78,6 @@ export default function Home() {
 
       {/* Our Vision and Mission */}
       <VisionMissionSection />
-      {/* <section className="py-8 md:py-10 bg-[#BAD1CA] dark:bg-gray-900 min-w-screen">
-        <div className="container mx-auto px-4 sm:px-6">
-          <p className="text-center bg-[#DEE6EB] dark:bg-gray-700 w-fit mx-auto rounded-lg px-2 py-1 text-xs sm:text-sm text-gray-700 dark:text-gray-200 flex items-center">
-            Our Vision & Mission
-          </p>
-
-          <h3 className="text-xl sm:text-2xl md:text-5xl mt-4 font-epilogue text-center mb-6 md:mb-8 text-gray-900 dark:text-gray-100">
-            What Drives Us
-          </h3>
-
-          <div className="flex flex-col md:flex-row justify-center gap-4 md:gap-6">
-            <div className="w-full md:w-[600px] max-w-full rounded-lg bg-white dark:bg-gray-800 p-4 sm:p-6">
-              <h3 className="text-base sm:text-lg md:text-xl font-epilogue mb-3 md:mb-2 text-gray-900 dark:text-gray-100">
-                Our Vision
-              </h3>
-              <p className="text-gray-600 dark:text-gray-400 text-xs sm:text-sm leading-5">
-                We envision an inclusive, equitable, and ecologically
-                sustainable society where self reliant villages are the true
-                bedrock of national development. We believe that real, lasting
-                change blossoms from within, which is why we focus on empowering
-                self-governed, community led institutions to foster thriving,
-                sustainable rural ecosystems.
-                <br />
-                <br />
-                We draw deep inspiration from Mahatma Gandhi's profound
-                conviction that "the soul of India lives in its villages." Our
-                commitment is to transform these rural communities into vibrant
-                centers of resilience, dignity, and prosperity.
-                <br />
-                <br />
-                GRAM is dedicated to enabling grassroots institutions and
-                influencing policies through impactful interventions. We aspire
-                to be a recognized leader across crucial development sectors:
-                livelihoods, water, agriculture, health, and education. Every
-                effort we make is strategically aligned with the Sustainable
-                Development Goals (SDGs), ensuring our work contributes to a
-                broader global agenda for a better future.
-              </p>
-            </div>
-            <div className="w-full md:w-[600px] max-w-full rounded-lg bg-white dark:bg-gray-800 p-4 sm:p-6">
-              <h3 className="text-base sm:text-lg md:text-xl font-epilogue mb-3 md:mb-4 text-gray-900 dark:text-gray-100">
-                Our Mission
-              </h3>
-              <p className="text-gray-600 dark:text-gray-400 text-xs sm:text-sm">
-                Enable self-governed, community-led institutions in rural areas,
-                fostering self reliance and sustainable development,
-                establishing or strengthening local bodies (like, self-help
-                groups, or community-based organizations) that have the
-                authority and capacity to make decisions about their own
-                affairs. This includes managing local resources, planning
-                development initiatives, and co-creating meaningful change.
-                <br />
-                <br />
-                Implement integrated interventions across livelihoods, water,
-                agriculture, health, and education, aligning with Sustainable
-                Development Goals (SDGs). Emphasis is on active participation
-                and leadership from within the community. It's not about
-                external agencies imposing solutions, but rather facilitating a
-                process where community members identify their needs, develop
-                strategies, and implement them.
-                <br />
-                <br />
-                Enable grassroots change and influence policy, contributing to
-                an inclusive, equitable, and ecologically balanced society. All
-                initiatives undertaken by these self-governed institutions
-                should be environmentally sound, socially equitable, and
-                economically viable, ensuring long term benefits for the
-                community and future generations.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section> */}
 
       {/* Our Focus Areas */}
       <FocusAreas />

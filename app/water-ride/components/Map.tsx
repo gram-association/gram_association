@@ -1,16 +1,12 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/Button";
-import { Badge } from "@/components/ui/badge";
+
 import {
   Route,
   MapPin,
   Droplets,
-  Play,
-  Pause,
-  SkipForward,
   Loader2,
   Satellite,
   Map,
@@ -18,18 +14,13 @@ import {
   X,
 } from "lucide-react";
 
-/* -------------------------------------------------------------------------- */
-/*  DATA                                                                      */
-/* -------------------------------------------------------------------------- */
+/*  DATA   */
 
 const states = [
   {
     name: "Rajasthan",
     coordinates: { lat: 27.0238, lng: 74.2179 },
     color: "#5A829A",
-
-    rideDistance: "0 km",
-
     geographical: [
       "Semi-arid to arid state; low rainfall (400–600 mm annually)",
       "Frequent droughts; erratic monsoon patterns",
@@ -49,7 +40,7 @@ const states = [
     name: "Gujarat",
     coordinates: { lat: 22.2587, lng: 71.1924 },
     color: "#5A829A",
-    rideDistance: "520 km",
+
     geographical: [
       "Seasonal rivers and streams",
       "Coastal areas affected by salinity intrusion",
@@ -69,7 +60,7 @@ const states = [
     name: "Madhya Pradesh",
     coordinates: { lat: 22.9734, lng: 78.6569 },
     color: "#5A829A",
-    rideDistance: "380 km",
+
     geographical: [
       "Central Indian plateau with mixed topography",
       "Forested and tribal-dominated regions with hilly terrain",
@@ -89,9 +80,6 @@ const states = [
     name: "Maharashtra",
     coordinates: { lat: 19.7515, lng: 75.7139 },
     color: "#5A829A",
-
-    rideDistance: "290 km",
-
     geographical: [
       "Lies in rain-shadow of Western Ghats; rainfall ~500–600 mm annually",
       "Drought-prone zones with semi-arid conditions",
@@ -111,9 +99,6 @@ const states = [
     name: "Karnataka",
     coordinates: { lat: 15.3173, lng: 75.7139 },
     color: "#5A829A",
-
-    rideDistance: "340 km",
-
     geographical: [
       "Diverse terrain: Western Ghats on the west, Deccan Plateau in the interior",
       "Significant groundwater variability due to hard rock formations",
@@ -133,7 +118,6 @@ const states = [
     name: "Kerala",
     coordinates: { lat: 10.8505, lng: 76.2711 },
     color: "#5A829A",
-    rideDistance: "280 km",
     geographical: [
       "Western Ghats mountain range with dense forests on the east",
       "Coastal plains vulnerable to flooding and saltwater intrusion",
@@ -153,7 +137,6 @@ const states = [
     name: "Tamil Nadu",
     coordinates: { lat: 11.1271, lng: 78.6569 },
     color: "#5A829A",
-    rideDistance: "320 km",
     geographical: [
       "Rainfall influenced by Northeast and Southwest monsoons",
       "Coastal areas prone to cyclones and saline water intrusion",
@@ -173,7 +156,6 @@ const states = [
     name: "Andhra Pradesh",
     coordinates: { lat: 15.9129, lng: 79.74 },
     color: "#5A829A",
-    rideDistance: "410 km",
     geographical: [
       "Eastern Ghats hill ranges with moderate rainfall",
       "Large network of tanks and canals for irrigation",
@@ -193,7 +175,6 @@ const states = [
     name: "Odisha",
     coordinates: { lat: 20.9517, lng: 85.0985 },
     color: "#5A829A",
-    rideDistance: "480 km",
     geographical: [
       "Eastern Ghats hills with moderate to high rainfall",
       "Flood-prone coastal areas, presence of extensive wetlands, mangroves, and estuaries",
@@ -217,50 +198,34 @@ const routes = [
   {
     from: "Rajasthan",
     to: "Gujarat",
-    type: "stepwell",
-    label: "Desert to Coast Stepwell Trail",
   },
   {
     from: "Gujarat",
     to: "Madhya Pradesh",
-    type: "tribal",
-    label: "Tribal Wisdom Highway",
   },
   {
     from: "Madhya Pradesh",
     to: "Maharashtra",
-    type: "tank",
-    label: "Central Tank Network Route",
   },
   {
     from: "Maharashtra",
     to: "Karnataka",
-    type: "ghats",
-    label: "Western Ghats Water Trail",
   },
   {
     from: "Karnataka",
     to: "Kerala",
-    type: "temple",
-    label: "Temple Tank Heritage Path",
   },
   {
     from: "Kerala",
     to: "Tamil Nadu",
-    type: "coastal",
-    label: "Coastal Conservation Corridor",
   },
   {
     from: "Tamil Nadu",
     to: "Andhra Pradesh",
-    type: "cascade",
-    label: "Tank Cascade Highway",
   },
   {
     from: "Andhra Pradesh",
     to: "Odisha",
-    type: "river",
-    label: "River Delta Heritage Route",
   },
 ];
 
@@ -347,7 +312,7 @@ export default function WaterRideMap() {
     states[0]
   ); // Default to Rajasthan
   const [ready, setReady] = useState(false);
-  const [showRoutes, setShowRoutes] = useState(true);
+
   const [currentRideIndex, setCurrentRideIndex] = useState(0);
   const [isRiding, setIsRiding] = useState(false);
   const [mapError, setMapError] = useState<string | null>(null);
@@ -542,7 +507,7 @@ export default function WaterRideMap() {
         const b = byName(r.to);
         if (!a || !b) return;
 
-        const style = routeStyles[r.type as keyof typeof routeStyles];
+        const style = routeStyles[r.from as keyof typeof routeStyles];
         const line = window.L.polyline(
           [
             [a.coordinates.lat, a.coordinates.lng],
@@ -553,13 +518,6 @@ export default function WaterRideMap() {
             opacity: 0.8,
           }
         ).addTo(map);
-
-        line.bindTooltip(`
-          <div style="font-weight: 600; margin-bottom: 4px;">${r.label}</div>
-          <div style="font-size: 12px; color: #666;">Distance: ${
-            byName(r.to)?.rideDistance
-          }</div>
-        `);
 
         polylines.current.push(line);
       });
@@ -596,54 +554,45 @@ export default function WaterRideMap() {
     const lngStep = (endLng - startLng) / steps;
     let currentStep = 0;
 
-    // Calculate bearing for bike rotation
-    const bearing = calculateBearing(startLat, startLng, endLat, endLng);
-
     const animationInterval = setInterval(() => {
       if (currentStep >= steps) {
         clearInterval(animationInterval);
         setCurrentRideIndex(targetIndex);
         setSelected(targetState);
         setIsMoving(false);
-
-        // Final position and zoom
-        // mapRef.current.setView([endLat, endLng], 8, {
-        //   animate: true,
-        //   duration: 1,
-        // });
         return;
       }
 
       const currentLat = startLat + latStep * currentStep;
       const currentLng = startLng + lngStep * currentStep;
 
-      // Calculate progress for smooth easing
+      // Calculate progress for smooth easing (for trail opacity)
       const progress = currentStep / steps;
       const easedProgress = 1 - Math.pow(1 - progress, 3);
 
-      // Update bike position with proper rotation
+      // Use the exact same icon as in createMovingBike to maintain initial appearance
       const bikeIcon = window.L.divIcon({
         className: "moving-bike-marker",
         html: `
-          <div class="bike-container" style="transform: rotate(${bearing}deg);">
-            <div class="bike-shadow"></div>
-            <div class="bike-body moving">
-              <svg width="36" height="24" viewBox="0 0 100 60" fill="none" class="bike-svg">
-                <ellipse cx="50" cy="35" rx="35" ry="8" fill="#2563eb" />
-                <rect x="25" y="20" width="50" height="15" rx="7" fill="#1d4ed8" />
-                <ellipse cx="35" cy="25" rx="15" ry="5" fill="#374151" />
-                <circle cx="80" cy="45" r="12" fill="#1f2937" stroke="#374151" strokeWidth="2" />
-                <circle cx="80" cy="45" r="6" fill="#6b7280" class="wheel-spin" />
-                <circle cx="20" cy="45" r="12" fill="#1f2937" stroke="#374151" strokeWidth="2" />
-                <circle cx="20" cy="45" r="6" fill="#6b7280" class="wheel-spin" />
-                <line x1="85" y1="25" x2="75" y2="30" stroke="#374151" strokeWidth="3" strokeLinecap="round" />
-                <rect x="10" y="40" width="20" height="4" rx="2" fill="#6b7280" />
-                <rect x="45" y="35" width="20" height="10" rx="2" fill="#374151" />
-              </svg>
-            </div>
-            <div class="bike-trail" style="opacity: ${easedProgress}"></div>
+        <div class="bike-container">
+          <div class="bike-shadow"></div>
+          <div class="bike-body">
+            <svg width="36" height="24" viewBox="0 0 100 60" fill="none" class="bike-svg">
+              <ellipse cx="50" cy="35" rx="35" ry="8" fill="#2563eb" />
+              <rect x="25" y="20" width="50" height="15" rx="7" fill="#1d4ed8" />
+              <ellipse cx="35" cy="25" rx="15" ry="5" fill="#374151" />
+              <circle cx="80" cy="45" r="12" fill="#1f2937" stroke="#374151" strokeWidth="2" />
+              <circle cx="80" cy="45" r="6" fill="#5A829A" />
+              <circle cx="20" cy="45" r="12" fill="#1f2937" stroke="#374151" strokeWidth="2" />
+              <circle cx="20" cy="45" r="6" fill="#5A829A" />
+              <line x1="85" y1="25" x2="75" y2="30" stroke="#374151" strokeWidth="3" strokeLinecap="round" />
+              <rect x="10" y="40" width="20" height="4" rx="2" fill="#5A829A" />
+              <rect x="45" y="35" width="20" height="10" rx="2" fill="#374151" />
+            </svg>
           </div>
-        `,
+          <div class="bike-trail" style="opacity: ${easedProgress}"></div>
+        </div>
+      `,
         iconSize: [48, 32],
         iconAnchor: [24, 16],
       });
@@ -660,103 +609,11 @@ export default function WaterRideMap() {
     }, 60);
   };
 
-  const calculateBearing = (
-    lat1: number,
-    lng1: number,
-    lat2: number,
-    lng2: number
-  ) => {
-    const dLng = ((lng2 - lng1) * Math.PI) / 180;
-    const lat1Rad = (lat1 * Math.PI) / 180;
-    const lat2Rad = (lat2 * Math.PI) / 180;
-
-    const y = Math.sin(dLng) * Math.cos(lat2Rad);
-    const x =
-      Math.cos(lat1Rad) * Math.sin(lat2Rad) -
-      Math.sin(lat1Rad) * Math.cos(lat2Rad) * Math.cos(dLng);
-
-    const bearing = (Math.atan2(y, x) * 180) / Math.PI;
-    return (bearing + 360) % 360;
-  };
-
-  const startAutoRide = () => {
-    setIsRiding(true);
-    const rideToNextState = () => {
-      if (!isRiding) return;
-
-      const nextIndex = (currentRideIndex + 1) % states.length;
-      if (nextIndex === 0 && currentRideIndex === states.length - 1) {
-        animateBikeToState(nextIndex);
-        setTimeout(() => {
-          if (isRiding) {
-            rideToNextState();
-          }
-        }, 8000);
-      } else {
-        animateBikeToState(nextIndex);
-        setTimeout(() => {
-          if (isRiding) {
-            rideToNextState();
-          }
-        }, 6000);
-      }
-    };
-
-    setTimeout(() => {
-      if (isRiding) {
-        rideToNextState();
-      }
-    }, 1000);
-  };
-
   const stopAutoRide = () => {
     setIsRiding(false);
     if (rideInterval.current) {
       clearInterval(rideInterval.current);
       rideInterval.current = null;
-    }
-  };
-
-  const reset = () => {
-    stopAutoRide();
-    if (mapRef.current) {
-      mapRef.current.setView([22.5, 80], 5, { animate: true, duration: 1.5 });
-    }
-    setSelected(states[0]); // Reset to Rajasthan
-    setCurrentRideIndex(0);
-    if (movingBikeRef.current) {
-      movingBikeRef.current.setLatLng([
-        states[0].coordinates.lat,
-        states[0].coordinates.lng,
-      ]);
-
-      const resetBikeIcon = window.L.divIcon({
-        className: "moving-bike-marker",
-        html: `
-          <div class="bike-container">
-            <div class="bike-shadow"></div>
-            <div class="bike-body">
-              <svg width="36" height="24" viewBox="0 0 100 60" fill="none" class="bike-svg">
-                <ellipse cx="50" cy="35" rx="35" ry="8" fill="#2563eb" />
-                <rect x="25" y="20" width="50" height="15" rx="7" fill="#1d4ed8" />
-                <ellipse cx="35" cy="25" rx="15" ry="5" fill="#374151" />
-                <circle cx="80" cy="45" r="12" fill="#1f2937" stroke="#374151" strokeWidth="2" />
-                <circle cx="80" cy="45" r="6" fill="#6b7280" />
-                <circle cx="20" cy="45" r="12" fill="#1f2937" stroke="#374151" strokeWidth="2" />
-                <circle cx="20" cy="45" r="6" fill="#6b7280" />
-                <line x1="85" y1="25" x2="75" y2="30" stroke="#374151" strokeWidth="3" strokeLinecap="round" />
-                <rect x="10" y="40" width="20" height="4" rx="2" fill="#6b7280" />
-                <rect x="45" y="35" width="20" height="10" rx="2" fill="#374151" />
-              </svg>
-            </div>
-            <div class="bike-trail"></div>
-          </div>
-        `,
-        iconSize: [48, 32],
-        iconAnchor: [24, 16],
-      });
-
-      movingBikeRef.current.setIcon(resetBikeIcon);
     }
   };
 
@@ -785,14 +642,6 @@ export default function WaterRideMap() {
       </div>
       {/* Mobile View */}
       <div className="h-screen w-full flex flex-col lg:hidden bg-gray-100 dark:bg-gray-900">
-        {/* Map Section */}
-        {/* <div className="flex-1 relative bg-white"> */}
-        {/* <div
-            ref={mapDiv}
-            className="w-full h-full"
-            style={{ minHeight: "55vh" }}
-          /> */}
-
         <div className="w-full flex flex-row">
           {/* State List Column */}
           <div className="w-1/3 h-[550px] bg-gray-50 dark:bg-gray-600  flex flex-col">
