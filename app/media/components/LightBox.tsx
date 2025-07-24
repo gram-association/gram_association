@@ -2,55 +2,67 @@ import Image from "next/image";
 import type { ImageType } from "@/lib/types";
 
 interface LightboxProps {
+  image: ImageType;
   images: ImageType[];
-  image: ImageType | null; // Allow null for safety
-  selectedImage: ImageType | null;
   onClose: () => void;
+  selectedImage: ImageType | null;
   onSelectImage: (image: ImageType | null) => void;
 }
 
-export function Lightbox({ image, onClose }: LightboxProps) {
-  if (!image || !image.src) {
-    return null; // Prevent rendering if image or image.src is undefined
-  }
+export function Lightbox({
+  image,
+  images,
+  onClose,
+  selectedImage,
+  onSelectImage,
+}: LightboxProps) {
+  const currentIndex = images.findIndex((img) => img.id === image.id);
+
+  const handlePrev = () => {
+    if (currentIndex > 0) {
+      onSelectImage(images[currentIndex - 1]);
+    }
+  };
+
+  const handleNext = () => {
+    if (currentIndex < images.length - 1) {
+      onSelectImage(images[currentIndex + 1]);
+    }
+  };
 
   return (
-    <div
-      className="fixed inset-0 bg-black/90 flex items-center justify-center z-[1000]"
-      onClick={onClose}
-    >
-      <style jsx>{`
-        .lightbox-image {
-          max-width: 90%;
-          max-height: 90%;
-          object-fit: contain;
-        }
-        .close-button {
-          position: absolute;
-          top: 20px;
-          right: 20px;
-          background: white;
-          border: none;
-          border-radius: 50%;
-          width: 40px;
-          height: 40px;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          cursor: pointer;
-          font-size: 24px;
-        }
-      `}</style>
-      <button className="close-button" onClick={onClose}>
-        ×
-      </button>
-      <Image
-        src={image.src}
-        alt={image.alt}
-        width={image.width}
-        height={image.height}
-        className="lightbox-image"
-      />
+    <div className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50">
+      <div className="relative max-w-4xl w-full h-[80vh]">
+        <button
+          onClick={onClose}
+          className="absolute top-4 right-4 text-white text-2xl"
+        >
+          ✕
+        </button>
+        <Image
+          src={image.src}
+          alt={image.alt}
+          width={image.width}
+          height={image.height}
+          className="w-full h-full object-contain"
+        />
+        {currentIndex > 0 && (
+          <button
+            onClick={handlePrev}
+            className="absolute left-4 top-1/2 text-white text-2xl"
+          >
+            ←
+          </button>
+        )}
+        {currentIndex < images.length - 1 && (
+          <button
+            onClick={handleNext}
+            className="absolute right-4 top-1/2 text-white text-2xl"
+          >
+            →
+          </button>
+        )}
+      </div>
     </div>
   );
 }

@@ -8,17 +8,15 @@ import type { ImageType } from "@/lib/types";
 
 interface ImageGridProps {
   images: ImageType[];
-  initialImages?: ImageType[];
   imagesPerPage?: number;
   onImageClick?: (image: ImageType) => void;
 }
 
 export function ImageGrid({
-  initialImages = [],
   imagesPerPage = 12,
   onImageClick,
 }: ImageGridProps) {
-  const [allImages, setAllImages] = useState<ImageType[]>(initialImages);
+  const [allImages, setAllImages] = useState<ImageType[]>([]);
   const [displayedImages, setDisplayedImages] = useState<ImageType[]>([]);
   const [page, setPage] = useState(1);
   const [isLoading, setIsLoading] = useState(false);
@@ -26,7 +24,7 @@ export function ImageGrid({
   const [totalImages, setTotalImages] = useState(0);
   const [selectedImage, setSelectedImage] = useState<ImageType | null>(null);
 
-  // Fetch all images from API once
+  // Fetch all images from API
   const fetchImages = useCallback(async () => {
     if (allImages.length > 0) return; // Prevent re-fetching
     setIsLoading(true);
@@ -35,7 +33,7 @@ export function ImageGrid({
       if (!response.ok) throw new Error("Failed to fetch images");
       const data = await response.json();
 
-      // Validate images before setting state
+      // Validate images
       const validImages = data.images.filter(
         (image: ImageType) =>
           image &&
@@ -60,10 +58,8 @@ export function ImageGrid({
 
   // Initial load
   useEffect(() => {
-    if (initialImages.length === 0) {
-      fetchImages();
-    }
-  }, [fetchImages, initialImages]);
+    fetchImages();
+  }, [fetchImages]);
 
   // Infinite scroll handler
   useEffect(() => {
@@ -78,13 +74,11 @@ export function ImageGrid({
       }
     };
 
-    if (totalImages > 0) {
-      window.addEventListener("scroll", handleScroll);
-      return () => window.removeEventListener("scroll", handleScroll);
-    }
-  }, [hasMore, isLoading, totalImages]);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [hasMore, isLoading]);
 
-  // Load more images with a delay for effect
+  // Load more images
   useEffect(() => {
     if (page > 1 && allImages.length > 0) {
       setIsLoading(true);
@@ -189,11 +183,9 @@ export function ImageGrid({
         <Lightbox
           image={selectedImage}
           onClose={closeLightbox}
-          images={[]}
-          selectedImage={null}
-          onSelectImage={function (image: ImageType | null): void {
-            throw new Error("Function not implemented.");
-          }}
+          images={allImages} // Pass all images for navigation
+          selectedImage={selectedImage}
+          onSelectImage={setSelectedImage}
         />
       )}
     </div>

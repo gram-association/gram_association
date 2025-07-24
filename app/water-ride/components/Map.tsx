@@ -3,16 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/Button";
 
-import {
-  Route,
-  MapPin,
-  Droplets,
-  Loader2,
-  Satellite,
-  Map,
-  ChevronRight,
-  X,
-} from "lucide-react";
+import { Droplets, Loader2, ChevronRight, X } from "lucide-react";
 
 /*  DATA   */
 
@@ -40,7 +31,6 @@ const states = [
     name: "Gujarat",
     coordinates: { lat: 22.2587, lng: 71.1924 },
     color: "#5A829A",
-
     geographical: [
       "Seasonal rivers and streams",
       "Coastal areas affected by salinity intrusion",
@@ -60,7 +50,6 @@ const states = [
     name: "Madhya Pradesh",
     coordinates: { lat: 22.9734, lng: 78.6569 },
     color: "#5A829A",
-
     geographical: [
       "Central Indian plateau with mixed topography",
       "Forested and tribal-dominated regions with hilly terrain",
@@ -494,7 +483,7 @@ export default function WaterRideMap() {
 
         marker.on("click", () => {
           animateBikeToState(idx);
-          setSelected(states[idx]); // Add this line to update selected state
+          setSelected(states[idx]);
         });
 
         markers.current.push(marker);
@@ -507,17 +496,29 @@ export default function WaterRideMap() {
         const b = byName(r.to);
         if (!a || !b) return;
 
-        const style = routeStyles[r.from as keyof typeof routeStyles];
-        const line = window.L.polyline(
-          [
+        let coordinates;
+        if (r.from === "Kerala" && r.to === "Tamil Nadu") {
+          // Create a U-shaped route by adding a midpoint
+          const midLat = (a.coordinates.lat + b.coordinates.lat) / 2 - 2.5; // Dip south by 1 degree
+          const midLng = (a.coordinates.lng + b.coordinates.lng) / 2;
+          coordinates = [
+            [a.coordinates.lat, a.coordinates.lng],
+            [midLat, midLng], // Midpoint to create U-shape
+            [b.coordinates.lat, b.coordinates.lng],
+          ];
+        } else {
+          // Standard straight line for other routes
+          coordinates = [
             [a.coordinates.lat, a.coordinates.lng],
             [b.coordinates.lat, b.coordinates.lng],
-          ],
-          {
-            ...style,
-            opacity: 0.8,
-          }
-        ).addTo(map);
+          ];
+        }
+
+        const style = routeStyles[r.from as keyof typeof routeStyles];
+        const line = window.L.polyline(coordinates, {
+          ...style,
+          opacity: 0.8,
+        }).addTo(map);
 
         polylines.current.push(line);
       });
@@ -543,70 +544,124 @@ export default function WaterRideMap() {
     const currentState = states[currentRideIndex];
     const targetState = states[targetIndex];
 
-    // Calculate intermediate points for smooth animation
-    const startLat = currentState.coordinates.lat;
-    const startLng = currentState.coordinates.lng;
-    const endLat = targetState.coordinates.lat;
-    const endLng = targetState.coordinates.lng;
-
-    const steps = 60;
-    const latStep = (endLat - startLat) / steps;
-    const lngStep = (endLng - startLng) / steps;
+    const stepsPerSegment = 30; // Steps per segment for smooth animation
     let currentStep = 0;
 
-    const animationInterval = setInterval(() => {
-      if (currentStep >= steps) {
-        clearInterval(animationInterval);
-        setCurrentRideIndex(targetIndex);
-        setSelected(targetState);
-        setIsMoving(false);
-        return;
-      }
-
-      const currentLat = startLat + latStep * currentStep;
-      const currentLng = startLng + lngStep * currentStep;
-
-      // Calculate progress for smooth easing (for trail opacity)
-      const progress = currentStep / steps;
+    const bikeIcon = () => {
+      const progress =
+        currentStep / (stepsPerSegment * (isKeralaToTamilNadu ? 2 : 2.5));
       const easedProgress = 1 - Math.pow(1 - progress, 3);
-
-      // Use the exact same icon as in createMovingBike to maintain initial appearance
-      const bikeIcon = window.L.divIcon({
+      return window.L.divIcon({
         className: "moving-bike-marker",
         html: `
-        <div class="bike-container">
-          <div class="bike-shadow"></div>
-          <div class="bike-body">
-            <svg width="36" height="24" viewBox="0 0 100 60" fill="none" class="bike-svg">
-              <ellipse cx="50" cy="35" rx="35" ry="8" fill="#2563eb" />
-              <rect x="25" y="20" width="50" height="15" rx="7" fill="#1d4ed8" />
-              <ellipse cx="35" cy="25" rx="15" ry="5" fill="#374151" />
-              <circle cx="80" cy="45" r="12" fill="#1f2937" stroke="#374151" strokeWidth="2" />
-              <circle cx="80" cy="45" r="6" fill="#5A829A" />
-              <circle cx="20" cy="45" r="12" fill="#1f2937" stroke="#374151" strokeWidth="2" />
-              <circle cx="20" cy="45" r="6" fill="#5A829A" />
-              <line x1="85" y1="25" x2="75" y2="30" stroke="#374151" strokeWidth="3" strokeLinecap="round" />
-              <rect x="10" y="40" width="20" height="4" rx="2" fill="#5A829A" />
-              <rect x="45" y="35" width="20" height="10" rx="2" fill="#374151" />
-            </svg>
+          <div class="bike-container">
+            <div class="bike-shadow"></div>
+            <div class="bike-body">
+              <svg width="36" height="24" viewBox="0 0 100 60" fill="none" class="bike-svg">
+                <ellipse cx="50" cy="35" rx="35" ry="8" fill="#2563eb" />
+                <rect x="25" y="20" width="50" height="15" rx="7" fill="#1d4ed8" />
+                <ellipse cx="35" cy="25" rx="15" ry="5" fill="#374151" />
+                <circle cx="80" cy="45" r="12" fill="#1f2937" stroke="#374151" strokeWidth="2" />
+                <circle cx="80" cy="45" r="6" fill="#5A829A" />
+                <circle cx="20" cy="45" r="12" fill="#1f2937" stroke="#374151" strokeWidth="2" />
+                <circle cx="20" cy="45" r="6" fill="#5A829A" />
+                <line x1="85" y1="25" x2="75" y2="30" stroke="#374151" strokeWidth="3" strokeLinecap="round" />
+                <rect x="10" y="40" width="20" height="4" rx="2" fill="#5A829A" />
+                <rect x="45" y="35" width="20" height="10" rx="2" fill="#374151" />
+              </svg>
+            </div>
+            <div class="bike-trail" style="opacity: ${easedProgress}"></div>
           </div>
-          <div class="bike-trail" style="opacity: ${easedProgress}"></div>
-        </div>
-      `,
+        `,
         iconSize: [48, 32],
         iconAnchor: [24, 16],
       });
+    };
 
-      movingBikeRef.current.setIcon(bikeIcon);
-      movingBikeRef.current.setLatLng([currentLat, currentLng]);
+    // Check if moving from Kerala (index 5) to Tamil Nadu (index 6)
+    const isKeralaToTamilNadu = currentRideIndex === 5 && targetIndex === 6;
 
-      // Follow the bike with camera
-      if (currentStep % 8 === 0) {
-        mapRef.current.panTo([currentLat, currentLng]);
-      }
+    if (isKeralaToTamilNadu) {
+      // U-shaped path with midpoint
+      const startLat = currentState.coordinates.lat;
+      const startLng = currentState.coordinates.lng;
+      const endLat = targetState.coordinates.lat;
+      const endLng = targetState.coordinates.lng;
+      const midLat = (startLat + endLat) / 2 - 2.5; // Same midpoint as in addRoutes
+      const midLng = (startLng + endLng) / 2;
 
-      currentStep++;
-    }, 60);
+      // First segment: Kerala to midpoint
+      const latStep1 = (midLat - startLat) / stepsPerSegment;
+      const lngStep1 = (midLng - startLng) / stepsPerSegment;
+      // Second segment: midpoint to Tamil Nadu
+      const latStep2 = (endLat - midLat) / stepsPerSegment;
+      const lngStep2 = (endLng - midLng) / stepsPerSegment;
+
+      const animationInterval = setInterval(() => {
+        if (currentStep >= stepsPerSegment * 2) {
+          clearInterval(animationInterval);
+          setCurrentRideIndex(targetIndex);
+          setSelected(targetState);
+          setIsMoving(false);
+          return;
+        }
+
+        let currentLat, currentLng;
+        if (currentStep < stepsPerSegment) {
+          // First segment
+          currentLat = startLat + latStep1 * currentStep;
+          currentLng = startLng + lngStep1 * currentStep;
+        } else {
+          // Second segment
+          const segmentStep = currentStep - stepsPerSegment;
+          currentLat = midLat + latStep2 * segmentStep;
+          currentLng = midLng + lngStep2 * segmentStep;
+        }
+
+        movingBikeRef.current.setIcon(bikeIcon());
+        movingBikeRef.current.setLatLng([currentLat, currentLng]);
+
+        // Follow the bike with camera
+        if (currentStep % 8 === 0) {
+          mapRef.current.panTo([currentLat, currentLng]);
+        }
+
+        currentStep++;
+      }, 60);
+    } else {
+      // Standard straight-line animation for other routes
+      const startLat = currentState.coordinates.lat;
+      const startLng = currentState.coordinates.lng;
+      const endLat = targetState.coordinates.lat;
+      const endLng = targetState.coordinates.lng;
+
+      const steps = 60;
+      const latStep = (endLat - startLat) / steps;
+      const lngStep = (endLng - startLng) / steps;
+
+      const animationInterval = setInterval(() => {
+        if (currentStep >= steps) {
+          clearInterval(animationInterval);
+          setCurrentRideIndex(targetIndex);
+          setSelected(targetState);
+          setIsMoving(false);
+          return;
+        }
+
+        const currentLat = startLat + latStep * currentStep;
+        const currentLng = startLng + lngStep * currentStep;
+
+        movingBikeRef.current.setIcon(bikeIcon());
+        movingBikeRef.current.setLatLng([currentLat, currentLng]);
+
+        // Follow the bike with camera
+        if (currentStep % 8 === 0) {
+          mapRef.current.panTo([currentLat, currentLng]);
+        }
+
+        currentStep++;
+      }, 60);
+    }
   };
 
   const stopAutoRide = () => {
