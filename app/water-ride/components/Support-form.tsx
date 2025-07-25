@@ -33,8 +33,12 @@ export default function Support() {
   });
 
   const [formErrors, setFormErrors] = useState({
+    joinAs: "",
+    firstName: "",
+    lastName: "",
     email: "",
     mobileNo: "",
+    query: "",
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -62,20 +66,45 @@ export default function Support() {
   };
 
   const validate = () => {
-    const errors = { email: "", mobileNo: "" };
+    const errors = {
+      joinAs: "",
+      firstName: "",
+      lastName: "",
+      email: "",
+      mobileNo: "",
+      query: "",
+    };
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const mobileRegex = /^[0-9]{7,15}$/;
 
-    if (!emailRegex.test(formData.email)) {
+    if (!formData.joinAs) {
+      errors.joinAs = "Please select an option.";
+    }
+
+    if (!formData.firstName.trim()) {
+      errors.firstName = "First name is required.";
+    }
+
+    if (!formData.lastName.trim()) {
+      errors.lastName = "Last name is required.";
+    }
+
+    if (!formData.email) {
+      errors.email = "Email is required.";
+    } else if (!emailRegex.test(formData.email)) {
       errors.email = "Please enter a valid email address.";
     }
 
-    if (!mobileRegex.test(formData.mobileNo)) {
+    if (formData.mobileNo && !mobileRegex.test(formData.mobileNo)) {
       errors.mobileNo = "Please enter a valid mobile number (7–15 digits).";
     }
 
+    if (!formData.query.trim()) {
+      errors.query = "Query is required.";
+    }
+
     setFormErrors(errors);
-    return !errors.email && !errors.mobileNo;
+    return Object.values(errors).every((error) => !error);
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -120,7 +149,14 @@ export default function Support() {
           countryCode: "+91",
           query: "",
         });
-        setFormErrors({ email: "", mobileNo: "" });
+        setFormErrors({
+          joinAs: "",
+          firstName: "",
+          lastName: "",
+          email: "",
+          mobileNo: "",
+          query: "",
+        });
       } else {
         setDialogMessage("Submission failed. Please try again.");
         setIsSuccess(false);
@@ -139,7 +175,7 @@ export default function Support() {
     <form onSubmit={handleSubmit} className="space-y-6 w-full max-w-lg">
       <div className="space-y-4">
         <label className="block text-gray-700 dark:text-gray-200 font-medium text-sm sm:text-base">
-          Be the part of Ride
+          Be the part of Ride <span className="text-red-600">*</span>
         </label>
         <Select value={formData.joinAs} onValueChange={handleSelectChange}>
           <SelectTrigger className="w-full border-gray-300 text-sm sm:text-base">
@@ -151,6 +187,9 @@ export default function Support() {
             <SelectItem value="Delivery">Delivery</SelectItem>
           </SelectContent>
         </Select>
+        {formErrors.joinAs && (
+          <p className="text-red-600 text-xs">{formErrors.joinAs}</p>
+        )}
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -159,7 +198,7 @@ export default function Support() {
             htmlFor="firstName"
             className="block text-gray-700 dark:text-gray-200 font-medium text-sm sm:text-base"
           >
-            First name
+            First name <span className="text-red-600">*</span>
           </label>
           <Input
             id="firstName"
@@ -169,13 +208,16 @@ export default function Support() {
             onChange={handleChange}
             className="w-full border-gray-300 text-sm sm:text-base"
           />
+          {formErrors.firstName && (
+            <p className="text-red-600 text-xs">{formErrors.firstName}</p>
+          )}
         </div>
         <div className="space-y-2">
           <label
             htmlFor="lastName"
             className="block text-gray-700 dark:text-gray-200 font-medium text-sm sm:text-base"
           >
-            Last name
+            Last name <span className="text-red-600">*</span>
           </label>
           <Input
             id="lastName"
@@ -185,6 +227,9 @@ export default function Support() {
             onChange={handleChange}
             className="w-full border-gray-300 text-sm sm:text-base"
           />
+          {formErrors.lastName && (
+            <p className="text-red-600 text-xs">{formErrors.lastName}</p>
+          )}
         </div>
       </div>
 
@@ -193,7 +238,7 @@ export default function Support() {
           htmlFor="email"
           className="block text-gray-700 dark:text-gray-200 font-medium text-sm sm:text-base"
         >
-          Email
+          Email <span className="text-red-600">*</span>
         </label>
         <Input
           id="email"
@@ -249,7 +294,7 @@ export default function Support() {
           htmlFor="query"
           className="block text-gray-700 dark:text-gray-200 font-medium text-sm sm:text-base"
         >
-          Your Query
+          Your Query <span className="text-red-600">*</span>
         </label>
         <Textarea
           id="query"
@@ -259,6 +304,9 @@ export default function Support() {
           onChange={handleChange}
           className="w-full min-h-[80px] border-gray-300 text-sm sm:text-base"
         />
+        {formErrors.query && (
+          <p className="text-red-600 text-xs">{formErrors.query}</p>
+        )}
       </div>
 
       <Button

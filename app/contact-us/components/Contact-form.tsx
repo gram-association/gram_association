@@ -35,8 +35,12 @@ export default function ContactForm() {
   });
 
   const [formErrors, setFormErrors] = useState({
+    joinAs: "",
+    firstName: "",
+    lastName: "",
     email: "",
     mobileNo: "",
+    query: "",
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -63,27 +67,53 @@ export default function ContactForm() {
   };
 
   const validate = () => {
-    const errors = { email: "", mobileNo: "" };
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const errors = {
+      joinAs: "",
+      firstName: "",
+      lastName: "",
+      email: "",
+      mobileNo: "",
+      query: "",
+    };
+    const emailRegex =
+      /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
     const mobileRegex = /^[0-9]{7,15}$/;
 
-    if (!emailRegex.test(formData.email)) {
+    if (!formData.joinAs) {
+      errors.joinAs = "Please select an option.";
+    }
+
+    if (!formData.firstName.trim()) {
+      errors.firstName = "First name is required.";
+    }
+
+    if (!formData.lastName.trim()) {
+      errors.lastName = "Last name is required.";
+    }
+
+    if (!formData.email) {
+      errors.email = "Email is required.";
+    } else if (!emailRegex.test(formData.email)) {
       errors.email = "Please enter a valid email address.";
     }
 
-    if (!mobileRegex.test(formData.mobileNo)) {
+    if (formData.mobileNo && !mobileRegex.test(formData.mobileNo)) {
       errors.mobileNo = "Please enter a valid mobile number (7–15 digits).";
     }
 
+    if (!formData.query.trim()) {
+      errors.query = "Query is required.";
+    }
+
     setFormErrors(errors);
-    return !errors.email && !errors.mobileNo;
+    return Object.values(errors).every((error) => !error);
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setSubmitStatus(null);
 
-    if (!validate()) return; // Stop submission if invalid
+    if (!validate()) return;
 
     setIsSubmitting(true);
 
@@ -95,9 +125,10 @@ export default function ContactForm() {
     formDataToSend.append("Email", formData.email);
     formDataToSend.append(
       "MobileNo",
-      `${formData.countryCode}${formData.mobileNo.replace(/\s+/g, "")}`
+      formData.mobileNo
+        ? `${formData.countryCode}${formData.mobileNo.replace(/\s+/g, "")}`
+        : ""
     );
-
     formDataToSend.append("Query", formData.query);
 
     try {
@@ -129,7 +160,14 @@ export default function ContactForm() {
           countryCode: "+91",
           query: "",
         });
-        setFormErrors({ email: "", mobileNo: "" });
+        setFormErrors({
+          joinAs: "",
+          firstName: "",
+          lastName: "",
+          email: "",
+          mobileNo: "",
+          query: "",
+        });
       } else {
         throw new Error(data.error || "Submission failed");
       }
@@ -158,10 +196,10 @@ export default function ContactForm() {
 
   return (
     <div className="space-y-6 w-full max-w-lg">
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} noValidate>
         <div className="space-y-4">
           <label className="block text-gray-700 dark:text-gray-200 font-medium text-sm sm:text-base">
-            Join us as
+            Join us as <span className="text-red-600">*</span>
           </label>
           <Select value={formData.joinAs} onValueChange={handleSelectChange}>
             <SelectTrigger className="w-full border-gray-300 text-sm sm:text-base">
@@ -192,6 +230,9 @@ export default function ContactForm() {
               </SelectItem>
             </SelectContent>
           </Select>
+          {formErrors.joinAs && (
+            <p className="text-red-600 text-xs mt-1">{formErrors.joinAs}</p>
+          )}
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -200,7 +241,7 @@ export default function ContactForm() {
               htmlFor="firstName"
               className="block text-gray-700 dark:text-gray-200 font-medium text-sm sm:text-base"
             >
-              First name
+              First name <span className="text-red-600">*</span>
             </label>
             <Input
               id="firstName"
@@ -209,15 +250,19 @@ export default function ContactForm() {
               value={formData.firstName}
               onChange={handleChange}
               className="w-full border-gray-300 text-sm sm:text-base"
-              required
             />
+            {formErrors.firstName && (
+              <p className="text-red-600 text-xs mt-1">
+                {formErrors.firstName}
+              </p>
+            )}
           </div>
           <div className="space-y-2">
             <label
               htmlFor="lastName"
               className="block text-gray-700 dark:text-gray-200 font-medium text-sm sm:text-base"
             >
-              Last name
+              Last name <span className="text-red-600">*</span>
             </label>
             <Input
               id="lastName"
@@ -226,8 +271,10 @@ export default function ContactForm() {
               value={formData.lastName}
               onChange={handleChange}
               className="w-full border-gray-300 text-sm sm:text-base"
-              required
             />
+            {formErrors.lastName && (
+              <p className="text-red-600 text-xs mt-1">{formErrors.lastName}</p>
+            )}
           </div>
         </div>
 
@@ -236,7 +283,7 @@ export default function ContactForm() {
             htmlFor="email"
             className="block text-gray-700 dark:text-gray-200 font-medium text-sm sm:text-base"
           >
-            Email
+            Email <span className="text-red-600">*</span>
           </label>
           <Input
             id="email"
@@ -246,7 +293,6 @@ export default function ContactForm() {
             value={formData.email}
             onChange={handleChange}
             className="w-full border-gray-300 text-sm sm:text-base"
-            required
           />
           {formErrors.email && (
             <p className="text-red-600 text-xs mt-1">{formErrors.email}</p>
@@ -266,7 +312,6 @@ export default function ContactForm() {
               value={formData.countryCode}
               onChange={handleChange}
               className="border border-gray-300 rounded-md p-1 text-sm sm:text-base bg-white dark:bg-gray-800 dark:text-white"
-              required
             >
               <option value="+91">+91</option>
               <option value="+1">+1</option>
@@ -283,7 +328,6 @@ export default function ContactForm() {
               value={formData.mobileNo}
               onChange={handleChange}
               className="flex-1 border-gray-300 text-sm sm:text-base"
-              required
             />
           </div>
           {formErrors.mobileNo && (
@@ -296,7 +340,7 @@ export default function ContactForm() {
             htmlFor="query"
             className="block text-gray-700 dark:text-gray-200 font-medium text-sm sm:text-base"
           >
-            Your Query
+            Your Query <span className="text-red-600">*</span>
           </label>
           <Textarea
             id="query"
@@ -305,8 +349,10 @@ export default function ContactForm() {
             value={formData.query}
             onChange={handleChange}
             className="w-full min-h-[120px] border-gray-300 text-sm sm:text-base"
-            required
           />
+          {formErrors.query && (
+            <p className="text-red-600 text-xs mt-1">{formErrors.query}</p>
+          )}
         </div>
 
         <Button

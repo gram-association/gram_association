@@ -19,7 +19,7 @@ export default function Tabs() {
   };
 
   return (
-    <div className="flex justify-center items-center mt-48 px-4">
+    <div className="flex justify-center items-center mt-24 sm:mt-48 px-4">
       <div className="flex justify-center">
         <div className="w-full max-w-screen">
           {/* Tab Buttons */}

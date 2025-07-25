@@ -59,7 +59,7 @@ export default function Story() {
   };
 
   return (
-    <div className="w-full max-w-full h-[360px] bg-[#BAD1CA] dark:bg-gray-700 flex items-center justify-center">
+    <div className="w-full max-w-full h-[450px] bg-[#BAD1CA] dark:bg-gray-700 flex items-center justify-center">
       <div className="p-4 mx-auto text-center mt-0 sm:mt-40 w-full">
         <h1 className="text-4xl md:text-5xl mb-8 text-gray-800 dark:text-white">
           Share your Water Story
