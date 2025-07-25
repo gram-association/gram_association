@@ -1,7 +1,7 @@
 import { documentData, videoData } from "@/lib/data";
 import { getAllImages } from "@/lib/loadImages";
-import { Gallery } from "./components/Gallery";
 import type { ImageType } from "@/lib/types";
+import Gallery from "./components/Gallery";
 
 export default async function Media() {
   const images: ImageType[] = await getAllImages("public"); // ✅ dynamically scan public folder

@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useState, useEffect } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Lightbox } from "./LightBox";
 import type { ImageType } from "@/lib/types";
@@ -10,6 +10,16 @@ interface ImageGridProps {
   images: ImageType[];
   imagesPerPage?: number;
   onImageClick?: (image: ImageType) => void;
+}
+
+const COLUMN_COUNT = 3;
+
+function splitIntoColumns(images: ImageType[], columns: number) {
+  const columnArrays: ImageType[][] = Array.from({ length: columns }, () => []);
+  images.forEach((img, index) => {
+    columnArrays[index % columns].push(img);
+  });
+  return columnArrays;
 }
 
 export function ImageGrid({
@@ -37,7 +47,7 @@ export function ImageGrid({
         hasMore &&
         !isLoading
       ) {
-        setPage((p) => p + 1);
+        setPage((prev) => prev + 1);
       }
     };
     window.addEventListener("scroll", onScroll);
@@ -65,59 +75,53 @@ export function ImageGrid({
     onImageClick?.(image);
   };
 
+  const columns = useMemo(
+    () => splitIntoColumns(displayedImages, COLUMN_COUNT),
+    [displayedImages]
+  );
+
   return (
     <div className="container mx-auto px-4">
-      <style jsx>{`
-        @keyframes fadeIn {
-          from {
-            opacity: 0;
-            transform: translateY(10px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-        .image-container {
-          animation: fadeIn 0.5s ease-out;
-        }
-      `}</style>
-
       {images.length === 0 ? (
         <div className="text-center py-4 text-gray-600">No images found</div>
       ) : (
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-          {displayedImages.map((image, index) => (
-            <div
-              key={image.id}
-              className="image-container overflow-hidden rounded-lg cursor-pointer transition-transform hover:scale-[1.02]"
-              onClick={() => handleImageClick(image)}
-            >
-              <Image
-                src={image.src}
-                alt={image.alt}
-                width={image.width}
-                height={image.height}
-                className="w-full h-auto object-cover aspect-square"
-                priority={index < 6}
-              />
+        <div className="flex gap-4">
+          {columns.map((column, colIndex) => (
+            <div key={colIndex} className="flex-1 flex flex-col gap-4">
+              {column.map((image, index) => (
+                <div
+                  key={image.id}
+                  className="overflow-hidden rounded-lg cursor-pointer transition-transform hover:scale-[1.02]"
+                  onClick={() => handleImageClick(image)}
+                >
+                  <Image
+                    src={image.src}
+                    alt={image.alt}
+                    width={image.width}
+                    height={image.height}
+                    className="w-full h-auto object-cover max-h-[400px] rounded"
+                    priority={index < 6}
+                  />
+                </div>
+              ))}
             </div>
           ))}
         </div>
       )}
 
       {isLoading && (
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mt-4">
-          {Array.from({
-            length: Math.min(
-              imagesPerPage,
-              images.length - displayedImages.length
-            ),
-          }).map((_, index) => (
-            <Skeleton
-              key={`skeleton-${index}`}
-              className="w-full h-[300px] bg-gray-300 rounded-lg"
-            />
+        <div className="flex gap-4 mt-4">
+          {columns.map((_, colIndex) => (
+            <div key={colIndex} className="flex-1 flex flex-col gap-4">
+              {Array.from({
+                length: Math.ceil(imagesPerPage / COLUMN_COUNT),
+              }).map((_, i) => (
+                <Skeleton
+                  key={`skeleton-${colIndex}-${i}`}
+                  className="w-full h-[300px] bg-gray-300 rounded-lg"
+                />
+              ))}
+            </div>
           ))}
         </div>
       )}

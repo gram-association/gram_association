@@ -31,11 +31,11 @@ export function Lightbox({
   };
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50">
+    <div className="fixed inset-0 bg-transparent backdrop-blur-lg bg-opacity-80 flex items-center justify-center z-50">
       <div className="relative max-w-4xl w-full h-[80vh]">
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 text-white text-2xl"
+          className="absolute top-4 right-4 text-gray-950 cursor-pointer text-xl border border-gray-900 rounded-full p-2 h-10 w-10"
         >
           ✕
         </button>
@@ -46,7 +46,7 @@ export function Lightbox({
           height={image.height}
           className="w-full h-full object-contain"
         />
-        {currentIndex > 0 && (
+        {/* {currentIndex > 0 && (
           <button
             onClick={handlePrev}
             className="absolute left-4 top-1/2 text-white text-2xl"
@@ -61,7 +61,7 @@ export function Lightbox({
           >
             →
           </button>
-        )}
+        )} */}
       </div>
     </div>
   );

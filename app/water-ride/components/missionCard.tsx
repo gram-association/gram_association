@@ -7,26 +7,26 @@ const MissionCards: React.FC = () => {
       pillar: "Document Wisdom",
       action: "Archive indigenous techniques",
       impact: "Create India's Water Heritage Atlas",
-      img: "/Group 8.png",
+      img: "/logos/Group 8.png",
     },
     {
       pillar: "Build water warriors",
       action:
         "Train locals as Water Champions with IoT-Testing Kits (if app gets developed)",
       impact: "Water-secure villages by 2030",
-      img: "/Volunteer.png",
+      img: "/logos/Volunteer.png",
     },
     {
       pillar: "Policy Bridges",
       action: "Collect citizen voices for state water schemed",
       impact: "Shape state water action plans",
-      img: "/donate.png",
+      img: "/logos/donate.png",
     },
     {
       pillar: "State Interventions (Post-Ride)",
       action: "Partner with local NGOs to implement 1 flagship project/state",
       impact: "10 million liter annual recharge",
-      img: "/partners.png",
+      img: "/logos/partners.png",
     },
   ];
 

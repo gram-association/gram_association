@@ -8,7 +8,7 @@ const Footer = () => {
     <footer className="bg-[#7D463C] dark:bg-gray-900 text-white dark:text-gray-200 px-4 py-8 sm:px-8 lg:px-16 flex flex-col gap-8 sm:gap-28 md:flex-row md:justify-between md:items-start text-sm">
       <div className="w-full md:w-2/5 lg:w-1/3 flex flex-col items-center md:items-start">
         <Image
-          src="/GRAM logotype full.jpg"
+          src="/logos/GRAM logotype full.jpg"
           alt="GRAM Association Logo"
           width={500}
           height={200}
