@@ -2,7 +2,6 @@
 
 import { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/Button";
-
 import { Droplets, Loader2, ChevronRight, X } from "lucide-react";
 
 /*  DATA   */
@@ -366,7 +365,7 @@ export default function WaterRideMap() {
         }
 
         const map = window.L.map(mapDiv.current, {
-          center: [19.5, 78.5],
+          center: [18.5, 77.5],
           zoom: 5,
           minZoom: 4,
           maxZoom: 15,
