@@ -22,43 +22,8 @@ export function Gallery({
   const [activeTab, setActiveTab] = useState("photos");
   const [selectedImage, setSelectedImage] = useState<ImageType | null>(null);
   const [lightboxOpen, setLightboxOpen] = useState(false);
-  const [fetchedImages, setFetchedImages] = useState<ImageType[]>(images);
-  const [error, setError] = useState<string | null>(null);
-
-  // Fetch images if not provided
-  useEffect(() => {
-    if (images.length > 0) {
-      setFetchedImages(images); // Use provided images
-      return;
-    }
-    async function fetchImages() {
-      try {
-        const response = await fetch("/api/images", { method: "GET" });
-        if (!response.ok) {
-          throw new Error(
-            `Failed to fetch images: ${response.status} ${response.statusText}`
-          );
-        }
-        const data = await response.json();
-        console.log("API response:", data.images); // Debug
-        const validImages = data.images.filter(
-          (image: ImageType) =>
-            image &&
-            typeof image.src === "string" &&
-            image.src &&
-            typeof image.alt === "string" &&
-            typeof image.description === "string" &&
-            typeof image.width === "number" &&
-            typeof image.height === "number"
-        );
-        setFetchedImages(validImages);
-      } catch (error: any) {
-        console.error("Error fetching images:", error);
-        setError(error.message);
-      }
-    }
-    fetchImages();
-  }, [images]);
+  const [fetchedImages] = useState<ImageType[]>(images);
+  const [error] = useState<string | null>(null);
 
   const handleImageClick = (image: ImageType) => {
     setSelectedImage(image);
