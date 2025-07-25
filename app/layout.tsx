@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   title: "GRAM Association",
   description: "Empowering Communities, Transforming Lives",
   icons: {
-    icon: "/GRAM logomark.jpg",
+    icon: "/logos/GRAM_logomark.jpg",
   },
   metadataBase: new URL("https://gramassociation.org"),
   openGraph: {

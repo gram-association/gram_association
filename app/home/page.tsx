@@ -96,7 +96,7 @@ export default function Home() {
         <div className="flex flex-col sm:flex-row justify-center space-y-6 sm:space-y-0 sm:space-x-4 lg:space-x-8 px-4 max-w-7xl mx-auto">
           <div className="bg-white dark:bg-gray-900 p-6 rounded-lg shadow-md w-full sm:w-96">
             <Image
-              src="/donate.png"
+              src="/logos/donate.png"
               alt="donate_img"
               width={50}
               height={50}
@@ -121,7 +121,7 @@ export default function Home() {
           </div>
           <div className="bg-white dark:bg-gray-900 p-6 rounded-lg shadow-md w-full sm:w-96">
             <Image
-              src="/Volunteer.png"
+              src="/logos/Volunteer.png"
               alt="Volunteer_img"
               width={50}
               height={50}
@@ -146,7 +146,7 @@ export default function Home() {
           </div>
           <div className="bg-white dark:bg-gray-900 p-6 rounded-lg shadow-md w-full sm:w-96">
             <Image
-              src="/partners.png"
+              src="/logos/partners.png"
               alt="partners_img"
               width={50}
               height={50}

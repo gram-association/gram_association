@@ -16,7 +16,7 @@ export default function JourneyHighlights() {
         <div className="flex flex-col sm:flex-row justify-center space-y-6 sm:space-y-0 sm:space-x-4 lg:space-x-8 px-4 max-w-7xl mx-auto">
           <div className="bg-white dark:bg-gray-900 p-6 rounded-lg shadow-md w-full sm:w-96">
             <Image
-              src="/bike.png"
+              src="/logos/bike.png"
               alt="bike_img"
               width={50}
               height={50}
@@ -30,7 +30,7 @@ export default function JourneyHighlights() {
           </div>
           <div className="bg-white dark:bg-gray-900 p-6 rounded-lg shadow-md w-full sm:w-96">
             <Image
-              src="/state.png"
+              src="/logos/state.png"
               alt="states_img"
               width={50}
               height={50}
@@ -44,7 +44,7 @@ export default function JourneyHighlights() {
           </div>
           <div className="bg-white dark:bg-gray-900 p-6 rounded-lg shadow-md w-full sm:w-96">
             <Image
-              src="/supporters.png"
+              src="/logos/supporters.png"
               alt="supporters_img"
               width={50}
               height={50}
@@ -58,7 +58,7 @@ export default function JourneyHighlights() {
           </div>
           <div className="bg-white dark:bg-gray-900 p-6 rounded-lg shadow-md w-full sm:w-96">
             <Image
-              src="/outreach.png"
+              src="/logos/outreach.png"
               alt="outreach_img"
               width={50}
               height={50}

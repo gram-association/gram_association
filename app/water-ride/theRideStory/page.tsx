@@ -230,12 +230,12 @@ export default function JourneyPage() {
             ref={timelineRef}
             className="absolute left-2 md:left-8 top-0 h-full w-1  "
           >
-            <Image src="/Group 49.png" alt="Route" fill />
+            <Image src="/logos/Group 49.png" alt="Route" fill />
             <div
               ref={pointerRef}
               className="absolute left-[-6px] w-4 h-4 rounded-full shadow-md transition-transform duration-300"
             >
-              <Image src="/Group 48.png" alt="" fill />
+              <Image src="/logos/Group 48.png" alt="" fill />
             </div>
           </div>
 

@@ -14,7 +14,7 @@ interface GalleryProps {
   documents?: DocumentItem[];
 }
 
-export function Gallery({
+export default function Gallery({
   images = [], // Default to empty array
   videos = videoData,
   documents = documentData,

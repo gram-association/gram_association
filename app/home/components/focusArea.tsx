@@ -27,7 +27,7 @@ export default function FocusAreas() {
           <div className="flex gap-4 items-start relative">
             <div className="relative z-10">
               <Image
-                src="/Group 6.png"
+                src="/logos/Group 6.png"
                 alt="Entrepreneurship Icon"
                 width={40}
                 height={40}
@@ -47,7 +47,7 @@ export default function FocusAreas() {
           <div className="flex gap-4 items-start relative">
             <div className="relative z-10">
               <Image
-                src="/Group 8.png"
+                src="/logos/Group 8.png"
                 alt="Edification Icon"
                 width={40}
                 height={40}
@@ -67,7 +67,7 @@ export default function FocusAreas() {
           <div className="flex gap-4 items-start relative">
             <div className="relative z-10">
               <Image
-                src="/Group 7.png"
+                src="/logos/Group 7.png"
                 alt="Empowerment Icon"
                 width={40}
                 height={40}
@@ -87,7 +87,7 @@ export default function FocusAreas() {
           <div className="flex gap-4 items-start relative">
             <div className="relative z-10">
               <Image
-                src="/Group 9.png"
+                src="/logos/Group 9.png"
                 alt="Education Icon"
                 width={40}
                 height={40}
@@ -107,7 +107,7 @@ export default function FocusAreas() {
           <div className="flex gap-4 items-start relative">
             <div className="relative z-10">
               <Image
-                src="/Group 10.png"
+                src="/logos/Group 10.png"
                 alt="Environment Icon"
                 width={40}
                 height={40}

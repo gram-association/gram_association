@@ -10,7 +10,7 @@ export const images: ImageType[] = [
   },
   {
     id: "2",
-    src: "/Rectangle 51.",
+    src: "/fallback.png",
     alt: "Person in the snow",
     width: 0,
     height: 0,
