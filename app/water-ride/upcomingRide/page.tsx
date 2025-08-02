@@ -13,12 +13,12 @@ export default function UpcomingRide() {
         <h1 className="text-3xl sm:text-4xl md:text-5xl  text-gray-800 dark:text-gray-200 mb-1 ">
           The Water Odyssey 2026
         </h1>
-        <h6 className="text-gray-700 dark:text-gray-200 mb-4 sm:mb-6 text-base">
+        <h6 className="text-gray-700 dark:text-gray-200 mb-4 sm:mb-6 text-sm sm:text-base">
           {" "}
           A 15-State Journey For Restoring India's Water Wisdom
         </h6>
-        <p className="text-gray-600 dark:text-gray-300 max-w-full sm:max-w-2xl md:max-w-5xl mx-auto text-xs sm:text-sm leading-relaxed px-4 sm:px-0">
-          <span className="font-bold text-base">
+        <p className="text-gray-600 dark:text-gray-300 max-w-full sm:max-w-2xl md:max-w-5xl mx-auto text-sm sm:text-lg leading-relaxed px-4 sm:px-0">
+          <span className="font-bold text-[17px]">
             From Jharkhand to North-East to Kashmir to Delhi – Uniting Villages,
             Rivers, and Policies in India’s Biggest Water Movement
           </span>
@@ -48,7 +48,7 @@ export default function UpcomingRide() {
             The Unfinished Ride
           </h2>
 
-          <p className="text-gray-600 dark:text-gray-300 max-w-full sm:max-w-2xl md:max-w-5xl mx-auto text-xs sm:text-sm leading-relaxed px-4 sm:px-0">
+          <p className="text-gray-600 dark:text-gray-300 max-w-full sm:max-w-2xl md:max-w-5xl mx-auto text-sm sm:text-lg leading-relaxed px-4 sm:px-0">
             But then, an unforeseen storm hit, demonetization. Overnight, the
             gears of everyday life ground to a halt. Shashank, far from home,
             found his journey abruptly curtailed on the side of the road, a
@@ -100,7 +100,7 @@ export default function UpcomingRide() {
             The Water Odyssey
           </h2>
 
-          <p className="text-gray-600 dark:text-gray-300  max-w-full sm:max-w-2xl md:max-w-5xl mx-auto text-xs sm:text-sm leading-relaxed px-4 sm:px-10">
+          <p className="text-gray-600 dark:text-gray-300  max-w-full sm:max-w-2xl md:max-w-5xl mx-auto text-sm sm:text-[17px] leading-relaxed px-4 sm:px-10">
             GRAM is now ready to reignite that crucial journey, not just for
             Shashank, but for all of us. This time, the ride will be different.
             It will be a carefully planned expedition across the vital East and
@@ -177,11 +177,11 @@ export default function UpcomingRide() {
 
       {/* Planned Route Section */}
       <section className="bg-[#F8F1E9] dark:bg-gray-800 max-w-full mx-auto px-4 sm:px-6 md:px-10 py-10 flex flex-col md:flex-row justify-center items-center">
-        <div className="w-full md:w-[740px] h-auto md:h-[325px] mb-6 md:mb-0">
+        <div className="w-full md:w-[740px] h-auto  mb-6 md:mb-0">
           <h2 className="text-2xl sm:text-3xl mb-2 text-center md:text-left">
             Planned Route
           </h2>
-          <p className="text-gray-700 dark:text-gray-200 text-xs  md:text-sm leading-relaxed">
+          <p className="text-gray-700 dark:text-gray-200 text-sm md:text-[17px] leading-relaxed">
             We are gearing up for an epic bike ride that will take us across 19
             incredible states and union territories of India. Our journey will
             begin in the coastal landscapes of Odisha, then move through the
@@ -210,7 +210,7 @@ export default function UpcomingRide() {
             every mile.
           </p>
         </div>
-        <div className="w-full md:w-1/3 h-auto md:h-[325px] flex justify-center items-center rounded-lg">
+        <div className="w-full md:w-1/3 h-auto md:h-[425px] flex justify-center items-center rounded-lg">
           <Image
             src="/assets/water-ride/RoyalEnfield.png"
             alt="planned route"

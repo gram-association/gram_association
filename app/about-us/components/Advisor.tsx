@@ -30,7 +30,7 @@ export default function Advisor() {
   return (
     <div className="flex items-center justify-center p-4 sm:p-8">
       <div className="max-w-6xl w-full">
-        <p className="inline-block bg-[#DEE6EB] dark:bg-gray-700 w-fit rounded-full text-md sm:text-sm  text-gray-700 dark:text-gray-200 px-3 py-1 mb-4">
+        <p className="inline-block bg-[#DEE6EB] dark:bg-gray-700 w-fit rounded-full text-sm sm:text-base  text-gray-700 dark:text-gray-200 px-3 py-1 mb-4">
           Advisor
         </p>
 

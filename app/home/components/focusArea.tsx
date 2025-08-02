@@ -4,11 +4,11 @@ export default function FocusAreas() {
   return (
     <section className="min-h-screen py-8 md:py-16 text-center bg-white ">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <p className="container text-center bg-[#DEE6EB]  w-fit rounded-lg px-1 text-md text-gray-700  flex justify-start mb-4">
+        <p className="container text-center bg-[#DEE6EB] w-fit rounded-lg px-1 text-sm sm:text-lg text-gray-700  flex justify-start mb-4">
           Our Focus Areas
         </p>
         <h2 className="text-2xl md:text-5xl font-epilogue text-start mb-6 md:mb-8 text-gray-900 ">
-          THE 5 Es
+          Our Approach
         </h2>
       </div>
       <div className="flex flex-col md:flex-row justify-center items-center md:space-x-8 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -23,7 +23,7 @@ export default function FocusAreas() {
             />
           </div>
         </div>
-        <div className="space-y-8 text-left w-full md:w-1/2">
+        <div className="space-y-5 text-left w-full md:w-1/2">
           <div className="flex gap-4 items-start relative">
             <div className="relative z-10">
               <Image
@@ -35,13 +35,15 @@ export default function FocusAreas() {
               />
             </div>
             <div className="relative">
-              <p className="font-bold text-gray-900 ">Entrepreneurship:</p>
-              <p className="text-gray-400  text-sm">
+              <p className="font-bold text-gray-900 text-lg">
+                Entrepreneurship:
+              </p>
+              <p className="text-gray-500  text-base">
                 Fostering a spirit of innovation, ownership, and initiative to
                 drive sustainable change
               </p>
-              <div className="absolute hidden md:block h-[2px] bg-gray-300  top-5 right-[calc(100%+1rem)] w-[calc(46.5%+1rem)]"></div>
-              <div className="absolute -left-66 top-3 w-4 h-4 bg-[#D7BCB7] rounded-full"></div>
+              <div className="absolute hidden md:block h-[2px] bg-gray-300  top-5 right-[calc(100%+1rem)] w-[calc(48.5%+1rem)]"></div>
+              <div className="absolute -left-78 top-3 w-4 h-4 bg-[#D7BCB7] rounded-full"></div>
             </div>
           </div>
           <div className="flex gap-4 items-start relative">
@@ -55,8 +57,8 @@ export default function FocusAreas() {
               />
             </div>
             <div className="relative">
-              <p className="font-bold text-gray-900 ">Enrichment</p>
-              <p className="text-gray-400  text-sm">
+              <p className="font-bold text-gray-900 text-lg">Enrichment</p>
+              <p className="text-gray-500  text-base">
                 Developing learning opportunities that help people grow and
                 uplift communities within their society
               </p>
@@ -75,8 +77,8 @@ export default function FocusAreas() {
               />
             </div>
             <div className="relative">
-              <p className="font-bold text-gray-900 ">Enablement</p>
-              <p className="text-gray-400  text-sm">
+              <p className="font-bold text-gray-900 text-lg">Enablement</p>
+              <p className="text-gray-500  text-base">
                 Enabling individuals and communities to serve themselves,
                 instilling confidence and driving a positive impact
               </p>
@@ -95,13 +97,13 @@ export default function FocusAreas() {
               />
             </div>
             <div className="relative">
-              <p className="font-bold text-gray-900 ">Education</p>
-              <p className="text-gray-400  text-sm">
+              <p className="font-bold text-gray-900 text-lg">Education</p>
+              <p className="text-gray-500  text-base">
                 Enabling individuals and communities to serve themselves,
                 instilling confidence and driving a positive impact
               </p>
               <div className="absolute hidden md:block h-[2px] bg-gray-300  top-5 right-[calc(100%+1rem)] w-[calc(26.5%+1rem)]"></div>
-              <div className="absolute -left-47 top-3 w-4 h-4 bg-[#D7BCB7] rounded-full"></div>
+              <div className="absolute -left-45 top-3 w-4 h-4 bg-[#D7BCB7] rounded-full"></div>
             </div>
           </div>
           <div className="flex gap-4 items-start relative">
@@ -115,13 +117,13 @@ export default function FocusAreas() {
               />
             </div>
             <div className="relative">
-              <p className="font-bold text-gray-900 ">Environment:</p>
-              <p className="text-gray-400  text-sm">
+              <p className="font-bold text-gray-900 text-lg">Environment:</p>
+              <p className="text-gray-500  text-base">
                 Promoting sustainable practices and environmental consciousness
                 for future generations
               </p>
-              <div className="absolute hidden md:block h-[2px] bg-gray-300  top-5 right-[calc(100%+1rem)] w-[calc(43.5%+1rem)]"></div>
-              <div className="absolute -left-66 top-3 w-4 h-4 bg-[#D7BCB7] rounded-full"></div>
+              <div className="absolute hidden md:block h-[2px] bg-gray-300  top-5 right-[calc(100%+1rem)] w-[calc(41%+1rem)]"></div>
+              <div className="absolute -left-65 top-3 w-4 h-4 bg-[#D7BCB7] rounded-full"></div>
             </div>
           </div>
         </div>

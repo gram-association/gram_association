@@ -153,7 +153,7 @@ const OurImpact: React.FC = () => {
 
   return (
     <section className="py-8 md:pb-16 text-center mt-2 md:mt-0">
-      <p className="container mx-auto bg-[#DEE6EB]  w-fit rounded-lg px-2 text-gray-700  flex items-center text-sm md:text-base">
+      <p className="container mx-auto bg-[#DEE6EB]  w-fit rounded-lg px-2 text-gray-700  flex items-center text-[17px] md:text-lg">
         Our Impact
       </p>
       <h2 className="text-2xl md:text-5xl mt-4 font-epilogue text-center mb-6 text-gray-900 ">
@@ -174,7 +174,9 @@ const OurImpact: React.FC = () => {
               slideIndex={0}
               currentSlide={currentSlide}
             />
-            <p className="text-xs text-gray-700 ">Lives Transformed</p>
+            <p className="text-sm md:text-xs text-gray-700 ">
+              Lives Transformed
+            </p>
           </div>
           <div className="text-center min-w-[100px]">
             <CountUp
@@ -183,7 +185,9 @@ const OurImpact: React.FC = () => {
               slideIndex={0}
               currentSlide={currentSlide}
             />
-            <p className="text-xs text-gray-700 ">Villages Impacted</p>
+            <p className="text-sm md:text-xs text-gray-700 ">
+              Villages Impacted
+            </p>
           </div>
         </div>
         <div className="flex-none snap-center w-full flex justify-center space-x-6">
@@ -194,7 +198,7 @@ const OurImpact: React.FC = () => {
               slideIndex={1}
               currentSlide={currentSlide}
             />
-            <p className="text-xs text-gray-700 ">Women Trained</p>
+            <p className="text-sm md:text-xs text-gray-700 ">Women Trained</p>
           </div>
           <div className="text-center min-w-[100px]">
             <CountUp end={3} slideIndex={1} currentSlide={currentSlide} />
@@ -204,7 +208,7 @@ const OurImpact: React.FC = () => {
         <div className="flex-none snap-center w-full flex justify-center space-x-4">
           <div className="text-center min-w-[100px]">
             <CountUp end={8} slideIndex={2} currentSlide={currentSlide} />
-            <p className="text-xs text-gray-700 ">SDGs addressed</p>
+            <p className="text-sm md:text-xs text-gray-700 ">SDGs addressed</p>
           </div>
         </div>
       </div>

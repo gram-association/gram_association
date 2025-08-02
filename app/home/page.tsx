@@ -26,14 +26,14 @@ export default function Home() {
           </div>
           {/* Content Section */}
           <div className="flex flex-col sm:flex-row sm:justify-evenly sm:absolute sm:inset-0 w-full sm:w-[1290px] -mt-56 sm:mt-12 px-4 sm:px-0">
-            <div className="relative z-10 w-full sm:w-6xl text-white dark:text-white">
-              <h1 className="text-xl xs:text-2xl sm:text-[48px] font-semibold text-center sm:text-left leading-tight sm:leading-snug">
+            <div className="relative z-10 w-full  text-white dark:text-white">
+              <h1 className="text-2xl xs:text-2xl sm:text-[50px] font-semibold text-center sm:text-left leading-tight sm:leading-snug">
                 Building self-reliant India <br /> through self-reliant villages
               </h1>
             </div>
             <div className="hidden sm:block sm:mt-6 sm:mx-4 h-24 w-px bg-gray-300 dark:bg-gray-600"></div>
             <div className="relative z-10 py-2 px-4 sm:px-2 text-white dark:text-gray-200 w-full sm:w-xl sm:mr-35 mt-48 sm:mt-0">
-              <p className="text-xs sm:text-sm text-center sm:text-left leading-relaxed">
+              <p className="text-[16px] sm:text-[15px] text-center sm:text-left leading-relaxed">
                 GRAM Association is dedicated to empowering communities through
                 sustainable development, education, healthcare, and clean water
                 initiatives that create lasting change.
@@ -51,18 +51,17 @@ export default function Home() {
       </section>
       {/* About us */}
       <section className="py-8 md:pt-16 text-center mt-20 md:mt-40">
-        <p className="container mx-auto bg-[#DEE6EB] dark:bg-gray-700 w-fit rounded-lg px-2 text-gray-700 dark:text-gray-200 flex items-center text-sm md:text-base">
+        <p className="container mx-auto bg-[#DEE6EB] dark:bg-gray-700 w-fit rounded-lg px-2 text-gray-700 dark:text-gray-200 flex items-center text-[17px] md:text-lg">
           About Us
         </p>
         <h2 className="text-2xl italic md:text-5xl mt-4 text-center mb-6 text-gray-900 dark:text-gray-100">
           “Indigenous wisdom meets Innovation”
         </h2>
-        <p className="max-w-5xl mx-auto text-sm md:text-[16px] text-center text-gray-600 dark:text-gray-400 px-4 md:px-0">
-          GRAM Association is committed to{" "}
-          <span className="italic font-bold">building</span> an inclusive,
-          equitable, and sustainable future. We bridge the gap between age-old
-          wisdom and modern technology to uplift low resource communities,
-          promote sustainable livelihoods, reinvent traditional knowledge into
+        <p className="max-w-5xl mx-auto text-[16px] md:text-lg text-center text-gray-600 dark:text-gray-400 px-4 md:px-0">
+          GRAM Association is committed to building an inclusive, equitable, and
+          sustainable future. We bridge the gap between age-old wisdom and
+          modern technology to uplift low resource communities, promote
+          sustainable livelihoods, reinvent traditional knowledge into
           contemporary, sustainable practices while advancing holistic community
           development.
         </p>
@@ -87,7 +86,7 @@ export default function Home() {
 
       {/* Get Involved */}
       <section className="py-8 mt-4 bg-[#F8F1E9] dark:bg-gray-800 min-w-screen text-center">
-        <p className="container mx-auto bg-[#DEE6EB] dark:bg-gray-700 w-fit rounded-lg px-4  text-gray-700 dark:text-gray-200 flex items-center text-md sm:text-base">
+        <p className="container mx-auto bg-[#DEE6EB] dark:bg-gray-700 w-fit rounded-lg px-4  text-gray-700 dark:text-gray-200 flex items-center text-sm sm:text-lg">
           Get Involved
         </p>
         <h2 className="text-3xl sm:text-4xl md:text-5xl mt-4 font-epilogue text-center mb-6 px-4 text-gray-900 dark:text-gray-100">
@@ -105,7 +104,7 @@ export default function Home() {
             <p className="font-bold my-2 text-lg text-gray-900 dark:text-gray-100">
               DONATE
             </p>
-            <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">
+            <p className="text-[15px] text-gray-500 dark:text-gray-400 leading-relaxed">
               Your generous contribution helps us continue our work and expand
               our reach to more communities.
             </p>
@@ -130,7 +129,7 @@ export default function Home() {
             <p className="font-bold my-2 text-lg text-gray-900 dark:text-gray-100">
               VOLUNTEER
             </p>
-            <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">
+            <p className="text-[15px] text-gray-500 dark:text-gray-400 leading-relaxed">
               Contribute your time, skills, and energy to support our programs
               and make a direct impact.
             </p>
@@ -155,7 +154,7 @@ export default function Home() {
             <p className="font-bold my-2 text-lg text-gray-900 dark:text-gray-100">
               PARTNER WITH US
             </p>
-            <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">
+            <p className="text-[15px] text-gray-500 dark:text-gray-400 leading-relaxed">
               Join forces with us through strategic partnerships to amplify our
               impact and reach more communities.
             </p>

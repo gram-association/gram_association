@@ -9,13 +9,13 @@ export default function AboutUs() {
       {/* Our Story Section */}
       <section className="flex flex-col md:flex-row w-full max-w-7xl mx-auto mt-20 animate-fade-in">
         <div className="text-left px-4 md:px-0">
-          <span className="inline-block bg-[#DEE6EB] dark:bg-gray-700 rounded-full px-3 py-1 text-xs sm:text-sm font-medium text-gray-700 dark:text-gray-200 mb-4">
+          <span className="inline-block bg-[#DEE6EB] dark:bg-gray-700 rounded-full px-3 py-1 text-sm sm:text-[16px] font-medium text-gray-700 dark:text-gray-200 mb-4">
             About Us
           </span>
           <h1 className=" text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-gray-800  mb-4">
             Our Story
           </h1>
-          <p className=" text-sm sm:text-base md:text-sm text-gray-600 dark:text-gray-200 max-w-5xl mx-auto text-justify leading-relaxed">
+          <p className=" text-base sm:text-base md:text-[17px] text-gray-600 dark:text-gray-200 max-w-5xl mx-auto text-justify leading-relaxed">
             Words are a powerful mode of communication at the same time language
             is for communication and 10 words echoed in the mind of our founder.
             Shashank’s journey started as a Fellow with SBI Fellowship placed
@@ -43,7 +43,7 @@ export default function AboutUs() {
             starts within the community.
           </p>
         </div>
-        <div className="relative w-full md:w-5xl h-[300px] md:h-[380px] mt-12 md:mt-28 md:ml-6 rounded-xl overflow-hidden shadow-xl">
+        <div className="relative w-full md:w-5xl h-[300px] md:h-[490px] mt-12 md:mt-28 md:ml-6 rounded-xl overflow-hidden shadow-xl">
           <Image
             src="/assets/about-us/DSC_0365.JPG"
             alt="Story Image"
@@ -55,11 +55,10 @@ export default function AboutUs() {
         </div>
       </section>
 
-      {/* How We Started Section */}
       <section className="w-full max-w-7xl mx-auto my-16 md:mt-10 animate-fade-in">
         <div className="flex flex-col lg:flex-row items-center gap-8 md:gap-12">
           <div className="w-full lg:w-1/2  order-2 lg:order-1">
-            <div className="relative aspect-video w-full h-[320px] rounded-xl overflow-hidden shadow-xl">
+            <div className="relative aspect-video w-full h-[420px] rounded-xl overflow-hidden shadow-xl">
               <Image
                 src="/assets/about-us/IMG_0008.JPG"
                 alt="Story Image"
@@ -71,7 +70,7 @@ export default function AboutUs() {
             </div>
           </div>
           <div className="w-full lg:w-1/2 order-1 lg:order-2">
-            <p className="font-sourceSans3 text-base sm:text-sm text-gray-600 dark:text-gray-200 text-justify leading-relaxed">
+            <p className="font-sourceSans3 text-base sm:text-[17px] text-gray-600 dark:text-gray-200 text-justify leading-relaxed">
               GRAM started as an organisation focused on water and environment
               conservation. However, as GRAM grew and its roots deepened within
               various communities, a vital truth became abundantly clear, the
