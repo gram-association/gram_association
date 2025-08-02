@@ -52,8 +52,10 @@ export default function Programs() {
               </div>
             </div>
             <div className="p-4">
-              <h3 className="text-md  text-gray-800">{program.title}</h3>
-              <p className="text-gray-600 text-sm mt-2">
+              <h3 className="text-[17px] font-bold text-gray-800">
+                {program.title}
+              </h3>
+              <p className="text-gray-600 text-base mt-2">
                 {program.description}
               </p>
               <Link href={`/our-programs/${program.slug}`}>

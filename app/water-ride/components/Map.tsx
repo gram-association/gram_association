@@ -691,7 +691,7 @@ export default function WaterRideMap() {
           Impact
         </p>
         <h2 className="text-xl sm:text-3xl md:text-4xl lg:text-5xl mt-4 text-center mb-6 px-4">
-          Our Impact Across India
+          Journey Across India
         </h2>
       </div>
       {/* Mobile View */}
