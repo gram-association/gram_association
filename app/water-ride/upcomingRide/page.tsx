@@ -131,48 +131,46 @@ export default function UpcomingRide() {
         </div>
       </div>
       {/* Route Section */}
-      <section className="text-left py-8 sm:py-12 md:py-12 px-4 sm:px-8 md:px-20 bg-gray-50 dark:bg-gray-900">
-        <div className="max-w-full mx-auto bg-white dark:bg-gray-800 shadow-lg rounded-lg p-6 sm:p-8 transition-all duration-300 hover:shadow-xl">
-          <h3 className="text-3xl sm:text-4xl md:text-5xl  text-gray-800 dark:text-gray-100 mb-2">
-            The Route
-          </h3>
-          <h4 className="text-lg sm:text-xl md:text-2xl font-medium text-gray-600 dark:text-gray-300 mb-6">
-            Tracing India’s Water Wisdom
-          </h4>
-          <p className="text-base sm:text-lg text-gray-700 dark:text-gray-200 font-medium leading-relaxed">
-            {[
-              "Jharkhand",
-              "West Bengal",
-              "Meghalaya",
-              "Tripura",
-              "Mizoram",
-              "Manipur",
-              "Nagaland",
-              "Arunachal Pradesh",
-              "Assam",
-              "Sikkim",
-              "Bihar",
-              "Uttar Pradesh",
-              "Uttarakhand",
-              "Himachal Pradesh",
-              "Jammu & Kashmir",
-              "Punjab",
-              "Haryana",
-              "Delhi",
-            ].map((state, index) => (
-              <span key={state} className="inline-flex items-center">
-                <span className="hover:text-blue-500 dark:hover:text-blue-400 transition-colors duration-200">
-                  {state}
-                </span>
-                {index < 17 && (
-                  <span className="mx-2 text-blue-500 dark:text-blue-400 font-bold">
-                    →
-                  </span>
-                )}
+      <section className="text-left py-8 sm:py-12 md:py-6 px-4 sm:px-8 md:px-20 bg-[#BAD1CA] dark:bg-gray-900">
+        <h3 className="text-3xl sm:text-4xl md:text-3xl  text-gray-800 dark:text-gray-100 mb-2">
+          The Route
+        </h3>
+        <h4 className="text-lg sm:text-xl md:text-xl font-medium text-gray-600 dark:text-gray-300 mb-6">
+          Tracing India’s Water Wisdom
+        </h4>
+        <p className="text-base sm:text-lg text-gray-700 dark:text-gray-200 font-medium leading-relaxed">
+          {[
+            "Jharkhand",
+            "West Bengal",
+            "Meghalaya",
+            "Tripura",
+            "Mizoram",
+            "Manipur",
+            "Nagaland",
+            "Arunachal Pradesh",
+            "Assam",
+            "Sikkim",
+            "Bihar",
+            "Uttar Pradesh",
+            "Uttarakhand",
+            "Himachal Pradesh",
+            "Jammu & Kashmir",
+            "Punjab",
+            "Haryana",
+            "Delhi",
+          ].map((state, index) => (
+            <span key={state} className="inline-flex items-center">
+              <span className="hover:text-blue-500 dark:hover:text-blue-400 transition-colors duration-200">
+                {state}
               </span>
-            ))}
-          </p>
-        </div>
+              {index < 17 && (
+                <span className="mx-2 text-blue-500 dark:text-blue-400 font-bold">
+                  →
+                </span>
+              )}
+            </span>
+          ))}
+        </p>
       </section>
 
       {/* Planned Route Section */}
@@ -226,7 +224,7 @@ export default function UpcomingRide() {
 
       {/* Support Form Section */}
       <div className="max-w-full">
-        <div className="relative bg-[#BAD1CA] dark:bg-gray-700 w-full max-w-full h-auto max-h-[320px] flex md:justify-center md:h-[270px]">
+        <div className="relative bg-[#BAD1CA] dark:bg-gray-700 w-full max-w-full h-auto max-h-[320px] flex md:justify-center md:h-[850px]">
           <h1 className="text-2xl sm:text-4xl  text-center mx-auto mt-8  sm:mb-6 order-3 md:absolute ">
             Support the Movement
           </h1>
@@ -237,9 +235,9 @@ export default function UpcomingRide() {
           </div>
         </div>
       </div>
-      <div className="max-w-full h-auto min-h-[300px] bg-[#F8F1E9] dark:bg-gray-900 order-5 flex justify-center items-start">
+      <div className="max-w-full h-auto min-h-[300px] bg-[#BAD1CA] dark:bg-gray-900 order-5 flex justify-center items-start">
         {/* Form for mobile view */}
-        <div className="md:hidden w-[90%] max-w-[600px] bg-white dark:bg-gray-950 p-8 rounded-lg shadow-xl ">
+        <div className="md:hidden w-[90%] max-w-[600px] bg-white dark:bg-gray-950 p-8 rounded-lg shadow-xl mt-4">
           <Support />
         </div>
       </div>
