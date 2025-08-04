@@ -5,27 +5,27 @@ const MissionCards: React.FC = () => {
   const missions = [
     {
       pillar: "Document Wisdom",
-      action: "Archive indigenous techniques",
-      impact: "Create India's Water Heritage Atlas",
+      // action: "Archive indigenous techniques",
+      // impact: "Create India's Water Heritage Atlas",
       img: "/logos/Group 8.png",
     },
     {
       pillar: "Build water warriors",
-      action:
-        "Train locals as Water Champions with IoT-Testing Kits (if app gets developed)",
-      impact: "Water-secure villages by 2030",
+      // action:
+      //   "Train locals as Water Champions with IoT-Testing Kits (if app gets developed)",
+      // impact: "Water-secure villages by 2030",
       img: "/logos/Volunteer.png",
     },
     {
       pillar: "Policy Bridges",
-      action: "Collect citizen voices for state water schemed",
-      impact: "Shape state water action plans",
+      // action: "Collect citizen voices for state water schemed",
+      // impact: "Shape state water action plans",
       img: "/logos/donate.png",
     },
     {
       pillar: "State Interventions (Post-Ride)",
-      action: "Partner with local NGOs to implement 1 flagship project/state",
-      impact: "10 million liter annual recharge",
+      // action: "Partner with local NGOs to implement 1 flagship project/state",
+      // impact: "10 million liter annual recharge",
       img: "/logos/partners.png",
     },
   ];
@@ -49,13 +49,13 @@ const MissionCards: React.FC = () => {
             <h2 className="text-xl font-semibold text-gray-900 dark:text-gray-200 text-center mb-4">
               {mission.pillar}
             </h2>
-            <p className="text-gray-700 dark:text-gray-200 mb-4">
+            {/* <p className="text-gray-700 dark:text-gray-200 mb-4">
               {mission.action}
             </p>
             <hr />
             <p className="text-gray-700 dark:text-gray-200 mt-2 ">
               {mission.impact}
-            </p>
+            </p> */}
           </div>
         ))}
       </div>
