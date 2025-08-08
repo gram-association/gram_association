@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export default function JourneyHighlights() {
   return (
-    <main>
+    <main className="overflow-x-hidden">
       <section className="py-8 bg-[#F8F1E9] dark:bg-gray-800  min-w-screen text-center mt-10">
         <p className="container mx-auto bg-[#DEE6EB] dark:bg-gray-700 w-fit rounded-lg px-4  text-gray-700 dark:text-gray-200 flex items-center text-sm sm:text-base">
           Get Involved

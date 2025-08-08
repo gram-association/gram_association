@@ -5,7 +5,7 @@ import Story from "../components/storySection";
 
 export default function UpcomingRide() {
   return (
-    <main className="min-w-screen">
+    <main className="min-w-screen overflow-x-hidden">
       <div className="text-center py-6 sm:py-8 md:py-12">
         <p className="container w-fit mx-auto bg-[#DEE6EB] dark:bg-gray-700 rounded-lg px-2 py-1 text-xs sm:text-sm text-gray-700 dark:text-gray-200 flex items-center mb-6">
           The Upcoming Rides

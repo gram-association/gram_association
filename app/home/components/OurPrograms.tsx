@@ -27,39 +27,20 @@ export default function OurPrograms() {
           </h1>
         </div>
 
-        <div className="min-w-screen flex flex-col ">
+        <div className="min-w-screen flex flex-col">
           {[program1, program2].map((program, i) => (
-            <div
-              key={program.id}
-              className={`flex flex-col md:flex-row ${
-                i % 2 === 1 ? "md:flex-row" : ""
-              }`}
-            >
-              {/* Text Section */}
+            <div key={program.id} className="flex flex-col md:flex-row-reverse">
+              {/* Title - Mobile only */}
               <div
-                className={`flex-1 p-6 ${
+                className={`block md:hidden px-6 pt-6  ${
                   i === 1 ? "bg-[#DDE8E5]" : "bg-[#EBDDDB]"
-                } `}
+                }`}
               >
-                <div className="ml-0 sm:ml-20">
-                  <h2 className="text-2xl  text-gray-800  mb-2">
-                    {program.title}
-                  </h2>
-                  <p className="text-gray-600  mb-4 text-base">
-                    {Array.isArray(program.description)
-                      ? program.description.join(" ")
-                      : program.description}
-                  </p>
-                  <Link href={`/our-programs/${program.id}`}>
-                    <button className="bg-teal-600 text-white px-4 py-2 rounded-full hover:bg-teal-700  transition">
-                      Read More
-                    </button>
-                  </Link>
-                </div>
+                <h2 className="text-2xl text-gray-800 mb-2">{program.title}</h2>
               </div>
 
               {/* Image Section */}
-              <div className="flex-1 h-[385px] bg-gray-300 ">
+              <div className="flex-1 h-[250px] md:h-[385px] bg-gray-300">
                 <img
                   src={
                     Array.isArray(program.image)
@@ -69,6 +50,30 @@ export default function OurPrograms() {
                   alt={program.title}
                   className="w-full h-full object-cover"
                 />
+              </div>
+
+              {/* Text Section */}
+              <div
+                className={`flex-1 p-6 flex flex-col justify-center ${
+                  i === 1 ? "bg-[#DDE8E5]" : "bg-[#EBDDDB]"
+                }`}
+              >
+                {/* Title - Desktop only */}
+                <h2 className="hidden md:block text-2xl text-gray-800 mb-2">
+                  {program.title}
+                </h2>
+
+                <p className="text-gray-600 mb-4 text-base">
+                  {Array.isArray(program.description)
+                    ? program.description.join(" ")
+                    : program.description}
+                </p>
+
+                <Link href={`/our-programs/${program.id}`}>
+                  <button className="bg-teal-600 text-white px-4 py-2 rounded-full hover:bg-teal-700 transition">
+                    Read More
+                  </button>
+                </Link>
               </div>
             </div>
           ))}
