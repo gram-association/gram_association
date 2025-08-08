@@ -8,7 +8,6 @@ import { useEffect, useRef } from "react";
 interface JourneyStep {
   time: string;
   title: string;
-
   description: string[];
   image: string | string[];
 }
@@ -18,7 +17,6 @@ const journeySteps: JourneyStep[] = [
   {
     time: "Week 1",
     title: "Rajasthan: Learning from Grassroots Innovations",
-
     description: [
       "Visited the SWRC Centre in Jawaja-Bayawar; interacted with NGO staff on rural water interventions and early childhood education through crèche schools.",
       "Understood the construction of large check dams in remote areas and the importance of community involvement in water projects.",
@@ -35,7 +33,6 @@ const journeySteps: JourneyStep[] = [
   {
     time: "Week 2",
     title: "Gujarat: Exploring Farming & Water Solutions",
-
     description: [
       "Visited Santrampur with SAARTHI to meet farmers and study water-related challenges in agriculture.",
       "Volunteered at Sardar Patel Farms in Ahmedabad to learn organic farming practices.",
@@ -51,7 +48,6 @@ const journeySteps: JourneyStep[] = [
   {
     time: "Week 3",
     title: "Madhya Pradesh: Water Safety & Tribal Knowledge",
-
     description: [
       "Visited Jhabua with INREM Foundation to study fluoride-affected villages.",
       "Interacted with the local bus union and inaugurated a temple flower composting unit.",
@@ -68,7 +64,6 @@ const journeySteps: JourneyStep[] = [
   {
     time: "Week 4",
     title: "Maharashtra: Community Water Management",
-
     description: [
       "Visited Dhule and met Mr. Pawar to assess a rainwater harvesting site and inaugurate a canal project.",
       "Visited Deshbandhu Foundation to observe community-led water initiatives.",
@@ -213,8 +208,8 @@ export default function JourneyPage() {
 
   return (
     <div className="min-h-screen font-sans">
-      <div className="max-w-7xl ml-10  px-4 py-4">
-        <p className="container w-fit  bg-[#DEE6EB] dark:bg-gray-700 rounded-lg px-2 py-1 text-xs sm:text-sm text-gray-700 dark:text-gray-200 flex items-center mb-4">
+      <div className="max-w-7xl md:ml-10 px-4 py-4">
+        <p className="container w-fit bg-[#DEE6EB] dark:bg-gray-700 rounded-lg px-2 py-1 text-xs sm:text-sm text-gray-700 dark:text-gray-200 flex items-center mb-4">
           Extraordinary Journey
         </p>
         <h1 className="text-2xl md:text-4xl font-bold text-gray-800 dark:text-gray-200">
@@ -223,12 +218,12 @@ export default function JourneyPage() {
       </div>
 
       {/* Main Content */}
-      <main className="pt-6 pb-10 max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 mb-48sm:mb-0">
+      <main className="pt-6 pb-10 max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 mb-48 sm:mb-0">
         <div className="relative">
           {/* Timeline Line and Pointer */}
           <div
             ref={timelineRef}
-            className="absolute left-2 md:left-8 top-0 h-full w-1  "
+            className="absolute left-2 md:left-8 top-0 h-full w-1"
           >
             <Image src="/logos/Group 49.png" alt="Route" fill />
             <div
@@ -249,9 +244,49 @@ export default function JourneyPage() {
                 }}
                 className="flex flex-col md:flex-row items-start opacity-0 translate-y-8 transition-all duration-700 ease-out"
               >
-                {/* Text Content */}
-                <div className="md:w-2/3 mb-6 md:mb-0">
-                  {/* Time Marker */}
+                {/* Time and Title */}
+                <div className="order-1 mb-1 md:hidden block">
+                  <div className="mb-4 bg-[#538C7B] dark:bg-gray-700 container w-fit py-1 px-2 text-white rounded-full">
+                    {step.time}
+                  </div>
+                  <h2 className="text-xl md:text-2xl font-semibold text-gray-800 dark:text-gray-200 ">
+                    {step.title}
+                  </h2>
+                </div>
+
+                {/* Image */}
+                <div className="w-full md:w-1/3 md:ml-8 order-2">
+                  <div className="w-full h-auto aspect-square md:h-auto relative py-10 justify-center items-center rounded-lg">
+                    <AutoScrollCarousel
+                      images={
+                        Array.isArray(step.image) ? step.image : [step.image]
+                      }
+                      height="280px"
+                      autoScrollInterval={3000}
+                      imageClassName="rounded-lg"
+                      containerClassName="rounded-lg"
+                      pauseOnHover={true}
+                      loop={true}
+                      transitionDuration={500}
+                      className="w-full h-full rounded-t-lg"
+                      sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
+                    />
+                  </div>
+                </div>
+
+                {/* Description (part of text content in desktop) */}
+                <div className="w-full md:w-2/3 md:mb-0 order-3 md:order-1 block md:hidden">
+                  <ul className="list-disc pl-6 text-gray-700 dark:text-gray-400 space-y-1">
+                    {step.description.map((description, idx) => (
+                      <li key={idx} className="text-indent-negative">
+                        {description}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* Hidden Text Content for Desktop (to group Time + Title + Description) */}
+                <div className="hidden md:block md:w-2/3 md:mb-0 md:order-1">
                   <div className="mb-4 bg-[#538C7B] dark:bg-gray-700 container w-fit py-1 px-2 text-white rounded-full">
                     {step.time}
                   </div>
@@ -265,27 +300,6 @@ export default function JourneyPage() {
                       </li>
                     ))}
                   </ul>
-                </div>
-
-                {/* Image */}
-                <div className="w-full md:w-1/3 md:ml-8">
-                  <div className="w-full h-auto  aspect-square md:h-auto relative py-10 justify-center items-center rounded-lg ">
-                    <AutoScrollCarousel
-                      images={
-                        Array.isArray(step.image) ? step.image : [step.image]
-                      }
-                      height="280px"
-                      autoScrollInterval={3000}
-                      imageClassName="rounded-lg"
-                      containerClassName="rounded-lg "
-                      pauseOnHover={true}
-                      loop={true}
-                      transitionDuration={500}
-                      // objectFit="cover"
-                      className="w-full h-full rounded-t-lg"
-                      sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
-                    />
-                  </div>
                 </div>
               </div>
             ))}

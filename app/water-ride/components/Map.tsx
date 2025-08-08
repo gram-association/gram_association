@@ -1,11 +1,10 @@
 "use client";
-
 import { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/Button";
 import { Droplets, Loader2, ChevronRight, X } from "lucide-react";
+import Image from "next/image";
 
-/*  DATA   */
-
+/* 	DATA 	 */
 const states = [
   {
     name: "Rajasthan",
@@ -179,9 +178,7 @@ const states = [
     ],
   },
 ];
-
 const byName = (n: string) => states.find((s) => s.name === n);
-
 const routes = [
   {
     from: "Rajasthan",
@@ -216,7 +213,6 @@ const routes = [
     to: "Odisha",
   },
 ];
-
 const routeStyles = {
   stepwell: { color: "#3B82F6", weight: 5, dashArray: "20,10" },
   tribal: { color: "#3B82F6", weight: 4, dashArray: "15,5,5,5" },
@@ -300,13 +296,10 @@ export default function WaterRideMap() {
     states[0]
   ); // Default to Rajasthan
   const [ready, setReady] = useState(false);
-
+  const [mapError, setMapError] = useState<string | null>(null);
   const [currentRideIndex, setCurrentRideIndex] = useState(0);
   const [isRiding, setIsRiding] = useState(false);
-  const [mapError, setMapError] = useState<string | null>(null);
-
   const [isMoving, setIsMoving] = useState(false);
-
   const mapDiv = useRef<HTMLDivElement>(null);
   const mapRef = useRef<any>(null);
   const polylines = useRef<any[]>([]);
@@ -322,7 +315,6 @@ export default function WaterRideMap() {
           init();
           return;
         }
-
         // Load CSS
         const css = document.createElement("link");
         css.rel = "stylesheet";
@@ -356,14 +348,11 @@ export default function WaterRideMap() {
           console.error("Map container or Leaflet not available");
           return;
         }
-
         console.log("Initializing map...");
-
         // Clear any existing map
         if (mapRef.current) {
           mapRef.current.remove();
         }
-
         const map = window.L.map(mapDiv.current, {
           center: [18.5, 77.5],
           zoom: 5,
@@ -392,7 +381,6 @@ export default function WaterRideMap() {
 
         // Add default layer
         layersRef.current.satellite.addTo(map);
-
         mapRef.current = map;
 
         // Add markers and routes
@@ -400,6 +388,13 @@ export default function WaterRideMap() {
         addRoutes(map);
         addStateLabels(map);
         createMovingBike(map);
+
+        // Ensure map resizes correctly after DOM is rendered
+        setTimeout(() => {
+          if (mapRef.current) {
+            mapRef.current.invalidateSize();
+          }
+        }, 100);
 
         setReady(true);
         console.log("Map initialized successfully");
@@ -435,7 +430,6 @@ export default function WaterRideMap() {
         iconSize: [48, 32],
         iconAnchor: [24, 16],
       });
-
       movingBikeRef.current = window.L.marker(
         [states[0].coordinates.lat, states[0].coordinates.lng],
         {
@@ -453,7 +447,6 @@ export default function WaterRideMap() {
           iconSize: [50, 10],
           iconAnchor: [50, 2],
         });
-
         window.L.marker([state.coordinates.lat, state.coordinates.lng], {
           icon: label,
           interactive: false,
@@ -469,22 +462,19 @@ export default function WaterRideMap() {
             <div class="marker-container">
               <div class="marker-core" style="background: ${s.color};">
               </div>
-              
+            </div>
           `,
           iconSize: [50, 50],
           iconAnchor: [25, 25],
         });
-
         const marker = window.L.marker([s.coordinates.lat, s.coordinates.lng], {
           icon,
           riseOnHover: true,
         }).addTo(map);
-
         marker.on("click", () => {
           animateBikeToState(idx);
           setSelected(states[idx]);
         });
-
         markers.current.push(marker);
       });
     };
@@ -518,7 +508,6 @@ export default function WaterRideMap() {
           ...style,
           opacity: 0.8,
         }).addTo(map);
-
         polylines.current.push(line);
       });
     };
@@ -540,10 +529,12 @@ export default function WaterRideMap() {
     if (!mapRef.current || !movingBikeRef.current || isMoving) return;
 
     setIsMoving(true);
+
     const currentState = states[currentRideIndex];
     const targetState = states[targetIndex];
 
     const stepsPerSegment = 30; // Steps per segment for smooth animation
+
     let currentStep = 0;
 
     const bikeIcon = () => {
@@ -586,12 +577,14 @@ export default function WaterRideMap() {
       const startLng = currentState.coordinates.lng;
       const endLat = targetState.coordinates.lat;
       const endLng = targetState.coordinates.lng;
+
       const midLat = (startLat + endLat) / 2 - 2.5; // Same midpoint as in addRoutes
       const midLng = (startLng + endLng) / 2;
 
       // First segment: Kerala to midpoint
       const latStep1 = (midLat - startLat) / stepsPerSegment;
       const lngStep1 = (midLng - startLng) / stepsPerSegment;
+
       // Second segment: midpoint to Tamil Nadu
       const latStep2 = (endLat - midLat) / stepsPerSegment;
       const lngStep2 = (endLng - midLng) / stepsPerSegment;
@@ -684,7 +677,7 @@ export default function WaterRideMap() {
   }
 
   return (
-    <main className="h-screen w-full mb-8 ">
+    <main className="h-screen w-full mb-80 md:mb-8">
       {/* Header */}
       <div className="mb-2 sm:mb-8">
         <p className="container mx-auto bg-[#DEE6EB] w-fit rounded-xl px-2 sm:px-4 mt-10 sm:mt-10 text-gray-700 flex items-center text-xs sm:text-base">
@@ -694,95 +687,106 @@ export default function WaterRideMap() {
           Journey Across India
         </h2>
       </div>
-      {/* Mobile View */}
-      <div className="h-screen w-full flex flex-col lg:hidden bg-gray-100 dark:bg-gray-900">
-        <div className="w-full flex flex-row">
-          {/* State List Column */}
-          <div className="w-1/3 h-[550px] bg-gray-50 dark:bg-gray-600  flex flex-col">
-            {/* State List */}
-            <div className="flex-1 overflow-y-auto scrollbar-hide">
-              <div className="p-2 ">
-                <div className="space-y-2">
-                  {states.map((state, idx) => (
-                    <div
-                      key={state.name}
-                      className={`p-2 sm:p-3 rounded-lg cursor-pointer transition-all border ${
-                        currentRideIndex === idx
-                          ? "bg-blue-50 border-blue-200 shadow-sm"
-                          : "bg-white border-gray-200 hover:bg-gray-50"
-                      } ${isMoving ? "opacity-50 cursor-not-allowed" : ""}`}
-                      onClick={() => {
-                        if (!isMoving) {
-                          animateBikeToState(idx);
-                        }
-                      }}
-                    >
-                      <div className="flex items-center gap-2 sm:gap-3">
-                        <div
-                          className="w-3 h-3 sm:w-4 sm:h-4 rounded-full flex items-center justify-center text-white font-bold text-[10px] sm:text-xs border-2 border-white shadow-sm"
-                          style={{ backgroundColor: state.color }}
-                        ></div>
-                        <div className="flex-1">
-                          <div className="font-medium text-gray-800 text-xs sm:text-sm py-2">
-                            {state.name}
-                          </div>
-                        </div>
-                        {currentRideIndex === idx && (
-                          <div className="flex items-center gap-1">
-                            <BulletBike
-                              size={12}
-                              className="text-blue-600 size-3 sm:size-4"
-                            />
-                            <ChevronRight className="h-2 w-2 sm:h-3 sm:w-3 text-blue-600" />
-                          </div>
-                        )}
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
 
-          {/* Details Column */}
-          <div className="w-2/3 h-[550px] bg-white dark:bg-gray-900 border-l  flex flex-col">
-            {selected ? (
-              <>
-                {/* Details Header */}
-                <div className="p-2 sm:p-4 border-b   bg-blue-50 dark:bg-gray-700 ">
-                  <div className="text-center">
-                    <h3 className="text-lg sm:text-2xl text-gray-900 dark:text-gray-200">
-                      {selected.name}
-                    </h3>
+      {/* Mobile View */}
+      <div className="h-full w-full flex flex-col lg:hidden bg-gray-100 dark:bg-gray-900 ">
+        {/* Map */}
+        <div className="relative h-full w-full">
+          <div ref={mapDiv} className="w-full h-full absolute top-0 left-0" />
+          <div className="w-full h-[330px]">
+            {" "}
+            <Image
+              src="/assets/water-ride/IndiaMap.png"
+              alt="Map"
+              fill
+              className="object-cover"
+            />
+          </div>
+        </div>
+        {/* Horizontal States List */}
+        <div className="bg-gray-50 dark:bg-gray-600 border-t mx-2 ">
+          <div className="overflow-x-auto scrollbar-hide">
+            <div className="flex flex-row p-2 space-x-2">
+              {states.map((state, idx) => (
+                <div
+                  key={state.name}
+                  className={`flex-shrink-0 p-2 rounded-lg cursor-pointer transition-all border ${
+                    currentRideIndex === idx
+                      ? "bg-blue-50 border-blue-200 shadow-sm"
+                      : "bg-white border-gray-200 hover:bg-gray-50"
+                  } ${isMoving ? "opacity-50 cursor-not-allowed" : ""}`}
+                  onClick={() => {
+                    if (!isMoving) {
+                      animateBikeToState(idx);
+                      // Ensure map resizes after state selection
+                      setTimeout(() => {
+                        if (mapRef.current) {
+                          mapRef.current.invalidateSize();
+                        }
+                      });
+                    }
+                  }}
+                >
+                  <div className="flex items-center gap-2">
+                    <div
+                      className="w-3 h-3 rounded-full flex items-center justify-center text-white font-bold text-[10px] border-2 border-white shadow-sm"
+                      style={{ backgroundColor: state.color }}
+                    ></div>
+                    <div className="font-medium text-gray-800 text-sm ">
+                      {state.name}
+                    </div>
+                    {currentRideIndex === idx && (
+                      <div className="flex items-center gap-1">
+                        <BulletBike
+                          size={12}
+                          className="text-blue-600 size-3"
+                        />
+                        <ChevronRight className="h-2 w-2 text-blue-600" />
+                      </div>
+                    )}
                   </div>
                 </div>
-
-                {/* Details Content */}
-                <div className="flex-1 overflow-y-auto p-4 space-y-4 scrollbar-hide">
-                  <Section
-                    title="Geographical Overview"
-                    items={selected.geographical}
-                  />
-                  <Section title="Water Issues" items={selected.waterissues} />
-                  <Section
-                    title="Traditional Water Wisdom"
-                    items={selected.wisdom}
-                  />
-                </div>
-              </>
-            ) : (
-              <div className="flex-1 flex items-center justify-center p-4 ">
+              ))}
+            </div>
+          </div>
+        </div>
+        {/* Details */}
+        <div className="flex-1 bg-white dark:bg-gray-900 border-t scrollbar-hide">
+          {selected ? (
+            <>
+              {/* Details Header */}
+              <div className="p-2 border-b bg-blue-50 dark:bg-gray-700">
                 <div className="text-center">
-                  <h3 className="text-base sm:text-lg font-medium text-gray-600 mb-2">
-                    Select a State
+                  <h3 className="text-lg text-gray-900 dark:text-gray-200">
+                    {selected.name}
                   </h3>
-                  <p className="text- text-gray-500">
-                    Click on a state from the list to view details
-                  </p>
                 </div>
               </div>
-            )}
-          </div>
+              {/* Details Content */}
+              <div className="flex-1 overflow-y-auto h-auto p-4 space-y-4 scrollbar-hide">
+                <Section
+                  title="Geographical Overview"
+                  items={selected.geographical}
+                />
+                <Section title="Water Issues" items={selected.waterissues} />
+                <Section
+                  title="Traditional Water Wisdom"
+                  items={selected.wisdom}
+                />
+              </div>
+            </>
+          ) : (
+            <div className="flex-1 flex items-center justify-center p-4">
+              <div className="text-center">
+                <h3 className="text-base font-medium text-gray-600 mb-2">
+                  Select a State
+                </h3>
+                <p className="text-sm text-gray-500">
+                  Click on a state from the list or map to view details
+                </p>
+              </div>
+            </div>
+          )}
         </div>
       </div>
 
@@ -814,11 +818,10 @@ export default function WaterRideMap() {
               </div>
             )}
           </div>
-
           {/* Right Half: State List + Details */}
           <div className="w-2/3 flex">
             {/* State List Column */}
-            <div className="w-1/3 bg-gray-50 dark:bg-gray-600 border-l  flex flex-col">
+            <div className="w-1/3 bg-gray-50 dark:bg-gray-600 border-l flex flex-col">
               {/* State List */}
               <div className="flex-1 overflow-y-auto scrollbar-hide">
                 <div className="py-3 px-4">
@@ -860,24 +863,22 @@ export default function WaterRideMap() {
                 </div>
               </div>
             </div>
-
             {/* Details Column */}
-            <div className="w-2/3 bg-white dark:bg-gray-900 border-l flex flex-col ">
+            <div className="w-2/3 bg-white dark:bg-gray-900 border-l flex flex-col">
               {selected ? (
                 <>
                   {/* Details Header */}
-                  <div className="p-4 border-b  dark:bg-gray-700 bg-blue-50">
-                    <div className=" ">
+                  <div className="p-4 border-b dark:bg-gray-700 bg-blue-50">
+                    <div className="">
                       <div className="">
-                        <div className=" text-center  ">
-                          <h3 className="text-2xl  text-gray-900 dark:text-gray-200">
+                        <div className="text-center">
+                          <h3 className="text-2xl text-gray-900 dark:text-gray-200">
                             {selected.name}
                           </h3>
                         </div>
                       </div>
                     </div>
                   </div>
-
                   {/* Details Content */}
                   <div className="flex-1 overflow-y-auto p-6 space-y-6 scrollbar-hide">
                     <Section
@@ -911,11 +912,13 @@ export default function WaterRideMap() {
           </div>
         </div>
       </div>
-
       <style jsx global>{`
         .leaflet-container {
-          height: 100%;
-          width: 100%;
+          height: 100% !important;
+          width: 100% !important;
+          position: absolute;
+          top: 0;
+          left: 0;
         }
         .state-name-label {
           color: white;
@@ -926,8 +929,6 @@ export default function WaterRideMap() {
           text-align: center;
           box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
           white-space: nowrap;
-          // background: rgba(0, 0, 0, 0.7);
-          // backdrop-filter: blur(4px);
         }
         .marker-container {
           position: relative;
@@ -948,7 +949,6 @@ export default function WaterRideMap() {
           box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
           z-index: 2;
         }
-
         .moving-bike-marker {
           z-index: 1000;
         }
@@ -1029,7 +1029,7 @@ export default function WaterRideMap() {
 function Section({ title, items }: { title: string; items: string[] }) {
   return (
     <div className="space-y-3">
-      <h4 className="text-sm sm:text-lg font-semibold flex items-center gap-2 text-gray-800  dark:text-gray-200">
+      <h4 className="text-sm sm:text-lg font-semibold flex items-center gap-2 text-gray-800 dark:text-gray-200">
         <span
           className="w-3 h-3 rounded-full"
           style={{ backgroundColor: "#4580a5" }}

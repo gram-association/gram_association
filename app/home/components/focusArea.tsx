@@ -31,7 +31,7 @@ export default function FocusAreas() {
                 alt="Entrepreneurship Icon"
                 width={40}
                 height={40}
-                className="w-10 h-10"
+                className="w-18 md:w-full h-10 md:h-full"
               />
             </div>
             <div className="relative">
@@ -53,7 +53,7 @@ export default function FocusAreas() {
                 alt="Edification Icon"
                 width={40}
                 height={40}
-                className="w-10 h-10"
+                className="w-18 md:w-full h-10 md:h-full"
               />
             </div>
             <div className="relative">
@@ -73,7 +73,7 @@ export default function FocusAreas() {
                 alt="Empowerment Icon"
                 width={40}
                 height={40}
-                className="w-10 h-10"
+                className="w-18 md:w-full h-10 md:h-full"
               />
             </div>
             <div className="relative">
@@ -93,7 +93,7 @@ export default function FocusAreas() {
                 alt="Education Icon"
                 width={40}
                 height={40}
-                className="w-10 h-10"
+                className="w-18 md:w-full h-10 md:h-10"
               />
             </div>
             <div className="relative">
@@ -102,8 +102,8 @@ export default function FocusAreas() {
                 Enabling individuals and communities to serve themselves,
                 instilling confidence and driving a positive impact
               </p>
-              <div className="absolute hidden md:block h-[2px] bg-gray-300  top-5 right-[calc(100%+1rem)] w-[calc(26.5%+1rem)]"></div>
-              <div className="absolute -left-45 top-3 w-4 h-4 bg-[#D7BCB7] rounded-full"></div>
+              <div className="absolute hidden md:block h-[2px] bg-gray-300  top-5 right-[calc(100%+1rem)] w-[calc(27.5%+1rem)]"></div>
+              <div className="absolute -left-47 top-3 w-4 h-4 bg-[#D7BCB7] rounded-full"></div>
             </div>
           </div>
           <div className="flex gap-4 items-start relative">
@@ -113,7 +113,7 @@ export default function FocusAreas() {
                 alt="Environment Icon"
                 width={40}
                 height={40}
-                className="w-10 h-10"
+                className="w-18 md:w-full h-10 md:h-full"
               />
             </div>
             <div className="relative">
