@@ -4,7 +4,7 @@ import WaterRideMap from "../components/Map";
 
 export default function OurImpactPage() {
   return (
-    <div className="overflow-x-hidden">
+    <div className="">
       <WaterRideMap />
     </div>
   );

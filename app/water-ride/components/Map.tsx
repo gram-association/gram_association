@@ -1,10 +1,9 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/Button";
-import { Droplets, Loader2, ChevronRight, X } from "lucide-react";
-import Image from "next/image";
+import { Droplets, Loader2, ChevronRight } from "lucide-react";
 
-/* 	DATA 	 */
+/*   DATA   */
 const states = [
   {
     name: "Rajasthan",
@@ -322,7 +321,6 @@ export default function WaterRideMap() {
         css.integrity = "sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=";
         css.crossOrigin = "";
         document.head.appendChild(css);
-
         // Load JS
         const js = document.createElement("script");
         js.src = "https://unpkg.com/leaflet@1.9.4/dist/leaflet.js";
@@ -361,7 +359,6 @@ export default function WaterRideMap() {
           zoomControl: true,
           attributionControl: true,
         });
-
         // Enhanced tile layers
         layersRef.current = {
           satellite: window.L.tileLayer(
@@ -378,24 +375,20 @@ export default function WaterRideMap() {
             }
           ),
         };
-
         // Add default layer
         layersRef.current.satellite.addTo(map);
         mapRef.current = map;
-
         // Add markers and routes
         addMarkers(map);
         addRoutes(map);
         addStateLabels(map);
         createMovingBike(map);
-
         // Ensure map resizes correctly after DOM is rendered
         setTimeout(() => {
           if (mapRef.current) {
             mapRef.current.invalidateSize();
           }
         }, 100);
-
         setReady(true);
         console.log("Map initialized successfully");
       } catch (error) {
@@ -484,7 +477,6 @@ export default function WaterRideMap() {
         const a = byName(r.from);
         const b = byName(r.to);
         if (!a || !b) return;
-
         let coordinates;
         if (r.from === "Kerala" && r.to === "Tamil Nadu") {
           // Create a U-shaped route by adding a midpoint
@@ -502,7 +494,6 @@ export default function WaterRideMap() {
             [b.coordinates.lat, b.coordinates.lng],
           ];
         }
-
         const style = routeStyles[r.from as keyof typeof routeStyles];
         const line = window.L.polyline(coordinates, {
           ...style,
@@ -513,6 +504,14 @@ export default function WaterRideMap() {
     };
 
     loadLeaflet();
+
+    // Resize handler to invalidate map size when container dimensions change
+    const handleResize = () => {
+      if (mapRef.current) {
+        mapRef.current.invalidateSize();
+      }
+    };
+    window.addEventListener("resize", handleResize);
 
     return () => {
       if (rideInterval.current) clearInterval(rideInterval.current);
@@ -525,148 +524,119 @@ export default function WaterRideMap() {
     };
   }, []);
 
-  const animateBikeToState = (targetIndex: number) => {
+  const animateBikeToState = async (targetIndex: number) => {
     if (!mapRef.current || !movingBikeRef.current || isMoving) return;
-
     setIsMoving(true);
+    let current = currentRideIndex;
+    const step = targetIndex > current ? 1 : -1;
+    while (current !== targetIndex) {
+      await animateSegment(current, current + step);
+      current += step;
+      setCurrentRideIndex(current);
+    }
+    setSelected(states[targetIndex]);
+    setIsMoving(false);
+  };
 
-    const currentState = states[currentRideIndex];
-    const targetState = states[targetIndex];
+  const animateSegment = (fromIndex: number, toIndex: number) => {
+    return new Promise<void>((resolve) => {
+      const fromState = states[fromIndex];
+      const toState = states[toIndex];
+      const stepsPerSegment = 30;
+      let currentStep = 0;
 
-    const stepsPerSegment = 30; // Steps per segment for smooth animation
+      const startLat = fromState.coordinates.lat;
+      const startLng = fromState.coordinates.lng;
+      const endLat = toState.coordinates.lat;
+      const endLng = toState.coordinates.lng;
 
-    let currentStep = 0;
+      const isUSShape = fromIndex === 5 && toIndex === 6; // Kerala to Tamil Nadu
+      let midLat, midLng, latStep1, lngStep1, latStep2, lngStep2;
 
-    const bikeIcon = () => {
-      const progress =
-        currentStep / (stepsPerSegment * (isKeralaToTamilNadu ? 2 : 2.5));
-      const easedProgress = 1 - Math.pow(1 - progress, 3);
-      return window.L.divIcon({
-        className: "moving-bike-marker",
-        html: `
-          <div class="bike-container">
-            <div class="bike-shadow"></div>
-            <div class="bike-body">
-              <svg width="36" height="24" viewBox="0 0 100 60" fill="none" class="bike-svg">
-                <ellipse cx="50" cy="35" rx="35" ry="8" fill="#2563eb" />
-                <rect x="25" y="20" width="50" height="15" rx="7" fill="#1d4ed8" />
-                <ellipse cx="35" cy="25" rx="15" ry="5" fill="#374151" />
-                <circle cx="80" cy="45" r="12" fill="#1f2937" stroke="#374151" strokeWidth="2" />
-                <circle cx="80" cy="45" r="6" fill="#5A829A" />
-                <circle cx="20" cy="45" r="12" fill="#1f2937" stroke="#374151" strokeWidth="2" />
-                <circle cx="20" cy="45" r="6" fill="#5A829A" />
-                <line x1="85" y1="25" x2="75" y2="30" stroke="#374151" strokeWidth="3" strokeLinecap="round" />
-                <rect x="10" y="40" width="20" height="4" rx="2" fill="#5A829A" />
-                <rect x="45" y="35" width="20" height="10" rx="2" fill="#374151" />
-              </svg>
-            </div>
-            <div class="bike-trail" style="opacity: ${easedProgress}"></div>
-          </div>
-        `,
-        iconSize: [48, 32],
-        iconAnchor: [24, 16],
-      });
-    };
+      if (isUSShape) {
+        midLat = (startLat + endLat) / 2 - 2.5;
+        midLng = (startLng + endLng) / 2;
+        latStep1 = (midLat - startLat) / stepsPerSegment;
+        lngStep1 = (midLng - startLng) / stepsPerSegment;
+        latStep2 = (endLat - midLat) / stepsPerSegment;
+        lngStep2 = (endLng - midLng) / stepsPerSegment;
+      } else {
+        latStep1 = (endLat - startLat) / stepsPerSegment;
+        lngStep1 = (endLng - startLng) / stepsPerSegment;
+      }
 
-    // Check if moving from Kerala (index 5) to Tamil Nadu (index 6)
-    const isKeralaToTamilNadu = currentRideIndex === 5 && targetIndex === 6;
-
-    if (isKeralaToTamilNadu) {
-      // U-shaped path with midpoint
-      const startLat = currentState.coordinates.lat;
-      const startLng = currentState.coordinates.lng;
-      const endLat = targetState.coordinates.lat;
-      const endLng = targetState.coordinates.lng;
-
-      const midLat = (startLat + endLat) / 2 - 2.5; // Same midpoint as in addRoutes
-      const midLng = (startLng + endLng) / 2;
-
-      // First segment: Kerala to midpoint
-      const latStep1 = (midLat - startLat) / stepsPerSegment;
-      const lngStep1 = (midLng - startLng) / stepsPerSegment;
-
-      // Second segment: midpoint to Tamil Nadu
-      const latStep2 = (endLat - midLat) / stepsPerSegment;
-      const lngStep2 = (endLng - midLng) / stepsPerSegment;
+      const bikeIcon = (progress: number) => {
+        const easedProgress = 1 - Math.pow(1 - progress, 3);
+        return window.L.divIcon({
+          className: "moving-bike-marker",
+          html: `
+             <div class="bike-container">
+             <div class="bike-shadow"></div>
+             <div class="bike-body">
+               <svg width="36" height="24" viewBox="0 0 100 60" fill="none" class="bike-svg">
+                 <ellipse cx="50" cy="35" rx="35" ry="8" fill="#2563eb" />
+                 <rect x="25" y="20" width="50" height="15" rx="7" fill="#1d4ed8" />
+                 <ellipse cx="35" cy="25" rx="15" ry="5" fill="#374151" />
+                 <circle cx="80" cy="45" r="12" fill="#1f2937" stroke="#374151" strokeWidth="2" />
+                 <circle cx="80" cy="45" r="6" fill="#5A829A" />
+                 <circle cx="20" cy="45" r="12" fill="#1f2937" stroke="#374151" strokeWidth="2" />
+                 <circle cx="20" cy="45" r="6" fill="#5A829A" />
+                 <line x1="85" y1="25" x2="75" y2="30" stroke="#374151" strokeWidth="3" strokeLinecap="round" />
+                 <rect x="10" y="40" width="20" height="4" rx="2" fill="#5A829A" />
+                 <rect x="45" y="35" width="20" height="10" rx="2" fill="#374151" />
+               </svg>
+             </div>
+             <div class="bike-trail" style="opacity: ${easedProgress}"></div>
+           </div>
+          `,
+          iconSize: [48, 32],
+          iconAnchor: [24, 16],
+        });
+      };
 
       const animationInterval = setInterval(() => {
-        if (currentStep >= stepsPerSegment * 2) {
+        const progress = currentStep / stepsPerSegment;
+        if (currentStep >= stepsPerSegment * (isUSShape ? 2 : 1)) {
           clearInterval(animationInterval);
-          setCurrentRideIndex(targetIndex);
-          setSelected(targetState);
-          setIsMoving(false);
+          resolve();
           return;
         }
 
         let currentLat, currentLng;
-        if (currentStep < stepsPerSegment) {
-          // First segment
+        if (isUSShape) {
+          if (currentStep < stepsPerSegment) {
+            // First segment: to midpoint
+            currentLat = startLat + latStep1 * currentStep;
+            currentLng = startLng + lngStep1 * currentStep;
+          } else {
+            // Second segment: midpoint to end
+            const segmentStep = currentStep - stepsPerSegment;
+            currentLat = midLat! + latStep2! * segmentStep;
+            currentLng = midLng! + lngStep2! * segmentStep;
+          }
+        } else {
           currentLat = startLat + latStep1 * currentStep;
           currentLng = startLng + lngStep1 * currentStep;
-        } else {
-          // Second segment
-          const segmentStep = currentStep - stepsPerSegment;
-          currentLat = midLat + latStep2 * segmentStep;
-          currentLng = midLng + lngStep2 * segmentStep;
         }
 
-        movingBikeRef.current.setIcon(bikeIcon());
+        movingBikeRef.current.setIcon(bikeIcon(progress));
         movingBikeRef.current.setLatLng([currentLat, currentLng]);
 
-        // Follow the bike with camera
-        if (currentStep % 8 === 0) {
-          mapRef.current.panTo([currentLat, currentLng]);
+        // Pan map to follow bike every few steps
+        if (currentStep % 5 === 0) {
+          mapRef.current.panTo([currentLat, currentLng], {
+            animate: true,
+            duration: 0.5,
+          });
         }
-
         currentStep++;
-      }, 60);
-    } else {
-      // Standard straight-line animation for other routes
-      const startLat = currentState.coordinates.lat;
-      const startLng = currentState.coordinates.lng;
-      const endLat = targetState.coordinates.lat;
-      const endLng = targetState.coordinates.lng;
-
-      const steps = 60;
-      const latStep = (endLat - startLat) / steps;
-      const lngStep = (endLng - startLng) / steps;
-
-      const animationInterval = setInterval(() => {
-        if (currentStep >= steps) {
-          clearInterval(animationInterval);
-          setCurrentRideIndex(targetIndex);
-          setSelected(targetState);
-          setIsMoving(false);
-          return;
-        }
-
-        const currentLat = startLat + latStep * currentStep;
-        const currentLng = startLng + lngStep * currentStep;
-
-        movingBikeRef.current.setIcon(bikeIcon());
-        movingBikeRef.current.setLatLng([currentLat, currentLng]);
-
-        // Follow the bike with camera
-        if (currentStep % 8 === 0) {
-          mapRef.current.panTo([currentLat, currentLng]);
-        }
-
-        currentStep++;
-      }, 60);
-    }
-  };
-
-  const stopAutoRide = () => {
-    setIsRiding(false);
-    if (rideInterval.current) {
-      clearInterval(rideInterval.current);
-      rideInterval.current = null;
-    }
+      }, 50); // Reduced interval for smoother animation
+    });
   };
 
   if (mapError) {
     return (
-      <div className="h-screen w-full flex items-center justify-center bg-red-50">
+      <div className="h-screen w-full flex items-center justify-center bg-red-50 ">
         <div className="text-center p-4">
           <div className="text-red-500 text-xl mb-2">Map Loading Error</div>
           <div className="text-red-400 mb-4">{mapError}</div>
@@ -677,10 +647,10 @@ export default function WaterRideMap() {
   }
 
   return (
-    <main className="h-screen w-full mb-80 md:mb-8">
+    <main className="h-screen w-full mb-80 md:mb-8 ">
       {/* Header */}
       <div className="mb-2 sm:mb-8">
-        <p className="container mx-auto bg-[#DEE6EB] w-fit rounded-xl px-2 sm:px-4 mt-10 sm:mt-10 text-gray-700 flex items-center text-xs sm:text-base">
+        <p className="mx-auto bg-[#DEE6EB] dark:bg-gray-700 w-fit rounded-lg px-4 text-gray-700 dark:text-gray-200 flex items-center text-sm sm:text-base mt-10">
           Impact
         </p>
         <h2 className="text-xl sm:text-3xl md:text-4xl lg:text-5xl mt-4 text-center mb-6 px-4">
@@ -688,227 +658,124 @@ export default function WaterRideMap() {
         </h2>
       </div>
 
-      {/* Mobile View */}
-      <div className="h-full w-full flex flex-col lg:hidden bg-gray-100 dark:bg-gray-900 ">
-        {/* Map */}
-        <div className="relative h-full w-full">
-          <div ref={mapDiv} className="w-full h-full absolute top-0 left-0" />
-          <div className="w-full h-[330px]">
-            {" "}
-            <Image
-              src="/assets/water-ride/IndiaMap.png"
-              alt="Map"
-              fill
-              className="object-cover"
-            />
-          </div>
-        </div>
-        {/* Horizontal States List */}
-        <div className="bg-gray-50 dark:bg-gray-600 border-t mx-2 ">
-          <div className="overflow-x-auto scrollbar-hide">
-            <div className="flex flex-row p-2 space-x-2">
-              {states.map((state, idx) => (
-                <div
-                  key={state.name}
-                  className={`flex-shrink-0 p-2 rounded-lg cursor-pointer transition-all border ${
-                    currentRideIndex === idx
-                      ? "bg-blue-50 border-blue-200 shadow-sm"
-                      : "bg-white border-gray-200 hover:bg-gray-50"
-                  } ${isMoving ? "opacity-50 cursor-not-allowed" : ""}`}
-                  onClick={() => {
-                    if (!isMoving) {
-                      animateBikeToState(idx);
-                      // Ensure map resizes after state selection
-                      setTimeout(() => {
-                        if (mapRef.current) {
-                          mapRef.current.invalidateSize();
-                        }
-                      });
-                    }
-                  }}
-                >
-                  <div className="flex items-center gap-2">
-                    <div
-                      className="w-3 h-3 rounded-full flex items-center justify-center text-white font-bold text-[10px] border-2 border-white shadow-sm"
-                      style={{ backgroundColor: state.color }}
-                    ></div>
-                    <div className="font-medium text-gray-800 text-sm ">
-                      {state.name}
-                    </div>
-                    {currentRideIndex === idx && (
-                      <div className="flex items-center gap-1">
-                        <BulletBike
-                          size={12}
-                          className="text-blue-600 size-3"
-                        />
-                        <ChevronRight className="h-2 w-2 text-blue-600" />
-                      </div>
-                    )}
-                  </div>
+      {/* Combined View - Map and Content */}
+      <div className="h-full w-full flex flex-col lg:flex-row lg:h-[83vh]  lg:mt-2 lg:mb-18 bg-gray-100 dark:bg-gray-900 lg:bg-white lg:rounded-xl lg:shadow-lg lg:overflow-hidden">
+        {/* Map Section */}
+        <div className="relative w-full h-[40vh] lg:w-2/5 lg:h-full bg-gray-50">
+          <div ref={mapDiv} className="w-full h-full" />{" "}
+          {/* This is the single map div */}
+          {/* Loading Overlay (only for desktop, as mobile shows map immediately) */}
+          {!ready && (
+            <div className="absolute inset-0 bg-white/95 flex items-center justify-center z-50 lg:block">
+              <div className="text-center p-6">
+                <div className="relative mb-6">
+                  <Loader2 className="h-12 w-12 animate-spin text-blue-500 mx-auto" />
+                  <BulletBike
+                    size={24}
+                    className="absolute inset-0 m-auto text-blue-600"
+                  />
                 </div>
-              ))}
-            </div>
-          </div>
-        </div>
-        {/* Details */}
-        <div className="flex-1 bg-white dark:bg-gray-900 border-t scrollbar-hide">
-          {selected ? (
-            <>
-              {/* Details Header */}
-              <div className="p-2 border-b bg-blue-50 dark:bg-gray-700">
-                <div className="text-center">
-                  <h3 className="text-lg text-gray-900 dark:text-gray-200">
-                    {selected.name}
-                  </h3>
-                </div>
-              </div>
-              {/* Details Content */}
-              <div className="flex-1 overflow-y-auto h-auto p-4 space-y-4 scrollbar-hide">
-                <Section
-                  title="Geographical Overview"
-                  items={selected.geographical}
-                />
-                <Section title="Water Issues" items={selected.waterissues} />
-                <Section
-                  title="Traditional Water Wisdom"
-                  items={selected.wisdom}
-                />
-              </div>
-            </>
-          ) : (
-            <div className="flex-1 flex items-center justify-center p-4">
-              <div className="text-center">
-                <h3 className="text-base font-medium text-gray-600 mb-2">
-                  Select a State
+                <h3 className="text-xl font-semibold text-gray-800 mb-2">
+                  Loading Map
                 </h3>
-                <p className="text-sm text-gray-500">
-                  Click on a state from the list or map to view details
+                <p className="text-sm text-gray-600">
+                  Preparing your journey across India...
                 </p>
               </div>
             </div>
           )}
         </div>
-      </div>
 
-      {/* Desktop View */}
-      <div className="mx-2 sm:mx-10 mt-10 sm:mt-2 mb-18 hidden lg:block">
-        {/* Two Column Layout - 50% Map, 50% State List + Details */}
-        <div className="h-[80vh] w-full flex bg-white rounded-xl shadow-lg overflow-hidden">
-          {/* Left Half: Map */}
-          <div className="w-2/5 relative bg-gray-50">
-            <div ref={mapDiv} className="w-full h-full" />
-            {/* Loading Overlay */}
-            {!ready && (
-              <div className="absolute inset-0 bg-white/95 flex items-center justify-center z-50">
-                <div className="text-center p-6">
-                  <div className="relative mb-6">
-                    <Loader2 className="h-12 w-12 animate-spin text-blue-500 mx-auto" />
-                    <BulletBike
-                      size={24}
-                      className="absolute inset-0 m-auto text-blue-600"
-                    />
+        {/* Content Section (State List + Details) */}
+        <div className="flex-1 flex flex-col lg:w-3/6 lg:flex-row">
+          {/* Horizontal States List (Mobile) / Vertical States List (Desktop) */}
+          <div className="bg-gray-50 dark:bg-gray-600 border-t mx-2 lg:w-1/3 lg:border-l lg:mx-0 lg:py-3 lg:px-4">
+            <div className="overflow-x-auto scrollbar-hide lg:overflow-y-auto lg:h-full">
+              <div className="flex flex-row p-2 space-x-2 lg:flex-col lg:space-x-0 lg:space-y-2">
+                {states.map((state, idx) => (
+                  <div
+                    key={state.name}
+                    className={`flex-shrink-0 p-2 rounded-lg cursor-pointer transition-all border ${
+                      currentRideIndex === idx
+                        ? "bg-blue-50 border-blue-200 shadow-sm"
+                        : "bg-white border-gray-200 hover:bg-gray-50"
+                    } ${isMoving ? "opacity-50 cursor-not-allowed" : ""}`}
+                    onClick={() => {
+                      if (!isMoving) {
+                        animateBikeToState(idx);
+                        // Ensure map resizes after state selection
+                        setTimeout(() => {
+                          if (mapRef.current) {
+                            mapRef.current.invalidateSize();
+                          }
+                        });
+                      }
+                    }}
+                  >
+                    <div className="flex items-center gap-2 lg:gap-3">
+                      <div
+                        className="w-3 h-3 rounded-full flex items-center justify-center text-white font-bold text-[10px] border-2 border-white shadow-sm lg:w-4 lg:h-4 lg:text-xs"
+                        style={{ backgroundColor: state.color }}
+                      ></div>
+                      <div className="font-medium text-gray-800 text-sm lg:flex-1">
+                        {state.name}
+                      </div>
+                      {currentRideIndex === idx && (
+                        <div className="flex items-center gap-1">
+                          <BulletBike
+                            size={12}
+                            className="text-blue-600 size-3 lg:size-4"
+                          />
+                          <ChevronRight className="h-2 w-2 text-blue-600 lg:h-3 lg:w-3" />
+                        </div>
+                      )}
+                    </div>
                   </div>
-                  <h3 className="text-xl font-semibold text-gray-800 mb-2">
-                    Loading Map
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Details Column */}
+          <div className="flex-1 bg-white dark:bg-gray-900 border-t scrollbar-hide lg:w-2/3 lg:border-l lg:p-2">
+            {selected ? (
+              <>
+                {/* Details Header */}
+                <div className="p-2 border-b bg-blue-50 dark:bg-gray-700 lg:p-4 rounded-2xl">
+                  <div className="text-center">
+                    <h3 className="text-lg text-gray-900 dark:text-gray-200 lg:text-2xl">
+                      {selected.name}
+                    </h3>
+                  </div>
+                </div>
+                {/* Details Content with Scroll Indicators */}
+                <div
+                  className="relative flex-1 h-auto p-4 space-y-4 lg:p-6 lg:space-y-auto overflow-y-auto scrollbar-hide"
+                  style={{ maxHeight: "calc(100vh - 160px)" }}
+                >
+                  <Section
+                    title="Geographical Overview"
+                    items={selected.geographical}
+                  />
+                  <Section title="Water Issues" items={selected.waterissues} />
+                  <Section
+                    title="Traditional Water Wisdom"
+                    items={selected.wisdom}
+                  />
+                </div>
+              </>
+            ) : (
+              <div className="flex-1 flex items-center justify-center p-4 lg:p-6">
+                <div className="text-center">
+                  <h3 className="text-base font-medium text-gray-600 mb-2 lg:text-lg">
+                    Select a State
                   </h3>
-                  <p className="text-sm text-gray-600">
-                    Preparing your journey across India...
+                  <p className="text-sm text-gray-500">
+                    Click on a state from the list or map to view details
                   </p>
                 </div>
               </div>
             )}
-          </div>
-          {/* Right Half: State List + Details */}
-          <div className="w-2/3 flex">
-            {/* State List Column */}
-            <div className="w-1/3 bg-gray-50 dark:bg-gray-600 border-l flex flex-col">
-              {/* State List */}
-              <div className="flex-1 overflow-y-auto scrollbar-hide">
-                <div className="py-3 px-4">
-                  <div className="space-y-2">
-                    {states.map((state, idx) => (
-                      <div
-                        key={state.name}
-                        className={`p-3 rounded-lg cursor-pointer transition-all border ${
-                          currentRideIndex === idx
-                            ? "bg-blue-50 border-blue-200 shadow-sm"
-                            : "bg-white border-gray-200 hover:bg-gray-50"
-                        } ${isMoving ? "opacity-50 cursor-not-allowed" : ""}`}
-                        onClick={() => {
-                          if (!isMoving) {
-                            animateBikeToState(idx);
-                          }
-                        }}
-                      >
-                        <div className="flex items-center gap-3">
-                          <div
-                            className="w-4 h-4 rounded-full flex items-center justify-center text-white font-bold text-xs border-2 border-white shadow-sm"
-                            style={{ backgroundColor: state.color }}
-                          ></div>
-                          <div className="flex-1">
-                            <div className="font-medium text-gray-800 text-sm">
-                              {state.name}
-                            </div>
-                          </div>
-                          {currentRideIndex === idx && (
-                            <div className="flex items-center gap-1">
-                              <BulletBike size={14} className="text-blue-600" />
-                              <ChevronRight className="h-3 w-3 text-blue-600" />
-                            </div>
-                          )}
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
-            {/* Details Column */}
-            <div className="w-2/3 bg-white dark:bg-gray-900 border-l flex flex-col">
-              {selected ? (
-                <>
-                  {/* Details Header */}
-                  <div className="p-4 border-b dark:bg-gray-700 bg-blue-50">
-                    <div className="">
-                      <div className="">
-                        <div className="text-center">
-                          <h3 className="text-2xl text-gray-900 dark:text-gray-200">
-                            {selected.name}
-                          </h3>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  {/* Details Content */}
-                  <div className="flex-1 overflow-y-auto p-6 space-y-6 scrollbar-hide">
-                    <Section
-                      title="Geographical Overview"
-                      items={selected.geographical}
-                    />
-                    <Section
-                      title="Water Issues"
-                      items={selected.waterissues}
-                    />
-                    <Section
-                      title="Traditional Water Wisdom"
-                      items={selected.wisdom}
-                    />
-                  </div>
-                </>
-              ) : (
-                <div className="flex-1 flex items-center justify-center p-6">
-                  <div className="text-center">
-                    <Droplets className="h-12 w-12 text-gray-400 mx-auto mb-4" />
-                    <h3 className="text-lg font-medium text-gray-600 mb-2">
-                      Select a State
-                    </h3>
-                    <p className="text-sm text-gray-500">
-                      Click on a state from the list or map to view details
-                    </p>
-                  </div>
-                </div>
-              )}
-            </div>
           </div>
         </div>
       </div>

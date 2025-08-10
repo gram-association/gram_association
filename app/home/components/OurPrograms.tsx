@@ -16,10 +16,10 @@ export default function OurPrograms() {
   }
 
   return (
-    <main className="min-w-screen bg-white ">
+    <section className="min-w-screen bg-white ">
       <div className="flex flex-col items-center py-8">
         <div>
-          <p className="container mx-auto text-center bg-[#DEE6EB] w-fit rounded-lg px-1 text-sm sm:text-lg text-gray-700 flex items-center mb-4">
+          <p className="mx-auto bg-[#DEE6EB] dark:bg-gray-700 w-fit rounded-lg px-4 text-gray-700 dark:text-gray-200 flex items-center text-sm sm:text-base mt-10">
             Our Programs
           </p>
           <h1 className="text-3xl sm:text-5xl text-center text-gray-800  mb-8">
@@ -87,6 +87,6 @@ export default function OurPrograms() {
           </Link>
         </div>
       </div>
-    </main>
+    </section>
   );
 }

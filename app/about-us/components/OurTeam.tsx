@@ -5,18 +5,23 @@ import { Linkedin } from "lucide-react";
 const teamMembers = [
   {
     name: "Shashank Singh",
-    role: "Founder",
+    role: "Founder- Director",
     image: "/assets/about-us/team/ShashankSingh-Founder-Director.jpeg",
   },
   {
-    name: "Devesh Singh",
-    role: "Associate",
-    image: "/assets/about-us/team/DeveshSingh-Associate.jpeg",
+    name: "Arunima Sarkar",
+    role: "Chief executive officer",
+    image: "/assets/about-us/team/Arunima.jpeg",
   },
   {
-    name: "Arunima",
-    role: "Partner",
-    image: "/assets/about-us/team/Arunima(1).jpeg",
+    name: "Ajay Kumar Sahu",
+    role: "ACMA",
+    image: "/assets/about-us/team/AjayKumar-ACMA,LegalAdvisor.jpeg",
+  },
+  {
+    name: "Ankita",
+    role: "Legal Advisor",
+    image: "/assets/about-us/team/Ankita-LegalAdvisor.jpeg",
   },
   {
     name: "Yuvraj Seth",
@@ -24,19 +29,42 @@ const teamMembers = [
     image: "/assets/about-us/team/YuvrajSeth-ProjectCoordinator.jpeg",
   },
   {
+    name: "Paritosh Chavan",
+    role: "Tech Advisor",
+    image: "/assets/about-us/team/paritosh-techAdvisor.jpeg",
+  },
+  {
+    name: "Anmol Dhaliwal",
+    role: "Research Consultant (Policy)",
+    image:
+      "/assets/about-us/team/AnmolDhaliwal-ResearchConsultant(Policy).jpeg",
+  },
+  {
+    name: "Arsh Saluja",
+    role: "Architect",
+    image:
+      "/assets/about-us/team/Arsh Saluja - Architect - Sustainable Design & Planning .jpeg",
+  },
+  {
+    name: "Pratyasha Singh",
+    role: "Research Consultant (Geoenvironmental Engineer)",
+    image:
+      "/assets/about-us/team/PratyashaSingh-ResearchConsultant(GeoenvironmentalEngineer).jpeg",
+  },
+  {
+    name: "Devesh Singh",
+    role: "Associate",
+    image: "/assets/about-us/team/DeveshSingh-Associate.jpeg",
+  },
+  {
+    name: "Karthik Shakthiwal",
+    role: "Consultant",
+    image: "/assets/about-us/team/KarthickSakthivel-Consultant.jpeg",
+  },
+  {
     name: "Rudraksh Singh Deo",
     role: "Associate",
     image: "/assets/about-us/team/RudrakshSinghDeo-Associate.jpeg",
-  },
-  {
-    name: "Syed Faizan Parwaiz",
-    role: "PolicyResearch",
-    image: "/assets/about-us/team/SyedFaizanParwaiz-PolicyResearch.jpeg",
-  },
-  {
-    name: "Archit",
-    role: "Volunteer",
-    image: "/assets/about-us/team/Archit-Volunteer.jpg",
   },
   {
     name: "Roshan Kumar",
@@ -44,32 +72,27 @@ const teamMembers = [
     image: "/assets/about-us/team/RoshanKumar-Associate.jpeg",
   },
   {
-    name: "Karthick Sakthivel",
-    role: "Consultant",
-    image: "/assets/about-us/team/KarthickSakthivel-Consultant.jpeg",
-  },
-  {
-    name: "Ajay Kumar",
-    role: "ACMA, Legal Advisor",
-    image: "/assets/about-us/team/AjayKumar-ACMA,LegalAdvisor.jpeg",
-  },
-  {
     name: "Rao Samrat",
     role: "Volunteer",
     image: "/assets/about-us/team/RaoSamrat-Volunteer.jpeg",
+  },
+  {
+    name: "Archit",
+    role: "Volunteer",
+    image: "/assets/about-us/team/Archit-Volunteer.jpg",
   },
 ];
 
 export default function OurTeam() {
   return (
     <div className="flex items-center justify-center p-4 sm:p-8">
-      <div className="max-w-6xl w-full">
+      <div className=" w-full">
         <p className="inline-block bg-[#DEE6EB] dark:bg-gray-700 w-fit rounded-full text-sm sm:text-base  text-gray-700 dark:text-gray-200 px-3 py-1 mb-4">
           Our Team
         </p>
-        <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-gray-800 dark:text-gray-200 mb-6 sm:mb-8">
+        {/* <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-gray-800 dark:text-gray-200 mb-6 sm:mb-8">
           Meet the People Behind GRAM
-        </h1>
+        </h1> */}
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
           {teamMembers.map((member, index) => (

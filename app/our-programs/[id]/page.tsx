@@ -35,10 +35,10 @@ export default async function ProgramPage({
   return (
     <div>
       <main className="flex min-h-screen flex-col items-center justify-between p-4 sm:p-8 md:px-24 md:pt-24 bg-[linear-gradient(to_bottom,_#1D352E_600px,_white_600px)] dark:bg-[linear-gradient(to_bottom,_#052e0c_600px,_#0f172a_600px)]">
-        <section className="relative w-full mt-2 sm:mt-0">
+        <section className="relative w-full max-w-7xl mt-2 sm:mt-0">
           <div className="h-auto w-full flex flex-col gap-6">
             {/* Title Section */}
-            <div className="relative z-10 w-full max-w-full ml-0 sm:ml-2 py-8 px-2 text-white">
+            <div className="relative z-10 w-full max-w-full ml-0 py-8  text-white">
               <Breadcrumb className="flex flex-col md:flex-row items-start md:items-center gap-2 md:gap-1 text-xs sm:text-sm mt-14 md:mt-2 text-white">
                 <BreadcrumbItem>
                   <BreadcrumbLink
@@ -63,7 +63,7 @@ export default async function ProgramPage({
             </div>
 
             {/* Carousel Section */}
-            <div className="w-full max-w-6xl mx-auto">
+            <div className="w-full max-w-7xl mx-auto">
               <AutoScrollCarousel
                 images={carouselImages}
                 autoScrollInterval={3000}

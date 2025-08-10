@@ -14,7 +14,12 @@ export interface ImageType {
 const imageExtensions = [".jpg", ".jpeg", ".png", ".gif", ".webp"];
 
 // Add folders to exclude (relative to public/)
-const excludedFolders = ["logos", "assets/about-us/support"];
+const excludedFolders = [
+  "logos",
+  "assets/about-us/support",
+  "assets/about-us/team",
+  "assets/about-us/advisor",
+];
 
 export async function getAllImages(
   dir: string,

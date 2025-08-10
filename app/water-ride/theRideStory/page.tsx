@@ -57,7 +57,7 @@ const journeySteps: JourneyStep[] = [
     ],
     image: [
       "/assets/water-ride/mp/Shortlist_1.jpg",
-      "/assets/water-ride/mp/Shortlist_2.jpg",
+      "/assets/water-ride/mp/Shortlists_2.jpg",
       "/assets/water-ride/mp/Shortlist_3.jpg",
     ],
   },
@@ -89,7 +89,7 @@ const journeySteps: JourneyStep[] = [
       "Interacted with farmers' union and THAMATE team in Pavagada to understand Dalit farming and water issues.",
     ],
     image: [
-      "/assets/water-ride/karnataka/Shortlist_1.jpg",
+      "/assets/water-ride/karnataka/Shortlists_1.jpg",
       "/assets/water-ride/karnataka/Shortlist_2.jpg",
       "/assets/water-ride/karnataka/Shortlist_3.jpg",
     ],
@@ -119,7 +119,7 @@ const journeySteps: JourneyStep[] = [
     ],
     image: [
       "/assets/water-ride/tamilnadu/Shortlist_1.jpg",
-      "/assets/water-ride/tamilnadu/Shortlist_2.jpg",
+      "/assets/water-ride/tamilnadu/Shortlists_2.jpg",
       "/assets/water-ride/tamilnadu/Shortlist_3.jpg",
     ],
   },
@@ -255,7 +255,7 @@ export default function JourneyPage() {
                 </div>
 
                 {/* Image */}
-                <div className="w-full md:w-1/3 md:ml-8 order-2">
+                <div className="w-full  md:w-1/3 md:ml-8 order-2">
                   <div className="w-full h-auto aspect-square md:h-auto relative py-10 justify-center items-center rounded-lg">
                     <AutoScrollCarousel
                       images={
@@ -275,7 +275,7 @@ export default function JourneyPage() {
                 </div>
 
                 {/* Description (part of text content in desktop) */}
-                <div className="w-full md:w-2/3 md:mb-0 order-3 md:order-1 block md:hidden">
+                <div className="w-full md:w-2/3 md:mb-0 order-3 md:order-1 block md:hidden ">
                   <ul className="list-disc pl-6 text-gray-700 dark:text-gray-400 space-y-1">
                     {step.description.map((description, idx) => (
                       <li key={idx} className="text-indent-negative">
@@ -286,7 +286,7 @@ export default function JourneyPage() {
                 </div>
 
                 {/* Hidden Text Content for Desktop (to group Time + Title + Description) */}
-                <div className="hidden md:block md:w-2/3 md:mb-0 md:order-1">
+                <div className="hidden  md:block md:w-2/3 md:mb-0 md:order-1">
                   <div className="mb-4 bg-[#538C7B] dark:bg-gray-700 container w-fit py-1 px-2 text-white rounded-full">
                     {step.time}
                   </div>

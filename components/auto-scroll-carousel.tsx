@@ -1,8 +1,6 @@
 "use client";
-
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import { ChevronLeft, ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import ImageWithLoader from "./ImageWithLoader";
 
@@ -27,6 +25,7 @@ interface AutoScrollCarouselProps {
   sizes?: string;
   loop?: boolean;
   transitionDuration?: number;
+  dotSpacing?: string;
 }
 
 export default function AutoScrollCarousel({
@@ -44,6 +43,7 @@ export default function AutoScrollCarousel({
   sizes = "(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px",
   loop = true,
   transitionDuration = 700,
+  dotSpacing = "16px",
 }: AutoScrollCarouselProps) {
   // Normalize images to consistent format
   const normalizedImages = images.map((img, index) => {
@@ -114,13 +114,13 @@ export default function AutoScrollCarousel({
   }
 
   return (
-    <div
-      className={cn("relative group", className)}
-      onMouseEnter={() => pauseOnHover && setIsHovered(true)}
-      onMouseLeave={() => pauseOnHover && setIsHovered(false)}
-    >
+    <div className={cn("relative group ", className)}>
       {/* Main carousel container */}
-      <div className={cn("relative overflow-hidden ", containerClassName)}>
+      <div
+        className={cn("relative overflow-hidden", containerClassName)}
+        onMouseEnter={() => pauseOnHover && setIsHovered(true)}
+        onMouseLeave={() => pauseOnHover && setIsHovered(false)}
+      >
         <div
           className="flex transition-transform ease-in-out h-full"
           style={{
@@ -152,26 +152,29 @@ export default function AutoScrollCarousel({
             </div>
           ))}
         </div>
-
-        {/* Dots indicator */}
-        {showDots && normalizedImages.length > 1 && (
-          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2 z-10">
-            {normalizedImages.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => goToSlide(index)}
-                className={cn(
-                  "w-3 h-3 rounded-full transition-all duration-200",
-                  index === currentIndex
-                    ? "bg-white"
-                    : "bg-white/50 hover:bg-white/70"
-                )}
-                aria-label={`Go to image ${index + 1}`}
-              />
-            ))}
-          </div>
-        )}
       </div>
+
+      {/* Dots indicator - now positioned below the image */}
+      {showDots && normalizedImages.length > 1 && (
+        <div
+          className="flex justify-center space-x-2"
+          style={{ marginTop: dotSpacing }}
+        >
+          {normalizedImages.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => goToSlide(index)}
+              className={cn(
+                "w-3 h-3 rounded-full transition-all duration-200 hover:scale-110",
+                index === currentIndex
+                  ? "bg-gray-800 dark:bg-white"
+                  : "bg-gray-400 dark:bg-gray-600 hover:bg-gray-600 dark:hover:bg-gray-400"
+              )}
+              aria-label={`Go to image ${index + 1}`}
+            />
+          ))}
+        </div>
+      )}
     </div>
   );
 }
