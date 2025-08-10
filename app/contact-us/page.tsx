@@ -11,7 +11,7 @@ export default function ContactUs() {
           {/* Contact Info Section */}
           <div className="w-full  md:w-3/5 lg:w-1/2 space-y-6 text-white ">
             <div>
-              <span className="inline-block w-fit px-3 py-1 bg-gray-200 text-[#1a3029] rounded-full text-xs sm:text-sm md:text-base font-medium mb-4">
+              <span className="inline-block mx-auto bg-[#DEE6EB] dark:bg-gray-700 w-fit rounded-lg px-4 text-gray-700 dark:text-gray-200  items-center text-sm sm:text-base mb-4">
                 Contact Us
               </span>
               <h1 className="text-3xl sm:text-4xl md:text-4xl lg:text-5xl font-bold mb-6">

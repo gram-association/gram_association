@@ -66,8 +66,10 @@ export default function OurImpact() {
     <section className="flex flex-col w-full max-w-7xl my-20 mx-auto px-4">
       {/* Header */}
       <div className="mb-12 text-center">
-        <div className="inline-block bg-[#DEE6EB] rounded-lg px-3 py-1 mb-4">
-          <p className="text-sm lg:text-base text-gray-700">Our Impact</p>
+        <div className="inline-block mb-4">
+          <p className="mx-auto bg-[#DEE6EB] dark:bg-gray-700 w-fit rounded-lg px-4 text-gray-700 dark:text-gray-200 flex items-center text-sm sm:text-base mt-10">
+            Our Impact
+          </p>
         </div>
         <h2 className="text-3xl lg:text-5xl font-bold text-gray-900">
           Driving Meaningful Change

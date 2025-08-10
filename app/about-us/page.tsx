@@ -10,7 +10,7 @@ export default function AboutUs() {
       {/* Our Story Section */}
       <section className="flex flex-col md:flex-row w-full max-w-7xl mx-auto mt-20 animate-fade-in">
         <div className="text-left px-4 md:px-0">
-          <span className="inline-block bg-[#DEE6EB] dark:bg-gray-700 rounded-full px-3 py-1 text-sm sm:text-[16px] font-medium text-gray-700 dark:text-gray-200 mb-4">
+          <span className="inline-block bg-[#DEE6EB] dark:bg-gray-700 w-fit rounded-lg px-4 text-gray-700 dark:text-gray-200  items-center text-sm sm:text-base mb-4">
             About Us
           </span>
           <h1 className=" text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-gray-800  mb-4">

@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export default function JourneyHighlights() {
   return (
-    <main className="min-h-screen font-sans">
+    <main className="min-h-screen font-sans overflow-x-hidden">
       <section className="max-w-7xl md:ml-10 px-4 py-4">
         <div className="container grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8 mx-auto px-4 sm:px-6 lg:px-8">
           {/* Text content - takes full width on mobile, 2/3 on large screens */}
@@ -63,7 +63,7 @@ export default function JourneyHighlights() {
               height={50}
               className="w-12 h-12 mx-auto"
             />
-            <p className=" my-2 text-lg">8,000 Kilometers</p>
+            <p className=" my-2 text-lg text-center">8,000 Kilometers</p>
             <p className="text-sm  text-gray-500 dark:text-gray-400 leading-relaxed">
               An epic motorcycle expedition across the Western and Eastern Ghats
               of India
@@ -77,7 +77,7 @@ export default function JourneyHighlights() {
               height={50}
               className="w-12 h-12 mx-auto"
             />
-            <p className="my-2 text-lg">13 States</p>
+            <p className="my-2 text-lg text-center">13 States</p>
             <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">
               Connecting communities across diverse geographical and cultural
               landscapes
@@ -91,7 +91,7 @@ export default function JourneyHighlights() {
               height={50}
               className="w-12 h-12 mx-auto"
             />
-            <p className="my-2 text-lg">60 Supporters</p>
+            <p className="my-2 text-lg text-center">60 Supporters</p>
             <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">
               Engaging with local residents, NGOs, and traditional knowledge
               keepers
@@ -105,13 +105,13 @@ export default function JourneyHighlights() {
               height={50}
               className="w-12 h-12 mx-auto"
             />
-            <p className="my-2 text-lg">Outreach</p>
+            <p className="my-2 text-lg text-center">Outreach</p>
             <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">
               Workshops and demonstrations at schools and community centres
             </p>
           </div>
         </div>
-        <div className="mt-8">
+        <div className="mt-8 flex justify-center">
           <Link href="/contact-us">
             <Button className="bg-[#538C7B] rounded-xl hover:bg-emerald-800">
               BECOME A VOLUNTEER

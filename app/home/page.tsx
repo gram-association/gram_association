@@ -96,7 +96,7 @@ export default function Home() {
 
       {/* Get Involved */}
       <section className="py-8 mt-4 bg-[#F8F1E9] dark:bg-gray-800 min-w-screen text-center">
-        <p className="container mx-auto bg-[#DEE6EB] dark:bg-gray-700 w-fit rounded-lg px-4  text-gray-700 dark:text-gray-200 flex items-center text-sm sm:text-lg">
+        <p className="mx-auto bg-[#DEE6EB] dark:bg-gray-700 w-fit rounded-lg px-4 text-gray-700 dark:text-gray-200 flex items-center text-sm sm:text-base mt-10">
           Get Involved
         </p>
         <h2 className="text-3xl sm:text-4xl md:text-5xl mt-4 font-epilogue text-center mb-6 px-4 text-gray-900 dark:text-gray-100">

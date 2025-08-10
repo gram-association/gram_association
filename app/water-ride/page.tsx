@@ -6,7 +6,7 @@ import Tabs from "./components/Tabs";
 
 export default function WaterRide() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between px-4 sm:px-6 md:px-8 lg:px-24 pt-16 pb-24 bg-[linear-gradient(to_bottom,_#5A829A_500px,_#F5F5F5_500px)] ">
+    <main className="flex min-h-screen flex-col items-center justify-between px-4 sm:px-6 md:px-8 lg:px-24 pt-16 pb-24 bg-[linear-gradient(to_bottom,_#5A829A_500px,_#F5F5F5_500px)] overflow-x-hidden ">
       <section className="flex flex-col w-full mt-8w-full max-w-7xl mx-auto mt-20 animate-fade-in">
         {/* Content Section */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8 lg:gap-16 px-4 sm:px-6 lg:px-4">

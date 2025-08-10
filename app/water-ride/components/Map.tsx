@@ -636,7 +636,7 @@ export default function WaterRideMap() {
 
   if (mapError) {
     return (
-      <div className="h-screen w-full flex items-center justify-center bg-red-50">
+      <div className="h-screen w-full flex items-center justify-center bg-red-50 ">
         <div className="text-center p-4">
           <div className="text-red-500 text-xl mb-2">Map Loading Error</div>
           <div className="text-red-400 mb-4">{mapError}</div>
@@ -647,10 +647,10 @@ export default function WaterRideMap() {
   }
 
   return (
-    <main className="h-screen w-full mb-80 md:mb-8">
+    <main className="h-screen w-full mb-80 md:mb-8 ">
       {/* Header */}
       <div className="mb-2 sm:mb-8">
-        <p className="container mx-auto bg-[#DEE6EB] w-fit rounded-xl px-2 sm:px-4 mt-10 sm:mt-10 text-gray-700 flex items-center text-xs sm:text-base">
+        <p className="mx-auto bg-[#DEE6EB] dark:bg-gray-700 w-fit rounded-lg px-4 text-gray-700 dark:text-gray-200 flex items-center text-sm sm:text-base mt-10">
           Impact
         </p>
         <h2 className="text-xl sm:text-3xl md:text-4xl lg:text-5xl mt-4 text-center mb-6 px-4">
@@ -659,14 +659,14 @@ export default function WaterRideMap() {
       </div>
 
       {/* Combined View - Map and Content */}
-      <div className="h-full w-full flex flex-col lg:flex-row lg:h-[80vh] lg:mx-10 lg:mt-2 lg:mb-18 bg-gray-100 dark:bg-gray-900 lg:bg-white lg:rounded-xl lg:shadow-lg lg:overflow-hidden">
+      <div className="h-full w-full flex flex-col lg:flex-row lg:h-[83vh]  lg:mt-2 lg:mb-18 bg-gray-100 dark:bg-gray-900 lg:bg-white lg:rounded-xl lg:shadow-lg lg:overflow-hidden">
         {/* Map Section */}
         <div className="relative w-full h-[40vh] lg:w-2/5 lg:h-full bg-gray-50">
           <div ref={mapDiv} className="w-full h-full" />{" "}
           {/* This is the single map div */}
           {/* Loading Overlay (only for desktop, as mobile shows map immediately) */}
           {!ready && (
-            <div className="absolute inset-0 bg-white/95 flex items-center justify-center z-50 lg:block hidden">
+            <div className="absolute inset-0 bg-white/95 flex items-center justify-center z-50 lg:block">
               <div className="text-center p-6">
                 <div className="relative mb-6">
                   <Loader2 className="h-12 w-12 animate-spin text-blue-500 mx-auto" />
@@ -687,7 +687,7 @@ export default function WaterRideMap() {
         </div>
 
         {/* Content Section (State List + Details) */}
-        <div className="flex-1 flex flex-col lg:w-3/5 lg:flex-row">
+        <div className="flex-1 flex flex-col lg:w-3/6 lg:flex-row">
           {/* Horizontal States List (Mobile) / Vertical States List (Desktop) */}
           <div className="bg-gray-50 dark:bg-gray-600 border-t mx-2 lg:w-1/3 lg:border-l lg:mx-0 lg:py-3 lg:px-4">
             <div className="overflow-x-auto scrollbar-hide lg:overflow-y-auto lg:h-full">
@@ -737,19 +737,22 @@ export default function WaterRideMap() {
           </div>
 
           {/* Details Column */}
-          <div className="flex-1 bg-white dark:bg-gray-900 border-t scrollbar-hide lg:w-2/3 lg:border-l lg:p-6">
+          <div className="flex-1 bg-white dark:bg-gray-900 border-t scrollbar-hide lg:w-2/3 lg:border-l lg:p-2">
             {selected ? (
               <>
                 {/* Details Header */}
-                <div className="p-2 border-b bg-blue-50 dark:bg-gray-700 lg:p-4">
+                <div className="p-2 border-b bg-blue-50 dark:bg-gray-700 lg:p-4 rounded-2xl">
                   <div className="text-center">
                     <h3 className="text-lg text-gray-900 dark:text-gray-200 lg:text-2xl">
                       {selected.name}
                     </h3>
                   </div>
                 </div>
-                {/* Details Content */}
-                <div className="flex-1 overflow-y-auto h-auto p-4 space-y-4 scrollbar-hide lg:p-6 lg:space-y-6">
+                {/* Details Content with Scroll Indicators */}
+                <div
+                  className="relative flex-1 h-auto p-4 space-y-4 lg:p-6 lg:space-y-auto overflow-y-auto scrollbar-hide"
+                  style={{ maxHeight: "calc(100vh - 160px)" }}
+                >
                   <Section
                     title="Geographical Overview"
                     items={selected.geographical}
@@ -764,7 +767,6 @@ export default function WaterRideMap() {
             ) : (
               <div className="flex-1 flex items-center justify-center p-4 lg:p-6">
                 <div className="text-center">
-                  <Droplets className="h-12 w-12 text-gray-400 mx-auto mb-4" />
                   <h3 className="text-base font-medium text-gray-600 mb-2 lg:text-lg">
                     Select a State
                   </h3>

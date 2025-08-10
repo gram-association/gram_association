@@ -39,8 +39,10 @@ export default function FocusAreas() {
   return (
     <section className="min-h-screen py-8 md:py-16 text-center bg-white">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="inline-block bg-[#DEE6EB] rounded-lg px-3 py-1 mb-4">
-          <p className="text-sm sm:text-lg text-gray-700">Our Focus Areas</p>
+        <div className="inline-block mb-5">
+          <p className="mx-auto bg-[#DEE6EB] dark:bg-gray-700 w-fit rounded-lg px-4 text-gray-700 dark:text-gray-200 flex items-center text-sm sm:text-base mt-10">
+            Our Focus Areas
+          </p>
         </div>
         <h2 className="text-2xl md:text-5xl font-bold text-left mb-6 md:mb-8 text-gray-900">
           Our Approach
@@ -51,7 +53,7 @@ export default function FocusAreas() {
         <div className="flex flex-col lg:flex-row justify-center items-center lg:items-start gap-8 lg:gap-16">
           {/* Central Circle */}
           <div className="relative flex-shrink-0">
-            <div className="relative w-[300px] h-[300px] sm:w-[350px] sm:h-[350px] lg:w-[450px] lg:h-[450px] rounded-full border-2 border-gray-300 flex items-center justify-center bg-white shadow-lg">
+            <div className="relative w-[300px] h-[300px] sm:w-[350px] sm:h-[350px] lg:w-[450px] lg:h-[450px] rounded-full border-2 border-gray-300 border-l-transparent flex items-center justify-center bg-white shadow-lg">
               <Image
                 src="/focus area.png"
                 alt="5 Es Illustration"
@@ -64,11 +66,11 @@ export default function FocusAreas() {
             {/* Connection dots on the circle - only visible on large screens */}
             <div className="hidden lg:block">
               {/* Dots positioned around the circle */}
-              <div className="absolute top-8 right-1/2 translate-x-1/2 w-3 h-3 bg-[#D7BCB7] rounded-full"></div>
-              <div className="absolute top-1/4 right-4 w-3 h-3 bg-[#D7BCB7] rounded-full"></div>
-              <div className="absolute top-1/2 right-4 translate-y-[-50%] w-3 h-3 bg-[#D7BCB7] rounded-full"></div>
-              <div className="absolute bottom-1/4 right-4 w-3 h-3 bg-[#D7BCB7] rounded-full"></div>
-              <div className="absolute bottom-8 right-1/2 translate-x-1/2 w-3 h-3 bg-[#D7BCB7] rounded-full"></div>
+              <div className="absolute top-5 right-28 translate-x-1/2 w-3 h-3 bg-[#D7BCB7] rounded-full"></div>
+              <div className="absolute top-27 right-5 w-3 h-3 bg-[#D7BCB7] rounded-full"></div>
+              <div className="absolute top-50 -right-1 translate-y-[-50%] w-3 h-3 bg-[#D7BCB7] rounded-full"></div>
+              <div className="absolute bottom-39 right-1 w-3 h-3 bg-[#D7BCB7] rounded-full"></div>
+              <div className="absolute bottom-17 right-16 translate-x-1/2 w-3 h-3 bg-[#D7BCB7] rounded-full"></div>
             </div>
           </div>
 
@@ -104,7 +106,17 @@ export default function FocusAreas() {
                       <div
                         className="h-0.5 bg-gray-300 origin-right"
                         style={{
-                          width: `${120 + index * 20}px`,
+                          width: `${
+                            index === 0
+                              ? 227
+                              : index === 1
+                              ? 140
+                              : index === 2
+                              ? 118
+                              : index === 3
+                              ? 127
+                              : 180
+                          }px`, // Adjusted widths to reach specific dots
                           transform: `translateX(-1rem)`,
                         }}
                       ></div>

@@ -83,9 +83,9 @@ export default function VisionMissionSection() {
   };
 
   return (
-    <section className="py-8 md:py-10 bg-[#BAD1CA]  min-w-screen">
+    <section className="py-8 md:py-5 bg-[#BAD1CA]  min-w-screen">
       <div className="container mx-auto px-4 sm:px-6">
-        <p className="text-center bg-[#DEE6EB]  w-fit mx-auto rounded-lg px-2 py-1 text-sm sm:text-lg text-gray-700  flex items-center">
+        <p className="mx-auto bg-[#DEE6EB] dark:bg-gray-700 w-fit rounded-lg px-4 text-gray-700 dark:text-gray-200 flex items-center text-sm sm:text-base mt-10">
           Our Vision & Mission
         </p>
         <h3 className="text-3xl sm:text-2xl md:text-5xl mt-4 font-epilogue text-center mb-6 md:mb-8 text-gray-900 ">
