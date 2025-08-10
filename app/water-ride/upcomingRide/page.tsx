@@ -2,12 +2,13 @@ import Image from "next/image";
 import Support from "../components/Support-form";
 import MissionCards from "../components/missionCard";
 import Story from "../components/storySection";
+import RouteSection from "./route-section";
 
 export default function UpcomingRide() {
   return (
     <main className="min-w-screen overflow-x-hidden">
-      <div className="text-center py-6 sm:py-8 md:py-12">
-        <p className="container w-fit mx-auto bg-[#DEE6EB] dark:bg-gray-700 rounded-lg px-2 py-1 text-xs sm:text-sm text-gray-700 dark:text-gray-200 flex items-center mb-6">
+      {/* <div className="text-center py-6 sm:py-8 md:py-12"> */}
+      {/* <p className="container w-fit mx-auto bg-[#DEE6EB] dark:bg-gray-700 rounded-lg px-2 py-1 text-xs sm:text-sm text-gray-700 dark:text-gray-200 flex items-center mb-6">
           The Upcoming Rides
         </p>
         <h1 className="text-3xl sm:text-4xl md:text-5xl  text-gray-800 dark:text-gray-200 mb-1 ">
@@ -41,8 +42,8 @@ export default function UpcomingRide() {
           resourcefulness and struggle, sowing seeds of consciousness wherever
           he went.
         </p>
-      </div>
-      <div className="bg-[#F8F1E9] dark:bg-gray-800 max-w-full mx-auto py-6 sm:py-8 md:py-12 flex flex-col md:flex-row justify-center items-center">
+      </div> */}
+      {/* <div className="bg-[#F8F1E9] dark:bg-gray-800 max-w-full mx-auto py-6 sm:py-8 md:py-12 flex flex-col md:flex-row justify-center items-center">
         <div className="text-center  w-full sm:w-2/3 sm:text-start p-2 pl-0 sm:pl-10">
           <h2 className="text-3xl sm:text-4xl md:text-5xl text-gray-800 dark:text-gray-200 mb-4 sm:mb-6">
             The Unfinished Ride
@@ -84,11 +85,15 @@ export default function UpcomingRide() {
             />
           </div>
         </div>
-      </div>
-      <div className="bg-[#BAD1CA] dark:bg-gray-700 w-full max-w-full  py-6 sm:py-8 md:py-12 flex flex-col md:flex-row justify-center items-center">
+      </div> */}
+
+      <p className="container mt-8 mx-auto bg-[#DEE6EB] dark:bg-gray-700 w-fit rounded-lg px-4  text-gray-700 dark:text-gray-200 flex items-center text-sm sm:text-base">
+        upcoming ride
+      </p>
+      <div className="bg-[#BAD1CA] mt-12 dark:bg-gray-700 w-full max-w-full  py-6 sm:py-8 md:py-12 flex flex-col md:flex-row justify-center items-center">
         <div className="m-6 sm:m-2 rounded-lg">
           <Image
-            src="/assets/water-ride/UntitledDesign.png"
+            src="/water-odd.jpg"
             alt="planned route"
             width={500}
             height={700}
@@ -131,53 +136,13 @@ export default function UpcomingRide() {
         </div>
       </div>
       {/* Route Section */}
-      <section className="text-left py-8 sm:py-12 md:py-6 px-4 sm:px-8 md:px-20 bg-[#BAD1CA] dark:bg-gray-900">
-        <h3 className="text-3xl sm:text-4xl md:text-3xl  text-gray-800 dark:text-gray-100 mb-2">
-          The Route
-        </h3>
-        <h4 className="text-lg sm:text-xl md:text-xl font-medium text-gray-600 dark:text-gray-300 mb-6">
-          Tracing India’s Water Wisdom
-        </h4>
-        <p className="text-base sm:text-lg text-gray-700 dark:text-gray-200 font-medium leading-relaxed">
-          {[
-            "Jharkhand",
-            "West Bengal",
-            "Meghalaya",
-            "Tripura",
-            "Mizoram",
-            "Manipur",
-            "Nagaland",
-            "Arunachal Pradesh",
-            "Assam",
-            "Sikkim",
-            "Bihar",
-            "Uttar Pradesh",
-            "Uttarakhand",
-            "Himachal Pradesh",
-            "Jammu & Kashmir",
-            "Punjab",
-            "Haryana",
-            "Delhi",
-          ].map((state, index) => (
-            <span key={state} className="inline-flex items-center">
-              <span className="hover:text-blue-500 dark:hover:text-blue-400 transition-colors duration-200">
-                {state}
-              </span>
-              {index < 17 && (
-                <span className="mx-2 text-blue-500 dark:text-blue-400 font-bold">
-                  →
-                </span>
-              )}
-            </span>
-          ))}
-        </p>
-      </section>
+      <RouteSection />
 
       {/* Planned Route Section */}
       <section className="bg-[#F8F1E9] dark:bg-gray-800 max-w-full mx-auto px-4 sm:px-6 md:px-10 py-10 flex flex-col md:flex-row justify-center items-center">
         <div className="w-full md:w-[740px] h-auto  mb-6 md:mb-0">
           <h2 className="text-2xl sm:text-3xl mb-2 text-center md:text-left">
-            Planned Route
+            Ride Plan
           </h2>
           <p className="text-gray-700 dark:text-gray-200 text-sm md:text-[17px] leading-relaxed">
             We are gearing up for an epic bike ride that will take us across 19

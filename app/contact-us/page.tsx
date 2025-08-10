@@ -5,11 +5,11 @@ import { Suspense } from "react";
 
 export default function ContactUs() {
   return (
-    <main className="flex min-h-screen bg-[linear-gradient(to_bottom,_#1D352E_440px,_white_0)] dark:bg-[linear-gradient(to_bottom,_#052e0c_400px,_#0f172a_600px)] p-4 sm:p-8 md:p-10 lg:p-20">
-      <div className="flex flex-col items-center justify-between w-full max-w-7xl mx-auto">
-        <div className="w-full flex flex-col md:flex-row md:gap-6 lg:flex-row items-center justify-between gap-6 sm:gap-8 mt-28 sm:mt-16 md:mt-20 lg:mt-24 animate-fade-in">
+    <main className="flex min-h-screen flex-col items-center justify-between px-4 sm:px-6 md:px-8 lg:px-24 pt-16 pb-24 bg-[linear-gradient(to_bottom,_#1D352E_500px,_white_500px)]">
+      <section className="flex flex-col w-full mt-8w-full max-w-7xl mx-auto mt-20 animate-fade-in">
+        <div className="w-full flex flex-col md:flex-row md:gap-6 lg:flex-row items-center justify-between gap-6 sm:gap-8 animate-fade-in">
           {/* Contact Info Section */}
-          <div className="w-full md:w-3/5 lg:w-1/2 space-y-6 text-white px-4 sm:px-6 md:px-8 lg:pl-10">
+          <div className="w-full  md:w-3/5 lg:w-1/2 space-y-6 text-white ">
             <div>
               <span className="inline-block w-fit px-3 py-1 bg-gray-200 text-[#1a3029] rounded-full text-xs sm:text-sm md:text-base font-medium mb-4">
                 Contact Us
@@ -54,7 +54,7 @@ export default function ContactUs() {
             </div>
 
             <div className="space-y-4 mt-10 sm:mt-32 md:mt-12">
-              <h3 className="text-lg sm:text-xl md:text-xl lg:text-xl text-black dark:text-gray-200 mt-24 sm:mt-4 md:mt-4 font-medium">
+              <h3 className="text-lg sm:text-xl md:text-xl lg:text-xl font-medium">
                 Find us here
               </h3>
               <div className="relative h-64 sm:h-72 md:h-80 lg:h-72 rounded-lg overflow-hidden transition-transform hover:scale-[1.01] duration-300">
@@ -73,13 +73,13 @@ export default function ContactUs() {
           </div>
 
           {/* Contact Form Section */}
-          <div className="w-full md:w-2/5 lg:w-1/2 bg-white dark:bg-gray-800 drop-shadow-lg text-gray-800 dark:text-gray-200 rounded-lg p-4 sm:p-6 md:p-6 lg:p-8 mt-8 md:mt-0 lg:mt-0 animate-slide-up">
+          <div className="w-full md:w-2/5 lg:w-1/2 bg-white dark:bg-gray-800 drop-shadow-lg text-gray-800 dark:text-gray-200 rounded-lg p-4 sm:p-6 md:p-6 lg:p-8 mt-8 md:mt-0 lg:mt-0 animate-slide-up ease-in">
             <Suspense fallback={<div>Loading...</div>}>
               <ContactForm />
             </Suspense>
           </div>
         </div>
-      </div>
+      </section>
     </main>
   );
 }

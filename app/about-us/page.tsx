@@ -2,10 +2,11 @@ import Image from "next/image";
 import Advisor from "./components/Advisor";
 import OurTeam from "./components/OurTeam";
 import Support from "./components/Support";
+import AboutLogo from "./components/AboutLogo";
 
 export default function AboutUs() {
   return (
-    <main className="flex min-h-screen flex-col items-center bg-gradient-to-b from-[#e2f7f1] to-white  dark:to-[#0f172a] bg-no-repeat bg-[length:100%_600px] dark:bg-[#0f172a] justify-between px-4 sm:px-6 md:px-8 lg:px-24 pt-16 pb-24">
+    <main className="flex min-h-screen flex-col items-center justify-between px-4 sm:px-6 md:px-8 lg:px-24 pt-16 pb-24 bg-gradient-to-b from-[#e2f7f1] to-white  dark:to-[#0f172a] bg-no-repeat bg-[length:100%_600px] dark:bg-[#0f172a] ">
       {/* Our Story Section */}
       <section className="flex flex-col md:flex-row w-full max-w-7xl mx-auto mt-20 animate-fade-in">
         <div className="text-left px-4 md:px-0">
@@ -94,7 +95,8 @@ export default function AboutUs() {
       </section>
 
       {/* Team, Advisor and Support Sections */}
-      <section className="w-full max-w-7xl mx-auto ">
+      <section className="w-full  mx-auto ">
+        <AboutLogo />
         <OurTeam />
         <Advisor />
         <Support />

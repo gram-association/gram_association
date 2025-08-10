@@ -183,8 +183,8 @@ export default function Support() {
           </SelectTrigger>
           <SelectContent>
             <SelectItem value="Ride">Ride</SelectItem>
-            <SelectItem value="Drive">Drive</SelectItem>
-            <SelectItem value="Delivery">Delivery</SelectItem>
+            <SelectItem value="Collaborator">Collaborator</SelectItem>
+            <SelectItem value="Volunteer">Volunteer</SelectItem>
           </SelectContent>
         </Select>
         {formErrors.joinAs && (

@@ -1,44 +1,63 @@
 "use client";
-
 import { useState } from "react";
-import Image, { ImageProps } from "next/image";
-import { Skeleton } from "@/components/ui/skeleton";
+import type React from "react";
 
-interface ImageWithLoaderProps extends ImageProps {
-  fallbackSrc?: string;
+import Image from "next/image";
+import { cn } from "@/lib/utils";
+
+interface ImageWithLoaderProps {
+  src: string;
+  alt: string;
+  width: number;
+  height: number;
   className?: string;
-  wrapperClassName?: string;
+  style?: React.CSSProperties;
+  sizes?: string;
+  priority?: boolean;
 }
 
 export default function ImageWithLoader({
   src,
   alt,
-  fallbackSrc = "/fallback.png",
+  width,
+  height,
   className,
-  wrapperClassName,
-  ...props
+  style,
+  sizes,
+  priority = false,
 }: ImageWithLoaderProps) {
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+  const [hasError, setHasError] = useState(false);
 
   return (
-    <div className={`relative w-full h-full ${wrapperClassName || ""}`}>
-      {loading && !error && (
-        <Skeleton className="absolute inset-0 w-full h-full rounded-md" />
+    <div className="relative">
+      {isLoading && (
+        <div
+          className={cn(
+            "absolute inset-0 bg-gray-200 animate-pulse",
+            className
+          )}
+          style={style}
+        />
       )}
-
       <Image
-        {...props}
-        src={error ? fallbackSrc : src}
+        src={hasError ? "/placeholder.svg" : src}
         alt={alt}
-        onLoad={() => setLoading(false)}
+        width={width}
+        height={height}
+        className={cn(
+          "transition-opacity duration-300",
+          isLoading ? "opacity-0" : "opacity-100",
+          className
+        )}
+        style={style}
+        sizes={sizes}
+        priority={priority}
+        onLoad={() => setIsLoading(false)}
         onError={() => {
-          setLoading(false);
-          setError(true);
+          setHasError(true);
+          setIsLoading(false);
         }}
-        className={`w-full h-full object-cover transition-opacity duration-300 ${
-          loading ? "opacity-0" : "opacity-100"
-        } ${className || ""}`}
       />
     </div>
   );

@@ -13,7 +13,7 @@ export default function Programs() {
       : programs.filter((program) => program.category === activeFilter);
 
   return (
-    <main className="flex min-h-screen bg-gradient-to-b from-[#f1ddaf] to-white dark:from-[#5f4b1b] dark:to-[#0f172a] bg-no-repeat bg-[length:100%_500px] dark:bg-[#0f172a] flex-col items-center justify-between p-4 sm:p-8 lg:p-24">
+    <main className="flex min-h-screen  flex-col items-center justify-between  pb-24 px-4 sm:px-6 md:px-8 lg:px-24 pt-16   bg-gradient-to-b from-[#f1ddaf] to-white dark:from-[#5f4b1b] dark:to-[#0f172a] bg-no-repeat bg-[length:100%_500px] dark:bg-[#0f172a] ">
       <div className="text-center py-24 sm:py-12">
         <p className="container w-fit mx-auto bg-[#DEE6EB] dark:bg-gray-700 rounded-lg px-2 py-1 text-xs sm:text-sm text-gray-700 dark:text-gray-200 flex items-center mb-4">
           Our Programs
@@ -70,7 +70,7 @@ export default function Programs() {
 
       <div className="bg-[#BAD1CA] dark:bg-gray-800  min-w-screen mt-20 py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-0 lg:px-0">
-          <p className="mx-auto text-center bg-gray-100 dark:bg-gray-600 w-fit rounded-lg px-1 text-xs sm:text-sm text-gray-700 dark:text-gray-200 container items-center mb-6">
+          <p className="container w-fit mx-auto bg-[#DEE6EB] dark:bg-gray-700 rounded-lg px-2 py-1 text-xs sm:text-sm text-gray-700 dark:text-gray-200 flex items-center mb-4">
             Get Involved
           </p>
           <h1 className="text-3xl sm:text-4xl lg:text-5xl tracking-wider text-center mb-8">

@@ -11,6 +11,7 @@ const teamMembers = [
   { name: "NABARD", image: "/assets/about-us/support/NABARD .webp" },
   { name: "NEST Lamka", image: "/assets/about-us/support/NEST Lamka.png" },
   { name: "we support", image: "/assets/about-us/support/we support.png" },
+  { name: "Infinity", image: "/assets/about-us/support/infinity.png" },
 ];
 
 // Duplicate list
@@ -53,13 +54,13 @@ export default function Support() {
     <div className="flex flex-col items-center py-8 px-4 sm:px-5 md:py-14">
       <div className="self-start mb-4 sm:mb-5">
         <span className="bg-[#DEE6EB] dark:bg-gray-700 text-gray-700 dark:text-gray-200 text-sm sm:text-base rounded-full px-3 py-1">
-          Support
+          Our Supporters
         </span>
       </div>
 
-      <h1 className="text-2xl sm:text-3xl md:text-4xl self-start mb-6 sm:mb-2 text-gray-800 dark:text-gray-200">
+      {/* <h1 className="text-2xl sm:text-3xl md:text-4xl self-start mb-6 sm:mb-2 text-gray-800 dark:text-gray-200">
         MEET THE SUPPORT OF GRAM
-      </h1>
+      </h1> */}
 
       {/* Scroll Container */}
       <div className="w-full max-w-6xl overflow-x-hidden" ref={scrollRef}>
