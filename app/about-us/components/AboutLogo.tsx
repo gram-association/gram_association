@@ -2,21 +2,23 @@ import Image from "next/image";
 
 export default function AboutLogo() {
   return (
-    <div className="flex items-center justify-center  sm:p-8">
-      <div className=" w-full">
-        <p className="inline-block bg-[#DEE6EB] dark:bg-gray-700 w-fit rounded-full text-sm sm:text-base text-gray-700 dark:text-gray-200 px-3 py-1 mb-4">
+    <div className="flex items-center justify-center px-4 sm:px-8 py-6 sm:py-8">
+      <div className="w-full max-w-5xl">
+        <p className="inline-block bg-[#DEE6EB] dark:bg-gray-700 w-fit rounded-full text-xs sm:text-sm md:text-base text-gray-700 dark:text-gray-200 px-3 py-1 mb-4 sm:mb-6">
           About GRAM logo
         </p>
-        <div className="flex justify-center">
-          <Image
-            src="/logo-Display.png"
-            alt="GRAM Association Logo"
-            width={700}
-            height={500}
-            className="object-contain"
-          />
-          <div className="ml-4">
-            <p className="font-sourceSans3 text-base sm:text-[17px] text-gray-600 dark:text-gray-200 text-justify leading-relaxed">
+        <div className="flex flex-col sm:flex-row justify-center items-center sm:items-start gap-4 sm:gap-6">
+          <div className="w-full sm:w-1/2">
+            <Image
+              src="/logo-Display.png"
+              alt="GRAM Association Logo"
+              width={700}
+              height={500}
+              className="object-contain w-full h-auto max-w-[300px] sm:max-w-[400px] md:max-w-[500px]"
+            />
+          </div>
+          <div className="w-full sm:w-1/2">
+            <p className="font-sourceSans3 text-base sm:text-base md:text-[17px] text-gray-600 dark:text-gray-200 text-justify leading-relaxed">
               This logo visually represents a comprehensive approach to
               environmental and social sustainability. The four individual icons
               symbolize key areas: Sustainable Living, Reforestation, Rural

@@ -270,6 +270,7 @@ export default function JourneyPage() {
                       transitionDuration={500}
                       className="w-full h-full rounded-t-lg"
                       sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
+                      dotSpacing="14px"
                     />
                   </div>
                 </div>

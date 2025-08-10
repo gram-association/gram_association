@@ -23,7 +23,6 @@ export default async function ProgramPage({
 
   const program = programData[id.toLowerCase()] || programData["a"];
 
-  // Convert program images to carousel format
   const carouselImages = Array.isArray(program.image)
     ? program.image.map((img, index) => ({
         src: img,
@@ -37,8 +36,7 @@ export default async function ProgramPage({
       <main className="flex min-h-screen flex-col items-center justify-between p-4 sm:p-8 md:px-24 md:pt-24 bg-[linear-gradient(to_bottom,_#1D352E_600px,_white_600px)] dark:bg-[linear-gradient(to_bottom,_#052e0c_600px,_#0f172a_600px)]">
         <section className="relative w-full max-w-7xl mt-2 sm:mt-0">
           <div className="h-auto w-full flex flex-col gap-6">
-            {/* Title Section */}
-            <div className="relative z-10 w-full max-w-full ml-0 py-8  text-white">
+            <div className="relative z-10 w-full max-w-full ml-0 py-8 text-white">
               <Breadcrumb className="flex flex-col md:flex-row items-start md:items-center gap-2 md:gap-1 text-xs sm:text-sm mt-14 md:mt-2 text-white">
                 <BreadcrumbItem>
                   <BreadcrumbLink
@@ -48,7 +46,7 @@ export default async function ProgramPage({
                     <Link href="/our-programs">Our Programs</Link>
                   </BreadcrumbLink>
                 </BreadcrumbItem>
-                <BreadcrumbSeparator className="list-none hidden md:block " />
+                <BreadcrumbSeparator className="list-none hidden md:block" />
                 <BreadcrumbItem>
                   <BreadcrumbPage className="text-white text-base md:text-lg break-words max-w-full">
                     {program.title}
@@ -56,33 +54,34 @@ export default async function ProgramPage({
                 </BreadcrumbItem>
               </Breadcrumb>
 
-              {/* Main Title */}
               <h1 className="text-3xl sm:text-5xl h-auto font-bold mt-5">
                 {program.title}
               </h1>
             </div>
 
-            {/* Carousel Section */}
             <div className="w-full max-w-7xl mx-auto">
-              <AutoScrollCarousel
-                images={carouselImages}
-                autoScrollInterval={3000}
-                height="450px"
-                className="w-full rounded-lg"
-                imageClassName="rounded-lg h-full"
-                containerClassName="rounded-lg"
-                showDots={true}
-                pauseOnHover={true}
-                loop={true}
-                transitionDuration={700}
-                objectFit="cover"
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
-              />
+              <div className="relative py-6 sm:py-8">
+                <AutoScrollCarousel
+                  images={carouselImages}
+                  autoScrollInterval={3000}
+                  height="450px" // Mobile height
+                  className="w-full rounded-lg  h-[300px] md:h-full" // Desktop height
+                  imageClassName="rounded-lg h-full"
+                  containerClassName="rounded-lg"
+                  showDots={true}
+                  pauseOnHover={true}
+                  loop={true}
+                  transitionDuration={700}
+                  objectFit="cover"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
+                  dotSpacing="8px"
+                />
+                <div className="pb-6 sm:pb-8" />
+              </div>
             </div>
           </div>
         </section>
 
-        {/* Content Section */}
         <div className="max-w-7xl p-6 mt-6 text-start">
           <h3 className="text-xl mb-2">{program.header}</h3>
           <div className="text-gray-700 dark:text-gray-400 text-[16px] mb-6">
@@ -99,7 +98,6 @@ export default async function ProgramPage({
                 ))}
           </div>
 
-          {/* Key Interventions */}
           <h3 className="text-xl mb-4">{program.header1}</h3>
           <p className="text-gray-700 dark:text-gray-400 mb-2">
             {program.headline}
@@ -127,10 +125,9 @@ export default async function ProgramPage({
             {program.para3}
           </p>
 
-          {/* Lasting Impact */}
           <h3 className="text-xl mb-4">{program.header2}</h3>
           <ul className="list-disc list-inside">
-            {program.impacts.map((item, index) => (
+            {program.interventions.map((item, index) => (
               <li key={index} className="mb-2">
                 {item.title ? (
                   <>
