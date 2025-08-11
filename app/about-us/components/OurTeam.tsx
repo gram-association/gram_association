@@ -10,72 +10,80 @@ const teamMembers = [
   },
   {
     name: "Arunima Sarkar",
-    role: "Chief executive officer",
+    role: "Chief Executive Officer -Implementation, Strategy & Advocacy",
     image: "/assets/about-us/team/Arunima.jpeg",
   },
   {
+    name: "Vikas Shukla",
+    role: "Senior Consultant Organisational Development",
+    image:
+      "/assets/about-us/team/VikasShukla-SeniorConsultant-OrganisationalDevelopment.jpeg",
+  },
+  {
+    name: "Devesh Singh",
+    role: "Associate - Administration & Operations",
+    image: "/assets/about-us/team/DeveshSingh-Associate.jpeg",
+  },
+  {
     name: "Ajay Kumar Sahu",
-    role: "ACMA",
+    role: "Finance & Compliance Specialist (ACMA)",
     image: "/assets/about-us/team/AjayKumar-ACMA,LegalAdvisor.jpeg",
   },
   {
     name: "Ankita",
-    role: "Legal Advisor",
+    role: "Legal Advisor - Legal Compliance",
     image: "/assets/about-us/team/Ankita-LegalAdvisor.jpeg",
   },
   {
     name: "Yuvraj Seth",
-    role: "Project Coordinator",
+    role: "Project Coordinator - Community Tourism & Sustainable Livelihoods",
     image: "/assets/about-us/team/YuvrajSeth-ProjectCoordinator.jpeg",
   },
   {
     name: "Paritosh Chavan",
-    role: "Tech Advisor",
+    role: "Communications & Social Media Specialist",
     image: "/assets/about-us/team/paritosh-techAdvisor.jpeg",
   },
   {
     name: "Anmol Dhaliwal",
-    role: "Research Consultant (Policy)",
+    role: "Policy Research Associate",
     image:
       "/assets/about-us/team/AnmolDhaliwal-ResearchConsultant(Policy).jpeg",
   },
   {
     name: "Arsh Saluja",
-    role: "Architect",
+    role: "Architect - Sustainable Design & Planning",
     image:
       "/assets/about-us/team/Arsh Saluja - Architect - Sustainable Design & Planning .jpeg",
   },
   {
     name: "Pratyasha Singh",
-    role: "Research Consultant (Geoenvironmental Engineer)",
+    role: "Senior Technical Consultant – Geoenvironmental Engineering & Environmental Impact ",
     image:
       "/assets/about-us/team/PratyashaSingh-ResearchConsultant(GeoenvironmentalEngineer).jpeg",
   },
-  {
-    name: "Devesh Singh",
-    role: "Associate",
-    image: "/assets/about-us/team/DeveshSingh-Associate.jpeg",
-  },
+
   {
     name: "Karthik Shakthiwal",
-    role: "Consultant",
+    role: "Technical Consultant - Environmental & Water Management",
     image: "/assets/about-us/team/KarthickSakthivel-Consultant.jpeg",
   },
   {
     name: "Rudraksh Singh Deo",
-    role: "Associate",
+    role: "Program Associate - Field & Community Support",
     image: "/assets/about-us/team/RudrakshSinghDeo-Associate.jpeg",
   },
   {
     name: "Roshan Kumar",
-    role: "Associate",
+    role: "Program Associate - Field & Community Support",
     image: "/assets/about-us/team/RoshanKumar-Associate.jpeg",
   },
   {
     name: "Rao Samrat",
-    role: "Volunteer",
+    role: "Consultant - Program Design",
     image: "/assets/about-us/team/RaoSamrat-Volunteer.jpeg",
   },
+
   {
     name: "Archit",
     role: "Volunteer",

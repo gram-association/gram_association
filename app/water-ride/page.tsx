@@ -45,7 +45,7 @@ export default function WaterRide() {
         <div className="mt-6 ">
           <div className="relative overflow-hidden rounded-lg sm:rounded-xl border border-gray-400">
             <Image
-              src="/waterRide.png"
+              src="/assets/water-ride/WaterRide.png"
               alt="community"
               width={1152}
               height={700}

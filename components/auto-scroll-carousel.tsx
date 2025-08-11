@@ -43,9 +43,8 @@ export default function AutoScrollCarousel({
   sizes = "(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px",
   loop = true,
   transitionDuration = 700,
-  dotSpacing = "16px",
+  dotSpacing = "8px",
 }: AutoScrollCarouselProps) {
-  // Normalize images to consistent format
   const normalizedImages = images.map((img, index) => {
     if (typeof img === "string") {
       return { src: img, alt: `Image ${index + 1}` };
@@ -56,15 +55,14 @@ export default function AutoScrollCarousel({
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
 
-  // Auto-scroll functionality
   useEffect(() => {
     if (normalizedImages.length <= 1 || (pauseOnHover && isHovered) || !loop)
       return;
 
     const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => {
-        return prevIndex >= normalizedImages.length - 1 ? 0 : prevIndex + 1;
-      });
+      setCurrentIndex((prevIndex) =>
+        prevIndex >= normalizedImages.length - 1 ? 0 : prevIndex + 1
+      );
     }, autoScrollInterval);
 
     return () => clearInterval(interval);
@@ -101,7 +99,7 @@ export default function AutoScrollCarousel({
           alt={normalizedImages[0].alt || "Image"}
           width={500}
           height={433}
-          className={cn("w-full ", `object-${objectFit}`, imageClassName)}
+          className={cn("w-full", `object-${objectFit}`, imageClassName)}
           style={{
             height: typeof height === "number" ? `${height}px` : height,
             aspectRatio: aspectRatio,
@@ -114,12 +112,12 @@ export default function AutoScrollCarousel({
   }
 
   return (
-    <div className={cn("relative group ", className)}>
-      {/* Main carousel container */}
+    <div className={cn("relative group", className)}>
       <div
         className={cn("relative overflow-hidden", containerClassName)}
         onMouseEnter={() => pauseOnHover && setIsHovered(true)}
         onMouseLeave={() => pauseOnHover && setIsHovered(false)}
+        style={{ height: typeof height === "number" ? `${height}px` : height }}
       >
         <div
           className="flex transition-transform ease-in-out h-full"
@@ -127,7 +125,6 @@ export default function AutoScrollCarousel({
             transform: `translateX(-${currentIndex * 100}%)`,
             transitionDuration: `${transitionDuration}ms`,
             willChange: "transform",
-            height: typeof height === "number" ? `${height}px` : height,
           }}
         >
           {normalizedImages.map((image, index) => (
@@ -154,20 +151,22 @@ export default function AutoScrollCarousel({
         </div>
       </div>
 
-      {/* Dots indicator - now positioned below the image */}
       {showDots && normalizedImages.length > 1 && (
         <div
-          className="flex justify-center space-x-2"
-          style={{ marginTop: dotSpacing }}
+          className="carousel-dots flex justify-center space-x-2 absolute left-0 right-0 sm:bottom-[-24px]"
+          style={{
+            bottom: `-${parseFloat(dotSpacing) + 8}px`, // Tighter spacing for mobile
+            marginTop: dotSpacing,
+          }}
         >
           {normalizedImages.map((_, index) => (
             <button
               key={index}
               onClick={() => goToSlide(index)}
               className={cn(
-                "w-3 h-3 rounded-full transition-all duration-200 hover:scale-110",
+                "w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full transition-all duration-200 hover:scale-110",
                 index === currentIndex
-                  ? "bg-gray-800 dark:bg-white"
+                  ? "bg-[#538C7B] dark:bg-[#538C7B] active"
                   : "bg-gray-400 dark:bg-gray-600 hover:bg-gray-600 dark:hover:bg-gray-400"
               )}
               aria-label={`Go to image ${index + 1}`}

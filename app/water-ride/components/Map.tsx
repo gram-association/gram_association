@@ -45,7 +45,7 @@ const states = [
   },
   {
     name: "Madhya Pradesh",
-    coordinates: { lat: 22.9734, lng: 78.6569 },
+    coordinates: { lat: 22.5734, lng: 75.7569 },
     color: "#5A829A",
     geographical: [
       "Central Indian plateau with mixed topography",
@@ -121,7 +121,7 @@ const states = [
   },
   {
     name: "Tamil Nadu",
-    coordinates: { lat: 11.1271, lng: 78.6569 },
+    coordinates: { lat: 9.9271, lng: 78.8569 },
     color: "#5A829A",
     geographical: [
       "Rainfall influenced by Northeast and Southwest monsoons",
@@ -480,7 +480,7 @@ export default function WaterRideMap() {
         let coordinates;
         if (r.from === "Kerala" && r.to === "Tamil Nadu") {
           // Create a U-shaped route by adding a midpoint
-          const midLat = (a.coordinates.lat + b.coordinates.lat) / 2 - 2.5; // Dip south by 1 degree
+          const midLat = (a.coordinates.lat + b.coordinates.lat) / 2 - 2.1; // Dip south by 1 degree
           const midLng = (a.coordinates.lng + b.coordinates.lng) / 2;
           coordinates = [
             [a.coordinates.lat, a.coordinates.lng],
