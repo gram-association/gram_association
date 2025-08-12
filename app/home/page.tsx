@@ -13,17 +13,17 @@ export default function Home() {
     <main className="flex min-h-screen flex-col items-center justify-between px-4 sm:px-6 md:px-8 lg:px-24 pt-16 pb-24 bg-[linear-gradient(to_bottom,_#1D352E_500px,_white_500px)]">
       <section className="flex flex-col w-full mt-8w-full max-w-7xl mx-auto mt-20 animate-fade-in">
         {/* Content Section */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 lg:gap-16 px-4 sm:px-6 lg:px-4">
+        <div className="grid grid-cols-1 md:grid-cols-[auto_1fr] gap-6 md:gap-8 lg:gap-16 px-4 sm:px-6 lg:px-4">
           {/* Left Column - Heading */}
-          <div className="md:col-span-2 ">
-            <h1 className=" text-2xl xs:text-3xl sm:text-3xl md:text-3xl lg:text-4xl xl:text-5xl font-semibold text-white dark:text-white leading-tight sm:leading-tight md:leading-tight lg:leading-tight">
+          <div className="flex flex-wrap">
+            <h1 className="text-2xl xs:text-3xl sm:text-3xl md:text-3xl lg:text-4xl xl:text-5xl font-semibold text-white dark:text-white leading-tight sm:leading-tight md:leading-tight lg:leading-tight">
               Building self-reliant India <br />
               through self-reliant villages
             </h1>
           </div>
 
           {/* Right Column - Description and CTA */}
-          <div className="md:col-span-1 flex gap-4 md:gap-6">
+          <div className="flex gap-4 md:gap-6">
             {/* Divider - Hidden on mobile and small tablets */}
             <div className="w-px hidden md:block bg-gray-300 dark:bg-gray-600 self-stretch"></div>
 

@@ -59,25 +59,21 @@ export default async function ProgramPage({
               </h1>
             </div>
 
-            <div className="w-full max-w-7xl mx-auto">
-              <div className="relative py-6 sm:py-8">
-                <AutoScrollCarousel
-                  images={carouselImages}
-                  autoScrollInterval={3000}
-                  height="450px" // Mobile height
-                  className="w-full rounded-lg  h-[300px] md:h-full" // Desktop height
-                  imageClassName="rounded-lg h-full"
-                  containerClassName="rounded-lg"
-                  showDots={true}
-                  pauseOnHover={true}
-                  loop={true}
-                  transitionDuration={700}
-                  objectFit="cover"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
-                  dotSpacing="8px"
-                />
-                <div className="pb-6 sm:pb-8" />
-              </div>
+            <div className="  max-w-7xl ">
+              <AutoScrollCarousel
+                images={carouselImages}
+                autoScrollInterval={1500}
+                height="500px"
+                className="w-full rounded-lg h-auto" // Removed conflicting height classes
+                imageClassName="rounded-lg" // Removed h-full that could cause issues
+                containerClassName="rounded-lg"
+                showDots={true}
+                pauseOnHover={true}
+                loop={true}
+                transitionDuration={700}
+                objectFit="cover" // Changed from "cover" to show complete image
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
+              />
             </div>
           </div>
         </section>

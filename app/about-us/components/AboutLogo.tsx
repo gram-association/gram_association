@@ -3,7 +3,7 @@ import Image from "next/image";
 export default function AboutLogo() {
   return (
     <div className="flex items-center justify-center px-4 sm:px-8 py-6 sm:py-8">
-      <div className="w-full max-w-5xl">
+      <div className="w-full max-w-7xl">
         <p className="inline-block bg-[#DEE6EB] dark:bg-gray-700 w-fit rounded-full text-xs sm:text-sm md:text-base text-gray-700 dark:text-gray-200 px-3 py-1 mb-4 sm:mb-6">
           About GRAM logo
         </p>

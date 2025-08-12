@@ -22,7 +22,7 @@ export default function OurPrograms() {
           <p className="mx-auto bg-[#DEE6EB] dark:bg-gray-700 w-fit rounded-lg px-4 text-gray-700 dark:text-gray-200 flex items-center text-sm sm:text-base mt-10">
             Our Programs
           </p>
-          <h1 className="text-3xl sm:text-5xl text-center text-gray-800  mb-8">
+          <h1 className="text-3xl sm:text-5xl text-center text-gray-800  m-8">
             Making a Lasting Impact
           </h1>
         </div>

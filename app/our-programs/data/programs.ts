@@ -136,7 +136,12 @@ export const programs = [
     title: "Community Food Forest Initiative (2020)",
     description:
       "Locations: Haislabera & Jargadhora, Jharkhand | In collaboration with DEEKSHA NGO Food insecurity... ",
-    image: "/education.png",
+      image: [
+        "/assets/our-programs/environment/Shortlist_1.jpg",
+        "/assets/our-programs/environment/Shortlist_2.jpg",
+        "/assets/our-programs/environment/Shortlist_3.jpg",
+        "/assets/our-programs/environment/Shortlist_4.jpg",
+      ],
     slug: "j",
   },
 ];
