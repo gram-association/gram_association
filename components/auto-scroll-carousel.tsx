@@ -43,7 +43,6 @@ export default function AutoScrollCarousel({
   sizes = "(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px",
   loop = true,
   transitionDuration = 700,
-  dotSpacing = "8px",
 }: AutoScrollCarouselProps) {
   const normalizedImages = images.map((img, index) => {
     if (typeof img === "string") {
@@ -93,7 +92,7 @@ export default function AutoScrollCarousel({
 
   if (normalizedImages.length === 1) {
     return (
-      <div className={cn("relative", className)}>
+      <div className={cn("w-full", className)}>
         <Image
           src={normalizedImages[0].src || "/placeholder.svg"}
           alt={normalizedImages[0].alt || "Image"}
@@ -112,9 +111,10 @@ export default function AutoScrollCarousel({
   }
 
   return (
-    <div className={cn("relative group", className)}>
+    <div className={cn("w-full flex flex-col", className)}>
+      {/* Image container */}
       <div
-        className={cn("relative overflow-hidden", containerClassName)}
+        className={cn("relative overflow-hidden w-full", containerClassName)}
         onMouseEnter={() => pauseOnHover && setIsHovered(true)}
         onMouseLeave={() => pauseOnHover && setIsHovered(false)}
         style={{ height: typeof height === "number" ? `${height}px` : height }}
@@ -152,26 +152,22 @@ export default function AutoScrollCarousel({
       </div>
 
       {showDots && normalizedImages.length > 1 && (
-        <div
-          className="carousel-dots flex justify-center space-x-2 absolute left-0 right-0 sm:bottom-[-24px]"
-          style={{
-            bottom: `-${parseFloat(dotSpacing) + 8}px`, // Tighter spacing for mobile
-            marginTop: dotSpacing,
-          }}
-        >
-          {normalizedImages.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => goToSlide(index)}
-              className={cn(
-                "w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full transition-all duration-200 hover:scale-110",
-                index === currentIndex
-                  ? "bg-[#538C7B] dark:bg-[#538C7B] active"
-                  : "bg-gray-400 dark:bg-gray-600 hover:bg-gray-600 dark:hover:bg-gray-400"
-              )}
-              aria-label={`Go to image ${index + 1}`}
-            />
-          ))}
+        <div className="flex justify-center w-full mt-2 sm:mt-3 md:mt-4 lg:mt-6">
+          <div className="flex items-center gap-1.5 sm:gap-2 md:gap-3">
+            {normalizedImages.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => goToSlide(index)}
+                className={cn(
+                  "w-1.5 h-1.5 sm:w-2 sm:h-2 md:w-2.5 md:h-2.5 lg:w-3 lg:h-3 rounded-full transition-all duration-200 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#538C7B]",
+                  index === currentIndex
+                    ? "bg-[#538C7B] dark:bg-[#538C7B] scale-110"
+                    : "bg-gray-400 dark:bg-gray-600 hover:bg-gray-600 dark:hover:bg-gray-400"
+                )}
+                aria-label={`Go to image ${index + 1}`}
+              />
+            ))}
+          </div>
         </div>
       )}
     </div>

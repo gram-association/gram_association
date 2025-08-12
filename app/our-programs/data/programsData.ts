@@ -572,10 +572,10 @@ export const programData: ProgramData = {
     id: "J",
     title: "Community Food Forest Initiative (2020)",
     image: [
-      "/assets/our-programs/food forest/Shortlist_1.jpg",
-      "/assets/our-programs/food forest/Shortlist_2.jpg",
-      "/assets/our-programs/food forest/Shortlist_3.jpg",
-      "/assets/our-programs/food forest/Shortlist_4.jpg",
+      "/assets/our-programs/environment/Shortlist_1.jpg",
+      "/assets/our-programs/environment/Shortlist_2.jpg",
+      "/assets/our-programs/environment/Shortlist_3.jpg",
+      "/assets/our-programs/environment/Shortlist_4.jpg",
     ],
     description: [
       "Locations: Haislabera & Jargadhora, Jharkhand | In collaboration with DEEKSHA NGO",

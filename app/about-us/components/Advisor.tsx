@@ -1,4 +1,3 @@
-import { Linkedin } from "lucide-react";
 import Image from "next/image";
 import React from "react";
 
@@ -10,7 +9,7 @@ const teamMembers = [
   },
   {
     name: "Dr. Sudheer Krishna",
-    role: "Co_Founder- MACS",
+    role: "Co Founder- MACS",
     image: "/assets/about-us/advisor/Dr.SudheerKrishnaCo_Founder-MACS.jpg",
   },
   {
@@ -29,7 +28,7 @@ const teamMembers = [
 export default function Advisor() {
   return (
     <div className="flex items-center justify-center p-4 sm:p-8">
-      <div className=" w-full">
+      <div className="w-full">
         <p className="inline-block bg-[#DEE6EB] dark:bg-gray-700 w-fit rounded-full text-sm sm:text-base  text-gray-700 dark:text-gray-200 px-3 py-1 mb-4">
           Our Advisors
         </p>
@@ -49,19 +48,6 @@ export default function Advisor() {
                   className="object-cover transition-transform duration-300 group-hover:scale-105"
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                 />
-                {/* Gradient Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-
-                {/* LinkedIn Button */}
-                <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
-                  <a
-                    // href={member.linkedin}
-                    className="inline-flex items-center justify-center w-10 h-10 bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-full shadow-lg hover:bg-blue-600 hover:text-white transition-all duration-200"
-                    aria-label={`${member.name}'s LinkedIn profile`}
-                  >
-                    <Linkedin size={18} />
-                  </a>
-                </div>
               </div>
 
               {/* Content */}

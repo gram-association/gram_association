@@ -96,10 +96,10 @@ const Header = () => {
       </div>
 
       {/* Header */}
-      <header className="py-2 px-4 top-14 absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 border rounded-full shadow-lg bg-white dark:bg-gray-900 w-full max-w-3xl">
+      <header className="py-2   px-4 top-14 absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 border rounded-full shadow-lg bg-white dark:bg-gray-900 w-full max-w-3xl">
         <div className="container sticky top-4 z-40 mx-auto flex items-center justify-between">
           {/* Navigation Links (Hidden on mobile, Visible on desktop) */}
-          <nav className="hidden lg:flex space-x-4 px-1">
+          <nav className="hidden  lg:flex space-x-4 px-1">
             <Link
               href="/home"
               className={`text-gray-900 dark:text-white hover:text-gray-600 dark:hover:text-gray-300 text-sm ${
@@ -156,7 +156,7 @@ const Header = () => {
             </Link>
             <Link
               href="/contact-us"
-              className={`w-24 px-1 py-1 bg-[#538C7B] dark:bg-[#4a7a6e] rounded-full text-white text-sm hover:bg-green-700 dark:hover:bg-green-800 transition-colors text-center ${
+              className={` px-2 py-1 bg-[#538C7B] dark:bg-[#4a7a6e] rounded-full text-white text-sm hover:bg-green-700 dark:hover:bg-green-800 transition-colors text-center ${
                 isActive("/contact-us/") ? "font-bold" : ""
               }`}
             >

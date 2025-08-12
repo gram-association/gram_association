@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Epilogue, Geist, Geist_Mono, Source_Sans_3 } from "next/font/google";
+import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
@@ -13,17 +13,6 @@ const geistSans = Geist({
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
-});
-const epilogue = Epilogue({
-  subsets: ["latin"],
-  weight: ["400", "600", "700"],
-  variable: "--font-epilogue",
-});
-const sourceSans3 = Source_Sans_3({
-  subsets: ["latin"],
-  weight: ["400", "700"],
-  style: ["normal", "italic"],
-  variable: "--font-source-sans-3",
 });
 
 export const metadata: Metadata = {

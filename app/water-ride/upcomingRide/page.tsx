@@ -6,181 +6,125 @@ import RouteSection from "./route-section";
 
 export default function UpcomingRide() {
   return (
-    <main className="min-w-screen overflow-x-hidden">
-      {/* <div className="text-center py-6 sm:py-8 md:py-12"> */}
-      {/* <p className="container w-fit mx-auto bg-[#DEE6EB] dark:bg-gray-700 rounded-lg px-2 py-1 text-xs sm:text-sm text-gray-700 dark:text-gray-200 flex items-center mb-6">
-          The Upcoming Rides
-        </p>
-        <h1 className="text-3xl sm:text-4xl md:text-5xl  text-gray-800 dark:text-gray-200 mb-1 ">
-          The Water Odyssey 2026
-        </h1>
-        <h6 className="text-gray-700 dark:text-gray-200 mb-4 sm:mb-6 text-sm sm:text-base">
-          {" "}
-          A 15-State Journey For Restoring India's Water Wisdom
-        </h6>
-        <p className="text-gray-600 dark:text-gray-300 max-w-full sm:max-w-2xl md:max-w-5xl mx-auto text-sm sm:text-lg leading-relaxed px-4 sm:px-0">
-          <span className="font-bold text-[17px]">
-            From Jharkhand to North-East to Kashmir to Delhi – Uniting Villages,
-            Rivers, and Policies in India’s Biggest Water Movement
-          </span>
-          <br />
-          In 2016, Shashank Singh, the founder of GRAM, stood at a crossroads.
-          He had just completed a transformative fellowship, a journey that
-          opened his eyes to a profound truth: water, the very essence of life,
-          was an essential yet dangerously neglected commodity across India.
-          Inspired by the pioneering thoughts of Mr. Sanjit (Bunker) Roy on
-          water conservation and fueled by his own observations, Shashank knew
-          he couldn't stand by. He decided to act, not with words, but with
-          action. <br />
-          <br /> He embarked on a solitary mission, on a motorbike, a roaring
-          symbol of his determination to awaken hearts to the quiet crisis of
-          water scarcity. His motorbike became his mobile classroom, every mile
-          a testament to his unwavering belief that every drop counts, every
-          person's awareness can spark change. He traversed vast stretches of
-          India, arduous roads, and the constant fatigue that tested his
-          resolve. He met villagers, farmers, and children, sharing stories of
-          resourcefulness and struggle, sowing seeds of consciousness wherever
-          he went.
-        </p>
-      </div> */}
-      {/* <div className="bg-[#F8F1E9] dark:bg-gray-800 max-w-full mx-auto py-6 sm:py-8 md:py-12 flex flex-col md:flex-row justify-center items-center">
-        <div className="text-center  w-full sm:w-2/3 sm:text-start p-2 pl-0 sm:pl-10">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl text-gray-800 dark:text-gray-200 mb-4 sm:mb-6">
-            The Unfinished Ride
-          </h2>
+    <main className="w-full min-w-screen flex flex-col items-center">
+      {/* Hero Section - The Water Odyssey */}
+      <section className="bg-[#BAD1CA] w-full flex justify-center items-center p-4 pt-4 sm:pt-6 md:pt-8 mt-12 sm:mt-14 md:mt-16 lg:mt-10 animate-fade-in">
+        <div className="flex flex-col max-w-7xl lg:flex-row items-center gap-4 sm:gap-6 md:gap-8 lg:gap-12 pb-6 sm:pb-8 md:pb-10">
+          {/* Image Container */}
+          <div className="w-full lg:w-1/2 order-1 lg:order-1">
+            <div className="relative aspect-video w-full h-[250px] sm:h-[300px] md:h-[350px] lg:h-[420px] rounded-lg sm:rounded-xl overflow-hidden shadow-lg sm:shadow-xl">
+              <Image
+                src="/water-odd.jpg"
+                alt="Story Image"
+                fill
+                className="object-center"
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 50vw"
+                priority
+              />
+            </div>
+          </div>
 
-          <p className="text-gray-600 dark:text-gray-300 max-w-full sm:max-w-2xl md:max-w-5xl mx-auto text-sm sm:text-lg leading-relaxed px-4 sm:px-0">
-            But then, an unforeseen storm hit, demonetization. Overnight, the
-            gears of everyday life ground to a halt. Shashank, far from home,
-            found his journey abruptly curtailed on the side of the road, a
-            powerful mission brought to a premature end by circumstances beyond
-            his control. The ride, though impactful, remained unfinished. The
-            thirst for awareness and learning from the grassroots, like the
-            critical need for sustainable water practices, lingered.
-            <br />
-            <br />
-            Now, years later, the echoes of that unfinished journey call out.
-            The challenge of water management hasn't vanished; in many ways, it
-            has intensified. But Shashank's spirit, far from being broken, has
-            been tempered by experience. He carries the profound lessons of that
-            solitary ride, the critical need for a collective effort, for a
-            network of support, and for resilience in the face of unexpected
-            obstacles. <br />
-            <br />
-            <span className=" italic">
-              "In 2016, I learned one drop can make a river. In 2026, we will
-              prove a thousand drops can build oceans."–{" "}
-            </span>
-            <span className="font-semibold">Shashank Singh, Founder, GRAM</span>
-          </p>
-        </div>
-        <div className="w-xs sm:w-2/5">
-          <div className="w-sm sm:w-2xl h-[300px] m-6 sm:m-2 rounded-lg">
-            <Image
-              src="/assets/water-ride/RE2.jpg"
-              alt="planned route"
-              width={500}
-              height={700}
-              className="object-cover w-xs sm:w-[450px] h-full -ml-6  sm:ml-4 mt-0 sm:mt-6 rounded-lg"
-            />
+          {/* Text Content */}
+          <div className="w-full lg:w-1/2 order-2 lg:order-2 px-2 sm:px-4 lg:px-0">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 dark:text-gray-100 mb-3 sm:mb-4 md:mb-6 text-center lg:text-left">
+              The Water Odyssey
+            </h2>
+            <p className="font-sourceSans3 text-sm sm:text-base md:text-[17px] text-gray-600 dark:text-gray-200 text-justify leading-relaxed space-y-3 sm:space-y-4">
+              <span className="block">
+                GRAM is now ready to reignite that crucial journey, not just for
+                Shashank, but for all of us. This time, the ride will be
+                different. It will be a carefully planned expedition across the
+                vital East and North East of India, regions where water
+                resources are under immense pressure and where innovative
+                solutions are desperately needed. This isn't just about riding;
+                it's about connecting with communities, sharing knowledge, and
+                enabling individuals to become guardians of their water
+                heritage. It's about taking the insights gained from that first
+                solo ride and building a powerful, collective movement.
+              </span>
+
+              <span className="block">
+                Imagine the stories we will gather, the lives we will touch and
+                the collaboration we will achieve. Imagine the ripples of
+                awareness spreading from village to town, from school to home.
+                This ride is more than a physical journey; it is a movement to
+                protect our most precious resource. It is an opportunity to
+                transform an unfinished dream into a powerful reality for water
+                conservation across India.
+              </span>
+
+              <span className="block">
+                Water is India's ancient epic – a story of life, struggle, and
+                resilience. In 2016, a lone rider's mission was interrupted.
+                Now, we reignite that journey as a 8,000 km Water Odyssey: from
+                the rain-starved plateaus of Jharkhand to the melting glaciers
+                of Kashmir, through the flood-ravaged Brahmaputra basin to the
+                sacred Ganga plains. This is more than a ride; it's India's
+                largest community-driven water movement.
+              </span>
+            </p>
           </div>
         </div>
-      </div> */}
+      </section>
 
-      <p className="container mt-8 mx-auto bg-[#DEE6EB] dark:bg-gray-700 w-fit rounded-lg px-4  text-gray-700 dark:text-gray-200 flex items-center text-sm sm:text-base">
-        upcoming ride
-      </p>
-      <div className="bg-[#BAD1CA] mt-12 dark:bg-gray-700 w-full max-w-full  py-6 sm:py-8 md:py-12 flex flex-col md:flex-row justify-center items-center">
-        <div className="m-6 sm:m-2 rounded-lg">
-          <Image
-            src="/water-odd.jpg"
-            alt="planned route"
-            width={500}
-            height={700}
-            className="w-full h-full ml-0 sm:ml-4 mt-0 sm:mt-6 rounded-lg"
-          />
-        </div>
-        <div>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl text-center text-gray-800 dark:text-gray-200 mb-4 sm:mb-6">
-            The Water Odyssey
-          </h2>
-
-          <p className="text-gray-600 dark:text-gray-300  max-w-full sm:max-w-2xl md:max-w-5xl mx-auto text-sm sm:text-[17px] leading-relaxed px-4 sm:px-10">
-            GRAM is now ready to reignite that crucial journey, not just for
-            Shashank, but for all of us. This time, the ride will be different.
-            It will be a carefully planned expedition across the vital East and
-            North East of India, regions where water resources are under immense
-            pressure and where innovative solutions are desperately needed. This
-            isn't just about riding; it's about connecting with communities,
-            sharing knowledge, and enabling individuals to become guardians of
-            their water heritage. It's about taking the insights gained from
-            that first solo ride and building a powerful, collective movement.
-            <br />
-            <br />
-            Imagine the stories we will gather, the lives we will touch and the
-            collaboration we will achieve. Imagine the ripples of awareness
-            spreading from village to town, from school to home. This ride is
-            more than a physical journey; it is a movement to protect our most
-            precious resource. It is an opportunity to transform an unfinished
-            dream into a powerful reality for water conservation across India.
-            <br />
-            <br />
-            Water is India’s ancient epic – a story of life, struggle, and
-            resilience. In 2016, a lone rider’s mission was interrupted. Now, we
-            reignite that journey as a 8,000 km Water Odyssey: from the
-            rain-starved plateaus of Jharkhand to the melting glaciers of
-            Kashmir, through the flood-ravaged Brahmaputra basin to the sacred
-            Ganga plains. This is more than a ride; it’s India’s largest
-            community-driven water movement.
-          </p>
-        </div>
-      </div>
       {/* Route Section */}
       <RouteSection />
 
-      {/* Planned Route Section */}
-      <section className="bg-[#F8F1E9] dark:bg-gray-800 max-w-full mx-auto px-4 sm:px-6 md:px-10 py-10 flex flex-col md:flex-row justify-center items-center">
-        <div className="w-full md:w-[740px] h-auto  mb-6 md:mb-0">
-          <h2 className="text-2xl sm:text-3xl mb-2 text-center md:text-left">
-            Ride Plan
-          </h2>
-          <p className="text-gray-700 dark:text-gray-200 text-sm md:text-[17px] leading-relaxed">
-            We are gearing up for an epic bike ride that will take us across 19
-            incredible states and union territories of India. Our journey will
-            begin in the coastal landscapes of Odisha, then move through the
-            vibrant culture of West Bengal. As we head northeast, we will ride
-            through the lush tea gardens of Assam, the misty hills of Meghalaya,
-            and the serene beauty of Tripura, Mizoram, Manipur, Nagaland, and
-            Arunachal Pradesh, soaking in the raw, untouched charm of the
-            Northeast.
-            <br />
-            <br />
-            From there, we will climb into the Himalayan embrace of Sikkim
-            before heading west into the historic heartlands of Bihar and Uttar
-            Pradesh. The spiritual calm of Uttarakhand and the scenic mountains
-            of Himachal Pradesh will challenge and inspire us, leading us to the
-            breathtaking heights of Jammu and Kashmir.
-            <br />
-            <br />
-            As we descend, we will ride through the fields of Punjab, the
-            heartland of Haryana, and the bustling energy of Delhi. Our
-            adventure will conclude in the royal deserts and vibrant culture of
-            Rajasthan.
-            <br />
-            <br />
-            This journey will not just be a ride—it will be a celebration of
-            India’s diversity, testing our limits and enriching our souls with
-            every mile.
-          </p>
-        </div>
-        <div className="w-full md:w-1/3 h-auto md:h-[425px] flex justify-center items-center rounded-lg">
-          <Image
-            src="/assets/water-ride/RoyalEnfield.png"
-            alt="planned route"
-            width={500}
-            height={750}
-            className="object-cover w-full h-full ml-0 sm:ml-4 mt-0 sm:mt-6 rounded-lg"
-          />
+      {/* Ride Plan Section */}
+      <section className="bg-[#F8F1E9]  dark:bg-gray-800 w-full px-4 sm:px-6 md:px-8 lg:px-10 py-6 sm:py-8 md:py-10">
+        <div className="max-w-7xl mx-auto flex flex-col lg:flex-row justify-center items-center gap-6 sm:gap-8 md:gap-10 lg:gap-12">
+          {/* Image Container */}
+          <div className="w-full sm:w-2/3 md:w-1/2 lg:w-1/3 order-1 lg:order-2 flex justify-center">
+            <div className="relative w-full max-w-[400px] h-[300px] sm:h-[350px] md:h-[400px] lg:h-[425px] rounded-lg overflow-hidden shadow-lg">
+              <Image
+                src="/assets/water-ride/RoyalEnfield.png"
+                alt="Royal Enfield motorcycle for the planned route"
+                fill
+                className="object-cover"
+                sizes="(max-width: 640px) 100vw, (max-width: 768px) 66vw, (max-width: 1024px) 50vw, 33vw"
+              />
+            </div>
+          </div>
+
+          {/* Text Content */}
+          <div className="w-full lg:w-2/3 order-2 lg:order-1">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 dark:text-gray-100 mb-3 sm:mb-4 md:mb-6 text-center lg:text-left">
+              Ride Plan
+            </h2>
+            <p className="text-gray-700 dark:text-gray-200 text-sm sm:text-base md:text-[17px] leading-relaxed text-justify space-y-3 sm:space-y-4">
+              <span className="block">
+                We are gearing up for an epic bike ride that will take us across
+                19 incredible states and union territories of India. Our journey
+                will begin in the coastal landscapes of Odisha, then move
+                through the vibrant culture of West Bengal. As we head
+                northeast, we will ride through the lush tea gardens of Assam,
+                the misty hills of Meghalaya, and the serene beauty of Tripura,
+                Mizoram, Manipur, Nagaland, and Arunachal Pradesh, soaking in
+                the raw, untouched charm of the Northeast.
+              </span>
+
+              <span className="block">
+                From there, we will climb into the Himalayan embrace of Sikkim
+                before heading west into the historic heartlands of Bihar and
+                Uttar Pradesh. The spiritual calm of Uttarakhand and the scenic
+                mountains of Himachal Pradesh will challenge and inspire us,
+                leading us to the breathtaking heights of Jammu and Kashmir.
+              </span>
+
+              <span className="block">
+                As we descend, we will ride through the fields of Punjab, the
+                heartland of Haryana, and the bustling energy of Delhi. Our
+                adventure will conclude in the royal deserts and vibrant culture
+                of Rajasthan.
+              </span>
+
+              <span className="block">
+                This journey will not just be a ride—it will be a celebration of
+                India's diversity, testing our limits and enriching our souls
+                with every mile.
+              </span>
+            </p>
+          </div>
         </div>
       </section>
 
@@ -188,24 +132,21 @@ export default function UpcomingRide() {
       <MissionCards />
 
       {/* Support Form Section */}
-      <div className="max-w-full">
-        <div className="relative bg-[#BAD1CA] dark:bg-gray-700 w-full max-w-full h-auto max-h-[320px] flex md:justify-center md:h-[850px]">
-          <h1 className="text-2xl sm:text-4xl  text-center mx-auto mt-8  sm:mb-6 order-3 md:absolute ">
+      <section className="bg-[#BAD1CA] dark:bg-gray-700 w-full">
+        {/* Title */}
+        <div className="text-center pt-6 sm:pt-8 md:pt-10 pb-4 sm:pb-6 px-4">
+          <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-gray-800 dark:text-gray-100">
             Support the Movement
           </h1>
+        </div>
 
-          {/* Form for larger screens */}
-          <div className="hidden md:block absolute top-24 w-[90%] max-w-[600px] bg-white dark:bg-gray-950 p-8 rounded-lg shadow-xl order-4">
+        {/* Form Container */}
+        <div className="flex justify-center pb-6 sm:pb-8 md:pb-10 px-4">
+          <div className="w-full max-w-[600px] bg-white dark:bg-gray-950 p-4 sm:p-6 md:p-8 rounded-lg shadow-xl">
             <Support />
           </div>
         </div>
-      </div>
-      <div className="max-w-full h-auto min-h-[300px] bg-[#BAD1CA] dark:bg-gray-900 order-5 flex justify-center items-start">
-        {/* Form for mobile view */}
-        <div className="md:hidden w-[90%] max-w-[600px] bg-white dark:bg-gray-950 p-8 rounded-lg shadow-xl mt-4">
-          <Support />
-        </div>
-      </div>
+      </section>
 
       {/* Bottom Section: Share Your Story */}
       <Story />

@@ -4,7 +4,7 @@ import React from "react";
 const MissionCards: React.FC = () => {
   const missions = [
     {
-      pillar: "Document Wisdom",
+      pillar: "Archive Wisdom",
       // action: "Archive indigenous techniques",
       // impact: "Create India's Water Heritage Atlas",
       img: "/logos/Group 8.png",
@@ -17,13 +17,13 @@ const MissionCards: React.FC = () => {
       img: "/logos/Volunteer.png",
     },
     {
-      pillar: "Policy Bridges",
+      pillar: "Collaborate in Policy Implementation",
       // action: "Collect citizen voices for state water schemed",
       // impact: "Shape state water action plans",
       img: "/logos/donate.png",
     },
     {
-      pillar: "State Interventions (Post-Ride)",
+      pillar: "Disseminate sustainable solutions",
       // action: "Partner with local NGOs to implement 1 flagship project/state",
       // impact: "10 million liter annual recharge",
       img: "/logos/partners.png",
@@ -31,7 +31,7 @@ const MissionCards: React.FC = () => {
   ];
 
   return (
-    <div className="container mx-auto p-4 my-6">
+    <div className="container max-w-7xl mx-auto p-4 mt-6">
       <h1 className="text-4xl text-center mb-6">Our 4-Pillar Mission</h1>
       <div className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-4 gap-4">
         {missions.map((mission, index) => (

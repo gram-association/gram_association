@@ -6,11 +6,11 @@ import Link from "next/link";
 export default function JourneyHighlights() {
   return (
     <main className="min-h-screen font-sans overflow-x-hidden">
-      <section className="max-w-7xl md:ml-10 px-4 py-4">
+      <section className="max-w-7xl md:ml-10  py-4">
         <div className="container grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8 mx-auto px-4 sm:px-6 lg:px-8">
           {/* Text content - takes full width on mobile, 2/3 on large screens */}
-          <div className="text-center col-span-1 lg:col-span-2 py-6 sm:py-8 md:py-12">
-            <p className="text-gray-600 text-center dark:text-gray-300 max-w-full sm:max-w-2xl md:max-w-5xl mx-auto text-sm sm:text-lg leading-relaxed">
+          <div className="col-span-1 lg:col-span-2 py-6 sm:py-8 md:py-12">
+            <p className="text-gray-600 dark:text-gray-300 max-w-full sm:max-w-2xl md:max-w-5xl mx-auto text-sm sm:text-lg leading-relaxed">
               <span className="font-bold text-[17px]">
                 From Jharkhand to North-East to Kashmir to Delhi – Uniting
                 Villages, Rivers, and Policies in India’s Biggest Water Movement

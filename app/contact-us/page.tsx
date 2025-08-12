@@ -73,7 +73,7 @@ export default function ContactUs() {
           </div>
 
           {/* Contact Form Section */}
-          <div className="w-full md:w-2/5 lg:w-1/2 bg-white dark:bg-gray-800 drop-shadow-lg text-gray-800 dark:text-gray-200 rounded-lg p-4 sm:p-6 md:p-6 lg:p-8 mt-8 md:mt-0 lg:mt-0 animate-slide-up ease-in">
+          <div className="w-full  md:w-2/5 lg:w-1/2 bg-white dark:bg-gray-800 drop-shadow-lg text-gray-800 dark:text-gray-200 rounded-lg p-4 sm:p-6 md:p-6 lg:p-8 mt-8 md:mt-0 lg:mt-0 animate-slide-up ease-in">
             <Suspense fallback={<div>Loading...</div>}>
               <ContactForm />
             </Suspense>
