@@ -109,14 +109,15 @@ export const videoData = [
     youtubeUrl: "https://youtu.be/TpWj6MH1lNc?si=_o4YsFAJJtqCO5aW",
     duration: "5:20",
   },
-  // {
-  //   id: "v6",
-  //   type: "videos",
-  //   title: "Lorem ipsum dolor sit amet, consectetur adipiscing",
-  //   date: "05 Dec, 2023",
-  //   youtubeUrl: "/Rectangle 71.png?height=300&width=400",
-  //   duration: "2:10",
-  // },
+  // https://youtu.be/MZXcDjmFCO0?si=C9O7wNDKm-5Rnn--
+  {
+    id: "v6",
+    type: "videos",
+    title: "कहाँ गए तालाब बनाने वाले लोग ?",
+    date: "7 Jun 2025",
+    youtubeUrl: "https://youtu.be/MZXcDjmFCO0?si=C9O7wNDKm-5Rnn--",
+    duration: "45:27",
+  },
 ];
 
 export const documentData: DocumentItem[] = [
@@ -179,5 +180,19 @@ export const documentData: DocumentItem[] = [
     hasQrCode: true,
     fileSize: "2.7 MB",
     fileType: "PDF",
+  },
+];
+export const resourceUrls = [
+  {
+    url: "https://www.thebetterindia.com/52331/pond-rejuvenation-rajasthan-chota-naraina-village/",
+  },
+  {
+    url: "https://hindi.thebetterindia.com/inspiring-indians/jharkhand-bihar-shashank-singh-water-conservation/",
+  },
+  {
+    url: "https://hindi.thebetterindia.com/jharkhand/jharkhand-water-conservation-project-shashank-singh-mangesh-jha-impacted-village-rainwater-harvesting-news/",
+  },
+  {
+    url: "https://www.ecoideaz.com/expert-corner/learning-from-water-conservation-in-indian-culture",
   },
 ];

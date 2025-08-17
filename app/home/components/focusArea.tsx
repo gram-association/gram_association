@@ -40,13 +40,10 @@ export default function FocusAreas() {
     <section className="min-h-screen py-8 md:py-16 text-center bg-white">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="inline-block mb-5">
-          <p className="mx-auto bg-[#DEE6EB] dark:bg-gray-700 w-fit rounded-lg px-4 text-gray-700 dark:text-gray-200 flex items-center text-sm sm:text-base mt-10">
+          <p className="mx-auto mb-6 bg-[#DEE6EB] dark:bg-gray-700 w-fit rounded-lg px-4 text-gray-700 dark:text-gray-200 flex items-center text-sm sm:text-base mt-10">
             Our Focus Areas
           </p>
         </div>
-        <h2 className="text-2xl md:text-5xl font-bold text-left mb-6 md:mb-8 text-gray-900">
-          Our Approach
-        </h2>
       </div>
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">

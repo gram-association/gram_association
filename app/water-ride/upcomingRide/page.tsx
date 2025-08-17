@@ -6,20 +6,19 @@ import RouteSection from "./route-section";
 
 export default function UpcomingRide() {
   return (
-    <main className="w-full min-w-screen flex flex-col items-center">
+    <main className="w-full lg:min-w-screen flex flex-col items-center">
       {/* Hero Section - The Water Odyssey */}
       <section className="bg-[#BAD1CA] w-full flex justify-center items-center p-4 pt-4 sm:pt-6 md:pt-8 mt-12 sm:mt-14 md:mt-16 lg:mt-10 animate-fade-in">
         <div className="flex flex-col max-w-7xl lg:flex-row items-center gap-4 sm:gap-6 md:gap-8 lg:gap-12 pb-6 sm:pb-8 md:pb-10">
           {/* Image Container */}
-          <div className="w-full lg:w-1/2 order-1 lg:order-1">
-            <div className="relative aspect-video w-full h-[250px] sm:h-[300px] md:h-[350px] lg:h-[420px] rounded-lg sm:rounded-xl overflow-hidden shadow-lg sm:shadow-xl">
+          <div className="w-full sm:w-2/3 md:w-1/2 lg:w-1/3 order-1 lg:order-2 flex justify-center">
+            <div className="relative w-full max-w-[400px] h-[300px] sm:h-[350px] md:h-[400px] lg:h-[425px] rounded-lg overflow-hidden shadow-lg">
               <Image
                 src="/water-odd.jpg"
                 alt="Story Image"
                 fill
-                className="object-center"
+                className="object-cover"
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 50vw"
-                priority
               />
             </div>
           </div>
@@ -29,7 +28,7 @@ export default function UpcomingRide() {
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 dark:text-gray-100 mb-3 sm:mb-4 md:mb-6 text-center lg:text-left">
               The Water Odyssey
             </h2>
-            <p className="font-sourceSans3 text-sm sm:text-base md:text-[17px] text-gray-600 dark:text-gray-200 text-justify leading-relaxed space-y-3 sm:space-y-4">
+            <p className="text-gray-700 dark:text-gray-200 text-sm sm:text-base md:text-[17px] leading-relaxed text-justify space-y-3 sm:space-y-4">
               <span className="block">
                 GRAM is now ready to reignite that crucial journey, not just for
                 Shashank, but for all of us. This time, the ride will be
