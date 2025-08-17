@@ -14,7 +14,7 @@ const RouteSection = () => {
             </h4>
           </div>
 
-          <div className="overflow-x-auto pb-4 md:pb-0 ">
+          <div className="overflow-x-auto border rounded-xl shadow-2xl pb-4 md:pb-0 ">
             <div className="flex flex-row items-center whitespace-nowrap min-w-max py-4 px-2 rounded-xl bg-white/20 dark:bg-gray-700/30 shadow-lg gap-x-4 sm:gap-x-6 md:gap-x-8">
               {[
                 "Jharkhand",

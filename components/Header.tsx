@@ -1,20 +1,47 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
 import { Menu, X } from "lucide-react";
 
+const preloadImage = (src: string) => {
+  if (typeof window !== "undefined") {
+    const link = document.createElement("link");
+    link.rel = "preload";
+    link.as = "image";
+    link.href = src;
+    document.head.appendChild(link);
+  }
+};
+
+const logoPlaceholder =
+  "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTQ1IiBoZWlnaHQ9IjQwIiB2aWV3Qm94PSIwIDAgMTQ1IDQwIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSIxNDUiIGhlaWdodD0iNDAiIGZpbGw9IiNmM2Y0ZjYiLz48L3N2Zz4=";
+
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [imageLoaded, setImageLoaded] = useState(false);
+  const [imageError, setImageError] = useState(false);
   const pathname = usePathname();
+
+  useEffect(() => {
+    preloadImage("/logos/GRAM_logotype.png");
+  }, []);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
   const isActive = (href: string) => pathname === href;
+
+  const handleImageLoad = () => {
+    setImageLoaded(true);
+  };
+
+  const handleImageError = () => {
+    setImageError(true);
+  };
 
   return (
     <>
@@ -125,15 +152,37 @@ const Header = () => {
               Our Programs
             </Link>
           </nav>
+
           {/* Logo (Left on mobile, Center on desktop) */}
           <div className="flex items-center lg:w-36 lg:justify-center">
-            <Image
-              src="/logos/GRAM_logotype.png"
-              alt="GRAM Association Logo"
-              width={145}
-              height={40}
-              className="lg:mx-1"
-            />
+            <Link href="/" className="flex items-center">
+              {!imageError ? (
+                <Image
+                  src="/logos/GRAM_logotype.png"
+                  alt="GRAM Association Logo"
+                  width={145}
+                  height={40}
+                  className={`lg:mx-1 transition-opacity duration-300 ${
+                    imageLoaded ? "opacity-100" : "opacity-0"
+                  }`}
+                  priority
+                  placeholder="blur"
+                  blurDataURL={logoPlaceholder}
+                  sizes="(max-width: 768px) 145px, 145px"
+                  quality={90}
+                  onLoad={handleImageLoad}
+                  onError={handleImageError}
+                  style={{
+                    maxWidth: "100%",
+                    height: "auto",
+                  }}
+                />
+              ) : (
+                <div className="lg:mx-1 flex items-center justify-center w-[145px] h-[40px] bg-gray-100 dark:bg-gray-800 rounded text-gray-600 dark:text-gray-400 text-sm font-medium">
+                  GRAM Association
+                </div>
+              )}
+            </Link>
           </div>
 
           {/* Navigation Links, Contact Button, and Theme Toggle (Hidden on mobile, Visible on desktop) */}

@@ -11,10 +11,6 @@ export default function JourneyHighlights() {
           {/* Text content - takes full width on mobile, 2/3 on large screens */}
           <div className="col-span-1 lg:col-span-2 py-6 sm:py-8 md:py-12">
             <p className="text-gray-600 dark:text-gray-300 max-w-full sm:max-w-2xl md:max-w-5xl mx-auto text-sm sm:text-lg leading-relaxed">
-              <span className="font-bold text-[17px]">
-                From Jharkhand to North-East to Kashmir to Delhi – Uniting
-                Villages, Rivers, and Policies in India’s Biggest Water Movement
-              </span>
               <br />
               In 2016, Shashank Singh, the founder of GRAM, stood at a
               crossroads. He had just completed a transformative fellowship, a

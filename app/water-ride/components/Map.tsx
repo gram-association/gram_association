@@ -650,9 +650,6 @@ export default function WaterRideMap() {
     <main className="h-screen w-full mb-80 md:mb-8 ">
       {/* Header */}
       <div className="mb-2 sm:mb-8">
-        <p className="mx-auto bg-[#DEE6EB] dark:bg-gray-700 w-fit rounded-lg px-4 text-gray-700 dark:text-gray-200 flex items-center text-sm sm:text-base mt-10">
-          Impact
-        </p>
         <h2 className="text-xl sm:text-3xl md:text-4xl lg:text-5xl mt-4 text-center mb-6 px-4">
           Journey Across India
         </h2>
@@ -662,7 +659,7 @@ export default function WaterRideMap() {
       <div className="h-full w-full flex flex-col lg:flex-row lg:h-[83vh]  lg:mt-2 lg:mb-18 bg-gray-100 dark:bg-gray-900 lg:bg-white lg:rounded-xl lg:shadow-lg lg:overflow-hidden">
         {/* Map Section */}
         <div className="relative w-full h-[40vh] lg:w-2/5 lg:h-full bg-gray-50">
-          <div ref={mapDiv} className="w-full h-full" />{" "}
+          <div ref={mapDiv} className="w-full h-full sm:h-72" />{" "}
           {/* This is the single map div */}
           {/* Loading Overlay (only for desktop, as mobile shows map immediately) */}
           {!ready && (
