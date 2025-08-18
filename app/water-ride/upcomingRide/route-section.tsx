@@ -49,15 +49,6 @@ const RouteSection = () => {
                       {state}
                     </span>
                   </div>
-
-                  {/* Arrow (if not last) */}
-                  {index < 17 && (
-                    <div className="flex-shrink-0 sm:ml-2">
-                      <span className="text-gray-500 dark:text-gray-400 text-base sm:text-lg md:text-xl">
-                        {window.innerWidth < 640 ? "↓" : "→"}
-                      </span>
-                    </div>
-                  )}
                 </div>
               ))}
             </div>
