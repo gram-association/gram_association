@@ -2,8 +2,8 @@
 
 const RouteSection = () => {
   return (
-    <section className="bg-[#BAD1CA] min-w-screen w-full lg:px-32  flex justify-start lg:justify-center md:justify-center items-center p-4 pt-4 sm:pt-6 md:pt-8  animate-fade-in">
-      <div className=" w-full items-center gap-4 sm:gap-6 md:gap-8 lg:gap-12 pb-6 sm:pb-8 md:pb-10">
+    <section className="bg-[#BAD1CA] min-w-screen w-full   flex justify-start lg:justify-center md:justify-center items-center p-4 pt-4 sm:pt-6 md:pt-8  animate-fade-in">
+      <div className=" w-full lg:max-w-7xl items-center gap-4 sm:gap-6 md:gap-8 lg:gap-12 pb-6 sm:pb-8 md:pb-10">
         <div className="mb-5">
           <h3 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-800 dark:text-gray-100">
             The Route
