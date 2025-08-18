@@ -6,7 +6,7 @@ import RouteSection from "./route-section";
 
 export default function UpcomingRide() {
   return (
-    <main className="w-full lg:min-w-screen flex flex-col items-center">
+    <main className="w-full min-w-screen  flex flex-col items-center">
       {/* Hero Section - The Water Odyssey */}
       <section className="bg-[#BAD1CA] w-full flex justify-center items-center p-4 pt-4 sm:pt-6 md:pt-8 mt-12 sm:mt-14 md:mt-16 lg:mt-10 animate-fade-in">
         <div className="flex flex-col max-w-7xl lg:flex-row items-center gap-4 sm:gap-6 md:gap-8 lg:gap-12 pb-6 sm:pb-8 md:pb-10">
@@ -24,7 +24,7 @@ export default function UpcomingRide() {
           </div>
 
           {/* Text Content */}
-          <div className="w-full lg:w-1/2 order-2 lg:order-2 px-2 sm:px-4 lg:px-0">
+          <div className="w-full order-2 lg:order-2 px-2 sm:px-4 lg:px-0">
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 dark:text-gray-100 mb-3 sm:mb-4 md:mb-6 text-center lg:text-left">
               The Water Odyssey
             </h2>
